@@ -1,22 +1,22 @@
 export default function Home() {
   return (
-    <main className="mt-10.5 mb-45 flex flex-col items-center">
-      <section className="max-w-content flex h-[600px] w-[1440px] items-center justify-center bg-osmoverse-800">
+    <main className="mb-45 mt-10.5 flex flex-col items-center">
+      <section className="flex h-[600px] w-[1440px] max-w-content items-center justify-center bg-osmoverse-800">
         hero-section.tsx
       </section>
-      <section className="max-w-content mt-20 flex h-[526px] w-[1440px] items-center justify-center bg-osmoverse-800">
+      <section className="mt-20 flex h-[526px] w-[1440px] max-w-content items-center justify-center bg-osmoverse-800">
         token-stats.tsx
       </section>
-      <section className="max-w-content mt-47 flex h-[875px] w-[1440px] items-center justify-center bg-osmoverse-800">
+      <section className="mt-47 flex h-[875px] w-[1440px] max-w-content items-center justify-center bg-osmoverse-800">
         explore-assets.tsx
       </section>
       <section className="mt-14.5 flex h-[1141px] w-full items-center justify-center bg-osmoverse-800">
         stats-with-tweets.tsx
       </section>
-      <section className="max-w-content mt-19.5 flex h-[561px] w-[1440px] items-center justify-center bg-osmoverse-800">
+      <section className="mt-19.5 flex h-[561px] w-[1440px] max-w-content items-center justify-center bg-osmoverse-800">
         osmo-cta.tsx
       </section>
-      <section className="mt-58.25 flex h-[908px] w-[1440px] items-center justify-center bg-osmoverse-800">
+      <section className="mt-58 flex h-[908px] w-[1440px] items-center justify-center bg-osmoverse-800">
         stake-section.tsx
       </section>
       <section className="mt-42 flex h-[1018px] w-full items-center justify-center bg-osmoverse-800">
