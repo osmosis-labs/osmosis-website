@@ -50,6 +50,11 @@ export default function RootLayout({
           <div></div>
         </header>
         {children}
+        <footer className="mb-11">
+          <div className="max-w-content mx-auto flex h-[345px] w-full items-center justify-center bg-osmoverse-900">
+            footer
+          </div>
+        </footer>
       </body>
     </html>
   );
