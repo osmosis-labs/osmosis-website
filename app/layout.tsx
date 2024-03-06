@@ -44,6 +44,11 @@ export default function RootLayout({
       <body
         className={`bg-osmoverse-1000 ${inter.className} ${poppins.className}`}
       >
+        <header className="after:bg-gradient-navbar-border relative flex h-[70px] items-center justify-between after:absolute after:bottom-0 after:h-[1px] after:w-full after:content-['']">
+          <div></div>
+          <span>navbar</span>
+          <div></div>
+        </header>
         {children}
       </body>
     </html>

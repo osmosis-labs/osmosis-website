@@ -6,4 +6,11 @@
   .text-balance {
     text-wrap: balance;
   }
+  .bg-gradient-navbar-border {
+    background: radial-gradient(
+      circle at 50% 50%,
+      rgba(207, 200, 255, 0.25) 0%,
+      rgba(20, 15, 52, 0) 100%
+    );
+  }
 }
