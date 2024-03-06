@@ -8,6 +8,23 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    extend: {
+      maxWidth: {
+        content: "1440px",
+      },
+      spacing: {
+        10.5: "2.625rem",
+        14.5: "3.625rem",
+        19.5: "4.875rem",
+        30: "7.5rem",
+        35: "8.75rem",
+        42: "10.5rem",
+        45: "11.25rem",
+        47: "11.75rem",
+        58: "14.5rem",
+        65: "16.25rem",
+      },
+    },
     colors: {
       white: {
         full: "#FFFFFF",
