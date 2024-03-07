@@ -144,7 +144,7 @@ export default function Navbar() {
             leaveFrom="transform opacity-100 scale-100"
             leaveTo="transform opacity-0 scale-95"
           >
-            <Menu.Items className="border-osmoverse-750 absolute -right-[30px] top-12 z-50 flex w-[342px] origin-top flex-col gap-6 overflow-hidden rounded-2xl border bg-[#160F38] p-8">
+            <Menu.Items className="absolute -right-[30px] top-12 z-50 flex w-[342px] origin-top flex-col gap-6 overflow-hidden rounded-2xl border border-osmoverse-750 bg-[#160F38] p-8">
               <DiamondGradient
                 colors={["#FF8642", "#EB26EB", "#492CE1"]}
                 height={450}
@@ -159,28 +159,20 @@ export default function Navbar() {
                     <span className="body2 opacity-60">{name}</span>
                     <div className="flex flex-col gap-4">
                       {links.map(({ label, href }) => (
-                        <Menu.Item key={label}>
-                          <Link href={href} className="flex gap-1">
-                            <span className="body1 whitespace-nowrap">
-                              {label}
-                            </span>
-                            <Image
-                              src={arrowUpRight}
-                              alt="Governance Link"
-                              width={16}
-                              height={16}
-                            />
-                          </Link>
-                        </Menu.Item>
+                        <DropdownMenuLink
+                          key={label}
+                          href={href}
+                          label={label}
+                        />
                       ))}
                     </div>
                   </div>
                 ))}
               </div>
               <div className="flex items-center justify-between gap-2.5">
-                <div className="h-[1px] flex-1 bg-osmoverse-830" />
+                <div className="bg-osmoverse-830 h-[1px] flex-1" />
                 <Image src={starDivider} alt="Divider" width={14} height={14} />
-                <div className="h-[1px] flex-1 bg-osmoverse-830" />
+                <div className="bg-osmoverse-830 h-[1px] flex-1" />
               </div>
               <div className="flex flex-col gap-2.5">
                 <span className="body2 opacity-60">Connect with us</span>
@@ -262,5 +254,26 @@ function DiamondGradient({
     >
       {renderDivs(colors.length, colors, height, width)}
     </div>
+  );
+}
+
+function DropdownMenuLink({ href, label }: { label: string; href: string }) {
+  return (
+    <Menu.Item>
+      <Link href={href} className="group flex gap-1">
+        <div className="flex flex-col gap-1">
+          <span className="group-hover:after:w- body1 whitespace-nowrap">
+            {label}
+          </span>
+          <div className="h-[1px] w-0 bg-[#F7F7F7] transition-all group-hover:w-[calc(100%_+_16px)]" />
+        </div>
+        <Image
+          src={arrowUpRight}
+          alt="Governance Link"
+          width={16}
+          height={16}
+        />
+      </Link>
+    </Menu.Item>
   );
 }
