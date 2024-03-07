@@ -4,7 +4,10 @@ import "./globals.css";
 import Image from "next/image";
 import osmosisLogo from "@/assets/icons/osmo-logo.svg";
 
-const inter = Inter({ subsets: ["latin"], weight: ["500", "800"] });
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "600"],
+});
 
 const poppins = Poppins({
   subsets: ["latin"],
