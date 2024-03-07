@@ -178,7 +178,11 @@ export default function Navbar() {
                 <span className="body2 opacity-60">Connect with us</span>
                 <div className="flex items-center gap-1">
                   {socials.map(({ icon, name, href }) => (
-                    <Link href={href} key={name} className="p-1.5">
+                    <Link
+                      href={href}
+                      key={name}
+                      className="rounded-full p-1.5 transition-colors hover:bg-wosmongton-50"
+                    >
                       <Image
                         src={icon}
                         alt="Reddit icon"
