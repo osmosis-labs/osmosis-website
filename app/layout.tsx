@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
+import Image from "next/image";
+import osmosisLogo from "@/assets/icons/osmo-logo.svg";
 
 const inter = Inter({ subsets: ["latin"], weight: ["500", "800"] });
 
@@ -44,10 +46,15 @@ export default function RootLayout({
       <body
         className={`bg-osmoverse-900 ${inter.className} ${poppins.className}`}
       >
-        <header className="after:bg-gradient-navbar-border relative flex h-[70px] items-center justify-between after:absolute after:bottom-0 after:h-[1px] after:w-full after:content-['']">
-          <div></div>
+        <header className="after:bg-gradient-navbar-border relative flex items-center justify-between px-10 py-3 after:absolute after:bottom-0 after:h-[1px] after:w-full after:content-['']">
+          <Image src={osmosisLogo} alt="Osmosis Logo" width={130} height={32} />
           <span>navbar</span>
-          <div></div>
+          <button
+            type="button"
+            className="inline-flex items-center justify-center rounded-xl bg-wosmongton-50 px-4 py-2.5 transition-colors hover:bg-wosmongton-800"
+          >
+            <span className="font-body1 text-body1">Open the App</span>
+          </button>
         </header>
         {children}
         <footer className="mb-11">
