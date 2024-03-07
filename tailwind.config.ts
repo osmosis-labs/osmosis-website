@@ -35,6 +35,7 @@ const config: Config = {
         faint: "rgba(255, 255, 255, 0.12)",
       },
       wosmongton: {
+        50: "#492CE1",
         100: "#D3D1FF",
         200: "#B3B1FD",
         300: "#8C8AF9",
