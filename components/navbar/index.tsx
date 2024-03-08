@@ -5,14 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { Menu, Transition } from "@headlessui/react";
 
-import arrowDropdown from "@/assets/icons/arrow-drop-down.svg";
-import arrowUpRight from "@/assets/icons/arrow-up-right.svg";
-import navDivider from "@/assets/icons/nav-links-divider.svg";
-import osmosisLogo from "@/assets/icons/osmo-logo.svg";
-import reddit from "@/assets/icons/reddit.svg";
-import starDivider from "@/assets/icons/star-divider.svg";
-import telegram from "@/assets/icons/telegram.svg";
-import x from "@/assets/icons/x.svg";
 import { cn } from "@/lib/utils";
 
 const links = [
@@ -84,17 +76,17 @@ const menuLinks = [
 const socials = [
   {
     name: "X",
-    icon: x,
+    icon: "/assets/icons/x.svg",
     href: "#",
   },
   {
     name: "Reddit",
-    icon: reddit,
+    icon: "/assets/icons/reddit.svg",
     href: "#",
   },
   {
     name: "Telegram",
-    icon: telegram,
+    icon: "/assets/icons/telegram.svg",
     href: "#",
   },
 ];
@@ -104,7 +96,13 @@ export default function Navbar() {
   return (
     <header className="after:bg-gradient-navbar-border relative flex items-center justify-between px-10 py-3 after:absolute after:bottom-0 after:h-[1px] after:w-full after:content-['']">
       <Link href={"/"}>
-        <Image src={osmosisLogo} alt="Osmosis Logo" width={130} height={32} />
+        <Image
+          src={"/assets/icons/osmo-logo.svg"}
+          alt="Osmosis Logo"
+          width={130}
+          height={32}
+          priority
+        />
       </Link>
       <nav
         className={cn(
@@ -120,9 +118,11 @@ export default function Navbar() {
               {label}
             </Link>
             <Image
-              src={navDivider}
+              src={"/assets/icons/nav-links-divider.svg"}
               alt="Nav Divider"
-              className="h-1 w-1 opacity-25"
+              className="opacity-25"
+              width={4}
+              height={4}
             />
           </Fragment>
         ))}
@@ -132,7 +132,12 @@ export default function Navbar() {
             className="inline-flex items-center"
           >
             <span className="font-body1 text-body1">More</span>
-            <Image src={arrowDropdown} alt="Nav Divider" />
+            <Image
+              src={"/assets/icons/arrow-drop-down.svg"}
+              alt="Arrow dropdown"
+              width={20}
+              height={20}
+            />
           </Menu.Button>
           <Transition
             as={Fragment}
@@ -170,7 +175,12 @@ export default function Navbar() {
               </div>
               <div className="flex items-center justify-between gap-2.5">
                 <div className="h-[1px] flex-1 bg-osmoverse-750" />
-                <Image src={starDivider} alt="Divider" width={14} height={14} />
+                <Image
+                  src={"/assets/icons/star-divider.svg"}
+                  alt="Divider"
+                  width={14}
+                  height={14}
+                />
                 <div className="h-[1px] flex-1 bg-osmoverse-750" />
               </div>
               <div className="flex flex-col gap-2.5">
@@ -184,9 +194,10 @@ export default function Navbar() {
                     >
                       <Image
                         src={icon}
-                        alt="Reddit icon"
+                        alt={`${name} social link`}
                         width={20}
                         height={20}
+                        className="max-h-5"
                       />
                     </Link>
                   ))}
@@ -263,16 +274,17 @@ function DiamondGradient({
 function DropdownMenuLink({ href, label }: { label: string; href: string }) {
   return (
     <Menu.Item>
-      <Link href={href} className="group flex gap-1">
+      <Link href={href} className="group flex items-center gap-1">
         <div className="flex flex-col gap-1">
           <span className="body1 whitespace-nowrap">{label}</span>
           <div className="h-[1px] w-0 bg-[#F7F7F7] transition-all group-hover:w-[calc(100%_+_16px)]" />
         </div>
         <Image
-          src={arrowUpRight}
-          alt="Governance Link"
+          src={"/assets/icons/arrow-up-right.svg"}
+          alt={`${label} Link`}
           width={16}
           height={16}
+          className="mb-1 h-auto w-auto"
         />
       </Link>
     </Menu.Item>

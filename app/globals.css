@@ -14,7 +14,7 @@
     );
   }
   .bg-gradient-navbar-menu-open {
-    background-image: url("../assets/top-nav-gradient.svg");
+    background-image: url("/assets/top-nav-gradient.svg");
     background-repeat: no-repeat;
     background-position: center;
   }
