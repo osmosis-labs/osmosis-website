@@ -100,7 +100,7 @@ const socials = [
 ];
 
 export default function Navbar() {
-  const [_, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <header className="after:bg-gradient-navbar-border relative flex items-center justify-between px-10 py-3 after:absolute after:bottom-0 after:h-[1px] after:w-full after:content-['']">
       <Link href={"/"}>
@@ -109,10 +109,9 @@ export default function Navbar() {
       <nav
         className={cn(
           "relative flex items-center gap-2 rounded-full border border-[#9084CF40] px-4 py-2",
-          // {
-          //   "after:bg-gradient-navbar-menu-open after:pointer-events-none after:absolute after:inset-x-0 after:-bottom-4 after:h-[30px] after:w-full after:content-['']":
-          //     isOpen,
-          // },
+          {
+            "bg-gradient-navbar-menu-open": isOpen,
+          },
         )}
       >
         {links.map(({ label, href }) => (

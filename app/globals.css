@@ -14,11 +14,9 @@
     );
   }
   .bg-gradient-navbar-menu-open {
-    background: radial-gradient(
-      circle at 50% 50%,
-      rgba(202, 54, 254),
-      rgba(57, 49, 102, 0)
-    );
+    background-image: url("../assets/top-nav-gradient.svg");
+    background-repeat: no-repeat;
+    background-position: center;
   }
   @layer components {
     html {
