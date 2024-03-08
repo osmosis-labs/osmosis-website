@@ -266,7 +266,7 @@ function DropdownMenuLink({ href, label }: { label: string; href: string }) {
     <Menu.Item>
       <Link href={href} className="group flex gap-1">
         <div className="flex flex-col gap-1">
-          <span className="group-hover:after:w- body1 whitespace-nowrap">
+          <span className="body1 whitespace-nowrap">
             {label}
           </span>
           <div className="h-[1px] w-0 bg-[#F7F7F7] transition-all group-hover:w-[calc(100%_+_16px)]" />
