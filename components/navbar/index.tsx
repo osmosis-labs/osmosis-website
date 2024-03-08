@@ -1,6 +1,6 @@
 "use client";
 
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Menu, Transition } from "@headlessui/react";
@@ -92,7 +92,6 @@ const socials = [
 ];
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
   return (
     <header className="after:bg-gradient-navbar-border relative flex items-center justify-between px-10 py-3 after:absolute after:bottom-0 after:h-[1px] after:w-full after:content-['']">
       <Link href={"/"}>
@@ -106,10 +105,7 @@ export default function Navbar() {
       </Link>
       <nav
         className={cn(
-          "relative flex items-center gap-2 rounded-full border border-[#9084CF40] px-4 py-2",
-          {
-            "bg-gradient-navbar-menu-open": isOpen,
-          },
+          "has-[div[data-headlessui-state='open']]:bg-gradient-navbar-menu-open relative flex items-center gap-2 rounded-full border border-[#9084CF40] px-4 py-2",
         )}
       >
         {links.map(({ label, href }) => (
@@ -127,10 +123,7 @@ export default function Navbar() {
           </Fragment>
         ))}
         <Menu>
-          <Menu.Button
-            onClick={() => setIsOpen((prev) => !prev)}
-            className="inline-flex items-center"
-          >
+          <Menu.Button className="inline-flex items-center">
             <span className="font-body1 text-body1">More</span>
             <Image
               src={"/assets/icons/arrow-drop-down.svg"}
