@@ -10,7 +10,7 @@ const inter = Inter({
 
 const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["600"],
+  weight: ["500"],
 });
 
 const metadataBase = process.env.SITE_URL

@@ -39,12 +39,6 @@
     h4 {
       @apply font-h4 text-h4;
     }
-    h5 {
-      @apply font-h5 text-h5;
-    }
-    h6 {
-      @apply font-h6 text-h6;
-    }
     .subtitle1 {
       @apply font-subtitle1 text-subtitle1;
     }
