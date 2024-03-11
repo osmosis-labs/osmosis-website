@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/navbar";
 
-const inter = Inter({ subsets: ["latin"], weight: ["500", "800"] });
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "600"],
+});
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -44,11 +48,7 @@ export default function RootLayout({
       <body
         className={`bg-osmoverse-900 ${inter.className} ${poppins.className}`}
       >
-        <header className="after:bg-gradient-navbar-border relative flex h-[70px] items-center justify-between after:absolute after:bottom-0 after:h-[1px] after:w-full after:content-['']">
-          <div></div>
-          <span>navbar</span>
-          <div></div>
-        </header>
+        <Navbar />
         {children}
         <footer className="mb-11">
           <div className="mx-auto flex h-[345px] w-full max-w-content items-center justify-center bg-osmoverse-900">

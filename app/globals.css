@@ -13,4 +13,59 @@
       rgba(20, 15, 52, 0) 100%
     );
   }
+  .bg-gradient-navbar-menu-open {
+    background-image: url("/assets/top-nav-gradient.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  @layer components {
+    html {
+      font-family: Inter, ui-sans-serif, system-ui;
+      @apply text-white-full;
+    }
+    body {
+      @apply bg-osmoverse-900;
+    }
+
+    h1 {
+      @apply font-h1 text-h1;
+    }
+    h2 {
+      @apply font-h2 text-h2;
+    }
+    h3 {
+      @apply font-h3 text-h3;
+    }
+    h4 {
+      @apply font-h4 text-h4;
+    }
+    h5 {
+      @apply font-h5 text-h5;
+    }
+    h6 {
+      @apply font-h6 text-h6;
+    }
+    .subtitle1 {
+      @apply font-subtitle1 text-subtitle1;
+    }
+    .subtitle2 {
+      @apply font-subtitle2 text-subtitle2;
+    }
+    .body1,
+    span {
+      @apply font-body1 text-body1;
+    }
+    .body2 {
+      @apply font-body2 text-body2;
+    }
+    .button {
+      @apply font-button text-button;
+    }
+    .caption {
+      @apply font-caption text-caption;
+    }
+    .overline {
+      @apply font-overline text-overline;
+    }
+  }
 }
