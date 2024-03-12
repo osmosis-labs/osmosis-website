@@ -1,9 +1,9 @@
+import HeroSection from "@/components/sections/hero";
+
 export default function Home() {
   return (
     <main className="mb-45 mt-10.5 flex flex-col items-center">
-      <section className="flex h-[600px] w-[1440px] max-w-content items-center justify-center bg-osmoverse-800">
-        hero-section.tsx
-      </section>
+      <HeroSection />
       <section className="mt-20 flex h-[526px] w-[1440px] max-w-content items-center justify-center bg-osmoverse-800">
         token-stats.tsx
       </section>
