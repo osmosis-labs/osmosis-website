@@ -14,8 +14,11 @@ const config = {
     extend: {
       maxWidth: {
         content: "1440px",
+        "swap-tool-container": "485px",
       },
       spacing: {
+        5.5: "1.375rem",
+        7.5: "1.875rem",
         10.5: "2.625rem",
         14.5: "3.625rem",
         19.5: "4.875rem",
