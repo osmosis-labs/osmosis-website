@@ -18,6 +18,16 @@
     background-repeat: no-repeat;
     background-position: center;
   }
+  .swap-tool-bg {
+    background-color: rgba(20, 15, 52, 0.1);
+    backdrop-filter: blur(24px);
+  }
+  .bg-hero-section {
+    background-image: url("/assets/hero-bg-vector.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+  }
   @layer components {
     html {
       font-family: Inter, ui-sans-serif, system-ui;
