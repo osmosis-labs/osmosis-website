@@ -13,7 +13,6 @@ const config = {
   theme: {
     extend: {
       maxWidth: {
-        content: "1440px",
         "swap-tool-container": "485px",
       },
       spacing: {
@@ -52,13 +51,14 @@ const config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      screens: {
+        xsm: "430px",
+        "2xl": "1440px",
+        "3xl": "1536px",
+      },
     },
     container: {
       center: true,
-      padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
     },
     colors: {
       white: {
