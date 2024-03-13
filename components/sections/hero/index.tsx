@@ -22,7 +22,7 @@ export default function HeroSection() {
             on
             <div className="flex items-center gap-2.5">
               <Image
-                src={"/assets/osmo.svg"}
+                src={"/assets/icons/osmo-logo-icon.svg"}
                 alt="OSMO logo"
                 width={80}
                 height={80}
