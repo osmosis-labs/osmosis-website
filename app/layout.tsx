@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar";
+import NavigationMenu from "@/components/navbar/navigation-menu";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -46,7 +47,7 @@ export default function RootLayout({
       }}
     >
       <body
-        className={`bg-osmoverse-900 ${inter.className} ${poppins.className} 3xl:max-w-screen-2xl container md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg 2xl:max-w-screen-xl`}
+        className={`bg-osmoverse-900 ${inter.className} ${poppins.className} container md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg 2xl:max-w-screen-xl 3xl:max-w-screen-2xl`}
       >
         <Navbar />
         {children}
@@ -55,6 +56,9 @@ export default function RootLayout({
             footer
           </div>
         </footer> */}
+        <div className="fixed inset-x-0 bottom-8 flex w-full justify-center lg:hidden">
+          <NavigationMenu />
+        </div>
       </body>
     </html>
   );
