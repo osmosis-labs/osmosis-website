@@ -40,7 +40,7 @@ export default function HeroSection() {
           in Cosmos.
         </span>
       </div>
-      <div className="swap-tool-bg 3xl:px-2.5 3xl:py-10 xsm:w-full 3xl:max-w-swap-tool-container relative z-10 w-80 rounded-3xl border border-white-full/40 p-2 xl:max-w-[388px] xl:py-8 2xl:max-w-[440px] 2xl:py-9">
+      <div className="swap-tool-bg 3xl:px-2.5 3xl:py-10 xsm:w-full 3xl:max-w-swap-tool-container relative w-80 rounded-3xl border border-white-full/40 p-2 xl:max-w-[388px] xl:py-8 2xl:max-w-[440px] 2xl:py-9">
         <div className="3xl:pb-3 3xl:pt-5.5 flex flex-col gap-6 rounded-3xl bg-[#140F34] p-3 xl:pb-2.5 xl:pt-4 2xl:pb-2.5 2xl:pt-5">
           <div className="relative flex flex-col gap-0.5 xl:gap-[3px] 2xl:gap-1">
             <div className="pt-4.5 pl-4.5 pr-4.5 3xl:pb-8.5 3xl:pr-4.5 3xl:pt-9 flex w-full items-center justify-between rounded-2xl bg-[#282750] pb-5 xl:py-7 xl:pr-3.5 2xl:py-8 2xl:pl-5 2xl:pr-4">
