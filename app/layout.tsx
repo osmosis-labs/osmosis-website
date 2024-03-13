@@ -50,11 +50,11 @@ export default function RootLayout({
       >
         <Navbar />
         {children}
-        <footer className="mb-11">
+        {/* <footer className="mb-11">
           <div className="mx-auto flex h-[345px] w-full max-w-content items-center justify-center bg-osmoverse-900">
             footer
           </div>
-        </footer>
+        </footer> */}
       </body>
     </html>
   );
