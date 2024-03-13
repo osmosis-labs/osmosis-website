@@ -107,7 +107,7 @@ export default function HeroSection() {
         alt="Illustration"
         width={959}
         height={629}
-        className="absolute right-0"
+        className="absolute bottom-0 right-0"
       />
     </section>
   );
