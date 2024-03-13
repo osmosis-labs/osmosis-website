@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function HeroSection() {
   return (
-    <section className="bg-hero-section relative flex max-w-content items-center justify-between gap-44 overflow-hidden rounded-[48px] p-6">
+    <section className="bg-hero-section relative flex max-w-content items-center justify-between gap-47 overflow-hidden rounded-[48px] p-6">
       <div className="relative z-10 flex flex-col gap-6 px-8">
         <div className="flex flex-col gap-1 pb-7">
           <h1 className="whitespace-nowrap">Discover and trade</h1>
@@ -38,7 +38,7 @@ export default function HeroSection() {
       <div className="swap-tool-bg relative z-10 max-w-swap-tool-container rounded-3xl border border-white-full/40 px-2.5 py-10">
         <div className="flex flex-col rounded-3xl bg-[#140F34] px-4 pb-3 pt-5.5">
           <div className="relative flex flex-col gap-1">
-            <div className="flex items-center justify-between gap-52 rounded-xl bg-[#282750] py-8 pl-5 pr-4">
+            <div className="flex items-center justify-between gap-52 rounded-xl bg-[#282750] pb-8 pl-5 pr-4 pt-10">
               <div className="flex items-center gap-3">
                 <Image
                   src={"/assets/icons/usdc.svg"}
@@ -58,7 +58,7 @@ export default function HeroSection() {
                 <span className="whitespace-nowrap text-[#B0AADC]">≈ $995</span>
               </div>
             </div>
-            <div className="flex items-center justify-between gap-52 rounded-xl bg-[#282750] py-8 pl-5 pr-4">
+            <div className="flex items-center justify-between rounded-xl bg-[#282750] pb-8 pl-5 pr-4 pt-10">
               <div className="flex items-center gap-3">
                 <Image
                   src={"/assets/icons/tia.svg"}
