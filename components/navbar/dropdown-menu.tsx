@@ -97,7 +97,7 @@ export function DropwdownMenu() {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <div className="absolute inset-x-0 flex w-full justify-center max-lg:bottom-16 lg:-right-7.5 lg:top-16">
+        <div className="absolute inset-x-0 flex w-full justify-center max-lg:bottom-16 lg:top-16">
           <Menu.Items className="relative flex w-[342px] origin-top flex-col gap-6 overflow-hidden rounded-2xl border border-osmoverse-750 bg-[#160F38] p-8">
             <DiamondGradient
               colors={["#FF8642", "#EB26EB", "#492CE1"]}
