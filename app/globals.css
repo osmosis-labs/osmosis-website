@@ -23,10 +23,16 @@
     backdrop-filter: blur(24px);
   }
   .bg-hero-section {
-    background-image: url("/assets/hero-bg-vector.svg");
+    background-image: url("/assets/hero-bg.svg");
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 100%;
+    background-size: cover;
+  }
+  .bg-hero-section-mobile {
+    background-image: url("/assets/hero-bg-mobile.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
   }
   @layer components {
     html {
