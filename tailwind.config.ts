@@ -79,11 +79,6 @@ const config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
-      screens: {
-        xsm: "430px",
-        "2xl": "1440px",
-        "3xl": "1536px",
-      },
       colors: {
         white: {
           full: "#FFFFFF",
