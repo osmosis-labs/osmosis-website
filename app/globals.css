@@ -40,6 +40,21 @@
     background-position: top;
     background-size: cover;
   }
+  .row-width-xl {
+    width: calc((472px * 8 + 16px * 6) * 2);
+  }
+  .row-width {
+    width: calc((309px * 8 + 8px * 6) * 2);
+  }
+  .tweets-mask {
+    mask-image: linear-gradient(
+      90deg,
+      #d9d9d900 0%,
+      #d9d9d9 25%,
+      #d9d9d9 75%,
+      #d9d9d900 100%
+    );
+  }
   .trend-card-bg-1 {
     background:
       linear-gradient(320deg, #140f3410, #140f34),

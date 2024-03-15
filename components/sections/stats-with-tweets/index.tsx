@@ -65,6 +65,32 @@ export default function StatsWithTweets() {
           />
           <div className="h-[1px] flex-1 bg-osmoverse-750" />
         </div>
+        <div className="tweets-mask relative flex min-h-[590px] overflow-hidden lg:min-h-[544px]">
+          <div className="absolute flex flex-col gap-3 lg:gap-1.5 xl:gap-4">
+            {Array(2)
+              .fill(null)
+              .map((_, i) => (
+                <div
+                  key={`tweets row ${i}`}
+                  className={cn(
+                    "xl:row-width-xl max-xl:row-width relative flex gap-2 transition-transform xl:gap-4",
+                    {
+                      "animate-marquee-sm-reverse xl:animate-marquee-reverse":
+                        (i + 1) % 2 === 0,
+                      "animate-marquee-sm xl:animate-marquee":
+                        (i + 1) % 2 !== 0,
+                    },
+                  )}
+                >
+                  {Array(8)
+                    .fill(null)
+                    .map((_, i) => (
+                      <Tweet key={`tweet ${i}`} />
+                    ))}
+                </div>
+              ))}
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -94,6 +120,49 @@ const StatCard = ({ bottleUri, iconUri, title, value, bgClass }: StatCard) => {
         height={120}
         className="absolute -top-6 right-0 lg:-top-4 lg:h-22.5 lg:w-22.5 xl:-top-9 xl:h-30 xl:w-30"
       />
+    </div>
+  );
+};
+
+const Tweet = ({ className }: { className?: string }) => {
+  return (
+    <div
+      className={cn(
+        "flex max-w-[309px] flex-1 flex-col gap-3 rounded-2xl bg-[#201B43] px-6 py-8 xl:max-w-[472px]",
+        className,
+      )}
+    >
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <Image
+            src={"/assets/icons/pepe.svg"}
+            alt="@handle avatar"
+            width={48}
+            height={48}
+          />
+          <div className="flex flex-col gap-1">
+            <span className="font-semibold leading-[110%] text-neutral-100">
+              User
+            </span>
+            <span className="text-sm leading-[110%] text-neutral-100/60">
+              @handler · Nov 27, 2021
+            </span>
+          </div>
+        </div>
+        <Image
+          src={"/assets/icons/x.svg"}
+          alt="X logo"
+          width={24}
+          height={24}
+        />
+      </div>
+      <div className="flex">
+        <p className="body1 max-h-36 font-light text-neutral-100">
+          Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi.
+          Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla,
+          mattis ligula consectetur...
+        </p>
+      </div>
     </div>
   );
 };

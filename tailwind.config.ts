@@ -11,6 +11,27 @@ const config = {
   ],
   prefix: "",
   theme: {
+    keyframes: {
+      marquee: {
+        "0%": { transform: "translateZ(0)" },
+        "100%": {
+          transform:
+            "translate3d(calc((472px * 4 + 16px * 3) * -1 - 16px),0,0)",
+        },
+      },
+      "marquee-sm": {
+        "0%": { transform: "translateZ(0)" },
+        "100%": {
+          transform: "translate3d(calc((309px * 4 + 8px * 3) * -1 - 8px),0,0)",
+        },
+      },
+    },
+    animation: {
+      marquee: "marquee 40s linear infinite",
+      "marquee-reverse": "marquee 40s linear infinite reverse",
+      "marquee-sm": "marquee-sm 40s linear infinite",
+      "marquee-sm-reverse": "marquee-sm 40s linear infinite reverse",
+    },
     extend: {
       borderRadius: {
         "4xl": "2rem",
