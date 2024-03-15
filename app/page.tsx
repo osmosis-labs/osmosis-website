@@ -2,7 +2,7 @@ import HeroSection from "@/components/sections/hero";
 
 export default function Home() {
   return (
-    <main className="mb-45 mt-10.5 flex w-full flex-col max-lg:px-5">
+    <main className="2xl:mt-6.5 lg:mb-13 xl:mb-16.5 mb-21.5 mt-4 flex w-full flex-col max-lg:px-5 lg:mt-8.5 xl:mt-11 3xl:mb-20">
       <HeroSection />
       {/* <section className="mt-20 flex h-[526px] w-[1440px] max-w-content items-center justify-center bg-osmoverse-800">
         token-stats.tsx
