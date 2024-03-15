@@ -42,40 +42,5 @@
     body {
       @apply bg-osmoverse-900;
     }
-
-    h1 {
-      @apply font-h1 text-h1;
-    }
-    h2 {
-      @apply font-h2 text-h2;
-    }
-    h3 {
-      @apply font-h3 text-h3;
-    }
-    h4 {
-      @apply font-h4 text-h4;
-    }
-    .subtitle1 {
-      @apply font-subtitle1 text-subtitle1;
-    }
-    .subtitle2 {
-      @apply font-subtitle2 text-subtitle2;
-    }
-    .body1,
-    span {
-      @apply font-body1 text-body1;
-    }
-    .body2 {
-      @apply font-body2 text-body2;
-    }
-    .button {
-      @apply font-button text-button;
-    }
-    .caption {
-      @apply font-caption text-caption;
-    }
-    .overline {
-      @apply font-overline text-overline;
-    }
   }
 }
