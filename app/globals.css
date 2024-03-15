@@ -34,6 +34,12 @@
     background-position: center;
     background-size: cover;
   }
+  .stats-with-tweets-bg {
+    background-image: url("/assets/stats-with-tweets-bg.svg");
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+  }
   .trend-card-bg-1 {
     background:
       linear-gradient(320deg, #140f3410, #140f34),

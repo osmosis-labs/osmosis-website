@@ -35,8 +35,8 @@ const stats: StatCard[] = [
 
 export default function StatsWithTweets() {
   return (
-    <section className="mt-18 flex rounded-3xl py-8 lg:mt-21.5 lg:py-14 xl:mt-14 xl:rounded-4xl xl:py-20 2xl:mt-20 3xl:mt-25">
-      <div className="flex flex-1 flex-col gap-8 p-3 2xl:gap-16 2xl:p-4 3xl:p-0">
+    <section className="stats-with-tweets-bg mt-18 flex rounded-3xl py-8 lg:mt-21.5 lg:py-14 xl:mt-14 xl:rounded-4xl xl:py-20 2xl:mt-20 3xl:mt-25">
+      <div className="flex flex-1 flex-col gap-8 p-3 2xl:gap-16 2xl:p-4 3xl:px-6 3xl:py-4">
         <div className="flex flex-col gap-12">
           <div className="flex flex-col gap-2 lg:flex-row">
             <Image
