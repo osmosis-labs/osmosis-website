@@ -136,7 +136,7 @@ const sections: Section[] = [
 
 export default function TokenStatsSection() {
   return (
-    <section className="lg:mt-17 mt-14 flex flex-col gap-2 px-3 lg:grid lg:grid-cols-3 xl:mt-16 2xl:gap-4 2xl:px-4 3xl:mt-20 3xl:gap-6 3xl:px-6">
+    <section className="mt-14 flex flex-col gap-2 px-3 lg:mt-17 lg:grid lg:grid-cols-3 xl:mt-16 2xl:gap-4 2xl:px-4 3xl:mt-20 3xl:gap-6 3xl:px-6">
       {sections.map(({ iconUri, name, isGrid, assets }) => {
         return (
           <div key={name} className="flex flex-col gap-2">
@@ -176,7 +176,7 @@ function TokenStatsRow({
   return (
     <div
       className={cn(
-        "xl:min-h-22.5 flex min-h-18 w-full justify-between rounded-xl px-3 2xl:px-4",
+        "flex min-h-18 w-full justify-between rounded-xl px-3 xl:min-h-22.5 2xl:px-4",
         {
           "bg-[#201B43]": !isUpcoming,
           "border border-[#565081] bg-[#140F34] 2xl:flex-col 2xl:py-4":
