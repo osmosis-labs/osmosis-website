@@ -46,7 +46,10 @@ export default function StatsWithTweets() {
               height={60}
             />
             <h4 className="text-xl-i leading-[110%] lg:text-2xl xl:text-3xl 2xl:text-3.5xl 3xl:text-h2">
-              Trusted by 1+ million <br /> Users and Counting.
+              <span className="bg-trusted-gradient text-xl-i leading-[110%] lg:text-2xl xl:text-3xl 2xl:text-3.5xl 3xl:text-h2">
+                Trusted
+              </span>{" "}
+              by 1+ million <br /> Users and Counting.
             </h4>
           </div>
           <div className="flex flex-col gap-4 lg:grid lg:grid-cols-3 lg:gap-2 2xl:gap-4">

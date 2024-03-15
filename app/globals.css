@@ -55,6 +55,19 @@
       #d9d9d900 100%
     );
   }
+  .bg-trusted-gradient {
+    background-image: linear-gradient(
+      106.31deg,
+      #e8d5ef 6.49%,
+      #ff8642 15.38%,
+      #ca36fe 24.15%,
+      #640ad7 29.9%
+    );
+    background-size: 100%;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+  }
   .trend-card-bg-1 {
     background:
       linear-gradient(320deg, #140f3410, #140f34),
