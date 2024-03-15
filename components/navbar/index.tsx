@@ -5,7 +5,7 @@ import NavigationMenu from "@/components/navbar/navigation-menu";
 
 export default function Navbar() {
   return (
-    <header className="after:bg-gradient-navbar-border relative flex items-center justify-between py-4 after:absolute after:bottom-0 after:h-[1px] after:w-full after:content-[''] lg:py-3">
+    <header className="after:bg-gradient-navbar-border relative flex items-center justify-between py-4 after:absolute after:bottom-0 after:h-[1px] after:w-full after:content-[''] md:py-3">
       <Link href={"/"}>
         <Image
           src={"/assets/icons/osmo-logo.svg"}
