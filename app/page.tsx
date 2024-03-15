@@ -1,4 +1,5 @@
 import HeroSection from "@/components/sections/hero";
+import StatsWithTweets from "@/components/sections/stats-with-tweets";
 import TokenStatsSection from "@/components/sections/token-stats";
 
 export default function Home() {
@@ -9,9 +10,9 @@ export default function Home() {
       {/* <section className="mt-47 flex h-[875px] w-[1440px] max-w-content items-center justify-center bg-osmoverse-800">
         explore-assets.tsx
       </section>
-      <section className="mt-14.5 flex h-[1141px] w-full items-center justify-center bg-osmoverse-800">
-        stats-with-tweets.tsx
-      </section>
+    */}
+      <StatsWithTweets />
+      {/*
       <section className="mt-19.5 flex h-[561px] w-[1440px] max-w-content items-center justify-center bg-osmoverse-800">
         osmo-cta.tsx
       </section>

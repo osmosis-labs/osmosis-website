@@ -34,6 +34,39 @@
     background-position: center;
     background-size: cover;
   }
+  .trend-card-bg-1 {
+    background:
+      linear-gradient(320deg, #140f3410, #140f34),
+      radial-gradient(
+          306.07% 151.89% at 96.44% 111.57%,
+          #b4e4ff 5.06%,
+          #2994d0 34.15%,
+          rgba(13, 9, 42, 0) 100%
+        )
+        /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+  }
+  .trend-card-bg-2 {
+    background:
+      linear-gradient(320deg, #140f3410, #140f34),
+      radial-gradient(
+          142.49% 107.23% at 98.28% 95.87%,
+          #ff8642 0%,
+          #9a1b86 31.97%,
+          rgba(13, 9, 42, 0) 100%
+        )
+        /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+  }
+  .trend-card-bg-3 {
+    background:
+      linear-gradient(330deg, #140f3466, #140f34),
+      radial-gradient(
+          261.83% 251.5% at 107.33% 93.8%,
+          #ca36fe 7.33%,
+          #492ce1 37.22%,
+          rgba(13, 9, 42, 0) 100%
+        )
+        /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+  }
   @layer components {
     html {
       font-family: Inter, ui-sans-serif, system-ui;
