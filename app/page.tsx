@@ -4,7 +4,7 @@ import TokenStatsSection from "@/components/sections/token-stats";
 
 export default function Home() {
   return (
-    <main className="mb-45 mt-10.5 flex w-full flex-col max-lg:px-5">
+    <main className="mb-45 mt-10.5 flex w-full flex-col">
       <HeroSection />
       <TokenStatsSection />
       {/* <section className="mt-47 flex h-[875px] w-[1440px] max-w-content items-center justify-center bg-osmoverse-800">
