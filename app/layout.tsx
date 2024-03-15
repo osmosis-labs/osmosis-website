@@ -5,11 +5,13 @@ import Navbar from "@/components/navbar";
 
 const inter = Inter({
   subsets: ["latin"],
+  variable: "--font-inter",
   weight: ["300", "400", "600"],
 });
 
 const poppins = Poppins({
   subsets: ["latin"],
+  variable: "--font-poppins",
   weight: ["500"],
 });
 
@@ -46,7 +48,7 @@ export default function RootLayout({
       }}
     >
       <body
-        className={`bg-osmoverse-900 ${inter.className} ${poppins.className} 3xl:max-w-screen-2xl container md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg 2xl:max-w-screen-xl`}
+        className={`bg-osmoverse-900 ${inter.variable} ${poppins.variable} container md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg 2xl:max-w-screen-xl 3xl:max-w-screen-2xl`}
       >
         <Navbar />
         {children}
