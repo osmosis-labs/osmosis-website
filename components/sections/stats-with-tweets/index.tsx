@@ -55,6 +55,16 @@ export default function StatsWithTweets() {
             ))}
           </div>
         </div>
+        <div className="flex items-center gap-2.5 py-6">
+          <div className="h-[1px] flex-1 bg-osmoverse-750" />
+          <Image
+            src={"/assets/icons/star-divider.svg"}
+            alt="Divider"
+            width={21}
+            height={21}
+          />
+          <div className="h-[1px] flex-1 bg-osmoverse-750" />
+        </div>
       </div>
     </section>
   );
