@@ -47,7 +47,7 @@ export default function RootLayout({
       }}
     >
       <body
-        className={`bg-osmoverse-900 ${inter.className} ${poppins.className} container md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg 2xl:max-w-screen-xl 3xl:max-w-screen-2xl`}
+        className={`bg-osmoverse-900 ${inter.className} ${poppins.className} container md:max-w-screen-sm lg:max-w-[960px] xl:max-w-[1152px] 2xl:max-w-[1440px]`}
       >
         <Navbar />
         {children}
