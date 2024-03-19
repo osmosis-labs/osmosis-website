@@ -104,7 +104,7 @@ const sections: Section[] = [
         denom: "DYM",
         iconUri: "/assets/icons/dym.svg",
         isUpcoming: true,
-        releaseDate: format(new Date(), "dd MMM yyyy"),
+        releaseDate: format(new Date(), "dd.MM.yy"),
         isAirdrop: true,
       },
       {
@@ -112,7 +112,7 @@ const sections: Section[] = [
         denom: "DYM",
         iconUri: "/assets/icons/dym.svg",
         isUpcoming: true,
-        releaseDate: format(new Date(), "dd MMM yyyy"),
+        releaseDate: format(new Date(), "dd.MM.yy"),
         isAirdrop: true,
       },
       {
@@ -120,7 +120,7 @@ const sections: Section[] = [
         denom: "DYM",
         iconUri: "/assets/icons/dym.svg",
         isUpcoming: true,
-        releaseDate: format(new Date(), "dd MMM yyyy"),
+        releaseDate: format(new Date(), "dd.MM.yy"),
         isAirdrop: true,
       },
       {
@@ -128,7 +128,7 @@ const sections: Section[] = [
         denom: "DYM",
         iconUri: "/assets/icons/dym.svg",
         isUpcoming: true,
-        releaseDate: format(new Date(), "dd MMM yyyy"),
+        releaseDate: format(new Date(), "dd.MM.yy"),
       },
     ],
   },
@@ -136,17 +136,22 @@ const sections: Section[] = [
 
 export default function TokenStatsSection() {
   return (
-    <section className="lg:mt-17 mt-14 flex flex-col gap-2 px-3 lg:grid lg:grid-cols-3 xl:mt-16 2xl:gap-4 2xl:px-4 3xl:mt-20 3xl:gap-6 3xl:px-6">
+    <section className="mt-17.5 flex flex-col gap-2 p-2 sm:mt-16 sm:p-4 md:mt-14 md:grid md:grid-cols-2 md:gap-y-2 lg:mt-16 lg:grid-cols-[repeat(2,_minmax(0,1fr)),340px] lg:gap-x-2 xl:mt-[136px] xl:grid-cols-[repeat(2,_minmax(0,1fr)),418px] xl:py-0 2xl:mt-20 2xl:grid-cols-3 2xl:px-6">
       {sections.map(({ iconUri, name, isGrid, assets }) => {
         return (
-          <div key={name} className="flex flex-col gap-2">
+          <div
+            key={name}
+            className={cn("flex flex-col gap-2", {
+              "max-lg:col-span-2": isGrid,
+            })}
+          >
             <div className="flex gap-2 py-3">
               <Image src={iconUri} alt={name} width={24} height={24} />
               <span>{name}</span>
             </div>
             <div
               className={cn("flex flex-col gap-2", {
-                "h-full 2xl:grid 2xl:grid-cols-2": isGrid,
+                "h-full md:grid md:grid-cols-2": isGrid,
               })}
             >
               {assets.map((props) => (
@@ -176,34 +181,34 @@ function TokenStatsRow({
   return (
     <div
       className={cn(
-        "xl:min-h-22.5 flex min-h-18 w-full justify-between rounded-xl px-3 2xl:px-4",
+        "flex min-h-18 w-full items-center justify-between rounded-xl px-3 xl:min-h-22.5 2xl:px-4",
         {
           "bg-[#201B43]": !isUpcoming,
-          "border border-[#565081] bg-[#140F34] 2xl:flex-col 2xl:py-4":
+          "items-start border border-[#565081] bg-[#140F34] py-2.5 md:min-h-30 md:flex-col md:p-3 lg:min-h-[154px] xl:min-h-[187px] xl:p-4":
             isUpcoming,
         },
       )}
     >
       <div className="flex items-center gap-2 xl:gap-3">
         {isLoading ? (
-          <div className="h-8 w-8 rounded-full bg-[#3C356D]" />
+          <div className="h-8 w-8 rounded-full bg-[#3C356D] md:h-10 md:w-10 xl:h-12 xl:w-12" />
         ) : (
           <Image
             src={iconUri}
             alt={`${denom} image`}
             width={32}
             height={32}
-            className="xl:h-10 xl:w-10 2xl:h-12 2xl:w-12"
+            className="rounded-full md:h-10 md:w-10 xl:h-12 xl:w-12"
           />
         )}
         {isLoading ? (
           <div className="flex flex-col gap-1">
-            <div className="h-2.5 w-24 rounded-full bg-[#3C356D]" />
+            <div className="h-2.5 w-25 rounded-full bg-[#3C356D]" />
             <div className="h-2.5 w-12 rounded-full bg-[#3C356D]" />
           </div>
         ) : (
           <div className="flex flex-col gap-1.5 2xl:gap-1">
-            <span className="text-sm leading-none max-xl:hidden xl:text-base">
+            <span className="text-sm leading-none max-xl:hidden 2xl:text-base">
               {name}
             </span>
             <span className="text-sm leading-none xl:hidden">
@@ -229,15 +234,32 @@ function TokenStatsRow({
                 {formatPretty(price)}
               </span>
               <span
-                className={cn("leading-none", {
+                className={cn("inline-flex items-center gap-1 leading-none", {
                   "text-[#37D56D]": isPositive,
                   "text-[#FA825D]": !isPositive,
                 })}
-              >{`${isPositive ? "↗" : "↘️"} ${formatPretty(variation)}`}</span>
+              >
+                {isPositive ? (
+                  <Image
+                    src={"/assets/icons/variation-indicator-up.svg"}
+                    alt="Indicator Up"
+                    width={10}
+                    height={9}
+                  />
+                ) : (
+                  <Image
+                    src={"/assets/icons/variation-indicator-down.svg"}
+                    alt="Indicator Down"
+                    width={10}
+                    height={9}
+                  />
+                )}
+                {formatPretty(variation)}
+              </span>
             </div>
           )}
           {isUpcoming && (
-            <div className="flex flex-col items-end justify-center gap-1.5 2xl:items-start">
+            <div className="flex w-full items-center justify-between">
               <span className="text-sm leading-none opacity-55">
                 {releaseDate}
               </span>
@@ -249,7 +271,7 @@ function TokenStatsRow({
                     width={14}
                     height={14}
                   />
-                  <span className="text-sm leading-none text-ion-700">
+                  <span className="text-xs leading-none text-ion-900 xl:text-sm">
                     Airdrop
                   </span>
                 </div>
