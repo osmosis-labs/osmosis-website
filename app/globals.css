@@ -28,6 +28,18 @@
     background-position: center;
     background-size: cover;
   }
+  .bg-hero-section-sm {
+    background-image: url("/assets/hero-bg-sm.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  .bg-hero-section-md {
+    background-image: url("/assets/hero-bg-md.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
   .bg-hero-section-mobile {
     background-image: url("/assets/hero-bg-mobile.png");
     background-repeat: no-repeat;
