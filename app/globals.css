@@ -47,10 +47,15 @@
     background-size: cover;
   }
   .stats-with-tweets-bg {
-    background-image: url("/assets/stats-with-tweets-bg.svg");
-    background-repeat: no-repeat;
-    background-position: top;
-    background-size: cover;
+    background: radial-gradient(
+        68.58% 65.85% at 98.59% -2.72%,
+        rgba(255, 237, 227, 0.5) 0%,
+        rgba(255, 134, 66, 0.45) 11.48%,
+        rgba(235, 38, 203, 0.2) 33.33%,
+        rgba(73, 44, 225, 0.08) 66.67%,
+        rgba(6, 0, 70, 0) 100%
+      ),
+      linear-gradient(204deg, #211957 32.87%, rgba(17, 12, 45, 0) 55.3%);
   }
   .row-width-xl {
     width: calc((472px * 8 + 16px * 6) * 2);
@@ -67,13 +72,13 @@
       #d9d9d900 100%
     );
   }
-  .bg-trusted-gradient {
+  .trusted-heading-bg {
     background-image: linear-gradient(
       106.31deg,
-      #e8d5ef 6.49%,
-      #ff8642 15.38%,
-      #ca36fe 24.15%,
-      #640ad7 29.9%
+      #e8d5ef 0%,
+      #ff8642 30%,
+      #ca36fe 75%,
+      #640ad7 90%
     );
     background-size: 100%;
     background-clip: text;
