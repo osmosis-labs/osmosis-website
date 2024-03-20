@@ -60,6 +60,9 @@
       ),
       linear-gradient(204deg, #211957 32.87%, rgba(17, 12, 45, 0) 55.3%);
   }
+  .border-stat-card {
+    box-shadow: 0px 0px 0px 1px #9084cf25;
+  }
   .row-width-xl {
     width: calc((472px * 8 + 16px * 6) * 2);
   }
