@@ -1,3 +1,4 @@
+import { cn } from "@/lib/utils";
 import Image from "next/image";
 
 export default function HeroSection() {
@@ -5,19 +6,14 @@ export default function HeroSection() {
     <section className="lg:bg-hero-section bg-hero-section-mobile sm:bg-hero-section-sm md:bg-hero-section-md flex rounded-3xl p-2 sm:px-4 sm:py-6 lg:rounded-[32px] lg:p-4 2xl:rounded-[48px] 2xl:px-6 2xl:py-8">
       <div className="flex w-full flex-col sm:gap-6 sm:py-6 md:gap-8 lg:flex-row lg:items-center lg:justify-between lg:py-0">
         <div className="flex flex-col gap-4 px-2 max-sm:py-4 sm:gap-3 sm:px-6 md:flex-row md:items-center md:justify-between md:px-4 lg:flex-col lg:items-start lg:gap-6 lg:px-6 xl:gap-8 xl:px-4 2xl:gap-2 2xl:px-8">
-          <h1 className="inline-flex flex-col gap-1.5 font-h1 text-[34px] font-medium leading-[34px] -tracking-[0.03em] text-neutral-100 sm:text-[40px] sm:leading-10 lg:gap-2 lg:text-5xl lg:leading-[48px] xl:text-[64px] xl:leading-[64px] 2xl:text-7xl 2xl:leading-[79.20px] 2xl:tracking-tight">
+          <h1 className="inline-flex flex-col gap-1 font-h1 text-[34px] font-medium leading-[34px] -tracking-[0.03em] text-neutral-100 sm:text-[40px] sm:leading-10 lg:gap-2 lg:text-5xl lg:leading-[48px] xl:text-[64px] xl:leading-[64px] 2xl:text-7xl 2xl:leading-[79.20px] 2xl:tracking-tight">
             <span>Discover and trade</span>
-            <span className="inline-flex gap-3 sm:gap-5.5">
-              the next{" "}
-              <div className="flex items-center gap-2 xl:gap-2.5 2xl:gap-3.5">
-                <Image
-                  src={"/assets/bracket.svg"}
-                  alt="Bracket"
-                  width={4}
-                  height={42}
-                  className="sm:h-[46px] lg:h-14 lg:w-2 xl:h-16 xl:w-2 2xl:h-22.5 2xl:w-[11px]"
-                />
-                <div className="flex items-center gap-2 2xl:gap-3">
+            <span className="inline-flex items-center gap-3 sm:gap-5.5">
+              the next
+              {/**base gap is compensated in the widths of the brackets */}
+              <div className="flex items-center sm:gap-2 xl:gap-2.5 2xl:gap-0">
+                <Bracket />
+                <div className="flex items-center gap-2 pb-[1px] pl-[7.5px] pr-[6.5px] sm:p-0 lg:pb-[9px] lg:pl-1 lg:pr-[3px] lg:pt-0.5 xl:p-0 2xl:gap-3">
                   <Image
                     src={"/assets/icons/tia.svg"}
                     alt="TIA icon"
@@ -27,13 +23,7 @@ export default function HeroSection() {
                   />
                   <span>TIA</span>
                 </div>
-                <Image
-                  src={"/assets/bracket.svg"}
-                  alt="Bracket"
-                  width={4}
-                  height={42}
-                  className="scale-x-[-1] sm:h-[46px] lg:h-14 lg:w-2 xl:h-16 xl:w-2 2xl:h-22.5 2xl:w-[11px]"
-                />
+                <Bracket isMirrored />
               </div>
             </span>
             <span className="inline-flex items-center gap-1 2xl:gap-4">
@@ -138,5 +128,20 @@ export default function HeroSection() {
         </div>
       </div>
     </section>
+  );
+}
+
+function Bracket({ isMirrored }: { isMirrored?: boolean }) {
+  return (
+    <Image
+      src={"/assets/bracket.svg"}
+      alt="Bracket"
+      width={8}
+      height={42}
+      className={cn(
+        "h-[42px] self-stretch sm:h-[46px] lg:h-14 lg:w-3 xl:h-16 xl:w-4.5 2xl:h-22.5 2xl:w-6.5",
+        { "scale-x-[-1]": isMirrored },
+      )}
+    />
   );
 }
