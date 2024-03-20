@@ -50,7 +50,7 @@
     background-size: cover;
   }
   .border-token-stats-upcoming {
-    box-shadow: 0px 0px 0px 1px #565081;
+    box-shadow: inset 0px 0px 0px 1px #565081;
   }
   .stats-with-tweets-bg {
     background: radial-gradient(
@@ -64,7 +64,7 @@
       linear-gradient(204deg, #211957 32.87%, rgba(17, 12, 45, 0) 55.3%);
   }
   .border-stat-card {
-    box-shadow: 0px 0px 0px 1px #9084cf25;
+    box-shadow: inset 0px 0px 0px 1px #9084cf25;
   }
   .row-width-xl {
     width: calc((472px * 8 + 16px * 6) * 2);
