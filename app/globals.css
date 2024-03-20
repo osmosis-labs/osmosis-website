@@ -22,6 +22,9 @@
     background-color: rgba(20, 15, 52, 0.1);
     backdrop-filter: blur(24px);
   }
+  .border-swap-tool {
+    box-shadow: inset 0px 0px 0px 1px #ffffff45;
+  }
   .bg-hero-section {
     background-image: url("/assets/hero-bg.svg");
     background-repeat: no-repeat;
