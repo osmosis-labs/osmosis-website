@@ -20,9 +20,9 @@ export default function Navbar() {
         href={"https://app.osmosis.zone"}
         type="button"
         target="_blank"
-        className="inline-flex items-center justify-center rounded-xl bg-wosmongton-50 px-4 py-2.5 transition-colors hover:bg-wosmongton-800"
+        className="inline-flex items-center justify-center rounded-lg bg-wosmongton-50 px-4 py-2.5 transition-colors hover:bg-wosmongton-800 md:rounded-[10px] md:px-3 md:py-2 lg:rounded-xl lg:px-4 lg:py-2.5 xl:rounded-[10px] 2xl:rounded-xl"
       >
-        <span className="text-sm">Open the App</span>
+        <span className="text-sm leading-[22px]">Open the App</span>
       </Link>
     </header>
   );
