@@ -49,6 +49,7 @@ const config = {
         12.5: "3.125rem",
         13.0: "3.25rem",
         14.5: "3.625rem",
+        15.0: "3.75rem",
         16.5: "4.125rem",
         17.0: "4.25rem",
         17.5: "4.375rem",
@@ -67,6 +68,9 @@ const config = {
         47: "11.75rem",
         58: "14.5rem",
         65: "16.25rem",
+      },
+      fontSize: {
+        "3.5xl": "32px",
       },
       keyframes: {
         "accordion-down": {
