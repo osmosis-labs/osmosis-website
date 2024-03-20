@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import Link from "next/link";
 
 interface StatCard {
   title: string;
@@ -35,21 +36,20 @@ const stats: StatCard[] = [
 
 export default function StatsWithTweets() {
   return (
-    <section className="stats-with-tweets-bg mt-18 flex rounded-3xl py-8 lg:mt-21.5 lg:py-14 xl:mt-14 xl:rounded-4xl xl:py-20 2xl:mt-20 3xl:mt-25">
-      <div className="flex flex-1 flex-col gap-8 p-3 2xl:gap-16 2xl:p-4 3xl:px-6 3xl:py-4">
-        <div className="flex flex-col gap-12">
-          <div className="flex flex-col gap-2 lg:flex-row">
+    <section className="stats-with-tweets-bg mt-14 rounded-3xl pt-2 sm:mt-16 sm:rounded-4xl sm:pt-4 md:mt-24 md:pt-12 lg:mt-20 lg:pt-16 xl:mt-24 xl:pt-20 2xl:mt-36">
+      <div className="flex flex-col gap-8 p-2 sm:p-4 2xl:gap-16">
+        <div className="flex flex-col gap-6 lg:gap-12">
+          <div className="flex flex-col gap-2 md:flex-row">
             <Image
               src={"/assets/shield.svg"}
               alt="Gradient Shield"
-              width={60}
-              height={60}
+              width={40}
+              height={40}
+              className="md:w-15 md:h-15"
             />
-            <h4 className="text-xl-i leading-[110%] lg:text-2xl xl:text-3xl 2xl:text-3.5xl 3xl:text-h2">
-              <span className="bg-trusted-gradient text-xl-i leading-[110%] lg:text-2xl xl:text-3xl 2xl:text-3.5xl 3xl:text-h2">
-                Trusted
-              </span>{" "}
-              by 1+ million <br /> Users and Counting.
+            <h4 className="font-h1 text-[32px] font-medium leading-[38.4px] tracking-[-0.64px] md:text-4xl md:leading-[43.2px] lg:text-5xl lg:leading-[55.2px] xl:text-[56px] xl:leading-[64.4px] 2xl:leading-[70.4px]">
+              <span className="trusted-heading-bg">Trusted</span> by 1+ million{" "}
+              <br /> users and counting.
             </h4>
           </div>
           <div className="flex flex-col gap-4 lg:grid lg:grid-cols-3 lg:gap-2 2xl:gap-4">
@@ -68,19 +68,19 @@ export default function StatsWithTweets() {
           />
           <div className="h-[1px] flex-1 bg-osmoverse-750" />
         </div>
-        <div className="tweets-mask relative flex min-h-[590px] overflow-hidden lg:min-h-[544px]">
-          <div className="absolute flex flex-col gap-3 lg:gap-1.5 xl:gap-4">
+        <div className="md:tweets-mask relative -mx-6 flex h-[555px] overflow-hidden sm:-mx-28 lg:-mx-0 lg:h-[408px]">
+          <div className="absolute flex flex-col gap-3 lg:gap-4">
             {Array(2)
               .fill(null)
               .map((_, i) => (
                 <div
                   key={`tweets row ${i}`}
                   className={cn(
-                    "xl:row-width-xl max-xl:row-width relative flex gap-2 transition-transform xl:gap-4",
+                    "lg:row-width-xl max-lg:row-width relative flex gap-2 transition-transform lg:gap-4",
                     {
-                      "animate-marquee-sm-reverse xl:animate-marquee-reverse":
+                      "animate-marquee-sm-reverse lg:animate-marquee-reverse":
                         (i + 1) % 2 === 0,
-                      "animate-marquee-sm xl:animate-marquee":
+                      "animate-marquee-sm lg:animate-marquee":
                         (i + 1) % 2 !== 0,
                     },
                   )}
@@ -103,25 +103,25 @@ const StatCard = ({ bottleUri, iconUri, title, value, bgClass }: StatCard) => {
   return (
     <div
       className={cn(
-        "relative flex flex-col gap-8 rounded-2xl p-4 lg:gap-16 2xl:rounded-3xl 2xl:p-6",
+        "relative flex flex-col gap-8 rounded-2xl border border-solid border-[#413e59] p-4 lg:gap-16 xl:rounded-3xl 2xl:p-6",
         bgClass,
       )}
     >
       <Image src={iconUri} alt={title} width={24} height={24} />
       <div className="flex flex-col gap-1 2xl:gap-3">
-        <span className="text-xs leading-[120%] text-neutral-100 lg:text-base">
+        <span className="text-xs leading-[22.4px] text-neutral-100 lg:text-base lg:leading-[22.4px]">
           {title}
         </span>
-        <span className="text-xl leading-[120%] text-neutral-100 xl:text-xl-i 3xl:text-3xl">
+        <span className="lg:text-3.5xl text-2xl leading-[28.8px] -tracking-[0.24px] text-neutral-100 lg:leading-[38.4px] lg:-tracking-[0.32px] 2xl:text-5xl 2xl:leading-[57.6px] 2xl:-tracking-[0.48px]">
           {value}
         </span>
       </div>
       <Image
         src={bottleUri}
         alt="Vial"
-        width={120}
-        height={120}
-        className="absolute -top-6 right-0 lg:-top-4 lg:h-22.5 lg:w-22.5 xl:-top-9 xl:h-30 xl:w-30"
+        width={100}
+        height={100}
+        className="absolute -top-5 right-0 lg:-top-9 lg:h-30 lg:w-30"
       />
     </div>
   );
@@ -129,9 +129,11 @@ const StatCard = ({ bottleUri, iconUri, title, value, bgClass }: StatCard) => {
 
 const Tweet = ({ className }: { className?: string }) => {
   return (
-    <div
+    <Link
+      href={"#"}
+      target="_blank"
       className={cn(
-        "flex max-w-[309px] flex-1 flex-col gap-3 rounded-2xl bg-[#201B43] px-6 py-8 xl:max-w-[472px]",
+        "flex max-h-[268px] max-w-[309px] flex-1 flex-col gap-3 rounded-2xl bg-[#201B43] px-6 py-8 lg:max-h-[196px] lg:max-w-[472px]",
         className,
       )}
     >
@@ -144,10 +146,10 @@ const Tweet = ({ className }: { className?: string }) => {
             height={48}
           />
           <div className="flex flex-col gap-1">
-            <span className="font-semibold leading-[110%] text-neutral-100">
+            <span className="font-semibold leading-none text-neutral-100">
               User
             </span>
-            <span className="text-sm leading-[110%] text-neutral-100/60">
+            <span className="text-sm leading-none text-neutral-100/60">
               @handler · Nov 27, 2021
             </span>
           </div>
@@ -159,13 +161,13 @@ const Tweet = ({ className }: { className?: string }) => {
           height={24}
         />
       </div>
-      <div className="flex">
-        <p className="body1 max-h-36 font-light text-neutral-100">
-          Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi.
-          Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla,
-          mattis ligula consectetur...
-        </p>
-      </div>
-    </div>
+      <p className="line-clamp-6 flex-1 font-light text-neutral-100 lg:line-clamp-3">
+        Lorem ipsum dolor sit amet <br className="lg:hidden" /> consectetur
+        adipiscing elit Ut et <br className="lg:hidden" /> massa mi. Aliquam in
+        hendrerit <br className="lg:hidden" /> urna. Pellentesque sit amet
+        sapien <br className="lg:hidden" /> fringilla, mattis ligula{" "}
+        <br className="lg:hidden" /> consectetur...
+      </p>
+    </Link>
   );
 };
