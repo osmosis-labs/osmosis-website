@@ -127,6 +127,55 @@
         )
         /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
   }
+  .border-osmo-cta {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .bg-osmo-cta {
+    background-image: url("/assets/bg-osmo-cta.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  @media (min-width: 640px) {
+    .bg-osmo-cta {
+      background-image: url("/assets/bg-osmo-cta-sm.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+  @media (min-width: 768px) {
+    .bg-osmo-cta {
+      background-image: url("/assets/bg-osmo-cta-md.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+  @media (min-width: 1024px) {
+    .bg-osmo-cta {
+      background-image: url("/assets/bg-osmo-cta-lg.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+  @media (min-width: 1280px) {
+    .bg-osmo-cta {
+      background-image: url("/assets/bg-osmo-cta-xl.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+  @media (min-width: 1536px) {
+    .bg-osmo-cta {
+      background-image: url("/assets/bg-osmo-cta-2xl.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
   @layer components {
     html {
       font-family: Inter, ui-sans-serif, system-ui;
