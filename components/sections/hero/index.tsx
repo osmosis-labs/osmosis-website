@@ -121,6 +121,7 @@ export default function HeroSection() {
                 alt="Start Trading"
                 width={20}
                 height={20}
+                className="h-5 w-5"
               />
             </button>
           </div>
