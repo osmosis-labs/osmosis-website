@@ -11,7 +11,7 @@ export default function HeroSection() {
             <span className="inline-flex items-center gap-3 sm:gap-5.5">
               the next
               {/**base gap is compensated in the widths of the brackets */}
-              <div className="flex items-center sm:gap-2 xl:gap-2.5 2xl:gap-0">
+              <div className="flex w-[122px] items-center justify-between sm:w-[131px] lg:w-40 xl:w-[203px] 2xl:w-[238px]">
                 <Bracket />
                 <div className="flex items-center gap-2 pb-[1px] pl-[7.5px] pr-[6.5px] sm:p-0 lg:pb-[9px] lg:pl-1 lg:pr-[3px] lg:pt-0.5 xl:p-0 2xl:gap-3">
                   <Image
@@ -136,10 +136,11 @@ function Bracket({ isMirrored }: { isMirrored?: boolean }) {
     <Image
       src={"/assets/bracket.svg"}
       alt="Bracket"
-      width={8}
-      height={42}
+      width={6}
+      height={46}
       className={cn(
-        "h-[42px] self-stretch sm:h-[46px] lg:h-14 lg:w-3 xl:h-16 xl:w-4.5 2xl:h-22.5 2xl:w-6.5",
+        // sistema queste width e metti quelle del design
+        "h-10.5 self-stretch lg:h-14 lg:w-2 xl:h-16 xl:w-2.5 2xl:h-22.5 2xl:w-3",
         { "scale-x-[-1]": isMirrored },
       )}
     />
