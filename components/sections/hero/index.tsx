@@ -36,7 +36,7 @@ export default function HeroSection() {
                   height={34}
                   className="sm:h-10 sm:w-10 lg:h-12 lg:w-12 xl:h-16 xl:w-16 2xl:h-20 2xl:w-20"
                 />
-                <span>Osmosis</span>
+                <span>Osmosis.</span>
               </div>
             </span>
           </h1>
