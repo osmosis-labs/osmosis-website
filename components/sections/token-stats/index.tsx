@@ -104,7 +104,7 @@ const sections: Section[] = [
         denom: "DYM",
         iconUri: "/assets/icons/dym.svg",
         isUpcoming: true,
-        releaseDate: format(new Date(), "dd.MM.yy"),
+        releaseDate: "Jun 2025",
         isAirdrop: true,
       },
       {
@@ -112,7 +112,6 @@ const sections: Section[] = [
         denom: "DYM",
         iconUri: "/assets/icons/dym.svg",
         isUpcoming: true,
-        releaseDate: format(new Date(), "dd.MM.yy"),
         isAirdrop: true,
       },
       {
@@ -120,7 +119,7 @@ const sections: Section[] = [
         denom: "DYM",
         iconUri: "/assets/icons/dym.svg",
         isUpcoming: true,
-        releaseDate: format(new Date(), "dd.MM.yy"),
+        releaseDate: "Jun 2025",
         isAirdrop: true,
       },
       {
@@ -128,7 +127,7 @@ const sections: Section[] = [
         denom: "DYM",
         iconUri: "/assets/icons/dym.svg",
         isUpcoming: true,
-        releaseDate: format(new Date(), "dd.MM.yy"),
+        releaseDate: "Jun 2025",
       },
     ],
   },
@@ -261,10 +260,17 @@ function TokenStatsRow({
             </div>
           )}
           {isUpcoming && (
-            <div className="flex flex-col items-end max-md:gap-1 md:w-full md:flex-row md:items-center md:justify-between">
-              <span className="text-sm leading-none opacity-55">
-                {releaseDate}
-              </span>
+            <div
+              className={cn(
+                "flex flex-col items-end max-md:gap-1 md:w-full md:flex-row md:items-center md:justify-between",
+                { "!justify-end": !releaseDate },
+              )}
+            >
+              {releaseDate && (
+                <span className="text-sm leading-none opacity-55">
+                  {releaseDate}
+                </span>
+              )}
               {isAirdrop && (
                 <div className="flex min-h-5.5 items-center gap-0.5 rounded-xl bg-ion-300 pl-1.5 pr-2">
                   <Image
