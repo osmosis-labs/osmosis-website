@@ -59,16 +59,16 @@ export default function HeroSection() {
                   />
                   <div className="flex flex-col">
                     <span className="text-neutral-100 xl:text-xl">USDC</span>
-                    <span className="text-xs text-slate-400 xl:text-sm 2xl:text-base">
+                    <span className="text-xs text-[#958FC0] xl:text-sm 2xl:text-base">
                       USD Coin
                     </span>
                   </div>
                 </div>
                 <div className="flex flex-col text-right">
-                  <span className="leading-snug text-neutral-100 xl:text-xl xl:leading-7">
+                  <span className="leading-[22px] text-neutral-100 xl:text-xl xl:leading-7">
                     1000
                   </span>
-                  <span className="text-xs leading-[18px] text-[#B0AADC] xl:text-sm xl:leading-[21px] 2xl:text-base 2xl:leading-normal">
+                  <span className="text-xs font-light leading-[18px] text-[#B0AADC] xl:text-sm xl:leading-[21px] 2xl:text-base 2xl:leading-6">
                     ≈ $995
                   </span>
                 </div>
@@ -86,7 +86,7 @@ export default function HeroSection() {
                     <span className="text-neutral-100 xl:text-xl">
                       Celestia
                     </span>
-                    <span className="text-xs text-slate-400 xl:text-sm 2xl:text-base">
+                    <span className="text-xs text-[#958FC0] xl:text-sm 2xl:text-base">
                       TIA
                     </span>
                   </div>
@@ -96,15 +96,14 @@ export default function HeroSection() {
                   <div className="h-2.5 w-10.5 rounded-full bg-[#565081] 2xl:h-3 2xl:w-14" />
                 </div>
               </div>
-              <div className="absolute inset-x-0 left-1/2 top-1/2 flex h-8 w-8 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-[#140F34] bg-[#282750] 2xl:h-10 2xl:w-10">
-                <Image
-                  src={"/assets/icons/arrow-down.svg"}
-                  alt="Arrow down"
-                  width={9}
-                  height={10}
-                  className="2xl:h-[13px] 2xl:w-[11px]"
-                />
-              </div>
+              <Image
+                src={"/assets/swap-arrow-down.svg"}
+                alt="Arrow down"
+                // 36px/(2xl) 44px for w/h compensates the design's outline stroke width
+                width={36}
+                height={36}
+                className="absolute inset-x-0 left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 2xl:h-11 2xl:w-11"
+              />
             </div>
             <div className="flex flex-col gap-1">
               <div className="h-2.5 w-30 rounded-full bg-[#3C356D] 2xl:h-3 2xl:w-[150px]" />
