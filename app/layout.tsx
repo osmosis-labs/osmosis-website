@@ -7,7 +7,7 @@ import NavigationMenu from "@/components/navbar/navigation-menu";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
-  weight: ["300", "400", "600"],
+  weight: ["300", "400", "500", "600"],
 });
 
 const poppins = Poppins({
