@@ -234,7 +234,7 @@ function TokenStatsRow({
                 {formatPretty(price)}
               </span>
               <span
-                className={cn("inline-flex items-center gap-1 leading-none", {
+                className={cn("inline-flex gap-1 leading-none", {
                   "text-[#37D56D]": isPositive,
                   "text-[#FA825D]": !isPositive,
                 })}
@@ -245,6 +245,7 @@ function TokenStatsRow({
                     alt="Indicator Up"
                     width={10}
                     height={9}
+                    className="translate-y-0.5 self-baseline"
                   />
                 ) : (
                   <Image
@@ -252,6 +253,7 @@ function TokenStatsRow({
                     alt="Indicator Down"
                     width={10}
                     height={9}
+                    className="-translate-y-0.5 self-end"
                   />
                 )}
                 {formatPretty(variation)}
