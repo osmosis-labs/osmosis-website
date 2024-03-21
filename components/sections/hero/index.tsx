@@ -1,3 +1,4 @@
+import { cn } from "@/lib/utils";
 import Image from "next/image";
 
 export default function HeroSection() {
@@ -5,19 +6,14 @@ export default function HeroSection() {
     <section className="lg:bg-hero-section bg-hero-section-mobile sm:bg-hero-section-sm md:bg-hero-section-md flex rounded-3xl p-2 sm:px-4 sm:py-6 lg:rounded-[32px] lg:p-4 2xl:rounded-[48px] 2xl:px-6 2xl:py-8">
       <div className="flex w-full flex-col sm:gap-6 sm:py-6 md:gap-8 lg:flex-row lg:items-center lg:justify-between lg:py-0">
         <div className="flex flex-col gap-4 px-2 max-sm:py-4 sm:gap-3 sm:px-6 md:flex-row md:items-center md:justify-between md:px-4 lg:flex-col lg:items-start lg:gap-6 lg:px-6 xl:gap-8 xl:px-4 2xl:gap-2 2xl:px-8">
-          <h1 className="inline-flex flex-col gap-1.5 font-h1 text-[34px] leading-[34px] tracking-tighter text-neutral-100 sm:text-[40px] sm:leading-10 lg:gap-2 lg:text-5xl lg:leading-[48px] xl:text-[64px] xl:leading-[64px] 2xl:text-7xl 2xl:leading-[79.20px] 2xl:tracking-tight">
+          <h1 className="inline-flex flex-col gap-[3px] font-h1 text-[34px] font-medium leading-[34px] -tracking-[0.03em] text-neutral-100 sm:text-[40px] sm:leading-10 lg:gap-2 lg:text-5xl lg:leading-[48px] xl:text-[64px] xl:leading-[64px] 2xl:text-7xl 2xl:leading-[79.20px] 2xl:tracking-tight">
             <span>Discover and trade</span>
-            <span className="inline-flex gap-3 sm:gap-5.5">
-              the next{" "}
-              <div className="flex items-center gap-2 xl:gap-2.5 2xl:gap-3.5">
-                <Image
-                  src={"/assets/bracket.svg"}
-                  alt="Bracket"
-                  width={4}
-                  height={42}
-                  className="sm:h-[46px] lg:h-14 lg:w-2 xl:h-16 xl:w-2 2xl:h-22.5 2xl:w-[11px]"
-                />
-                <div className="flex items-center gap-2 2xl:gap-3">
+            <span className="inline-flex items-center gap-3 sm:gap-5.5">
+              the next
+              {/**base gap is compensated in the widths of the brackets */}
+              <div className="flex w-[122px] items-center justify-between sm:w-[131px] lg:w-40 xl:w-[203px] 2xl:w-[238px]">
+                <Bracket />
+                <div className="flex items-center gap-2 pb-[1px] pl-[7.5px] pr-[6.5px] sm:p-0 lg:pb-[9px] lg:pl-1 lg:pr-[3px] lg:pt-0.5 xl:p-0 2xl:gap-3">
                   <Image
                     src={"/assets/icons/tia.svg"}
                     alt="TIA icon"
@@ -27,13 +23,7 @@ export default function HeroSection() {
                   />
                   <span>TIA</span>
                 </div>
-                <Image
-                  src={"/assets/bracket.svg"}
-                  alt="Bracket"
-                  width={4}
-                  height={42}
-                  className="scale-x-[-1] sm:h-[46px] lg:h-14 lg:w-2 xl:h-16 xl:w-2 2xl:h-22.5 2xl:w-[11px]"
-                />
+                <Bracket isMirrored />
               </div>
             </span>
             <span className="inline-flex items-center gap-1 2xl:gap-4">
@@ -46,19 +36,19 @@ export default function HeroSection() {
                   height={34}
                   className="sm:h-10 sm:w-10 lg:h-12 lg:w-12 xl:h-16 xl:w-16 2xl:h-20 2xl:w-20"
                 />
-                <span>Osmosis</span>
+                <span>Osmosis.</span>
               </div>
             </span>
           </h1>
-          <p className="font-light leading-[140%] text-stone-50 text-opacity-60 md:max-w-[185px] lg:max-w-none 2xl:mt-13 2xl:text-xl">
+          <p className="font-light leading-[22px] text-[#F9F8F7] text-opacity-60 md:max-w-[185px] lg:max-w-none 2xl:mt-13 2xl:text-xl">
             The largest decentralized crypto <br className="md:hidden" />
             exchange in Cosmos.
           </p>
         </div>
-        <div className="border-swap-tool flex w-full items-center rounded-3xl bg-slate-900 bg-opacity-10 px-2 py-6 backdrop-blur-[20px] sm:w-[376px] sm:self-center xl:w-[452px] xl:px-4 2xl:w-[512px] 2xl:px-4 2xl:py-10 2xl:backdrop-blur-xl">
-          <div className="flex w-full flex-col gap-6 rounded-2xl bg-[#140F34] p-3 sm:p-3.5 xl:gap-8 2xl:gap-10">
+        <div className="border-swap-tool flex w-[342px] items-center rounded-3xl bg-slate-900 bg-opacity-10 px-2 py-6 backdrop-blur-[20px] sm:w-[376px] sm:self-center xl:w-[452px] xl:px-4 2xl:w-[512px] 2xl:rounded-4xl 2xl:px-4 2xl:py-10 2xl:backdrop-blur-xl">
+          <div className="flex w-full flex-col gap-6 rounded-[20px] bg-[#140F34] p-3 sm:rounded-2xl sm:p-3.5 xl:gap-8 2xl:gap-10 2xl:rounded-3xl">
             <div className="relative flex flex-col gap-[3px]">
-              <div className="flex items-center justify-between rounded-xl bg-[#282750] px-3 py-4 xl:px-4 xl:py-6 2xl:rounded-2xl 2xl:px-6 2xl:py-8">
+              <div className="flex h-18 items-center justify-between rounded-xl bg-[#282750] px-3 xl:h-24 xl:px-4 2xl:h-30 2xl:rounded-2xl 2xl:px-6">
                 <div className="flex items-center gap-2">
                   <Image
                     src={"/assets/icons/usdc.svg"}
@@ -69,21 +59,21 @@ export default function HeroSection() {
                   />
                   <div className="flex flex-col">
                     <span className="text-neutral-100 xl:text-xl">USDC</span>
-                    <span className="text-xs text-slate-400 xl:text-sm 2xl:text-base">
+                    <span className="text-xs text-[#958FC0] xl:text-sm 2xl:text-base">
                       USD Coin
                     </span>
                   </div>
                 </div>
                 <div className="flex flex-col text-right">
-                  <span className="leading-snug text-neutral-100 xl:text-xl xl:leading-7">
+                  <span className="leading-[22px] text-neutral-100 xl:text-xl xl:leading-7">
                     1000
                   </span>
-                  <span className="text-xs leading-[18px] text-[#B0AADC] xl:text-sm xl:leading-[21px] 2xl:text-base 2xl:leading-normal">
+                  <span className="text-xs font-light leading-[18px] text-[#B0AADC] xl:text-sm xl:leading-[21px] 2xl:text-base 2xl:leading-6">
                     ≈ $995
                   </span>
                 </div>
               </div>
-              <div className="flex items-center justify-between rounded-xl bg-[#282750] px-3 py-4 xl:px-4 xl:py-6 2xl:rounded-2xl 2xl:px-6 2xl:py-8">
+              <div className="flex h-18 items-center justify-between rounded-xl bg-[#282750] px-3 xl:h-24 xl:px-4 2xl:h-30 2xl:rounded-2xl 2xl:px-6">
                 <div className="flex items-center gap-2">
                   <Image
                     src={"/assets/icons/tia.svg"}
@@ -96,7 +86,7 @@ export default function HeroSection() {
                     <span className="text-neutral-100 xl:text-xl">
                       Celestia
                     </span>
-                    <span className="text-xs text-slate-400 xl:text-sm 2xl:text-base">
+                    <span className="text-xs text-[#958FC0] xl:text-sm 2xl:text-base">
                       TIA
                     </span>
                   </div>
@@ -106,15 +96,14 @@ export default function HeroSection() {
                   <div className="h-2.5 w-10.5 rounded-full bg-[#565081] 2xl:h-3 2xl:w-14" />
                 </div>
               </div>
-              <div className="absolute inset-x-0 left-1/2 top-1/2 flex h-8 w-8 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-[#140F34] bg-[#282750] 2xl:h-10 2xl:w-10">
-                <Image
-                  src={"/assets/icons/arrow-down.svg"}
-                  alt="Arrow down"
-                  width={9}
-                  height={10}
-                  className="2xl:h-[13px] 2xl:w-[11px]"
-                />
-              </div>
+              <Image
+                src={"/assets/swap-arrow-down.svg"}
+                alt="Arrow down"
+                // 36px/(2xl) 44px for w/h compensates the design's outline stroke width
+                width={36}
+                height={36}
+                className="absolute inset-x-0 left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 2xl:h-11 2xl:w-11"
+              />
             </div>
             <div className="flex flex-col gap-1">
               <div className="h-2.5 w-30 rounded-full bg-[#3C356D] 2xl:h-3 2xl:w-[150px]" />
@@ -132,11 +121,28 @@ export default function HeroSection() {
                 alt="Start Trading"
                 width={20}
                 height={20}
+                className="h-5 w-5"
               />
             </button>
           </div>
         </div>
       </div>
     </section>
+  );
+}
+
+function Bracket({ isMirrored }: { isMirrored?: boolean }) {
+  return (
+    <Image
+      src={"/assets/bracket.svg"}
+      alt="Bracket"
+      width={6}
+      height={46}
+      className={cn(
+        // sistema queste width e metti quelle del design
+        "h-10.5 self-stretch lg:h-14 lg:w-2 xl:h-16 xl:w-2.5 2xl:h-22.5 2xl:w-3",
+        { "scale-x-[-1]": isMirrored },
+      )}
+    />
   );
 }

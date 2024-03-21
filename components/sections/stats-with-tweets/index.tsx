@@ -45,7 +45,7 @@ export default function StatsWithTweets() {
               alt="Gradient Shield"
               width={40}
               height={40}
-              className="md:w-15 md:h-15"
+              className="md:h-15 md:w-15"
             />
             <h4 className="font-h1 text-[32px] font-medium leading-[38.4px] tracking-[-0.64px] md:text-4xl md:leading-[43.2px] lg:text-5xl lg:leading-[55.2px] xl:text-[56px] xl:leading-[64.4px] 2xl:leading-[70.4px]">
               <span className="trusted-heading-bg">Trusted</span> by 1+ million{" "}
@@ -109,10 +109,10 @@ const StatCard = ({ bottleUri, iconUri, title, value, bgClass }: StatCard) => {
     >
       <Image src={iconUri} alt={title} width={24} height={24} />
       <div className="flex flex-col gap-1 2xl:gap-3">
-        <span className="text-xs leading-[22.4px] text-neutral-100 lg:text-base lg:leading-[22.4px]">
+        <span className="text-sm leading-[22.4px] text-neutral-100 lg:text-base lg:leading-[25.6px]">
           {title}
         </span>
-        <span className="lg:text-3.5xl text-2xl leading-[28.8px] -tracking-[0.24px] text-neutral-100 lg:leading-[38.4px] lg:-tracking-[0.32px] 2xl:text-5xl 2xl:leading-[57.6px] 2xl:-tracking-[0.48px]">
+        <span className="text-2xl font-medium leading-[28.8px] -tracking-[0.24px] text-neutral-100 lg:text-3.5xl lg:leading-[38.4px] lg:-tracking-[0.32px] 2xl:text-5xl 2xl:leading-[57.6px] 2xl:-tracking-[0.48px]">
           {value}
         </span>
       </div>
@@ -149,7 +149,7 @@ const Tweet = ({ className }: { className?: string }) => {
             <span className="font-semibold leading-none text-neutral-100">
               User
             </span>
-            <span className="text-sm leading-none text-neutral-100/60">
+            <span className="text-sm font-light leading-none text-neutral-100/60">
               @handler · Nov 27, 2021
             </span>
           </div>

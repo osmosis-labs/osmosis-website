@@ -21,14 +21,14 @@ const menuLinks = [
     ],
   },
   {
-    name: "Governance",
+    name: "Developers",
     links: [
       {
-        label: "Blog",
+        label: "Documentation",
         href: "#",
       },
       {
-        label: "Foundation",
+        label: "Contribute",
         href: "#",
       },
     ],
@@ -79,7 +79,7 @@ export function DropwdownMenu() {
   return (
     <Menu>
       <Menu.Button className="inline-flex items-center">
-        <span className="font-body1 text-body1">More</span>
+        <span>More</span>
         <Image
           src={"/assets/icons/arrow-drop-down.svg"}
           alt="Arrow dropdown"
@@ -98,7 +98,7 @@ export function DropwdownMenu() {
         leaveTo="transform opacity-0 scale-95"
       >
         <div className="absolute inset-x-0 flex w-full justify-center max-lg:bottom-16 lg:top-16">
-          <Menu.Items className="relative flex w-[342px] origin-top flex-col gap-6 overflow-hidden rounded-2xl border border-osmoverse-750 bg-[#160F38] p-8">
+          <Menu.Items className="relative flex w-[331px] origin-top flex-col gap-6 overflow-hidden rounded-2xl border border-osmoverse-750 bg-[#160F38] p-8">
             <DiamondGradient
               colors={["#FF8642", "#EB26EB", "#492CE1"]}
               height={450}
@@ -107,11 +107,13 @@ export function DropwdownMenu() {
               paddingTop={50}
               className="absolute bottom-56 right-36 rotate-[25deg]"
             />
-            <div className="grid grid-cols-2 gap-x-4 gap-y-6">
+            <div className="relative z-10 grid grid-cols-2 gap-x-4 gap-y-6">
               {menuLinks.map(({ name, links }) => (
                 <div key={name} className="col-span-1 flex flex-col gap-2.5">
-                  <span className="body2 opacity-60">{name}</span>
-                  <div className="flex flex-col gap-4">
+                  <span className="text-sm font-light leading-[21px] text-[#F9F8F760]">
+                    {name}
+                  </span>
+                  <div className="flex flex-col gap-0.5">
                     {links.map(({ label, href }) => (
                       <DropdownMenuLink key={label} href={href} label={label} />
                     ))}
@@ -119,7 +121,7 @@ export function DropwdownMenu() {
                 </div>
               ))}
             </div>
-            <div className="flex items-center justify-between gap-2.5">
+            <div className="flex items-center justify-between gap-2.5 py-1">
               <div className="h-[1px] flex-1 bg-osmoverse-750" />
               <Image
                 src={"/assets/icons/star-divider.svg"}
@@ -129,8 +131,10 @@ export function DropwdownMenu() {
               />
               <div className="h-[1px] flex-1 bg-osmoverse-750" />
             </div>
-            <div className="flex flex-col gap-2.5">
-              <span className="body2 opacity-60">Connect with us</span>
+            <div className="flex w-full items-center justify-between">
+              <span className="text-sm leading-[21px] text-[#F9F8F760]">
+                Connect with us
+              </span>
               <div className="flex items-center gap-1">
                 {socials.map(({ icon, name, href }) => (
                   <Link
@@ -164,9 +168,11 @@ interface DropdownMenuLinkProps {
 function DropdownMenuLink({ href, label }: DropdownMenuLinkProps) {
   return (
     <Menu.Item>
-      <Link href={href} className="group flex items-center gap-1">
-        <div className="flex flex-col gap-1">
-          <span className="body1 whitespace-nowrap">{label}</span>
+      <Link href={href} className="group flex items-center gap-0.5">
+        <div className="flex flex-col gap-0.5 p-0.5">
+          <span className="whitespace-nowrap font-light leading-6">
+            {label}
+          </span>
           <div className="h-[1px] w-0 bg-[#F7F7F7] transition-all group-hover:w-[calc(100%_+_16px)]" />
         </div>
         <Image
@@ -174,7 +180,7 @@ function DropdownMenuLink({ href, label }: DropdownMenuLinkProps) {
           alt={`${label} Link`}
           width={16}
           height={16}
-          className="mb-1 h-auto w-auto"
+          className="mb-1 w-0 transition-all group-hover:h-4 group-hover:w-4"
         />
       </Link>
     </Menu.Item>

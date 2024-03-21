@@ -104,7 +104,7 @@ const sections: Section[] = [
         denom: "DYM",
         iconUri: "/assets/icons/dym.svg",
         isUpcoming: true,
-        releaseDate: format(new Date(), "dd.MM.yy"),
+        releaseDate: "Jun 2025",
         isAirdrop: true,
       },
       {
@@ -112,7 +112,6 @@ const sections: Section[] = [
         denom: "DYM",
         iconUri: "/assets/icons/dym.svg",
         isUpcoming: true,
-        releaseDate: format(new Date(), "dd.MM.yy"),
         isAirdrop: true,
       },
       {
@@ -120,7 +119,7 @@ const sections: Section[] = [
         denom: "DYM",
         iconUri: "/assets/icons/dym.svg",
         isUpcoming: true,
-        releaseDate: format(new Date(), "dd.MM.yy"),
+        releaseDate: "Jun 2025",
         isAirdrop: true,
       },
       {
@@ -128,7 +127,7 @@ const sections: Section[] = [
         denom: "DYM",
         iconUri: "/assets/icons/dym.svg",
         isUpcoming: true,
-        releaseDate: format(new Date(), "dd.MM.yy"),
+        releaseDate: "Jun 2025",
       },
     ],
   },
@@ -234,7 +233,7 @@ function TokenStatsRow({
                 {formatPretty(price)}
               </span>
               <span
-                className={cn("inline-flex items-center gap-1 leading-none", {
+                className={cn("inline-flex gap-1 leading-none", {
                   "text-[#37D56D]": isPositive,
                   "text-[#FA825D]": !isPositive,
                 })}
@@ -245,6 +244,7 @@ function TokenStatsRow({
                     alt="Indicator Up"
                     width={10}
                     height={9}
+                    className="translate-y-0.5 self-baseline"
                   />
                 ) : (
                   <Image
@@ -252,6 +252,7 @@ function TokenStatsRow({
                     alt="Indicator Down"
                     width={10}
                     height={9}
+                    className="-translate-y-0.5 self-end"
                   />
                 )}
                 {formatPretty(variation)}
@@ -259,10 +260,17 @@ function TokenStatsRow({
             </div>
           )}
           {isUpcoming && (
-            <div className="flex flex-col items-end max-md:gap-1 md:w-full md:flex-row md:items-center md:justify-between">
-              <span className="text-sm leading-none opacity-55">
-                {releaseDate}
-              </span>
+            <div
+              className={cn(
+                "flex flex-col items-end max-md:gap-1 md:w-full md:flex-row md:items-center md:justify-between",
+                { "!justify-end": !releaseDate },
+              )}
+            >
+              {releaseDate && (
+                <span className="text-sm leading-none opacity-55">
+                  {releaseDate}
+                </span>
+              )}
               {isAirdrop && (
                 <div className="flex min-h-5.5 items-center gap-0.5 rounded-xl bg-ion-300 pl-1.5 pr-2">
                   <Image
