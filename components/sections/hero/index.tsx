@@ -99,10 +99,10 @@ export default function HeroSection() {
               <Image
                 src={"/assets/swap-arrow-down.svg"}
                 alt="Arrow down"
-                // 36px/(2xl) 44px for w/h compensates the design's outline stroke width
-                width={36}
-                height={36}
-                className="absolute inset-x-0 left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 2xl:h-11 2xl:w-11"
+                // 38px/46px for w/h compensates the design's outline stroke width
+                width={38}
+                height={38}
+                className="absolute inset-x-0 left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 2xl:h-[46px] 2xl:w-[46px]"
               />
             </div>
             <div className="flex flex-col gap-1">
