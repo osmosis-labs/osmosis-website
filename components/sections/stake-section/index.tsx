@@ -1,5 +1,10 @@
 import Image from "next/image";
 
+const airdrops = Array<{ uri: string; name: string }>(22).fill({
+  uri: "/assets/icons/pepe.svg",
+  name: "Pepe",
+});
+
 export default function StakeSection() {
   return (
     <section className="mt-28 flex flex-col items-center justify-center gap-8 self-stretch px-2 py-4 sm:mt-20 sm:p-4 md:mt-[136px] lg:mt-28 xl:mt-[170px] 2xl:mt-52 2xl:p-6">
@@ -21,7 +26,148 @@ export default function StakeSection() {
           <span className="text-[#37D56D]">10.86% APR.</span>
         </p>
       </div>
-      <div className="flex flex-col gap-4 lg:flex-row-reverse lg:gap-2 xl:gap-4">
+      <div className="flex flex-col-reverse gap-4 lg:grid lg:grid-cols-[486px,455px] lg:gap-2 xl:grid-cols-[523px,581px] xl:gap-4 2xl:grid-cols-[664px,712px]">
+        <div className="flex flex-col justify-center gap-2 self-stretch md:grid md:grid-cols-2 xl:gap-4">
+          {/**card */}
+          <div className="flex flex-col gap-6 self-stretch rounded-2xl border border-solid border-[#3C356D] bg-[#201B43] px-4 py-6 lg:gap-8 lg:p-6 xl:rounded-3xl 2xl:gap-10">
+            <Image
+              src={"/assets/icons/stake/osmo-blue.svg"}
+              alt="Osmo blue icon"
+              width={24}
+              height={24}
+            />
+            <div className="flex flex-col gap-2">
+              <span className="self-stretch font-h1 text-xl font-medium leading-[26px] text-neutral-100">
+                Superfluid staking
+              </span>
+              <p className="leading-[25px] text-[#F9F8F760]">
+                Access an innovative feature that allows you to earn trading
+                fees and stake{" "}
+                <span className="font-bold">at the same time.</span>
+              </p>
+            </div>
+          </div>
+          {/**card */}
+          <div className="flex flex-col gap-6 self-stretch rounded-2xl border border-solid border-[#3C356D] bg-[#201B43] px-4 py-6 lg:gap-8 lg:p-6 xl:rounded-3xl 2xl:gap-10">
+            <Image
+              src={"/assets/icons/stake/plant-blue.svg"}
+              alt="Plant blue icon"
+              width={24}
+              height={24}
+            />
+            <div className="flex flex-col gap-2">
+              <span className="self-stretch font-h1 text-xl font-medium leading-[26px] text-neutral-100">
+                Organic yields
+              </span>
+              <p className="leading-[25px] text-[#F9F8F760]">
+                Every trade on Osmosis generates fees that stakers receive for
+                securing the protocol.
+              </p>
+            </div>
+          </div>
+          {/**card */}
+          <div className="flex flex-col gap-6 self-stretch overflow-hidden rounded-2xl border border-solid border-[#3C356D] bg-[#201B43] px-4 py-6 md:col-span-2 lg:gap-0 lg:p-6 xl:rounded-3xl 2xl:justify-between 2xl:gap-4">
+            <Image
+              src={"/assets/icons/stake/giftbox-blue.svg"}
+              alt="Giftbox blue icon"
+              width={24}
+              height={24}
+            />
+            <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-4 self-stretch py-3 md:flex-row md:items-center md:gap-8 lg:justify-between lg:gap-0">
+                <div className="flex flex-col gap-2">
+                  <span className="self-stretch font-h1 text-xl font-medium leading-[26px] text-neutral-100">
+                    Airdrop exposure
+                  </span>
+                  <p className="leading-[25px] text-[#F9F8F760]">
+                    OSMO stakers have received
+                    <br className="hidden md:block 2xl:hidden" /> up to{" "}
+                    <br className="hidden 2xl:block" /> over X airdrops to date.
+                  </p>
+                </div>
+                <div className="hidden h-18 w-[1px] bg-[#3C356D] md:block" />
+                <div className="flex gap-3 max-md:items-center md:flex-col md:gap-1 md:px-4">
+                  <span className="bg-stake-heading font-h1 text-3.5xl leading-[35px] -tracking-[0.64px] 2xl:text-5xl 2xl:leading-[52px] 2xl:-tracking-[0.96px]">
+                    $65M
+                  </span>
+                  <p className="leading-[25px] text-[#F9F8F760]">
+                    Airdropped to <br className="hidden md:block 2xl:hidden" />{" "}
+                    OSMO stakers
+                  </p>
+                </div>
+              </div>
+              <div className="flex flex-col gap-8 2xl:gap-4">
+                <div className="flex flex-col gap-6">
+                  {/**row */}
+                  <div className="flex flex-col gap-4">
+                    <div className="flex items-center gap-1">
+                      <div className="before:bg-gradient-pulse-green relative h-5 w-5 before:absolute before:left-1/2 before:top-1/2 before:h-[90px] before:w-[90px] before:-translate-x-1/2 before:-translate-y-1/2 before:rounded-full before:blur-[20px] before:content-['']">
+                        <Image
+                          src={"/assets/pulse-green.svg"}
+                          alt="Upcoming Airdrops"
+                          width={20}
+                          height={20}
+                        />
+                      </div>
+                      <span className="font-light text-neutral-100">
+                        Upcoming Airdrops*
+                      </span>
+                    </div>
+                    <div className="relative flex h-[48px]">
+                      <div className="upcoming-airdrops-row-width animate-upcoming-airdrops-marquee absolute flex items-center gap-2">
+                        {airdrops.map(({ name, uri }, i) => {
+                          return (
+                            <Image
+                              key={`${name} icon ${i}`}
+                              alt={`${name} icon`}
+                              src={uri}
+                              width={48}
+                              height={48}
+                              className="rounded-full"
+                            />
+                          );
+                        })}
+                      </div>
+                    </div>
+                  </div>
+                  {/**row */}
+                  <div className="flex flex-col gap-4">
+                    <div className="flex items-center gap-1">
+                      <Image
+                        src={"/assets/pulse-blue.svg"}
+                        alt="Past Airdrops"
+                        width={20}
+                        height={20}
+                      />
+                      <span className="font-light text-neutral-100">
+                        Past Airdrops
+                      </span>
+                    </div>
+                    <div className="relative flex h-[48px]">
+                      <div className="upcoming-airdrops-row-width animate-upcoming-airdrops-marquee-reverse absolute flex items-center gap-2">
+                        {airdrops.map(({ name, uri }, i) => {
+                          return (
+                            <Image
+                              key={`${name} icon ${i}`}
+                              alt={`${name} icon`}
+                              src={uri}
+                              width={48}
+                              height={48}
+                              className="rounded-full"
+                            />
+                          );
+                        })}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <span className="text-sm leading-[22px] text-[#F9F8F760]">
+                  * Upcoming airdrops are not guaranteed.
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
         <StakeIllustration />
       </div>
     </section>
@@ -30,7 +176,7 @@ export default function StakeSection() {
 
 function StakeIllustration() {
   return (
-    <div className="relative">
+    <div className="relative max-sm:max-w-[342px] max-sm:self-center">
       <Image
         src={"/assets/stake-illustrations/stake-illustration.svg"}
         alt="Stake Illustration"
