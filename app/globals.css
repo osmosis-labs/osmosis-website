@@ -176,6 +176,12 @@
       background-size: cover;
     }
   }
+  .bg-stake-heading {
+    background: linear-gradient(180deg, #eeecea 22.39%, #acd9e7 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
   @layer components {
     html {
       font-family: Inter, ui-sans-serif, system-ui;
