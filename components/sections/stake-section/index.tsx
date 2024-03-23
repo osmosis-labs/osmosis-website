@@ -8,23 +8,23 @@ const airdrops = Array<{ uri: string; name: string }>(22).fill({
 export default function StakeSection() {
   return (
     <section className="mt-28 flex flex-col items-center justify-center gap-8 self-stretch px-2 py-4 sm:mt-20 sm:p-4 md:mt-[136px] lg:mt-28 xl:mt-[170px] 2xl:mt-52 2xl:p-6">
-      <div className="flex flex-col justify-center gap-4">
-        <div className="flex items-center justify-center rounded-full bg-[#37D56D40] px-3 py-1 backdrop-blur-xl">
+      <div className="flex flex-col items-center justify-center gap-4">
+        <div className="flex max-w-max items-center justify-center rounded-full bg-[#37D56D40] px-3 py-1 backdrop-blur-xl">
           <span className="text-sm leading-[22px] text-[#37D56D] lg:text-base lg:leading-[25px]">
             Secure the network
           </span>
         </div>
-      </div>
-      <div className="flex flex-col items-center justify-center gap-2 self-stretch lg:gap-4">
-        <h4 className="bg-stake-heading text-center font-h1 text-3.5xl font-medium leading-[38px] -tracking-[0.64px] md:text-4xl md:leading-[43px] md:-tracking-[0.72px] lg:text-5xl lg:leading-[52px] lg:-tracking-[0.96px] xl:text-[56px] xl:leading-[61px] xl:-tracking-[1.12px] 2xl:text-[64px] 2xl:leading-[70px] 2xl:-tracking-[1.28px]">
-          Stake to earn <br className="sm:hidden" />
-          rewards.
-        </h4>
-        <p className="self-stretch text-center font-light leading-[22px] text-neutral-100 lg:text-xl lg:leading-7">
-          Lock up your OSMO and earn passive <br className="sm:hidden" />
-          staking <br className="hidden sm:block" /> rewards with up to{" "}
-          <span className="text-[#37D56D]">10.86% APR.</span>
-        </p>
+        <div className="flex flex-col items-center justify-center gap-2 self-stretch lg:gap-4">
+          <h4 className="bg-stake-heading text-center font-h1 text-3.5xl font-medium leading-[38px] -tracking-[0.64px] md:text-4xl md:leading-[43px] md:-tracking-[0.72px] lg:text-5xl lg:leading-[52px] lg:-tracking-[0.96px] xl:text-[56px] xl:leading-[61px] xl:-tracking-[1.12px] 2xl:text-[64px] 2xl:leading-[70px] 2xl:-tracking-[1.28px]">
+            Stake to earn <br className="sm:hidden" />
+            rewards.
+          </h4>
+          <p className="self-stretch text-center font-light leading-[22px] text-neutral-100 lg:text-xl lg:leading-7">
+            Lock up your OSMO and earn passive <br className="sm:hidden" />
+            staking <br className="hidden sm:block" /> rewards with up to{" "}
+            <span className="text-[#37D56D]">10.86% APR.</span>
+          </p>
+        </div>
       </div>
       <div className="flex flex-col-reverse gap-4 lg:grid lg:grid-cols-[486px,455px] lg:gap-2 xl:grid-cols-[523px,581px] xl:gap-4 2xl:grid-cols-[664px,712px]">
         <div className="flex flex-col justify-center gap-2 self-stretch md:grid md:grid-cols-2 xl:gap-4">
@@ -114,7 +114,7 @@ export default function StakeSection() {
                       </span>
                     </div>
                     <div className="relative flex h-[48px]">
-                      <div className="upcoming-airdrops-row-width animate-upcoming-airdrops-marquee absolute flex items-center gap-2">
+                      <div className="upcoming-airdrops-row-width absolute flex animate-upcoming-airdrops-marquee items-center gap-2">
                         {airdrops.map(({ name, uri }, i) => {
                           return (
                             <Image
@@ -144,7 +144,7 @@ export default function StakeSection() {
                       </span>
                     </div>
                     <div className="relative flex h-[48px]">
-                      <div className="upcoming-airdrops-row-width animate-upcoming-airdrops-marquee-reverse absolute flex items-center gap-2">
+                      <div className="upcoming-airdrops-row-width absolute flex animate-upcoming-airdrops-marquee-reverse items-center gap-2">
                         {airdrops.map(({ name, uri }, i) => {
                           return (
                             <Image
