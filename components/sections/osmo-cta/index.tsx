@@ -1,3 +1,4 @@
+import BackersSection from "@/components/sections/osmo-cta/backers-section";
 import Image from "next/image";
 
 export default function OsmoCTASection() {
@@ -130,6 +131,7 @@ export default function OsmoCTASection() {
           </div>
         </div>
       </div>
+      <BackersSection />
     </section>
   );
 }
