@@ -192,6 +192,37 @@
   .upcoming-airdrops-row-width {
     width: calc((48px * 10 + 8px * 8) * 2);
   }
+  .bg-earn-section {
+    background: radial-gradient(
+      113.84% 75.43% at 0% 1.14%,
+      rgba(250, 178, 239, 0.45) 0%,
+      rgba(235, 38, 235, 0.36) 21.5%,
+      rgba(178, 38, 155, 0.16) 60.5%,
+      rgba(22, 15, 56, 0) 100%
+    );
+  }
+  .bg-earn-headline {
+    background: linear-gradient(180deg, #eeecea 55.38%, #f1c7fc 90.7%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .bg-earn-card-radial {
+    background: radial-gradient(
+      109.08% 102.6% at 100% 0%,
+      rgba(213, 21, 188, 0.22) 0%,
+      rgba(15, 9, 45, 0) 100%
+    );
+  }
+  @media (min-width: 1024px) {
+    .bg-earn-card-radial {
+      background: radial-gradient(
+        102.12% 96.05% at 90.28% 96.15%,
+        rgba(213, 21, 188, 0.45) 0%,
+        rgba(15, 9, 45, 0) 100%
+      );
+    }
+  }
   @layer components {
     html {
       font-family: Inter, ui-sans-serif, system-ui;

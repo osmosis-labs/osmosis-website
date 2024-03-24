@@ -1,3 +1,4 @@
+import EarnSection from "@/components/sections/earn-section";
 import HeroSection from "@/components/sections/hero";
 import OsmoCTASection from "@/components/sections/osmo-cta";
 import StakeSection from "@/components/sections/stake-section";
@@ -16,10 +17,8 @@ export default function Home() {
       <StatsWithTweets />
       <OsmoCTASection />
       <StakeSection />
+      <EarnSection />
       {/*
-      <section className="mt-42 flex h-[1018px] w-full items-center justify-center bg-osmoverse-800">
-        earn-section.tsx
-      </section>
       <section className="mt-35 flex h-[559px] w-[1440px] items-center justify-center bg-osmoverse-800">
         vote-section.tsx
       </section>
