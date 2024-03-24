@@ -45,7 +45,7 @@ export default function HeroSection() {
             exchange in Cosmos.
           </p>
         </div>
-        <div className="border-swap-tool flex items-center rounded-3xl bg-slate-900 bg-opacity-10 px-2 py-6 backdrop-blur-[20px] sm:w-[376px] sm:self-center xl:w-[452px] xl:px-4 2xl:w-[512px] 2xl:rounded-4xl 2xl:px-4 2xl:py-10 2xl:backdrop-blur-xl">
+        <div className="border-swap-tool flex w-[342px] items-center rounded-3xl bg-slate-900 bg-opacity-10 px-2 py-6 backdrop-blur-[20px] sm:w-[376px] sm:self-center xl:w-[452px] xl:px-4 2xl:w-[512px] 2xl:rounded-4xl 2xl:px-4 2xl:py-10 2xl:backdrop-blur-xl">
           <div className="flex w-full flex-col gap-6 rounded-[20px] bg-[#140F34] p-3 sm:rounded-2xl sm:p-3.5 xl:gap-8 2xl:gap-10 2xl:rounded-3xl">
             <div className="relative flex flex-col gap-[3px]">
               <div className="flex h-18 items-center justify-between rounded-xl bg-[#282750] px-3 xl:h-24 xl:px-4 2xl:h-30 2xl:rounded-2xl 2xl:px-6">

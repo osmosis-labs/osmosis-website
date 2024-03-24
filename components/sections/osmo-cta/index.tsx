@@ -95,7 +95,7 @@ export default function OsmoCTASection() {
             <span className="font-h1 text-xl leading-[26px] text-neutral-100 xl:text-2xl xl:leading-[31px]">
               117
             </span>
-            <span className="font-light leading-6 text-[#F9F8F799]">
+            <span className="font-light leading-6 text-[#F9F8F760]">
               rank on{" "}
               <span className="inline-flex text-neutral-100">
                 CoinGecko
@@ -125,7 +125,7 @@ export default function OsmoCTASection() {
             <span className="font-h1 text-xl leading-[26px] text-neutral-100 xl:text-2xl xl:leading-[31px]">
               1M OSMO
             </span>
-            <span className="font-light leading-6 text-[#F9F8F799]">
+            <span className="font-light leading-6 text-[#F9F8F760]">
               burned
             </span>
           </div>
