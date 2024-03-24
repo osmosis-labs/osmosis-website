@@ -85,7 +85,7 @@ export default function BackersSection() {
   return (
     <>
       <div className="flex flex-col items-center justify-center gap-4 self-stretch xl:py-3">
-        <span className="leading-[25px] text-[#F9F8F760]">Backers include</span>
+        <span className="leading-[25px] text-[#F9F8F799]">Backers include</span>
         <div
           className={cn(
             "relative h-[192px] overflow-hidden transition-all md:h-full",
@@ -118,7 +118,7 @@ export default function BackersSection() {
         onClick={() => setIsExpanded((p) => !p)}
         className="flex items-center p-4 md:hidden"
       >
-        <span className="leading-[25px] text-[#F9F8F760]">
+        <span className="leading-[25px] text-[#F9F8F799]">
           {isExpanded ? "Hide All" : "Show All"}
         </span>
         <Image

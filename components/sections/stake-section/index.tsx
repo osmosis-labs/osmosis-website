@@ -40,7 +40,7 @@ export default function StakeSection() {
               <span className="self-stretch font-h1 text-xl font-medium leading-[26px] text-neutral-100">
                 Superfluid staking
               </span>
-              <p className="leading-[25px] text-[#F9F8F760]">
+              <p className="leading-[25px] text-[#F9F8F799]">
                 Access an innovative feature that allows you to earn trading
                 fees and stake{" "}
                 <span className="font-bold">at the same time.</span>
@@ -59,7 +59,7 @@ export default function StakeSection() {
               <span className="self-stretch font-h1 text-xl font-medium leading-[26px] text-neutral-100">
                 Organic yields
               </span>
-              <p className="leading-[25px] text-[#F9F8F760]">
+              <p className="leading-[25px] text-[#F9F8F799]">
                 Every trade on Osmosis generates fees that stakers receive for
                 securing the protocol.
               </p>
@@ -79,7 +79,7 @@ export default function StakeSection() {
                   <span className="self-stretch font-h1 text-xl font-medium leading-[26px] text-neutral-100">
                     Airdrop exposure
                   </span>
-                  <p className="leading-[25px] text-[#F9F8F760]">
+                  <p className="leading-[25px] text-[#F9F8F799]">
                     OSMO stakers have received
                     <br className="hidden md:block 2xl:hidden" /> up to{" "}
                     <br className="hidden 2xl:block" /> over X airdrops to date.
@@ -90,7 +90,7 @@ export default function StakeSection() {
                   <span className="bg-stake-heading font-h1 text-3.5xl leading-[35px] -tracking-[0.64px] 2xl:text-5xl 2xl:leading-[52px] 2xl:-tracking-[0.96px]">
                     $65M
                   </span>
-                  <p className="leading-[25px] text-[#F9F8F760]">
+                  <p className="leading-[25px] text-[#F9F8F799]">
                     Airdropped to <br className="hidden md:block 2xl:hidden" />{" "}
                     OSMO stakers
                   </p>
@@ -161,7 +161,7 @@ export default function StakeSection() {
                     </div>
                   </div>
                 </div>
-                <span className="text-sm leading-[22px] text-[#F9F8F760]">
+                <span className="text-sm leading-[22px] text-[#F9F8F799]">
                   * Upcoming airdrops are not guaranteed.
                 </span>
               </div>
