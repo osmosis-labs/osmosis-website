@@ -23,15 +23,13 @@ export default function NavigationMenu({ className }: { className?: string }) {
   return (
     <nav
       className={cn(
-        "lg:has-[div[data-headlessui-state='open']]:bg-gradient-navbar-menu-open z-50 flex items-center gap-2 rounded-full border border-[#9084CF40] px-8 py-4 backdrop-blur-xl lg:px-4 lg:py-2",
+        "has-[div[data-headlessui-state='open']]:bg-gradient-navbar-menu-open z-50 flex items-center gap-2 rounded-full border border-[#9084CF40] px-8 py-4 backdrop-blur-xl lg:px-4 lg:py-2",
         className,
       )}
     >
       {links.map(({ label, href }) => (
         <Fragment key={label}>
-          <Link href={href} className="font-body1 text-body1">
-            {label}
-          </Link>
+          <Link href={href}>{label}</Link>
           <Image
             src={"/assets/icons/nav-links-divider.svg"}
             alt="Nav Divider"

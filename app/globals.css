@@ -13,10 +13,12 @@
       #140f3400 100%
     );
   }
-  .bg-gradient-navbar-menu-open {
-    background-image: url("/assets/top-nav-gradient.svg");
-    background-repeat: no-repeat;
-    background-position: center;
+  @media (min-width: 1024px) {
+    .bg-gradient-navbar-menu-open {
+      background-image: url("/assets/top-nav-gradient.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+    }
   }
   .swap-tool-bg {
     background-color: rgba(20, 15, 52, 0.1);
