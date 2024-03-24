@@ -129,6 +129,256 @@
         )
         /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
   }
+  .border-osmo-cta {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .bg-osmo-cta {
+    background-image: url("/assets/bg-osmo-cta.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  @media (min-width: 640px) {
+    .bg-osmo-cta {
+      background-image: url("/assets/bg-osmo-cta-sm.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+  @media (min-width: 768px) {
+    .bg-osmo-cta {
+      background-image: url("/assets/bg-osmo-cta-md.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+  @media (min-width: 1024px) {
+    .bg-osmo-cta {
+      background-image: url("/assets/bg-osmo-cta-lg.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+  @media (min-width: 1280px) {
+    .bg-osmo-cta {
+      background-image: url("/assets/bg-osmo-cta-xl.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+  @media (min-width: 1536px) {
+    .bg-osmo-cta {
+      background-image: url("/assets/bg-osmo-cta-2xl.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+  .bg-stake-heading {
+    background: linear-gradient(180deg, #eeecea 22.39%, #acd9e7 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .bg-gradient-pulse-green {
+    background-image: radial-gradient(
+      52.09% 52.09% at 47% 48%,
+      #00a399 0%,
+      rgba(32, 27, 67, 0) 100%
+    );
+  }
+  .upcoming-airdrops-row-width {
+    width: calc((48px * 10 + 8px * 8) * 2);
+  }
+  .bg-earn-section {
+    background: radial-gradient(
+      113.84% 75.43% at 0% 1.14%,
+      rgba(250, 178, 239, 0.45) 0%,
+      rgba(235, 38, 235, 0.36) 21.5%,
+      rgba(178, 38, 155, 0.16) 60.5%,
+      rgba(22, 15, 56, 0) 100%
+    );
+  }
+  .bg-earn-headline {
+    background: linear-gradient(180deg, #eeecea 55.38%, #f1c7fc 90.7%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .bg-earn-card-radial {
+    background: radial-gradient(
+      109.08% 102.6% at 100% 0%,
+      rgba(213, 21, 188, 0.22) 0%,
+      rgba(15, 9, 45, 0) 100%
+    );
+  }
+  @media (min-width: 1024px) {
+    .bg-earn-card-radial {
+      background: radial-gradient(
+        102.12% 96.05% at 90.28% 96.15%,
+        rgba(213, 21, 188, 0.45) 0%,
+        rgba(15, 9, 45, 0) 100%
+      );
+    }
+  }
+  .bg-help-headline {
+    background: linear-gradient(180deg, #eeecea 18.57%, #c7e9fc 85%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .bg-help-card-radial {
+    background: radial-gradient(
+      100% 100% at 120% 10%,
+      rgba(90, 182, 233, 0.61) 0%,
+      rgba(15, 9, 45, 0) 100%
+    );
+  }
+  @media (min-width: 1024px) {
+    .bg-help-card-radial {
+      background: radial-gradient(
+        65% 100% at 100% 85%,
+        rgba(90, 182, 233, 0.61) 0%,
+        rgba(15, 9, 45, 0) 100%
+      );
+    }
+  }
+  .border-vote-section {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .bg-vote-headline {
+    background: linear-gradient(
+      109deg,
+      #e8d5ef 10%,
+      #ff8642 35%,
+      #ca36fe 70%,
+      #640ad7 88%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .bg-vote-section {
+    background-image: url("/assets/vote-section-bgs/bg-vote-section.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  @media (min-width: 640px) {
+    .bg-vote-section {
+      background-image: url("/assets/vote-section-bgs/bg-vote-section-sm.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+  @media (min-width: 768px) {
+    .bg-vote-section {
+      background-image: url("/assets/vote-section-bgs/bg-vote-section-md.svg");
+      background-repeat: no-repeat;
+      background-position: bottom;
+      background-size: cover;
+    }
+  }
+  @media (min-width: 1024px) {
+    .bg-vote-section {
+      background-image: url("/assets/vote-section-bgs/bg-vote-section-lg.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+  @media (min-width: 1280px) {
+    .bg-vote-section {
+      background-image: url("/assets/vote-section-bgs/bg-vote-section-xl.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+  @media (min-width: 1536px) {
+    .bg-vote-section {
+      background-image: url("/assets/vote-section-bgs/bg-vote-section-2xl.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+  .bg-build-headline {
+    background: linear-gradient(180deg, #eeecea 18.57%, #ffd4bd 85%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .bg-build-card-radial {
+    background: radial-gradient(
+      70% 90% at 90% 100%,
+      rgba(255, 134, 66, 0.5) 0%,
+      rgba(15, 9, 45, 0) 100%
+    );
+  }
+  .bg-trade-headline {
+    background: linear-gradient(
+      109deg,
+      #e8d5ef 12.84%,
+      #ff8642 41.46%,
+      #ca36fe 69.65%,
+      #640ad7 88.15%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .bg-trade-section {
+    background-image: url("/assets/trade-section-bgs/bg-trade-section.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  @media (min-width: 640px) {
+    .bg-trade-section {
+      background-image: url("/assets/trade-section-bgs/bg-trade-section-sm.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+  @media (min-width: 768px) {
+    .bg-trade-section {
+      background-image: url("/assets/trade-section-bgs/bg-trade-section-md.svg");
+      background-repeat: no-repeat;
+      background-position: bottom;
+      background-size: cover;
+    }
+  }
+  @media (min-width: 1024px) {
+    .bg-trade-section {
+      background-image: url("/assets/trade-section-bgs/bg-trade-section-lg.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+  @media (min-width: 1280px) {
+    .bg-trade-section {
+      background-image: url("/assets/trade-section-bgs/bg-trade-section-xl.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+  @media (min-width: 1536px) {
+    .bg-trade-section {
+      background-image: url("/assets/trade-section-bgs/bg-trade-section-2xl.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
   @layer components {
     html {
       font-family: Inter, ui-sans-serif, system-ui;

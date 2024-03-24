@@ -1,5 +1,4 @@
 import type { Config } from "tailwindcss";
-import defaultTheme from "tailwindcss/defaultTheme";
 
 const config = {
   darkMode: ["class"],
@@ -25,12 +24,22 @@ const config = {
           transform: "translate3d(calc((309px * 4 + 8px * 3) * -1 - 8px),0,0)",
         },
       },
+      "upcoming-airdrops-marquee": {
+        "0%": { transform: "translateZ(0)" },
+        "100%": {
+          transform: "translate3d(calc((48px * 10 + 8px * 9) * -1 - 8px),0,0)",
+        },
+      },
     },
     animation: {
       marquee: "marquee 40s linear infinite",
       "marquee-reverse": "marquee 40s linear infinite reverse",
       "marquee-sm": "marquee-sm 40s linear infinite",
       "marquee-sm-reverse": "marquee-sm 40s linear infinite reverse",
+      "upcoming-airdrops-marquee":
+        "upcoming-airdrops-marquee 10s linear infinite",
+      "upcoming-airdrops-marquee-reverse":
+        "upcoming-airdrops-marquee 10s linear infinite reverse",
     },
     extend: {
       borderRadius: {
