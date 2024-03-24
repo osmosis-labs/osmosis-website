@@ -75,7 +75,7 @@ export default function StakeSection() {
             />
             <div className="flex flex-col gap-4">
               <div className="flex flex-col gap-4 self-stretch py-3 md:flex-row md:items-center md:gap-8 lg:justify-between lg:gap-0">
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col gap-2 md:w-[242px] 2xl:w-[300px]">
                   <span className="self-stretch font-h1 text-xl font-medium leading-[26px] text-neutral-100">
                     Airdrop exposure
                   </span>
@@ -86,7 +86,7 @@ export default function StakeSection() {
                   </p>
                 </div>
                 <div className="hidden h-18 w-[1px] bg-[#3C356D] md:block" />
-                <div className="flex gap-3 max-md:items-center md:flex-col md:gap-1 md:px-4">
+                <div className="flex gap-3 max-md:items-center md:flex-col md:gap-1 md:px-4 lg:w-[187px] 2xl:w-auto">
                   <span className="bg-stake-heading font-h1 text-3.5xl leading-[35px] -tracking-[0.64px] 2xl:text-5xl 2xl:leading-[52px] 2xl:-tracking-[0.96px]">
                     $65M
                   </span>
