@@ -223,6 +223,28 @@
       );
     }
   }
+  .bg-help-headline {
+    background: linear-gradient(180deg, #eeecea 18.57%, #c7e9fc 85%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .bg-help-card-radial {
+    background: radial-gradient(
+      100% 100% at 120% 10%,
+      rgba(90, 182, 233, 0.61) 0%,
+      rgba(15, 9, 45, 0) 100%
+    );
+  }
+  @media (min-width: 1024px) {
+    .bg-help-card-radial {
+      background: radial-gradient(
+        65% 100% at 100% 85%,
+        rgba(90, 182, 233, 0.61) 0%,
+        rgba(15, 9, 45, 0) 100%
+      );
+    }
+  }
   @layer components {
     html {
       font-family: Inter, ui-sans-serif, system-ui;
