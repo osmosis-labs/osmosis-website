@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { DropwdownMenu } from "@/components/navbar/dropdown-menu";
+import { DropdownMenu } from "@/components/navbar/dropdown-menu";
 import { cn } from "@/lib/utils";
 
 const links = [
@@ -39,7 +39,7 @@ export default function NavigationMenu({ className }: { className?: string }) {
           />
         </Fragment>
       ))}
-      <DropwdownMenu />
+      <DropdownMenu />
     </nav>
   );
 }

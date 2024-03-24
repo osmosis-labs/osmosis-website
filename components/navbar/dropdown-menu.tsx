@@ -75,7 +75,7 @@ const socials = [
   },
 ];
 
-export function DropwdownMenu() {
+export function DropdownMenu() {
   return (
     <Menu>
       <Menu.Button className="inline-flex items-center">
