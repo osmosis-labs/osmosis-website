@@ -157,14 +157,16 @@ function HelpCard({
         <h5 className="font-h1 text-xl font-medium leading-[26px] text-neutral-100 2xl:text-2xl 2xl:leading-[31px]">
           {title}
         </h5>
-        <p
-          className={cn(
-            "max-w-[448px] self-stretch leading-[25px] text-[#F9F8F760]",
-            descriptionClassName,
-          )}
-        >
-          {description}
-        </p>
+        {description && (
+          <p
+            className={cn(
+              "max-w-[448px] self-stretch leading-[25px] text-[#F9F8F760]",
+              descriptionClassName,
+            )}
+          >
+            {description}
+          </p>
+        )}
       </div>
     </div>
   );
