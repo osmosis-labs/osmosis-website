@@ -3,6 +3,7 @@ import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar";
 import NavigationMenu from "@/components/navbar/navigation-menu";
+import Footer from "@/components/footer";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -53,11 +54,7 @@ export default function RootLayout({
       >
         <Navbar />
         {children}
-        {/* <footer className="mb-11">
-          <div className="mx-auto flex h-[345px] w-full max-w-content items-center justify-center bg-osmoverse-900">
-            footer
-          </div>
-        </footer> */}
+        <Footer />
         <div className="fixed inset-x-0 bottom-8 flex w-full justify-center lg:hidden">
           <NavigationMenu />
         </div>
