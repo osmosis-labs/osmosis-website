@@ -9,125 +9,14 @@
   .bg-gradient-navbar-border {
     background: radial-gradient(
       circle at 50% 50%,
-      #cfc8ff50 0%,
-      #140f3400 100%
+      rgba(207, 200, 255, 0.25) 0%,
+      rgba(20, 15, 52, 0) 100%
     );
   }
-  @media (min-width: 1024px) {
-    .bg-gradient-navbar-menu-open {
-      background-image: url("/assets/top-nav-gradient.svg");
-      background-repeat: no-repeat;
-      background-position: center;
-    }
-  }
-  .swap-tool-bg {
-    background-color: rgba(20, 15, 52, 0.1);
-    backdrop-filter: blur(24px);
-  }
-  .border-swap-tool {
-    box-shadow: inset 0px 0px 0px 1px #ffffff45;
-  }
-  .bg-hero-section {
-    background-image: url("/assets/hero-bg.svg");
+  .bg-gradient-navbar-menu-open {
+    background-image: url("/assets/top-nav-gradient.svg");
     background-repeat: no-repeat;
     background-position: center;
-    background-size: cover;
-  }
-  .bg-hero-section-sm {
-    background-image: url("/assets/hero-bg-sm.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-  }
-  .bg-hero-section-md {
-    background-image: url("/assets/hero-bg-md.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-  }
-  .bg-hero-section-mobile {
-    background-image: url("/assets/hero-bg-mobile.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-  }
-  .border-token-stats-upcoming {
-    box-shadow: inset 0px 0px 0px 1px #565081;
-  }
-  .stats-with-tweets-bg {
-    background: radial-gradient(
-        68.58% 65.85% at 98.59% -2.72%,
-        rgba(255, 237, 227, 0.5) 0%,
-        rgba(255, 134, 66, 0.45) 11.48%,
-        rgba(235, 38, 203, 0.2) 33.33%,
-        rgba(73, 44, 225, 0.08) 66.67%,
-        rgba(6, 0, 70, 0) 100%
-      ),
-      linear-gradient(204deg, #211957 32.87%, rgba(17, 12, 45, 0) 55.3%);
-  }
-  .border-stat-card {
-    box-shadow: inset 0px 0px 0px 1px #9084cf25;
-  }
-  .row-width-xl {
-    width: calc((472px * 8 + 16px * 6) * 2);
-  }
-  .row-width {
-    width: calc((309px * 8 + 8px * 6) * 2);
-  }
-  .tweets-mask {
-    mask-image: linear-gradient(
-      90deg,
-      #d9d9d900 0%,
-      #d9d9d9 25%,
-      #d9d9d9 75%,
-      #d9d9d900 100%
-    );
-  }
-  .trusted-heading-bg {
-    background-image: linear-gradient(
-      106.31deg,
-      #e8d5ef 0%,
-      #ff8642 30%,
-      #ca36fe 75%,
-      #640ad7 90%
-    );
-    background-size: 100%;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -moz-text-fill-color: transparent;
-  }
-  .trend-card-bg-1 {
-    background:
-      linear-gradient(320deg, #140f3410, #140f34),
-      radial-gradient(
-          306.07% 151.89% at 96.44% 111.57%,
-          #b4e4ff 5.06%,
-          #2994d0 34.15%,
-          rgba(13, 9, 42, 0) 100%
-        )
-        /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
-  }
-  .trend-card-bg-2 {
-    background:
-      linear-gradient(320deg, #140f3410, #140f34),
-      radial-gradient(
-          142.49% 107.23% at 98.28% 95.87%,
-          #ff8642 0%,
-          #9a1b86 31.97%,
-          rgba(13, 9, 42, 0) 100%
-        )
-        /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
-  }
-  .trend-card-bg-3 {
-    background:
-      linear-gradient(330deg, #140f3466, #140f34),
-      radial-gradient(
-          261.83% 251.5% at 107.33% 93.8%,
-          #ca36fe 7.33%,
-          #492ce1 37.22%,
-          rgba(13, 9, 42, 0) 100%
-        )
-        /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
   }
   @layer components {
     html {
@@ -136,6 +25,41 @@
     }
     body {
       @apply bg-osmoverse-900;
+    }
+
+    h1 {
+      @apply font-h1 text-h1;
+    }
+    h2 {
+      @apply font-h2 text-h2;
+    }
+    h3 {
+      @apply font-h3 text-h3;
+    }
+    h4 {
+      @apply font-h4 text-h4;
+    }
+    .subtitle1 {
+      @apply font-subtitle1 text-subtitle1;
+    }
+    .subtitle2 {
+      @apply font-subtitle2 text-subtitle2;
+    }
+    .body1,
+    span {
+      @apply font-body1 text-body1;
+    }
+    .body2 {
+      @apply font-body2 text-body2;
+    }
+    .button {
+      @apply font-button text-button;
+    }
+    .caption {
+      @apply font-caption text-caption;
+    }
+    .overline {
+      @apply font-overline text-overline;
     }
   }
 }

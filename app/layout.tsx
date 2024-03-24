@@ -2,18 +2,15 @@ import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar";
-import NavigationMenu from "@/components/navbar/navigation-menu";
 
 const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-inter",
-  weight: ["300", "400", "500", "600"],
+  weight: ["400", "600"],
 });
 
 const poppins = Poppins({
   subsets: ["latin"],
-  variable: "--font-poppins",
-  weight: ["400", "500"],
+  weight: ["500"],
 });
 
 const metadataBase = process.env.SITE_URL
@@ -49,18 +46,15 @@ export default function RootLayout({
       }}
     >
       <body
-        className={`bg-osmoverse-900 ${inter.variable} ${poppins.variable} container max-sm:px-4 sm:max-w-[448px] md:max-w-screen-sm lg:max-w-[960px] xl:max-w-[1152px] 2xl:max-w-[1440px]`}
+        className={`bg-osmoverse-900 ${inter.className} ${poppins.className}`}
       >
         <Navbar />
         {children}
-        {/* <footer className="mb-11">
+        <footer className="mb-11">
           <div className="mx-auto flex h-[345px] w-full max-w-content items-center justify-center bg-osmoverse-900">
             footer
           </div>
-        </footer> */}
-        <div className="fixed inset-x-0 bottom-8 flex w-full justify-center lg:hidden">
-          <NavigationMenu />
-        </div>
+        </footer>
       </body>
     </html>
   );
