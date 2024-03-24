@@ -55,7 +55,7 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
-        <div className="fixed inset-x-0 bottom-8 flex w-full justify-center lg:hidden">
+        <div className="fixed inset-x-0 bottom-8 z-[999] flex w-full justify-center lg:hidden">
           <NavigationMenu />
         </div>
       </body>
