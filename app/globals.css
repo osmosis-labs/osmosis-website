@@ -306,6 +306,19 @@
       background-size: cover;
     }
   }
+  .bg-build-headline {
+    background: linear-gradient(180deg, #eeecea 18.57%, #ffd4bd 85%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .bg-build-card-radial {
+    background: radial-gradient(
+      70% 90% at 90% 100%,
+      rgba(255, 134, 66, 0.5) 0%,
+      rgba(15, 9, 45, 0) 100%
+    );
+  }
   @layer components {
     html {
       font-family: Inter, ui-sans-serif, system-ui;
