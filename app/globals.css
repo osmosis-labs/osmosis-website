@@ -319,6 +319,64 @@
       rgba(15, 9, 45, 0) 100%
     );
   }
+  .bg-trade-headline {
+    background: linear-gradient(
+      109deg,
+      #e8d5ef 12.84%,
+      #ff8642 41.46%,
+      #ca36fe 69.65%,
+      #640ad7 88.15%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .bg-trade-section {
+    background-image: url("/assets/trade-section-bgs/bg-trade-section.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  @media (min-width: 640px) {
+    .bg-trade-section {
+      background-image: url("/assets/trade-section-bgs/bg-trade-section-sm.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+  @media (min-width: 768px) {
+    .bg-trade-section {
+      background-image: url("/assets/trade-section-bgs/bg-trade-section-md.svg");
+      background-repeat: no-repeat;
+      background-position: bottom;
+      background-size: cover;
+    }
+  }
+  @media (min-width: 1024px) {
+    .bg-trade-section {
+      background-image: url("/assets/trade-section-bgs/bg-trade-section-lg.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+  @media (min-width: 1280px) {
+    .bg-trade-section {
+      background-image: url("/assets/trade-section-bgs/bg-trade-section-xl.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+  @media (min-width: 1536px) {
+    .bg-trade-section {
+      background-image: url("/assets/trade-section-bgs/bg-trade-section-2xl.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
   @layer components {
     html {
       font-family: Inter, ui-sans-serif, system-ui;
