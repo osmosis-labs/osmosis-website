@@ -1,3 +1,4 @@
+import BuildSection from "@/components/sections/build-section";
 import EarnSection from "@/components/sections/earn-section";
 import HelpSection from "@/components/sections/help-section";
 import HeroSection from "@/components/sections/hero";
@@ -22,6 +23,7 @@ export default function Home() {
       <EarnSection />
       <HelpSection />
       <VoteSection />
+      <BuildSection />
       {/*
       <section className="mt-65 flex h-[500px] w-[1440px] items-center justify-center bg-osmoverse-800">
         contacts-section.tsx
