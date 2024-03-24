@@ -1,18 +1,18 @@
+import HeroSection from "@/components/sections/hero";
+import StatsWithTweets from "@/components/sections/stats-with-tweets";
+import TokenStatsSection from "@/components/sections/token-stats";
+
 export default function Home() {
   return (
-    <main className="mb-45 mt-10.5 flex flex-col items-center">
-      <section className="flex h-[600px] w-[1440px] max-w-content items-center justify-center bg-osmoverse-800">
-        hero-section.tsx
-      </section>
-      <section className="mt-20 flex h-[526px] w-[1440px] max-w-content items-center justify-center bg-osmoverse-800">
-        token-stats.tsx
-      </section>
-      <section className="mt-47 flex h-[875px] w-[1440px] max-w-content items-center justify-center bg-osmoverse-800">
+    <main className="mb-8 mt-6 flex w-full flex-col sm:mb-5.5 sm:mt-4 md:mb-14 md:mt-5.5 lg:mt-4.5 xl:mb-18 xl:mt-11 2xl:mb-20 2xl:mt-6.5">
+      <HeroSection />
+      <TokenStatsSection />
+      {/* <section className="mt-47 flex h-[875px] w-[1440px] max-w-content items-center justify-center bg-osmoverse-800">
         explore-assets.tsx
       </section>
-      <section className="mt-14.5 flex h-[1141px] w-full items-center justify-center bg-osmoverse-800">
-        stats-with-tweets.tsx
-      </section>
+    */}
+      <StatsWithTweets />
+      {/*
       <section className="mt-19.5 flex h-[561px] w-[1440px] max-w-content items-center justify-center bg-osmoverse-800">
         osmo-cta.tsx
       </section>
@@ -33,7 +33,7 @@ export default function Home() {
       </section>
       <section className="mt-28 flex h-[466px] w-[1440px] items-center justify-center bg-osmoverse-800">
         trade-section.tsx
-      </section>
+      </section> */}
     </main>
   );
 }
