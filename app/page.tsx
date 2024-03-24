@@ -5,6 +5,7 @@ import OsmoCTASection from "@/components/sections/osmo-cta";
 import StakeSection from "@/components/sections/stake-section";
 import StatsWithTweets from "@/components/sections/stats-with-tweets";
 import TokenStatsSection from "@/components/sections/token-stats";
+import VoteSection from "@/components/sections/vote-section";
 
 export default function Home() {
   return (
@@ -20,10 +21,8 @@ export default function Home() {
       <StakeSection />
       <EarnSection />
       <HelpSection />
+      <VoteSection />
       {/*
-      <section className="mt-35 flex h-[559px] w-[1440px] items-center justify-center bg-osmoverse-800">
-        vote-section.tsx
-      </section>
       <section className="mt-65 flex h-[500px] w-[1440px] items-center justify-center bg-osmoverse-800">
         contacts-section.tsx
       </section>
