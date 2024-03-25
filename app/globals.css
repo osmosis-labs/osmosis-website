@@ -57,6 +57,12 @@
   .border-token-stats-upcoming {
     box-shadow: inset 0px 0px 0px 1px #565081;
   }
+  .bg-explore-assets-headline {
+    background: linear-gradient(0deg, #eeecea 16.94%, #f1c7fc 110%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
   .stats-with-tweets-bg {
     background: radial-gradient(
         68.58% 65.85% at 98.59% -2.72%,
