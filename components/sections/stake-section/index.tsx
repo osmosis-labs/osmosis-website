@@ -161,9 +161,11 @@ export default function StakeSection() {
                     </div>
                   </div>
                 </div>
-                <span className="text-sm leading-[22px] text-[#F9F8F799]">
-                  * Upcoming airdrops are not guaranteed.
-                </span>
+                <div className="flex items-center self-stretch px-2 opacity-55">
+                  <span className="text-sm leading-[22px] text-[#F9F8F799]">
+                    * Upcoming airdrops are not guaranteed.
+                  </span>
+                </div>
               </div>
             </div>
           </div>
