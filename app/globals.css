@@ -398,8 +398,5 @@
       font-family: Inter, ui-sans-serif, system-ui;
       @apply text-white-full;
     }
-    body {
-      @apply bg-osmoverse-900;
-    }
   }
 }

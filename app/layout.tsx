@@ -50,7 +50,7 @@ export default function RootLayout({
       }}
     >
       <body
-        className={`bg-osmoverse-900 ${inter.variable} ${poppins.variable} container max-sm:px-4 sm:max-w-[448px] md:max-w-screen-sm lg:max-w-[960px] xl:max-w-[1152px] 2xl:max-w-[1440px]`}
+        className={`bg-[#140F34] ${inter.variable} ${poppins.variable} container max-sm:px-4 sm:max-w-[448px] md:max-w-screen-sm lg:max-w-[960px] xl:max-w-[1152px] 2xl:max-w-[1440px]`}
       >
         <Navbar />
         {children}
