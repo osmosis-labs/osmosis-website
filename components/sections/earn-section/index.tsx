@@ -32,8 +32,7 @@ const cards: Card[] = [
   },
   {
     title: "Perpetuals",
-    description:
-      "Trade at up to XX leverage or earn by providing liquidity as a market-maker",
+    description: "Trade at up to 30x leverage or earn by providing liquidity.",
     descriptionClassName: "lg:w-[229px] 2xl:w-full",
     iconUri: "/assets/earn/card-icons/perps-gray.svg",
     illustration: (
