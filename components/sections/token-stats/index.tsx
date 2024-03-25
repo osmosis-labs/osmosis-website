@@ -233,7 +233,7 @@ function TokenStatsRow({
                 {formatPretty(price)}
               </span>
               <span
-                className={cn("inline-flex gap-1 leading-none", {
+                className={cn("inline-flex gap-1.5 leading-none", {
                   "text-[#37D56D]": isPositive,
                   "text-[#FA825D]": !isPositive,
                 })}
