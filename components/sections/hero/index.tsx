@@ -6,12 +6,12 @@ export default function HeroSection() {
     <section className="lg:bg-hero-section bg-hero-section-mobile sm:bg-hero-section-sm md:bg-hero-section-md flex rounded-3xl p-2 sm:px-4 sm:py-6 lg:rounded-[32px] lg:p-4 2xl:rounded-[48px] 2xl:px-6 2xl:py-8">
       <div className="flex w-full flex-col sm:gap-6 sm:py-6 md:gap-8 lg:flex-row lg:items-center lg:justify-between lg:py-0">
         <div className="flex flex-col gap-4 px-2 max-sm:py-4 sm:gap-3 sm:px-6 md:flex-row md:items-center md:justify-between md:px-4 lg:flex-col lg:items-start lg:gap-6 lg:px-6 xl:gap-8 xl:px-4 2xl:gap-2 2xl:px-8">
-          <h1 className="inline-flex flex-col gap-[3px] font-h1 text-[34px] font-medium leading-[34px] -tracking-[0.03em] text-neutral-100 sm:text-[40px] sm:leading-10 lg:gap-2 lg:text-5xl lg:leading-[48px] xl:text-[64px] xl:leading-[64px] 2xl:text-7xl 2xl:leading-[79.20px] 2xl:tracking-tight">
+          <h1 className="inline-flex flex-col gap-1 font-h1 text-[34px] font-medium leading-[34px] -tracking-[1.2px] text-neutral-100 sm:text-[40px] sm:leading-10 lg:gap-2 lg:text-5xl lg:leading-[48px] lg:-tracking-[1.44px] xl:text-[64px] xl:leading-[64px] xl:-tracking-[1.92px] 2xl:text-7xl 2xl:leading-[79.20px] 2xl:-tracking-[2.16px] 2xl:tracking-tight">
             <span>Discover and trade</span>
             <span className="inline-flex items-center gap-3 sm:gap-5.5">
               the next
               {/**base gap is compensated in the widths of the brackets */}
-              <div className="flex w-[122px] items-center justify-between sm:w-[131px] lg:w-40 xl:w-[203px] 2xl:w-[238px]">
+              <div className="flex w-[122px] items-center justify-between sm:w-[131px] lg:w-40 xl:w-[203px] xl:gap-2.5 2xl:w-[238px]">
                 <Bracket />
                 <div className="flex items-center gap-2 pb-[1px] pl-[7.5px] pr-[6.5px] sm:p-0 lg:pb-[9px] lg:pl-1 lg:pr-[3px] lg:pt-0.5 xl:p-0 2xl:gap-3">
                   <Image
@@ -140,10 +140,9 @@ function Bracket({ isMirrored }: { isMirrored?: boolean }) {
       src={"/assets/bracket.svg"}
       alt="Bracket"
       width={6}
-      height={46}
+      height={48}
       className={cn(
-        // sistema queste width e metti quelle del design
-        "h-10.5 self-stretch lg:h-14 lg:w-2 xl:h-16 xl:w-2.5 2xl:h-22.5 2xl:w-3",
+        "sm h-12 self-stretch sm:h-[46px] lg:h-[58px] lg:w-2 xl:h-[80px] xl:w-2.5 2xl:h-22.5 2xl:w-3",
         { "scale-x-[-1]": isMirrored },
       )}
     />
