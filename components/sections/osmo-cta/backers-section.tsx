@@ -55,26 +55,35 @@ const backers = [
   },
   {
     imageUri: "/assets/backers/Anatoly.png",
+    isTextSm: true,
+    isPortrait: true,
     name: "Anatoly Yakovenko",
   },
   {
     imageUri: "/assets/backers/Naval.png",
+    isPortrait: true,
     name: "Naval",
   },
   {
     imageUri: "/assets/backers/Ethan.png",
+    isTextSm: true,
+    isPortrait: true,
     name: "Ethan Buchman",
   },
   {
     imageUri: "/assets/backers/Eric.png",
+    isPortrait: true,
     name: "Eric Schmidt",
   },
   {
     imageUri: "/assets/backers/Hasu.png",
+    isPortrait: true,
     name: "Hasu",
   },
   {
     imageUri: "/assets/backers/Raj.png",
+    isTextSm: true,
+    isPortrait: true,
     name: "Raj Gokal",
   },
 ];
@@ -95,19 +104,39 @@ export default function BackersSection() {
           )}
         >
           <div className="flex flex-col gap-2 md:flex-row md:flex-wrap md:content-center md:items-center md:justify-center md:gap-3 md:self-stretch">
-            {backers.map(({ imageUri, name }) => {
+            {backers.map(({ imageUri, name, isPortrait, isTextSm }) => {
               return (
                 <div
                   key={name}
                   className="relative flex h-14 w-[342px] items-center justify-center self-stretch rounded-lg border border-solid border-[#3C356D] bg-[#201B43] sm:w-[416px] md:w-max"
                 >
-                  <Image
-                    src={imageUri}
-                    className="relative inset-[0%] h-full min-h-1 w-auto min-w-1"
-                    width={140}
-                    height={56}
-                    alt={name}
-                  />
+                  {isPortrait ? (
+                    <div className="flex h-auto w-full items-center justify-center gap-2.5 md:px-6">
+                      <Image
+                        src={imageUri}
+                        className="h-auto w-auto"
+                        width={42}
+                        height={34}
+                        alt={name}
+                      />
+                      <span
+                        className={cn("text-neutral-100", {
+                          "text-sm leading-[22px]": isTextSm,
+                          "text-base leading-[25px]": !isTextSm,
+                        })}
+                      >
+                        {name}
+                      </span>
+                    </div>
+                  ) : (
+                    <Image
+                      src={imageUri}
+                      className="relative inset-[0%] h-full min-h-1 w-auto min-w-1"
+                      width={140}
+                      height={56}
+                      alt={name}
+                    />
+                  )}
                 </div>
               );
             })}
