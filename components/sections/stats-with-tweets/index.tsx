@@ -103,7 +103,7 @@ const StatCard = ({ bottleUri, iconUri, title, value, bgClass }: StatCard) => {
   return (
     <div
       className={cn(
-        "border-stat-card relative flex flex-col gap-8 rounded-2xl p-4 lg:gap-16 xl:rounded-3xl 2xl:p-6",
+        "outline-stat-card relative flex flex-col gap-8 rounded-2xl p-4 lg:gap-16 xl:rounded-3xl 2xl:p-6",
         bgClass,
       )}
     >

@@ -65,8 +65,9 @@
       ),
       linear-gradient(204deg, #211957 32.87%, rgba(17, 12, 45, 0) 55.3%);
   }
-  .border-stat-card {
-    box-shadow: inset 0px 0px 0px 1px #9084cf25;
+  .outline-stat-card {
+    outline-offset: -1px;
+    outline: 1px solid rgba(200, 169, 255, 0.25);
   }
   .row-width-xl {
     width: calc((472px * 8 + 16px * 6) * 2);
@@ -97,37 +98,50 @@
     -moz-text-fill-color: transparent;
   }
   .trend-card-bg-1 {
-    background:
-      linear-gradient(320deg, #140f3410, #140f34),
+    background-image: radial-gradient(
+        circle at 0 0,
+        #140f34,
+        rgba(9, 23, 77, 0.37) 58%,
+        rgba(73, 167, 255, 0)
+      ),
       radial-gradient(
-          306.07% 151.89% at 96.44% 111.57%,
-          #b4e4ff 5.06%,
-          #2994d0 34.15%,
-          rgba(13, 9, 42, 0) 100%
-        )
-        /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+        circle at 100% 100%,
+        #6dbfec,
+        #1a8ada 15%,
+        #2063ca 30%,
+        #2540bb 56%,
+        #140f34
+      );
   }
   .trend-card-bg-2 {
-    background:
-      linear-gradient(320deg, #140f3410, #140f34),
+    background-image: radial-gradient(
+        circle at 0 0,
+        #140f34 3%,
+        rgba(61, 7, 71, 0.41) 71%,
+        rgba(255, 152, 18, 0)
+      ),
       radial-gradient(
-          142.49% 107.23% at 98.28% 95.87%,
-          #ff8642 0%,
-          #9a1b86 31.97%,
-          rgba(13, 9, 42, 0) 100%
-        )
-        /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+        circle at 100% 100%,
+        #fc8a4a,
+        rgba(229, 75, 120, 0.85) 12%,
+        #970981 31%,
+        #140f34
+      );
   }
   .trend-card-bg-3 {
-    background:
-      linear-gradient(330deg, #140f3466, #140f34),
+    background-image: radial-gradient(
+        circle at 0 0,
+        #140f34 5%,
+        rgba(19, 10, 78, 0.53) 63%,
+        rgba(212, 35, 224, 0)
+      ),
       radial-gradient(
-          261.83% 251.5% at 107.33% 93.8%,
-          #ca36fe 7.33%,
-          #492ce1 37.22%,
-          rgba(13, 9, 42, 0) 100%
-        )
-        /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+        circle at 100% 100%,
+        #c431f8,
+        #841cec 10%,
+        #2915bd 43%,
+        #090520 77%
+      );
   }
   .border-osmo-cta {
     border: 1px solid rgba(255, 255, 255, 0.1);
