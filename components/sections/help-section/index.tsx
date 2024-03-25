@@ -16,8 +16,10 @@ interface Card {
 const cards: Card[] = [
   {
     title: "Support",
-    description: "Capital efficient pools with low-slippage.",
-    descriptionClassName: "lg:w-[230px]",
+    description:
+      "New to it all? Need help? Our support team is available 24/7.",
+    descriptionClassName:
+      "w-[250px] sm:w-[230px] md:w-[300px] lg:w-[240px] xl:w-[277px] 2xl:w-[355px]",
     iconUri: "/assets/help/card-icons/questions.svg",
     link: "#",
     illustration: (
@@ -26,22 +28,25 @@ const cards: Card[] = [
         alt="Support illustration"
         width={157}
         height={136}
-        className="absolute right-1.5 top-7.5 sm:right-11 md:right-13 md:top-10 md:h-[161px] md:w-[185px] lg:-right-10 lg:top-11 lg:h-[203px] lg:w-[234px] xl:right-1.5 2xl:right-[74px]"
+        className="absolute right-4 top-6 z-10 sm:right-6 sm:top-10 md:right-13 md:top-10 md:h-[161px] md:w-[185px] lg:right-0.5 lg:top-15 lg:h-[176px] lg:w-[202px] xl:right-1.5 xl:top-11 xl:h-[203px] xl:w-[234px] 2xl:right-[74px]"
       />
     ),
   },
   {
     title: "Blog",
-    description: "Catch up on the latest developments",
+    description:
+      "Catch up on the latest developments and explore our lively community.",
+    descriptionClassName:
+      "w-[250px] sm:w-[228px] md:w-[300px] lg:w-[240px] xl:w-[300px] 2xl:w-[355px]",
     iconUri: "/assets/help/card-icons/blog.svg",
     link: "#",
     illustration: (
       <Image
         src={"/assets/help/illustrations/blog.svg"}
         alt="Support illustration"
-        width={123}
-        height={164}
-        className="absolute right-12 top-3 md:right-[66px] md:h-[206px] md:w-[153px] lg:right-6 lg:top-5 lg:h-64 lg:w-[190px]"
+        width={114}
+        height={153}
+        className="absolute right-6 top-6 z-10 sm:right-12 sm:top-2.5 sm:h-[165px] sm:w-[123px] md:right-[66px] md:h-[206px] md:w-[153px] lg:right-7 lg:top-8 xl:right-6 xl:top-5 xl:h-[240px] xl:w-[190px]"
       />
     ),
   },
@@ -120,7 +125,7 @@ function HelpCard({
       className={cn(
         "relative flex flex-grow flex-col justify-between self-stretch overflow-hidden rounded-2xl border border-solid border-[#3C356D] bg-[#201B43] p-4 xl:rounded-3xl 2xl:p-6",
         {
-          "h-60 lg:h-65": firstRow,
+          "h-[270px] sm:h-60 lg:h-65": firstRow,
           "h-30 lg:h-40 2xl:h-[200px]": !firstRow,
         },
       )}
