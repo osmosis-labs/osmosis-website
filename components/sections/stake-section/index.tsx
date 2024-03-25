@@ -224,7 +224,7 @@ function StakeIllustration() {
         alt="Blob"
         width={94}
         height={94}
-        className="absolute -right-5 top-0 sm:-top-4 sm:right-0 sm:h-[102px] sm:w-[102px] md:-top-4 md:right-14 md:h-[105px] md:w-[105px] lg:hidden xl:-right-4.5 xl:-top-4 xl:block xl:h-[137px] xl:w-[137px] 2xl:-top-2.5 2xl:right-0 2xl:h-[167px] 2xl:w-[167px]"
+        className="absolute -right-3 -top-3 sm:-top-4 sm:right-0 sm:h-[102px] sm:w-[102px] md:-top-4 md:right-14 md:h-[105px] md:w-[105px] lg:hidden xl:-right-4.5 xl:-top-4 xl:block xl:h-[137px] xl:w-[137px] 2xl:-top-2.5 2xl:right-0 2xl:h-[167px] 2xl:w-[167px]"
       />
     </div>
   );
