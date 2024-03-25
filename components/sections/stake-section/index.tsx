@@ -37,13 +37,13 @@ export default function StakeSection() {
               height={24}
             />
             <div className="flex flex-col gap-2">
-              <span className="self-stretch font-h1 text-xl font-medium leading-[26px] text-neutral-100">
+              <span className="self-stretch font-h1 text-xl leading-[26px] text-neutral-100">
                 Superfluid staking
               </span>
-              <p className="leading-[25px] text-[#F9F8F799]">
+              <p className="font-light leading-[25px] text-[#F9F8F799]">
                 Access an innovative feature that allows you to earn trading
                 fees and stake{" "}
-                <span className="font-bold">at the same time.</span>
+                <span className="font-medium">at the same time.</span>
               </p>
             </div>
           </div>
@@ -56,10 +56,10 @@ export default function StakeSection() {
               height={24}
             />
             <div className="flex flex-col gap-2">
-              <span className="self-stretch font-h1 text-xl font-medium leading-[26px] text-neutral-100">
+              <span className="self-stretch font-h1 text-xl leading-[26px] text-neutral-100">
                 Organic yields
               </span>
-              <p className="leading-[25px] text-[#F9F8F799]">
+              <p className="font-light leading-[25px] text-[#F9F8F799]">
                 Every trade on Osmosis generates fees that stakers receive for
                 securing the protocol.
               </p>
@@ -76,10 +76,10 @@ export default function StakeSection() {
             <div className="flex flex-col gap-4">
               <div className="flex flex-col gap-4 self-stretch py-3 md:flex-row md:items-center md:gap-8 lg:justify-between lg:gap-0">
                 <div className="flex flex-col gap-2 md:w-[242px] 2xl:w-[300px]">
-                  <span className="self-stretch font-h1 text-xl font-medium leading-[26px] text-neutral-100">
+                  <span className="self-stretch font-h1 text-xl leading-[26px] text-neutral-100">
                     Airdrop exposure
                   </span>
-                  <p className="leading-[25px] text-[#F9F8F799]">
+                  <p className="font-light leading-[25px] text-[#F9F8F799]">
                     OSMO stakers have received
                     <br className="hidden md:block 2xl:hidden" /> up to{" "}
                     <br className="hidden 2xl:block" /> over X airdrops to date.
@@ -90,7 +90,7 @@ export default function StakeSection() {
                   <span className="bg-stake-heading font-h1 text-3.5xl leading-[35px] -tracking-[0.64px] 2xl:text-5xl 2xl:leading-[52px] 2xl:-tracking-[0.96px]">
                     $65M
                   </span>
-                  <p className="leading-[25px] text-[#F9F8F799]">
+                  <p className="font-light leading-[25px] text-[#F9F8F799]">
                     Airdropped to <br className="hidden md:block 2xl:hidden" />{" "}
                     OSMO stakers
                   </p>
@@ -161,9 +161,11 @@ export default function StakeSection() {
                     </div>
                   </div>
                 </div>
-                <span className="text-sm leading-[22px] text-[#F9F8F799]">
-                  * Upcoming airdrops are not guaranteed.
-                </span>
+                <div className="flex items-center self-stretch px-2 opacity-55">
+                  <span className="text-sm leading-[22px] text-[#F9F8F799]">
+                    * Upcoming airdrops are not guaranteed.
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -224,7 +226,7 @@ function StakeIllustration() {
         alt="Blob"
         width={94}
         height={94}
-        className="absolute -right-5 top-0 sm:-top-4 sm:right-0 sm:h-[102px] sm:w-[102px] md:-top-4 md:right-14 md:h-[105px] md:w-[105px] lg:hidden xl:-right-4.5 xl:-top-4 xl:block xl:h-[137px] xl:w-[137px] 2xl:-top-2.5 2xl:right-0 2xl:h-[167px] 2xl:w-[167px]"
+        className="absolute -right-3 -top-3 sm:-top-4 sm:right-0 sm:h-[102px] sm:w-[102px] md:-top-4 md:right-14 md:h-[105px] md:w-[105px] lg:hidden xl:-right-4.5 xl:-top-4 xl:block xl:h-[137px] xl:w-[137px] 2xl:-top-2.5 2xl:right-0 2xl:h-[167px] 2xl:w-[167px]"
       />
     </div>
   );

@@ -25,7 +25,7 @@ const cards: Card[] = [
         width={131}
         height={122}
         // md:top-xx is temp, waiting for copy adaptations
-        className="absolute right-[25px] top-12 md:top-9 md:h-[109px] md:w-[117px] lg:right-4.5 lg:top-[50px] lg:h-[159px] lg:w-[171px] xl:top-10 xl:h-[177px] xl:w-[190px] 2xl:right-7.5 2xl:top-8.5 2xl:h-[191px] 2xl:w-[205px]"
+        className="absolute right-[25px] top-12 z-10 md:top-9 md:h-[109px] md:w-[117px] lg:right-4.5 lg:top-[50px] lg:h-[159px] lg:w-[171px] xl:top-10 xl:h-[177px] xl:w-[190px] 2xl:right-7.5 2xl:top-8.5 2xl:h-[191px] 2xl:w-[205px]"
       />
     ),
   },
@@ -40,7 +40,7 @@ const cards: Card[] = [
         alt="Grants illustration"
         width={177}
         height={112}
-        className="absolute right-0 top-16.5 md:h-26 md:w-[165px] lg:top-[78px] lg:h-[153px] lg:w-[228px] xl:top-[70px] xl:h-[168px] xl:w-[246px] 2xl:-right-1.5 2xl:top-15 2xl:h-[191px] 2xl:w-[294px]"
+        className="absolute right-0 top-16.5 z-10 md:h-26 md:w-[165px] lg:top-[78px] lg:h-[153px] lg:w-[228px] xl:top-[70px] xl:h-[168px] xl:w-[246px] 2xl:-right-1.5 2xl:top-15 2xl:h-[191px] 2xl:w-[294px]"
       />
     ),
   },
@@ -55,7 +55,7 @@ const cards: Card[] = [
         alt="Github illustration"
         width={188}
         height={91}
-        className="absolute right-4 top-16 md:top-17.5 md:h-[81px] md:w-[167px] lg:right-0 lg:top-[102px] lg:h-[117px] lg:w-[226px] xl:top-[92px] xl:h-[136px] xl:w-[264px] 2xl:right-2 2xl:top-[81px] 2xl:h-[159px] 2xl:w-[328px]"
+        className="absolute right-4 top-16 z-10 md:top-17.5 md:h-[81px] md:w-[167px] lg:right-0 lg:top-[102px] lg:h-[117px] lg:w-[226px] xl:top-[92px] xl:h-[136px] xl:w-[264px] 2xl:right-2 2xl:top-[81px] 2xl:h-[159px] 2xl:w-[328px]"
       />
     ),
   },
@@ -72,7 +72,7 @@ const cards: Card[] = [
         alt="Discord illustration"
         width={123}
         height={142}
-        className="absolute right-[62px] top-6 md:right-14 md:top-7.5 md:h-[133px] md:w-[115px] lg:right-13 lg:top-10.5 lg:h-52 lg:w-[180px] xl:top-6 xl:h-[235px] xl:w-[209px] 2xl:right-12 2xl:top-7.5 2xl:h-[231px] 2xl:w-[217px]"
+        className="absolute right-[62px] top-6 z-10 md:right-14 md:top-7.5 md:h-[133px] md:w-[115px] lg:right-13 lg:top-10.5 lg:h-52 lg:w-[180px] xl:top-6 xl:h-[235px] xl:w-[209px] 2xl:right-12 2xl:top-7.5 2xl:h-[231px] 2xl:w-[217px]"
       />
     ),
   },
@@ -128,7 +128,7 @@ function BuildCard({
     <div className="relative flex h-60 flex-grow flex-col justify-between self-stretch overflow-hidden rounded-2xl border border-solid border-[#3C356D] bg-[#201b43] p-4 lg:h-[260px] xl:rounded-3xl 2xl:p-6">
       {illustration}
       <div className="bg-build-card-radial absolute inset-0" />
-      <div className="relative z-10 flex items-center justify-between">
+      <div className="relative z-20 flex items-center justify-between">
         <Image src={iconUri} alt={`${title} icon`} width={24} height={24} />
         {link && (
           <Link href={link}>
@@ -141,20 +141,18 @@ function BuildCard({
           </Link>
         )}
       </div>
-      <div className="relative z-10 flex flex-col gap-1 lg:gap-2">
-        <div className="relative z-20 flex flex-col gap-2">
-          <h5 className="font-h1 text-xl font-medium leading-[26px] text-neutral-100 2xl:text-2xl 2xl:leading-[31px]">
-            {title}
-          </h5>
-          <p
-            className={cn(
-              "self-stretch leading-[25px] text-[#F9F8F799]",
-              descriptionClassName,
-            )}
-          >
-            {description}
-          </p>
-        </div>
+      <div className="relative z-20 flex flex-col gap-2">
+        <h5 className="font-h1 text-xl font-medium leading-[26px] text-neutral-100 2xl:text-2xl 2xl:leading-[31px]">
+          {title}
+        </h5>
+        <p
+          className={cn(
+            "self-stretch leading-[25px] text-[#F9F8F799]",
+            descriptionClassName,
+          )}
+        >
+          {description}
+        </p>
       </div>
     </div>
   );
