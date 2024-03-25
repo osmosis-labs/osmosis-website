@@ -27,6 +27,9 @@
   .border-swap-tool {
     box-shadow: inset 0px 0px 0px 1px #ffffff45;
   }
+  .asymp {
+    font-family: "Poppins";
+  }
   .bg-hero-section {
     background-image: url("/assets/hero-bg.svg");
     background-repeat: no-repeat;

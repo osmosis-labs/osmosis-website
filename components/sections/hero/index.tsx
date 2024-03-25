@@ -68,8 +68,11 @@ export default function HeroSection() {
                   <span className="leading-[22px] text-neutral-100 xl:text-xl xl:leading-7">
                     1000
                   </span>
-                  <span className="text-xs font-light leading-[18px] text-[#B0AADC] xl:text-sm xl:leading-[21px] 2xl:text-base 2xl:leading-6">
-                    ≈ $995
+                  <span className="relative text-xs font-light leading-[18px] text-[#B0AADC] xl:text-sm xl:leading-[21px] 2xl:text-base 2xl:leading-6">
+                    <span className="asymp absolute -bottom-[1px] -left-1">
+                      &asymp;
+                    </span>{" "}
+                    $995
                   </span>
                 </div>
               </div>
