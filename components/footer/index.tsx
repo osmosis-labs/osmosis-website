@@ -138,11 +138,8 @@ const socials = [
 ];
 
 export default function Footer() {
-  {
-    /**px-4 on mobile to compensate the layout px-4 */
-  }
   return (
-    <footer className="mb-7 self-stretch px-4 sm:mb-8 md:mb-17.5 lg:mb-16 xl:mb-[38px] 2xl:mb-[54px] 2xl:px-6">
+    <footer className="mb-7 self-stretch px-2 sm:mb-8 sm:px-4 md:mb-17.5 lg:mb-16 xl:mb-[38px] 2xl:mb-[54px] 2xl:px-6">
       <div className="flex flex-col gap-2 self-stretch lg:gap-4 2xl:gap-6">
         {/**divider */}
         <div className="flex items-center gap-2.5 py-6">
