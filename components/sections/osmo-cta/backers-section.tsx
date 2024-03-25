@@ -88,7 +88,7 @@ export default function BackersSection() {
         <span className="leading-[25px] text-[#F9F8F799]">Backers include</span>
         <div
           className={cn(
-            "relative h-[192px] overflow-hidden transition-all md:h-full",
+            "relative h-[184px] overflow-hidden transition-all md:h-full",
             {
               "h-full": isExpanded,
             },
