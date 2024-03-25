@@ -272,7 +272,7 @@ function TokenStatsRow({
                 </span>
               )}
               {isAirdrop && (
-                <div className="flex min-h-5.5 items-center gap-0.5 rounded-xl bg-ion-300 pl-1.5 pr-2">
+                <div className="flex min-h-5 items-center gap-0.5 rounded-xl bg-ion-300 pl-1.5 pr-2">
                   <Image
                     src={"/assets/icons/giftbox.svg"}
                     alt="Airdrop icon"
