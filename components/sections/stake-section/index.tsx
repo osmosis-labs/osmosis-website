@@ -37,13 +37,13 @@ export default function StakeSection() {
               height={24}
             />
             <div className="flex flex-col gap-2">
-              <span className="self-stretch font-h1 text-xl font-medium leading-[26px] text-neutral-100">
+              <span className="self-stretch font-h1 text-xl leading-[26px] text-neutral-100">
                 Superfluid staking
               </span>
-              <p className="leading-[25px] text-[#F9F8F799]">
+              <p className="font-light leading-[25px] text-[#F9F8F799]">
                 Access an innovative feature that allows you to earn trading
                 fees and stake{" "}
-                <span className="font-bold">at the same time.</span>
+                <span className="font-medium">at the same time.</span>
               </p>
             </div>
           </div>
@@ -56,10 +56,10 @@ export default function StakeSection() {
               height={24}
             />
             <div className="flex flex-col gap-2">
-              <span className="self-stretch font-h1 text-xl font-medium leading-[26px] text-neutral-100">
+              <span className="self-stretch font-h1 text-xl leading-[26px] text-neutral-100">
                 Organic yields
               </span>
-              <p className="leading-[25px] text-[#F9F8F799]">
+              <p className="font-light leading-[25px] text-[#F9F8F799]">
                 Every trade on Osmosis generates fees that stakers receive for
                 securing the protocol.
               </p>
@@ -76,10 +76,10 @@ export default function StakeSection() {
             <div className="flex flex-col gap-4">
               <div className="flex flex-col gap-4 self-stretch py-3 md:flex-row md:items-center md:gap-8 lg:justify-between lg:gap-0">
                 <div className="flex flex-col gap-2 md:w-[242px] 2xl:w-[300px]">
-                  <span className="self-stretch font-h1 text-xl font-medium leading-[26px] text-neutral-100">
+                  <span className="self-stretch font-h1 text-xl leading-[26px] text-neutral-100">
                     Airdrop exposure
                   </span>
-                  <p className="leading-[25px] text-[#F9F8F799]">
+                  <p className="font-light leading-[25px] text-[#F9F8F799]">
                     OSMO stakers have received
                     <br className="hidden md:block 2xl:hidden" /> up to{" "}
                     <br className="hidden 2xl:block" /> over X airdrops to date.
@@ -90,7 +90,7 @@ export default function StakeSection() {
                   <span className="bg-stake-heading font-h1 text-3.5xl leading-[35px] -tracking-[0.64px] 2xl:text-5xl 2xl:leading-[52px] 2xl:-tracking-[0.96px]">
                     $65M
                   </span>
-                  <p className="leading-[25px] text-[#F9F8F799]">
+                  <p className="font-light leading-[25px] text-[#F9F8F799]">
                     Airdropped to <br className="hidden md:block 2xl:hidden" />{" "}
                     OSMO stakers
                   </p>
