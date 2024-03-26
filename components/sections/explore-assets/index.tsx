@@ -171,6 +171,13 @@ export default function ExploreAssets() {
           </span>
         </button>
       </div>
+      <Image
+        src={"/assets/explore-assets/ion.svg"}
+        alt="Ion"
+        width={105}
+        height={105}
+        className="absolute right-0 top-0 hidden sm:block md:-top-9 lg:right-12 lg:top-8 lg:h-[140px] lg:w-[140px] xl:right-9 xl:top-11 xl:h-[180px] xl:w-[180px] 2xl:right-[140px] 2xl:top-[90px]"
+      />
     </section>
   );
 }
@@ -218,7 +225,7 @@ function Heart({
         ))}
       </div>
       {/**md */}
-      <div className="absolute top-[93px] hidden h-[368px] w-[640px] items-center justify-center md:flex lg:hidden">
+      <div className="absolute top-[93px] hidden h-[388px] w-[640px] items-center justify-center md:flex lg:hidden">
         {assetsLists.map(({ list, radius }, i) => (
           <Circle
             key={`heart list ${i}`}
