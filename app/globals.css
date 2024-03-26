@@ -63,6 +63,22 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+  .void-assets-mask {
+    background: linear-gradient(
+      to top,
+      #140f34 26%,
+      rgba(46, 30, 144, 0) 71.01%
+    );
+  }
+  @media (min-width: 1536px) {
+    .void-assets-mask {
+      background: linear-gradient(
+        to top,
+        #140f34 32%,
+        rgba(46, 30, 144, 0) 71.01%
+      );
+    }
+  }
   .stats-with-tweets-bg {
     background: radial-gradient(
         68.58% 65.85% at 98.59% -2.72%,
