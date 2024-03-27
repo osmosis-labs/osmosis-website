@@ -154,11 +154,11 @@ export default function ExploreAssets() {
         <Circle className="absolute" elements={importantAssets} radius={85} />
       </div> */}
       <div className="relative z-10 flex flex-col items-center justify-center gap-6 md:gap-8 2xl:px-6">
-        <div className="flex flex-col items-center justify-center gap-4">
-          <h3 className="bg-explore-assets-headline w-[290px] text-center font-h1 text-3.5xl font-medium leading-[38px] -tracking-[0.64px] sm:w-[390px] md:w-[420px] md:text-4xl md:leading-[41px] md:-tracking-[0.72px] lg:w-[594px] lg:text-5xl lg:leading-[55px] lg:-tracking-[0.96px] xl:w-[660px] xl:text-[56px] xl:leading-[64px] xl:-tracking-[1.12px] 2xl:w-[768px] 2xl:text-[64px] 2xl:leading-[70px] 2xl:-tracking-[1.28px]">
+        <div className="flex flex-col items-center justify-center gap-4 text-center">
+          <h3 className="bg-explore-assets-headline w-[290px] font-h1 text-3.5xl font-medium leading-[38px] -tracking-[0.64px] sm:w-[390px] md:w-[420px] md:text-4xl md:leading-[41px] md:-tracking-[0.72px] lg:w-[594px] lg:text-5xl lg:leading-[55px] lg:-tracking-[0.96px] xl:w-[660px] xl:text-[56px] xl:leading-[64px] xl:-tracking-[1.12px] 2xl:w-[768px] 2xl:text-[64px] 2xl:leading-[70px] 2xl:-tracking-[1.28px]">
             The best opportunities are on Osmosis.
           </h3>
-          <span className="font-light leading-[25px] text-[#F9F8F799] md:leading-[22px] lg:text-xl">
+          <span className="max-w-[223px] font-light leading-[25px] text-[#F9F8F799] md:max-w-none md:leading-[22px] lg:text-xl">
             Discover and trade 190+ assets and counting.
           </span>
         </div>
