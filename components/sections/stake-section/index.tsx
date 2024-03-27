@@ -9,8 +9,8 @@ export default function StakeSection() {
   return (
     <section className="relative z-10 mt-28 flex flex-col items-center justify-center gap-8 self-stretch px-2 py-4 sm:mt-20 sm:p-4 md:mt-[136px] lg:mt-28 xl:mt-[170px] 2xl:mt-52 2xl:p-6">
       <div className="flex flex-col items-center justify-center gap-4">
-        <div className="flex max-w-max items-center justify-center rounded-full bg-[#37D56D40] px-3 py-1 backdrop-blur-xl">
-          <span className="text-sm leading-[22px] text-[#37D56D] lg:text-base lg:leading-[25px]">
+        <div className="bg-malachite-alpha-200 flex max-w-max items-center justify-center rounded-full px-3 py-1 backdrop-blur-xl">
+          <span className="text-malachite-200 text-sm leading-[22px] lg:text-base lg:leading-[25px]">
             Secure the network
           </span>
         </div>
@@ -22,7 +22,7 @@ export default function StakeSection() {
           <p className="self-stretch text-center font-light leading-[22px] text-neutral-100 lg:text-xl lg:leading-7">
             Lock up your OSMO and earn passive <br className="sm:hidden" />
             staking <br className="hidden sm:block" /> rewards with up to{" "}
-            <span className="text-[#37D56D]">10.86% APR.</span>
+            <span className="text-malachite-200">10.86% APR.</span>
           </p>
         </div>
       </div>

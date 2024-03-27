@@ -373,7 +373,7 @@ function Element({
             "-mt-1.5 flex h-4 w-max items-center justify-center rounded-full p-1 md:h-5",
             {
               "bg-rust-500": !isPositive,
-              "bg-[#37D56D]": isPositive,
+              "bg-malachite-200": isPositive,
             },
           )}
         >

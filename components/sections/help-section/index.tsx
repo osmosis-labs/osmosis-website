@@ -76,8 +76,8 @@ export default function HelpSection() {
       <section className="relative z-10 mt-36 flex flex-col items-center justify-center sm:mt-[112px] md:mt-36 xl:mt-44 2xl:mt-52">
         <div className="flex flex-col items-center justify-center gap-6 self-stretch p-2 sm:p-4 lg:gap-8 2xl:gap-14 2xl:p-6">
           <div className="flex flex-col items-center gap-4">
-            <div className="flex max-w-max items-center justify-center rounded-full bg-[#37D56D40] px-3 py-1 backdrop-blur-xl">
-              <span className="text-sm leading-[22px] text-[#37D56D] lg:text-base lg:leading-[25px]">
+            <div className="bg-malachite-alpha-200 flex max-w-max items-center justify-center rounded-full px-3 py-1 backdrop-blur-xl">
+              <span className="text-malachite-200 text-sm leading-[22px] lg:text-base lg:leading-[25px]">
                 Meet the community
               </span>
             </div>

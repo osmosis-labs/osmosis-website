@@ -130,8 +130,8 @@ export default function EarnSection() {
     <section className="bg-earn-section relative z-10 mt-14 flex flex-col rounded-3xl pt-4 sm:rounded-4xl md:mt-16 md:pt-12 lg:rounded-3xl lg:pt-4 xl:mt-18 xl:rounded-4xl xl:pt-8">
       <div className="flex flex-col gap-6 px-2 py-4 sm:p-4 lg:gap-8 2xl:items-start 2xl:gap-14 2xl:p-6">
         <div className="flex flex-col gap-4 2xl:gap-6">
-          <div className="flex max-w-max items-center justify-center rounded-full bg-[#37D56D40] px-3 py-1 backdrop-blur-xl">
-            <span className="text-sm leading-[22px] text-[#37D56D] lg:text-base lg:leading-[25px]">
+          <div className="bg-malachite-alpha-200 flex max-w-max items-center justify-center rounded-full px-3 py-1 backdrop-blur-xl">
+            <span className="text-malachite-200 text-sm leading-[22px] lg:text-base lg:leading-[25px]">
               Put your assets to work
             </span>
           </div>

@@ -158,6 +158,12 @@ const config: Config = {
           700: "#C6451C",
           800: "#B03A20",
         },
+        malachite: {
+          200: "#37D56D",
+        },
+        "malachite-alpha": {
+          "200": "#37D56D40",
+        },
       },
       fontFamily: {
         poppins: "var(--font-poppins)",

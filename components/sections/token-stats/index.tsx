@@ -234,7 +234,7 @@ function TokenStatsRow({
               </span>
               <span
                 className={cn("inline-flex gap-1.5 leading-none", {
-                  "text-[#37D56D]": isPositive,
+                  "text-malachite-200": isPositive,
                   "text-[#FA825D]": !isPositive,
                 })}
               >
