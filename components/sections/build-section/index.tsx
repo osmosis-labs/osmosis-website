@@ -147,7 +147,7 @@ function BuildCard({
         </h5>
         <p
           className={cn(
-            "self-stretch leading-[25px] text-[#F9F8F799]",
+            "text-alpha-60 self-stretch leading-[25px]",
             descriptionClassName,
           )}
         >

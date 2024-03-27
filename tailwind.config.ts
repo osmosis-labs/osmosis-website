@@ -104,6 +104,9 @@ const config: Config = {
           disabled: "rgba(255, 255, 255, 0.38)",
           faint: "rgba(255, 255, 255, 0.12)",
         },
+        alpha: {
+          60: "#F9F8F799",
+        },
         wosmongton: {
           50: "#492CE1",
           100: "#D3D1FF",
@@ -140,6 +143,7 @@ const config: Config = {
           700: "#332673",
           750: "#2C2261",
           800: "#1F1452",
+          850: "#140F34",
           900: "#0E082C",
         },
         ammelia: {

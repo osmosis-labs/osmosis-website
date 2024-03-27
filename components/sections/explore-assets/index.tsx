@@ -158,7 +158,7 @@ export default function ExploreAssets() {
           <h3 className="bg-explore-assets-headline font-poppins w-[290px] text-3.5xl font-medium leading-[38px] -tracking-[0.64px] sm:w-[390px] md:w-[420px] md:text-4xl md:leading-[41px] md:-tracking-[0.72px] lg:w-[594px] lg:text-5xl lg:leading-[55px] lg:-tracking-[0.96px] xl:w-[660px] xl:text-[56px] xl:leading-[64px] xl:-tracking-[1.12px] 2xl:w-[768px] 2xl:text-[64px] 2xl:leading-[70px] 2xl:-tracking-[1.28px]">
             The best opportunities are on Osmosis.
           </h3>
-          <span className="max-w-[223px] font-light leading-[25px] text-[#F9F8F799] md:max-w-none md:leading-[22px] lg:text-xl">
+          <span className="text-alpha-60 max-w-[223px] font-light leading-[25px] md:max-w-none md:leading-[22px] lg:text-xl">
             Discover and trade 190+ assets and counting.
           </span>
         </div>

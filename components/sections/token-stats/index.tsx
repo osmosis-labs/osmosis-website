@@ -183,7 +183,7 @@ function TokenStatsRow({
         "flex min-h-18 w-full items-center justify-between rounded-xl px-3 xl:min-h-22.5 2xl:px-4",
         {
           "bg-[#201B43]": !isUpcoming,
-          "border-token-stats-upcoming bg-[#140F34] py-2.5 md:min-h-30 md:flex-col md:items-start md:p-3 lg:min-h-[154px] xl:min-h-[187px] xl:p-4":
+          "border-token-stats-upcoming bg-osmoverse-850 py-2.5 md:min-h-30 md:flex-col md:items-start md:p-3 lg:min-h-[154px] xl:min-h-[187px] xl:p-4":
             isUpcoming,
         },
       )}

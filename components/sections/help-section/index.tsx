@@ -209,7 +209,7 @@ function HelpCard({
         {description && (
           <p
             className={cn(
-              "max-w-[448px] self-stretch leading-[25px] text-[#F9F8F799]",
+              "text-alpha-60 max-w-[448px] self-stretch leading-[25px]",
               descriptionClassName,
             )}
           >
