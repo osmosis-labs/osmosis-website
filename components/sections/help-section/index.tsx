@@ -72,35 +72,79 @@ const cards: Card[] = [
 
 export default function HelpSection() {
   return (
-    <section className="mt-36 flex flex-col items-center justify-center sm:mt-[112px] md:mt-36 xl:mt-44 2xl:mt-52">
-      <div className="flex flex-col items-center justify-center gap-6 self-stretch p-2 sm:p-4 lg:gap-8 2xl:gap-14 2xl:p-6">
-        <div className="flex flex-col items-center gap-4">
-          <div className="flex max-w-max items-center justify-center rounded-full bg-[#37D56D40] px-3 py-1 backdrop-blur-xl">
-            <span className="text-sm leading-[22px] text-[#37D56D] lg:text-base lg:leading-[25px]">
-              Meet the community
-            </span>
+    <div className="relative">
+      <section className="relative z-10 mt-36 flex flex-col items-center justify-center sm:mt-[112px] md:mt-36 xl:mt-44 2xl:mt-52">
+        <div className="flex flex-col items-center justify-center gap-6 self-stretch p-2 sm:p-4 lg:gap-8 2xl:gap-14 2xl:p-6">
+          <div className="flex flex-col items-center gap-4">
+            <div className="flex max-w-max items-center justify-center rounded-full bg-[#37D56D40] px-3 py-1 backdrop-blur-xl">
+              <span className="text-sm leading-[22px] text-[#37D56D] lg:text-base lg:leading-[25px]">
+                Meet the community
+              </span>
+            </div>
+            <h3 className="bg-help-headline text-center font-h1 text-3.5xl font-medium leading-[38px] -tracking-[0.64px] md:text-4xl md:leading-[43px] md:-tracking-[0.72px] lg:text-5xl lg:leading-[52px] lg:-tracking-[0.96px] 2xl:text-[64px] 2xl:leading-[70px] 2xl:-tracking-[1.28px]">
+              Connect with Osmosis.
+            </h3>
           </div>
-          <h3 className="bg-help-headline text-center font-h1 text-3.5xl font-medium leading-[38px] -tracking-[0.64px] md:text-4xl md:leading-[43px] md:-tracking-[0.72px] lg:text-5xl lg:leading-[52px] lg:-tracking-[0.96px] 2xl:text-[64px] 2xl:leading-[70px] 2xl:-tracking-[1.28px]">
-            Connect with Osmosis.
-          </h3>
+          {/**stack */}
+          <div className="flex flex-col justify-center gap-2 self-stretch xl:gap-4">
+            {/**row */}
+            <div className="flex flex-col justify-center gap-2 self-stretch lg:grid lg:grid-cols-2 xl:gap-4">
+              {cards.slice(0, 2).map((props) => (
+                <HelpCard key={props.title} {...props} firstRow showGradient />
+              ))}
+            </div>
+            {/**row */}
+            <div className="flex flex-col justify-center gap-2 self-stretch lg:grid lg:grid-cols-3 xl:gap-4">
+              {cards.slice(2, 5).map((props) => (
+                <HelpCard key={props.title} {...props} />
+              ))}
+            </div>
+          </div>
         </div>
-        {/**stack */}
-        <div className="flex flex-col justify-center gap-2 self-stretch xl:gap-4">
-          {/**row */}
-          <div className="flex flex-col justify-center gap-2 self-stretch lg:grid lg:grid-cols-2 xl:gap-4">
-            {cards.slice(0, 2).map((props) => (
-              <HelpCard key={props.title} {...props} firstRow showGradient />
-            ))}
-          </div>
-          {/**row */}
-          <div className="flex flex-col justify-center gap-2 self-stretch lg:grid lg:grid-cols-3 xl:gap-4">
-            {cards.slice(2, 5).map((props) => (
-              <HelpCard key={props.title} {...props} />
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
+      </section>
+      <Image
+        src={"/assets/grids/base/grid-3.svg"}
+        alt="Grid 3"
+        width={358}
+        height={1663}
+        className="absolute -top-[280px] z-0 h-auto w-full sm:hidden"
+      />
+      <Image
+        src={"/assets/grids/sm/grid-3.svg"}
+        alt="Grid 3"
+        width={448}
+        height={1587}
+        className="bottom absolute -top-[280px] z-0 hidden h-auto w-full sm:block md:hidden"
+      />
+      <Image
+        src={"/assets/grids/md/grid-3.svg"}
+        alt="Grid 3"
+        width={640}
+        height={1212}
+        className="bottom absolute -top-[280px] z-0 hidden h-auto w-full md:block lg:hidden"
+      />
+      <Image
+        src={"/assets/grids/lg/grid-3.svg"}
+        alt="Grid 3"
+        width={962}
+        height={758}
+        className="bottom absolute -top-[150px] z-0 hidden h-auto w-full lg:block xl:hidden"
+      />
+      <Image
+        src={"/assets/grids/xl/grid-3.svg"}
+        alt="Grid 3"
+        width={1155}
+        height={912}
+        className="bottom absolute -top-[145px] z-0 hidden h-auto w-full xl:block 2xl:hidden"
+      />
+      <Image
+        src={"/assets/grids/2xl/grid-3.svg"}
+        alt="Grid 3"
+        width={1155}
+        height={912}
+        className="bottom absolute -top-[410px] z-0 hidden h-auto w-full 2xl:block"
+      />
+    </div>
   );
 }
 

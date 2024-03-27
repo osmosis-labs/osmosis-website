@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image, { getImageProps } from "next/image";
 
 const airdrops = Array<{ uri: string; name: string }>(22).fill({
   uri: "/assets/icons/pepe.svg",
@@ -7,7 +7,7 @@ const airdrops = Array<{ uri: string; name: string }>(22).fill({
 
 export default function StakeSection() {
   return (
-    <section className="mt-28 flex flex-col items-center justify-center gap-8 self-stretch px-2 py-4 sm:mt-20 sm:p-4 md:mt-[136px] lg:mt-28 xl:mt-[170px] 2xl:mt-52 2xl:p-6">
+    <section className="relative z-10 mt-28 flex flex-col items-center justify-center gap-8 self-stretch px-2 py-4 sm:mt-20 sm:p-4 md:mt-[136px] lg:mt-28 xl:mt-[170px] 2xl:mt-52 2xl:p-6">
       <div className="flex flex-col items-center justify-center gap-4">
         <div className="flex max-w-max items-center justify-center rounded-full bg-[#37D56D40] px-3 py-1 backdrop-blur-xl">
           <span className="text-sm leading-[22px] text-[#37D56D] lg:text-base lg:leading-[25px]">
@@ -177,50 +177,73 @@ export default function StakeSection() {
 }
 
 function StakeIllustration() {
+  const common = { alt: "Stake Illustration" };
+
+  const {
+    props: { srcSet: mobile, ...rest },
+  } = getImageProps({
+    ...common,
+    src: "/assets/stake-illustrations/stake-illustration.webp",
+    width: 342,
+    height: 463,
+  });
+
+  const {
+    props: { srcSet: sm },
+  } = getImageProps({
+    ...common,
+    src: "/assets/stake-illustrations/stake-illustration-sm.webp",
+    width: 416,
+    height: 463,
+  });
+
+  const {
+    props: { srcSet: md },
+  } = getImageProps({
+    ...common,
+    src: "/assets/stake-illustrations/stake-illustration-md.webp",
+    width: 608,
+    height: 472,
+  });
+
+  const {
+    props: { srcSet: lg },
+  } = getImageProps({
+    ...common,
+    src: "/assets/stake-illustrations/stake-illustration-lg.webp",
+    width: 455,
+    height: 707,
+  });
+
+  const {
+    props: { srcSet: xl },
+  } = getImageProps({
+    ...common,
+    src: "/assets/stake-illustrations/stake-illustration-xl.webp",
+    width: 597,
+    height: 707,
+  });
+
+  const {
+    props: { srcSet: xxl },
+  } = getImageProps({
+    ...common,
+    src: "/assets/stake-illustrations/stake-illustration-2xl.webp",
+    width: 712,
+    height: 707,
+  });
+
   return (
     <div className="relative max-sm:max-w-[342px] max-sm:self-center">
-      <Image
-        src={"/assets/stake-illustrations/stake-illustration.webp"}
-        alt="Stake Illustration"
-        className="sm:hidden"
-        width={342}
-        height={463}
-      />
-      <Image
-        src={"/assets/stake-illustrations/stake-illustration-sm.webp"}
-        alt="Stake Illustration"
-        className="hidden sm:block md:hidden"
-        width={416}
-        height={463}
-      />
-      <Image
-        src={"/assets/stake-illustrations/stake-illustration-md.webp"}
-        alt="Stake Illustration"
-        className="hidden md:block lg:hidden"
-        width={608}
-        height={472}
-      />
-      <Image
-        src={"/assets/stake-illustrations/stake-illustration-lg.webp"}
-        alt="Stake Illustration"
-        className="absolute hidden h-[707px] min-w-[455px] lg:block xl:hidden"
-        width={455}
-        height={707}
-      />
-      <Image
-        src={"/assets/stake-illustrations/stake-illustration-xl.webp"}
-        alt="Stake Illustration"
-        className="absolute hidden h-[707px] min-w-[597px] xl:block 2xl:hidden"
-        width={597}
-        height={707}
-      />
-      <Image
-        src={"/assets/stake-illustrations/stake-illustration-2xl.webp"}
-        alt="Stake Illustration"
-        className="hidden 2xl:block"
-        width={712}
-        height={707}
-      />
+      <picture>
+        <source media="(min-width: 1536px)" srcSet={xxl} />
+        <source media="(min-width: 1280px)" srcSet={xl} />
+        <source media="(min-width: 1024px)" srcSet={lg} />
+        <source media="(min-width: 768px)" srcSet={md} />
+        <source media="(min-width: 640px)" srcSet={sm} />
+        <source media="(min-width: 0px)" srcSet={mobile} />
+        <img {...rest} style={{ width: "100%", height: "auto" }} alt="" />
+      </picture>
       <Image
         src={"/assets/stake-illustrations/blob.svg"}
         alt="Blob"
