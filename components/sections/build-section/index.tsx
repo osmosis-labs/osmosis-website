@@ -82,13 +82,13 @@ export default function BuildSection() {
   return (
     <section className="relative z-10 mt-28 flex flex-col items-center justify-center gap-8 self-stretch rounded-4xl p-2 sm:mt-30 sm:p-4 md:mt-39 lg:mt-32 xl:mt-44 2xl:mt-[152px] 2xl:gap-14 2xl:p-6">
       <div className="flex flex-col items-center gap-4">
-        <div className="flex max-w-max items-center justify-center rounded-full bg-[#37D56D40] px-3 py-1 backdrop-blur-xl">
-          <span className="text-sm leading-[22px] text-[#37D56D] lg:text-base lg:leading-[25px]">
+        <div className="bg-malachite-alpha-200 flex max-w-max items-center justify-center rounded-full px-3 py-1 backdrop-blur-xl">
+          <span className="text-malachite-200 text-sm leading-[22px] lg:text-base lg:leading-[25px]">
             Developers
           </span>
         </div>
         <div className="flex flex-col items-center gap-4 text-center">
-          <h2 className="bg-build-headline font-h1 text-3.5xl font-medium leading-[35px] -tracking-[0.64px] md:text-4xl md:leading-[39px] md:-tracking-[0.72px] lg:text-5xl lg:leading-[52px] lg:-tracking-[0.96px] xl:text-[56px] xl:leading-[61px] xl:-tracking-[1.12px] 2xl:text-[64px] 2xl:leading-[70px] 2xl:-tracking-[1.28px]">
+          <h2 className="bg-build-headline font-poppins text-3.5xl font-medium leading-[35px] -tracking-[0.64px] md:text-4xl md:leading-[39px] md:-tracking-[0.72px] lg:text-5xl lg:leading-[52px] lg:-tracking-[0.96px] xl:text-[56px] xl:leading-[61px] xl:-tracking-[1.12px] 2xl:text-[64px] 2xl:leading-[70px] 2xl:-tracking-[1.28px]">
             Build the next <br /> disruptive DeFi App.
           </h2>
           <p className="font-light leading-[22px] text-neutral-100 lg:text-xl">
@@ -142,12 +142,12 @@ function BuildCard({
         )}
       </div>
       <div className="relative z-20 flex flex-col gap-2">
-        <h5 className="font-h1 text-xl font-medium leading-[26px] text-neutral-100 2xl:text-2xl 2xl:leading-[31px]">
+        <h5 className="font-poppins text-xl font-medium leading-[26px] text-neutral-100 2xl:text-2xl 2xl:leading-[31px]">
           {title}
         </h5>
         <p
           className={cn(
-            "self-stretch leading-[25px] text-[#F9F8F799]",
+            "text-alpha-60 self-stretch leading-[25px]",
             descriptionClassName,
           )}
         >

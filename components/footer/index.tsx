@@ -155,7 +155,7 @@ export default function Footer() {
         <div className="relative grid grid-cols-2 gap-x-8 gap-y-6 md:grid-cols-3 lg:max-w-[764px] lg:grid-cols-5 lg:gap-x-4 2xl:max-w-[1020px] 2xl:gap-x-20">
           {sections.map(({ links, title }) => (
             <div key={title} className="flex flex-col gap-2.5">
-              <span className="whitespace-nowrap text-sm font-light leading-[21px] text-[#F9F8F799]">
+              <span className="whitespace-nowrap text-sm font-light leading-[21px] text-alpha-60">
                 {title}
               </span>
               <div className="flex flex-col gap-0.5">
@@ -237,7 +237,7 @@ export default function Footer() {
               ))}
             </div>
           </div>
-          <span className="text-sm leading-[22px] text-[#F9F8F799]">
+          <span className="text-sm leading-[22px] text-alpha-60">
             © Osmosis 2024
           </span>
         </div>

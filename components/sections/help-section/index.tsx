@@ -76,12 +76,12 @@ export default function HelpSection() {
       <section className="relative z-10 mt-36 flex flex-col items-center justify-center sm:mt-[112px] md:mt-36 xl:mt-44 2xl:mt-52">
         <div className="flex flex-col items-center justify-center gap-6 self-stretch p-2 sm:p-4 lg:gap-8 2xl:gap-14 2xl:p-6">
           <div className="flex flex-col items-center gap-4">
-            <div className="flex max-w-max items-center justify-center rounded-full bg-[#37D56D40] px-3 py-1 backdrop-blur-xl">
-              <span className="text-sm leading-[22px] text-[#37D56D] lg:text-base lg:leading-[25px]">
+            <div className="bg-malachite-alpha-200 flex max-w-max items-center justify-center rounded-full px-3 py-1 backdrop-blur-xl">
+              <span className="text-malachite-200 text-sm leading-[22px] lg:text-base lg:leading-[25px]">
                 Meet the community
               </span>
             </div>
-            <h3 className="bg-help-headline text-center font-h1 text-3.5xl font-medium leading-[38px] -tracking-[0.64px] md:text-4xl md:leading-[43px] md:-tracking-[0.72px] lg:text-5xl lg:leading-[52px] lg:-tracking-[0.96px] 2xl:text-[64px] 2xl:leading-[70px] 2xl:-tracking-[1.28px]">
+            <h3 className="bg-help-headline font-poppins text-center text-3.5xl font-medium leading-[38px] -tracking-[0.64px] md:text-4xl md:leading-[43px] md:-tracking-[0.72px] lg:text-5xl lg:leading-[52px] lg:-tracking-[0.96px] 2xl:text-[64px] 2xl:leading-[70px] 2xl:-tracking-[1.28px]">
               Connect with Osmosis.
             </h3>
           </div>
@@ -203,13 +203,13 @@ function HelpCard({
         </div>
       </div>
       <div className="relative z-20 flex flex-col gap-2">
-        <h5 className="font-h1 text-xl font-medium leading-[26px] text-neutral-100 2xl:text-2xl 2xl:leading-[31px]">
+        <h5 className="font-poppins text-xl font-medium leading-[26px] text-neutral-100 2xl:text-2xl 2xl:leading-[31px]">
           {title}
         </h5>
         {description && (
           <p
             className={cn(
-              "max-w-[448px] self-stretch leading-[25px] text-[#F9F8F799]",
+              "text-alpha-60 max-w-[448px] self-stretch leading-[25px]",
               descriptionClassName,
             )}
           >
