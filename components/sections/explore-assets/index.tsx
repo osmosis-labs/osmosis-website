@@ -291,7 +291,7 @@ function Heart({
           alt="OSMO icon"
           width={45}
           height={50}
-          className="h-auto w-auto -translate-y-[calc(100%+72px)] md:-translate-y-6 lg:translate-y-8 2xl:translate-y-14"
+          className="h-auto w-auto -translate-y-[calc(100%+72px)] pb-[1.5px] md:-translate-y-6 md:pl-[4.45px] md:pr-[2.44px] lg:translate-y-8 lg:pb-[2.2px] lg:pl-[6.5px] lg:pr-[3.55px] 2xl:translate-y-14"
         />
       </div>
     </>

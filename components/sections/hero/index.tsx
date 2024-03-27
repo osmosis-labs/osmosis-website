@@ -35,7 +35,7 @@ export default function HeroSection() {
                     alt="OSMO icon"
                     width={34}
                     height={34}
-                    className="sm:h-10 sm:w-10 lg:h-12 lg:w-12 xl:h-16 xl:w-16 2xl:h-20 2xl:w-20"
+                    className="pb-[1px] pl-[2.37px] pr-[1.3px] sm:h-10 sm:w-10 lg:h-12 lg:w-12 xl:h-16 xl:w-16 2xl:h-20 2xl:w-20"
                   />
                   <span>Osmosis.</span>
                 </div>

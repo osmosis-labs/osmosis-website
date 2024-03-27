@@ -18,7 +18,7 @@ export default function OsmoCTASection() {
                     alt="Osmo icon"
                     width={40}
                     height={40}
-                    className="lg:h-12 lg:w-12 xl:h-14 xl:w-14 2xl:h-20 2xl:w-20"
+                    className="pb-[1px] pl-[2.8px] pr-[1.52px] lg:h-12 lg:w-12 lg:pb-[1.14px] lg:pl-[3.35px] lg:pr-[1.83px] xl:h-14 xl:w-14 xl:pb-[1.33px] xl:pl-[4px] xl:pr-[2.13px] 2xl:h-20 2xl:w-20 2xl:pb-[1.9px] 2xl:pl-[5.58px] 2xl:pr-[3px]"
                   />
                 </span>
               </h5>
