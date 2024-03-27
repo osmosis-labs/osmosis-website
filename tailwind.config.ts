@@ -1,6 +1,6 @@
 import type { Config } from "tailwindcss";
 
-const config = {
+const config: Config = {
   darkMode: ["class"],
   content: [
     "./pages/**/*.{ts,tsx}",
@@ -154,69 +154,17 @@ const config = {
           700: "#C6451C",
           800: "#B03A20",
         },
-        wireframes: {
-          darkGrey: "#282828",
-          grey: "#818181",
-          lightGrey: "#B7B7B7",
-        },
-        error: "#EF3456",
-        missionError: "#EF3456",
-        superfluid: "#8A86FF",
-        supercharged: "#64C5EE",
-        transparent: "transparent",
-        black: "black",
-        inherit: "inherit",
-        barFill: "#4f4aa2",
-        chartGradientPrimary: "#C41BFF",
-        chartGradientSecondary: "#1867FF",
-        yourBalanceActionButton: "#2A2553",
+      },
+      fontFamily: {
+        poppins: "var(--font-poppins)",
+        inter: "var(--font-inter)",
       },
     },
     container: {
       center: true,
     },
-    // fontSize: {
-    //   // xxs: "0.5rem",
-    //   // xs: "0.75rem",
-    //   // sm: "0.875rem",
-    //   // base: "1rem",
-    //   // lg: "1.25rem",
-    //   // xl: "1.5rem",
-    //   // "xl-i": "2rem",
-    //   // "2xl": "2.25rem",
-    //   // "3xl": "3rem",
-    //   // "3.5xl": "3.5rem",
-    //   // "4xl": "3.75rem",
-    //   // "5xl": "6rem",
-    //   // h1: ["4.5rem", { lineHeight: "4.95rem", letterSpacing: "-1.5px" }],
-    //   // h2: ["4rem", { lineHeight: "4.4rem", letterSpacing: "-0.5px" }],
-    //   // h3: ["1.5rem", { lineHeight: "1.95rem", letterSpacing: "0" }],
-    //   // h4: ["1.25rem", { lineHeight: "1.625rem", letterSpacing: "0" }],
-    //   // subtitle1: ["1rem", { lineHeight: "1.5rem", letterSpacing: "0.15px" }],
-    //   // subtitle2: ["0.875rem", { lineHeight: "1.5rem", letterSpacing: "0.1px" }],
-    //   // body1: ["1rem", { lineHeight: "1.5rem", letterSpacing: "0.5px" }],
-    //   // body2: ["0.875rem", { lineHeight: "1.25rem", letterSpacing: "0.25px" }],
-    //   // button: ["0.875rem", { lineHeight: "1rem", letterSpacing: "0" }],
-    //   // caption: ["0.75rem", { lineHeight: "0.875rem", letterSpacing: "0.4px" }],
-    //   // overline: ["0.625rem", { lineHeight: "1rem", letterSpacing: "2.5px" }],
-    // },
-    fontFamily: {
-      h1: ["var(--font-poppins)"],
-      h2: ["var(--font-poppins)"],
-      h3: ["var(--font-poppins)"],
-      h4: ["var(--font-poppins)"],
-      h5: ["var(--font-poppins)"],
-      h6: ["var(--font-poppins)"],
-      subtitle1: ["var(--font-inter)"],
-      subtitle2: ["var(--font-inter)"],
-      body1: ["var(--font-inter)"],
-      body2: ["var(--font-inter)"],
-      button: ["var(--font-inter)"],
-      caption: ["var(--font-inter)"],
-      overline: ["var(--font-poppins)"],
-    },
   },
   plugins: [require("tailwindcss-animate")],
-} satisfies Config;
+};
 
 export default config;

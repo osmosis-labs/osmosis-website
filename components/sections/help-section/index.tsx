@@ -81,7 +81,7 @@ export default function HelpSection() {
                 Meet the community
               </span>
             </div>
-            <h3 className="bg-help-headline text-center font-h1 text-3.5xl font-medium leading-[38px] -tracking-[0.64px] md:text-4xl md:leading-[43px] md:-tracking-[0.72px] lg:text-5xl lg:leading-[52px] lg:-tracking-[0.96px] 2xl:text-[64px] 2xl:leading-[70px] 2xl:-tracking-[1.28px]">
+            <h3 className="bg-help-headline font-poppins text-center text-3.5xl font-medium leading-[38px] -tracking-[0.64px] md:text-4xl md:leading-[43px] md:-tracking-[0.72px] lg:text-5xl lg:leading-[52px] lg:-tracking-[0.96px] 2xl:text-[64px] 2xl:leading-[70px] 2xl:-tracking-[1.28px]">
               Connect with Osmosis.
             </h3>
           </div>
@@ -203,7 +203,7 @@ function HelpCard({
         </div>
       </div>
       <div className="relative z-20 flex flex-col gap-2">
-        <h5 className="font-h1 text-xl font-medium leading-[26px] text-neutral-100 2xl:text-2xl 2xl:leading-[31px]">
+        <h5 className="font-poppins text-xl font-medium leading-[26px] text-neutral-100 2xl:text-2xl 2xl:leading-[31px]">
           {title}
         </h5>
         {description && (

@@ -88,7 +88,7 @@ export default function BuildSection() {
           </span>
         </div>
         <div className="flex flex-col items-center gap-4 text-center">
-          <h2 className="bg-build-headline font-h1 text-3.5xl font-medium leading-[35px] -tracking-[0.64px] md:text-4xl md:leading-[39px] md:-tracking-[0.72px] lg:text-5xl lg:leading-[52px] lg:-tracking-[0.96px] xl:text-[56px] xl:leading-[61px] xl:-tracking-[1.12px] 2xl:text-[64px] 2xl:leading-[70px] 2xl:-tracking-[1.28px]">
+          <h2 className="bg-build-headline font-poppins text-3.5xl font-medium leading-[35px] -tracking-[0.64px] md:text-4xl md:leading-[39px] md:-tracking-[0.72px] lg:text-5xl lg:leading-[52px] lg:-tracking-[0.96px] xl:text-[56px] xl:leading-[61px] xl:-tracking-[1.12px] 2xl:text-[64px] 2xl:leading-[70px] 2xl:-tracking-[1.28px]">
             Build the next <br /> disruptive DeFi App.
           </h2>
           <p className="font-light leading-[22px] text-neutral-100 lg:text-xl">
@@ -142,7 +142,7 @@ function BuildCard({
         )}
       </div>
       <div className="relative z-20 flex flex-col gap-2">
-        <h5 className="font-h1 text-xl font-medium leading-[26px] text-neutral-100 2xl:text-2xl 2xl:leading-[31px]">
+        <h5 className="font-poppins text-xl font-medium leading-[26px] text-neutral-100 2xl:text-2xl 2xl:leading-[31px]">
           {title}
         </h5>
         <p

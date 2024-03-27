@@ -9,7 +9,7 @@ export default function OsmoCTASection() {
         <div className="border-osmo-cta bg-osmo-cta relative flex flex-col self-stretch rounded-3xl px-6 pb-80 pt-8 sm:rounded-[32px] md:px-8 md:py-12 lg:p-12 2xl:h-[470px] 2xl:px-16 2xl:py-14">
           <div className="flex flex-col justify-center gap-6 self-stretch md:gap-8 md:self-end xl:px-6 2xl:gap-10 2xl:px-0 2xl:py-8">
             <div className="flex flex-col justify-center gap-4 self-stretch md:self-start lg:gap-4">
-              <h5 className="inline-flex flex-col gap-2 font-h1 text-3.5xl font-medium leading-[35.2px] -tracking-[0.64px] text-neutral-100 sm:flex-row sm:items-center md:flex-col md:items-start md:text-4xl md:leading-[39.6px] md:-tracking-[0.72px] lg:flex-row lg:items-center lg:gap-3 lg:text-5xl lg:leading-[52.8px] lg:-tracking-[0.96px] xl:text-[56px] xl:leading-[61.6px] xl:-tracking-[1.12px] 2xl:gap-1 2xl:text-[64px] 2xl:leading-[70.4px] 2xl:-tracking-[1.28px]">
+              <h5 className="font-poppins inline-flex flex-col gap-2 text-3.5xl font-medium leading-[35.2px] -tracking-[0.64px] text-neutral-100 sm:flex-row sm:items-center md:flex-col md:items-start md:text-4xl md:leading-[39.6px] md:-tracking-[0.72px] lg:flex-row lg:items-center lg:gap-3 lg:text-5xl lg:leading-[52.8px] lg:-tracking-[0.96px] xl:text-[56px] xl:leading-[61.6px] xl:-tracking-[1.12px] 2xl:gap-1 2xl:text-[64px] 2xl:leading-[70.4px] 2xl:-tracking-[1.28px]">
                 <span>Powered by</span>
                 <span className="inline-flex items-center gap-2 lg:gap-3 2xl:p-2 2xl:pr-4">
                   OSMO
@@ -93,7 +93,7 @@ export default function OsmoCTASection() {
               />
             </div>
             <div className="flex flex-col">
-              <span className="font-h1 text-xl leading-[26px] text-neutral-100 xl:text-2xl xl:leading-[31px]">
+              <span className="font-poppins text-xl leading-[26px] text-neutral-100 xl:text-2xl xl:leading-[31px]">
                 117
               </span>
               <span className="font-light leading-6 text-[#F9F8F799]">
@@ -123,7 +123,7 @@ export default function OsmoCTASection() {
               />
             </div>
             <div className="flex flex-col">
-              <span className="font-h1 text-xl leading-[26px] text-neutral-100 xl:text-2xl xl:leading-[31px]">
+              <span className="font-poppins text-xl leading-[26px] text-neutral-100 xl:text-2xl xl:leading-[31px]">
                 1M OSMO
               </span>
               <span className="font-light leading-6 text-[#F9F8F799]">

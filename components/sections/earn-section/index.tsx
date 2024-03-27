@@ -135,7 +135,7 @@ export default function EarnSection() {
               Put your assets to work
             </span>
           </div>
-          <h2 className="bg-earn-headline font-h1 text-3.5xl font-medium leading-[38.5px] -tracking-[0.64px] md:text-4xl md:leading-[44px] md:-tracking-[0.72px] lg:text-5xl lg:leading-[58px] lg:-tracking-[0.96px] xl:text-[56px] xl:leading-[68px] xl:-tracking-[1.12px] 2xl:text-[64px] 2xl:leading-[80px] 2xl:-tracking-[1.28px]">
+          <h2 className="bg-earn-headline font-poppins text-3.5xl font-medium leading-[38.5px] -tracking-[0.64px] md:text-4xl md:leading-[44px] md:-tracking-[0.72px] lg:text-5xl lg:leading-[58px] lg:-tracking-[0.96px] xl:text-[56px] xl:leading-[68px] xl:-tracking-[1.12px] 2xl:text-[64px] 2xl:leading-[80px] 2xl:-tracking-[1.28px]">
             Unlock your <br /> earning potential.
           </h2>
         </div>
@@ -207,7 +207,7 @@ function EarnCard({
         </div>
       </div>
       <div className="relative z-20 flex flex-col gap-2">
-        <h5 className="font-h1 text-xl font-medium leading-[26px] text-neutral-100 2xl:text-2xl 2xl:leading-[31px]">
+        <h5 className="font-poppins text-xl font-medium leading-[26px] text-neutral-100 2xl:text-2xl 2xl:leading-[31px]">
           {title}
         </h5>
         <p

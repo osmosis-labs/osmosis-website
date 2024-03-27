@@ -47,7 +47,7 @@ export default function StatsWithTweets() {
               height={40}
               className="md:h-15 md:w-15"
             />
-            <h4 className="font-h1 text-[32px] font-medium leading-[38.4px] tracking-[-0.64px] md:text-4xl md:leading-[43.2px] lg:text-5xl lg:leading-[55.2px] xl:text-[56px] xl:leading-[64.4px] 2xl:leading-[70.4px]">
+            <h4 className="font-poppins text-[32px] font-medium leading-[38.4px] tracking-[-0.64px] md:text-4xl md:leading-[43.2px] lg:text-5xl lg:leading-[55.2px] xl:text-[56px] xl:leading-[64.4px] 2xl:leading-[70.4px]">
               <span className="trusted-heading-bg">Trusted</span> by 1+ million{" "}
               <br /> users and counting.
             </h4>
