@@ -60,6 +60,50 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+  .absolute-center {
+    @apply left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2;
+  }
+  .external-circle {
+    --angle: 30deg;
+    --offset: 60deg;
+  }
+  .internal-circle {
+    --angle: 45deg;
+    --offset: 45deg;
+  }
+  .void-circle {
+    --angle: 12.86deg;
+    --offset: 0deg;
+  }
+  @media (min-width: 768px) {
+    .external-circle {
+      --angle: 18deg;
+      --offset: 0deg;
+    }
+    .internal-circle {
+      --angle: 30deg;
+      --offset: 0deg;
+    }
+  }
+  .heart-gradient::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: radial-gradient(
+        22% 25% at 50% 50%,
+        #ffa5f7 3%,
+        #ca2ebd 25%,
+        rgba(148, 37, 149, 0.53) 50%,
+        rgba(21, 16, 53, 0) 100%
+      ),
+      radial-gradient(
+        22% 25% at 50% 50%,
+        rgba(125, 11, 153, 0.8) 40%,
+        rgba(32, 27, 67, 0) 100%
+      );
+  }
   .void-assets-mask {
     background: linear-gradient(
       to top,
