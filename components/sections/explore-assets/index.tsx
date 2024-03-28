@@ -156,13 +156,13 @@ function Heart({ assetsLists }: { assetsLists: TAsset[][] }) {
 
   return (
     <div className="relative">
-      <div className="relative z-10 flex h-[380px] w-[360px] items-center justify-center sm:h-[442px] sm:w-[440px] md:h-[388px] md:w-[628px] lg:h-[610px] lg:w-[956px] xl:flex xl:h-[700px] xl:w-[1054px] 2xl:h-[662px]">
+      <div className="relative z-10 flex h-[380px] w-[360px] items-center justify-center sm:h-[442px] sm:w-[440px] md:h-[388px] md:w-[628px] lg:h-[592px] lg:w-[956px] xl:flex xl:h-[700px] xl:w-[1054px] 2xl:h-[662px]">
         <Circle
-          className="external-circle absolute flex h-[300px] w-[300px] items-center justify-center sm:top-10 sm:h-[376px] sm:w-[376px] md:h-[620px] md:w-[560px] lg:h-[790px] lg:w-[790px] xl:h-[760px] xl:w-[760px]"
+          className="external-circle absolute flex h-[300px] w-[300px] items-center justify-center sm:top-10 sm:h-[376px] sm:w-[376px] md:h-[620px] md:w-[560px] lg:top-[110px] lg:h-[790px] lg:w-[768px] xl:h-[760px] xl:w-[760px]"
           list={assetsLists[0]}
         />
         <Circle
-          className="internal-circle absolute flex h-[170px] w-[170px] items-center justify-center sm:top-[130px] sm:h-[204px] sm:w-[204px] md:h-[382px] md:w-[382px] lg:h-[520px] lg:w-[520px]"
+          className="internal-circle absolute flex h-[170px] w-[170px] items-center justify-center sm:top-[130px] sm:h-[204px] sm:w-[204px] md:h-[382px] md:w-[382px] lg:top-[230px] lg:h-[420px] lg:w-[480px]"
           list={assetsLists[1]}
         />
         <Circle
@@ -171,7 +171,7 @@ function Heart({ assetsLists }: { assetsLists: TAsset[][] }) {
         />
         <div className="void-assets-mask absolute z-10 hidden h-[calc(100%+200px)] w-screen xl:block" />
       </div>
-      <div className="heart-gradient absolute-center absolute flex h-12.5 w-11 before:h-[360px] before:w-[360px] before:sm:h-[440px] before:sm:w-[440px] md:top-[calc(100%-56px)] md:h-16 md:w-16 before:md:h-[620px] before:md:w-[620px] lg:h-[93px] lg:w-[93px] before:lg:h-[800px] before:lg:w-[800px] xl:z-10 2xl:before:h-[950px] 2xl:before:w-[1000px]">
+      <div className="heart-gradient absolute-center absolute flex h-12.5 w-11 before:h-[360px] before:w-[360px] before:sm:h-[440px] before:sm:w-[440px] md:top-[calc(100%-56px)] md:h-16 md:w-16 before:md:h-[620px] before:md:w-[620px] lg:top-[calc(100%-124px)] lg:h-[93px] lg:w-[93px] before:lg:h-[800px] before:lg:w-[800px] xl:z-10 2xl:before:h-[950px] 2xl:before:w-[1000px]">
         <Image
           src={"/assets/icons/osmo-logo-icon.svg"}
           width={45}
