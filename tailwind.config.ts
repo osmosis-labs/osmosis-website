@@ -82,6 +82,7 @@ const config: Config = {
         xxs: "10px",
         "3.5xl": "32px",
         "5.5xl": "56px",
+        "6.25xl": "64px",
       },
       keyframes: {
         "accordion-down": {

@@ -7,7 +7,7 @@ export default function HeroSection() {
       <section className="lg:bg-hero-section bg-hero-section-mobile sm:bg-hero-section-sm md:bg-hero-section-md relative z-10 flex rounded-3xl p-2 sm:px-4 sm:py-6 lg:rounded-[32px] lg:p-4 2xl:rounded-[48px] 2xl:px-6 2xl:py-8">
         <div className="flex w-full flex-col sm:gap-6 sm:py-6 md:gap-8 lg:flex-row lg:items-center lg:justify-between lg:py-0">
           <div className="flex flex-col gap-4 px-2 max-sm:py-4 sm:gap-3 sm:px-6 md:flex-row md:items-center md:justify-between md:px-4 lg:flex-col lg:items-start lg:gap-6 lg:px-6 xl:gap-8 xl:px-4 2xl:gap-2 2xl:px-8">
-            <h1 className="inline-flex flex-col font-poppins text-[34px] font-medium leading-[34px] -tracking-[1.2px] text-neutral-100 sm:gap-1 sm:text-[40px] sm:leading-10 lg:gap-2 lg:text-5xl lg:leading-[48px] lg:-tracking-[1.44px] xl:text-[64px] xl:leading-[64px] xl:-tracking-[1.92px] 2xl:gap-1 2xl:text-7xl 2xl:leading-[79.20px] 2xl:-tracking-[2.16px]">
+            <h1 className="xl:text-6.25xl inline-flex flex-col font-poppins text-[34px] font-medium leading-[34px] -tracking-[1.2px] text-neutral-100 sm:gap-1 sm:text-[40px] sm:leading-10 lg:gap-2 lg:text-5xl lg:leading-[48px] lg:-tracking-[1.44px] xl:leading-[64px] xl:-tracking-[1.92px] 2xl:gap-1 2xl:text-7xl 2xl:leading-[79.20px] 2xl:-tracking-[2.16px]">
               <span>Discover and trade</span>
               <span className="inline-flex items-center gap-3 sm:gap-5.5">
                 the next

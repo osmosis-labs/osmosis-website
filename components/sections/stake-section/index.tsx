@@ -15,7 +15,7 @@ export default function StakeSection() {
           </span>
         </div>
         <div className="flex flex-col items-center justify-center gap-2 self-stretch lg:gap-4">
-          <h4 className="bg-stake-heading xl:text-5.5xl text-center font-poppins text-3.5xl font-medium leading-[38px] -tracking-[0.64px] md:text-4xl md:leading-[43px] md:-tracking-[0.72px] lg:text-5xl lg:leading-[52px] lg:-tracking-[0.96px] xl:leading-[61px] xl:-tracking-[1.12px] 2xl:text-[64px] 2xl:leading-[70px] 2xl:-tracking-[1.28px]">
+          <h4 className="bg-stake-heading xl:text-5.5xl 2xl:text-6.25xl text-center font-poppins text-3.5xl font-medium leading-[38px] -tracking-[0.64px] md:text-4xl md:leading-[43px] md:-tracking-[0.72px] lg:text-5xl lg:leading-[52px] lg:-tracking-[0.96px] xl:leading-[61px] xl:-tracking-[1.12px] 2xl:leading-[70px] 2xl:-tracking-[1.28px]">
             Stake to earn <br className="sm:hidden" />
             rewards.
           </h4>
