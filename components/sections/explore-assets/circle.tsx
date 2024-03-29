@@ -104,7 +104,7 @@ function Element({
           )}
           <span
             className={cn(
-              "text-xxs font-medium leading-[4.6px] -tracking-[0.132px] sm:text-xs",
+              "text-[10px] font-medium leading-[4.6px] -tracking-[0.132px] sm:text-xs",
               {
                 "text-[#003F47]": isPositive,
                 "text-[#4A2706]": !isPositive,
