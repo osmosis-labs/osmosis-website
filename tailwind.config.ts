@@ -96,11 +96,13 @@ const config: Config = {
         10.75: "2.6875rem",
         11: "2.75rem",
         13: "3.25rem",
+        13.75: "3.4375rem",
         14.5: "3.625rem",
         15.25: "3.8125rem",
-        16: "4.0rem",
+        16: "4rem",
         17: "4.25rem",
         17.5: "4.375rem",
+        20: "5rem",
       },
       keyframes: {
         "accordion-down": {

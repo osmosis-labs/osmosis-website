@@ -131,11 +131,11 @@ export default function EarnSection() {
       <div className="flex flex-col gap-6 px-2 py-4 sm:p-4 lg:gap-8 2xl:items-start 2xl:gap-14 2xl:p-6">
         <div className="flex flex-col gap-4 2xl:gap-6">
           <div className="flex max-w-max items-center justify-center rounded-full bg-malachite-alpha-200 px-3 py-1 backdrop-blur-xl">
-            <span className="leading-5.5 lg:leading-6.25 text-sm text-malachite-200 lg:text-base">
+            <span className="text-sm leading-5.5 text-malachite-200 lg:text-base lg:leading-6.25">
               Put your assets to work
             </span>
           </div>
-          <h2 className="bg-earn-headline xl:text-5.5xl 2xl:text-6.25xl leading-9.5 md:leading-11 lg:leading-14.5 xl:leading-17 font-poppins text-3.5xl font-medium -tracking-[0.64px] md:text-4xl md:-tracking-[0.72px] lg:text-5xl lg:-tracking-[0.96px] xl:-tracking-[1.12px] 2xl:leading-[80px] 2xl:-tracking-[1.28px]">
+          <h2 className="bg-earn-headline 2xl:leading-20 font-poppins text-3.5xl font-medium leading-9.5 -tracking-[0.64px] md:text-4xl md:leading-11 md:-tracking-[0.72px] lg:text-5xl lg:leading-14.5 lg:-tracking-[0.96px] xl:text-5.5xl xl:leading-17 xl:-tracking-[1.12px] 2xl:text-6.25xl 2xl:-tracking-[1.28px]">
             Unlock your <br /> earning potential.
           </h2>
         </div>
@@ -189,7 +189,7 @@ function EarnCard({
         <Image src={iconUri} alt={`${title} icon`} width={24} height={24} />
         <div className="flex items-center">
           <div className="flex items-center justify-center gap-1 rounded-lg bg-[#87087C] px-3 py-1">
-            <p className="leading-5.25 inline-flex items-center gap-1 text-sm font-light text-neutral-100">
+            <p className="inline-flex items-center gap-1 text-sm font-light leading-5.25 text-neutral-100">
               {typeof badgeDescription !== "string" && "Powered by"}
               {badgeDescription}
             </p>
@@ -207,12 +207,12 @@ function EarnCard({
         </div>
       </div>
       <div className="relative z-20 flex flex-col gap-2">
-        <h5 className="leading-6.5 2xl:leading-7.75 font-poppins text-xl font-medium text-neutral-100 2xl:text-2xl">
+        <h5 className="font-poppins text-xl font-medium leading-6.5 text-neutral-100 2xl:text-2xl 2xl:leading-7.75">
           {title}
         </h5>
         <p
           className={cn(
-            "leading-6.25 max-w-[448px] self-stretch text-alpha-60",
+            "max-w-[448px] self-stretch leading-6.25 text-alpha-60",
             descriptionClassName,
           )}
         >
