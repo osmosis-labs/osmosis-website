@@ -81,7 +81,7 @@ export default function HelpSection() {
                 Meet the community
               </span>
             </div>
-            <h3 className="bg-help-headline 2xl:text-6.25xl lg:leading-13 text-center font-poppins text-3.5xl font-medium leading-[38px] -tracking-[0.64px] md:text-4xl md:leading-[43px] md:-tracking-[0.72px] lg:text-5xl lg:-tracking-[0.96px] 2xl:leading-[70px] 2xl:-tracking-[1.28px]">
+            <h3 className="bg-help-headline 2xl:text-6.25xl lg:leading-13 2xl:leading-17.5 text-center font-poppins text-3.5xl font-medium leading-[38px] -tracking-[0.64px] md:text-4xl md:leading-[43px] md:-tracking-[0.72px] lg:text-5xl lg:-tracking-[0.96px] 2xl:-tracking-[1.28px]">
               Connect with Osmosis.
             </h3>
           </div>
