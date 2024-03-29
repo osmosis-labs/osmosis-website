@@ -110,8 +110,8 @@ export default function HeroSection() {
                 />
               </div>
               <div className="flex flex-col gap-1">
-                <div className="h-2.5 w-30 rounded-full bg-[#3C356D] 2xl:h-3 2xl:w-[150px]" />
-                <div className="h-2.5 w-18 rounded-full bg-[#3C356D] 2xl:h-3 2xl:w-22.5" />
+                <div className="h-2.5 w-30 rounded-full bg-osmoverse-650 2xl:h-3 2xl:w-[150px]" />
+                <div className="h-2.5 w-18 rounded-full bg-osmoverse-650 2xl:h-3 2xl:w-22.5" />
               </div>
               <button
                 type="button"

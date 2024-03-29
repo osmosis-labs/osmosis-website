@@ -190,7 +190,7 @@ function TokenStatsRow({
     >
       <div className="flex items-center gap-2 xl:gap-3">
         {isLoading ? (
-          <div className="h-8 w-8 rounded-full bg-[#3C356D] md:h-10 md:w-10 xl:h-12 xl:w-12" />
+          <div className="bg-osmoverse-650 h-8 w-8 rounded-full md:h-10 md:w-10 xl:h-12 xl:w-12" />
         ) : (
           <Image
             src={iconUri}
@@ -202,8 +202,8 @@ function TokenStatsRow({
         )}
         {isLoading ? (
           <div className="flex flex-col gap-1">
-            <div className="h-2.5 w-25 rounded-full bg-[#3C356D]" />
-            <div className="h-2.5 w-12 rounded-full bg-[#3C356D]" />
+            <div className="bg-osmoverse-650 h-2.5 w-25 rounded-full" />
+            <div className="bg-osmoverse-650 h-2.5 w-12 rounded-full" />
           </div>
         ) : (
           <div className="flex flex-col gap-1.5 2xl:gap-1">
@@ -222,8 +222,8 @@ function TokenStatsRow({
       </div>
       {isLoading ? (
         <div className="flex flex-col items-end justify-center gap-1">
-          <div className="h-2.5 w-14 rounded-full bg-[#3C356D]" />
-          <div className="h-2.5 w-9 rounded-full bg-[#3C356D]" />
+          <div className="bg-osmoverse-650 h-2.5 w-14 rounded-full" />
+          <div className="bg-osmoverse-650 h-2.5 w-9 rounded-full" />
         </div>
       ) : (
         <>

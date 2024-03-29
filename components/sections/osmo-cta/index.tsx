@@ -9,7 +9,7 @@ export default function OsmoCTASection() {
         <div className="border-osmo-cta bg-osmo-cta relative flex flex-col self-stretch rounded-3xl px-6 pb-80 pt-8 sm:rounded-[32px] md:px-8 md:py-12 lg:p-12 2xl:h-[470px] 2xl:px-16 2xl:py-14">
           <div className="flex flex-col justify-center gap-6 self-stretch md:gap-8 md:self-end xl:px-6 2xl:gap-10 2xl:px-0 2xl:py-8">
             <div className="flex flex-col justify-center gap-4 self-stretch md:self-start lg:gap-4">
-              <h5 className="font-poppins inline-flex flex-col gap-2 text-3.5xl font-medium leading-[35.2px] -tracking-[0.64px] text-neutral-100 sm:flex-row sm:items-center md:flex-col md:items-start md:text-4xl md:leading-[39.6px] md:-tracking-[0.72px] lg:flex-row lg:items-center lg:gap-3 lg:text-5xl lg:leading-[52.8px] lg:-tracking-[0.96px] xl:text-[56px] xl:leading-[61.6px] xl:-tracking-[1.12px] 2xl:gap-1 2xl:text-[64px] 2xl:leading-[70.4px] 2xl:-tracking-[1.28px]">
+              <h5 className="inline-flex flex-col gap-2 font-poppins text-3.5xl font-medium leading-[35.2px] -tracking-[0.64px] text-neutral-100 sm:flex-row sm:items-center md:flex-col md:items-start md:text-4xl md:leading-[39.6px] md:-tracking-[0.72px] lg:flex-row lg:items-center lg:gap-3 lg:text-5xl lg:leading-[52.8px] lg:-tracking-[0.96px] xl:text-[56px] xl:leading-[61.6px] xl:-tracking-[1.12px] 2xl:gap-1 2xl:text-[64px] 2xl:leading-[70.4px] 2xl:-tracking-[1.28px]">
                 <span>Powered by</span>
                 <span className="inline-flex items-center gap-2 lg:gap-3 2xl:p-2 2xl:pr-4">
                   OSMO
@@ -60,7 +60,7 @@ export default function OsmoCTASection() {
                 Listed on 14 exchanges, including:
               </span>
               <div className="flex items-center gap-1.5">
-                <div className="flex h-8 w-[118px] items-center justify-center rounded-md border border-solid border-[#3C356D] bg-[#201B43] lg:w-[124px]">
+                <div className="border-osmoverse-650 flex h-8 w-[118px] items-center justify-center rounded-md border border-solid bg-[#201B43] lg:w-[124px]">
                   <Image
                     src={"/assets/binance-logo.svg"}
                     alt="Binance logo"
@@ -69,7 +69,7 @@ export default function OsmoCTASection() {
                     className="2xl:h-5 2xl:w-25"
                   />
                 </div>
-                <div className="flex h-8 w-[118px] items-center justify-center rounded-md border border-solid border-[#3C356D] bg-[#201B43]">
+                <div className="border-osmoverse-650 flex h-8 w-[118px] items-center justify-center rounded-md border border-solid bg-[#201B43]">
                   <Image
                     src={"/assets/coinbase-logo.svg"}
                     alt="Coinbase logo"
@@ -81,7 +81,7 @@ export default function OsmoCTASection() {
               </div>
             </div>
           </div>
-          <div className="h-14 w-[1px] bg-[#3C356D] max-lg:hidden" />
+          <div className="bg-osmoverse-650 h-14 w-[1px] max-lg:hidden" />
           {/**row */}
           <div className="flex items-center gap-4 lg:py-4 2xl:p-0">
             <div className="flex h-15 w-15 items-center justify-center rounded-xl bg-ammelia-600 bg-opacity-15 lg:h-14 lg:w-14">
@@ -96,7 +96,7 @@ export default function OsmoCTASection() {
               <span className="font-poppins text-xl leading-[26px] text-neutral-100 xl:text-2xl xl:leading-[31px]">
                 117
               </span>
-              <span className="text-alpha-60 font-light leading-6">
+              <span className="font-light leading-6 text-alpha-60">
                 rank on{" "}
                 <span className="inline-flex text-neutral-100">
                   CoinGecko
@@ -111,7 +111,7 @@ export default function OsmoCTASection() {
               </span>
             </div>
           </div>
-          <div className="h-14 w-[1px] bg-[#3C356D] max-lg:hidden" />
+          <div className="bg-osmoverse-650 h-14 w-[1px] max-lg:hidden" />
           {/**row */}
           <div className="flex items-center gap-4 lg:py-4 2xl:p-0">
             <div className="flex h-15 w-15 items-center justify-center rounded-xl bg-ammelia-600 bg-opacity-15 lg:h-14 lg:w-14">
@@ -126,7 +126,7 @@ export default function OsmoCTASection() {
               <span className="font-poppins text-xl leading-[26px] text-neutral-100 xl:text-2xl xl:leading-[31px]">
                 1M OSMO
               </span>
-              <span className="text-alpha-60 font-light leading-6">burned</span>
+              <span className="font-light leading-6 text-alpha-60">burned</span>
             </div>
           </div>
         </div>

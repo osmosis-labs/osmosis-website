@@ -94,7 +94,7 @@ export default function BackersSection() {
   return (
     <>
       <div className="flex flex-col items-center justify-center gap-4 self-stretch xl:py-3">
-        <span className="text-alpha-60 leading-[25px]">Backers include</span>
+        <span className="leading-[25px] text-alpha-60">Backers include</span>
         <div
           className={cn(
             "relative h-[184px] overflow-hidden transition-all md:h-full",
@@ -108,7 +108,7 @@ export default function BackersSection() {
               return (
                 <div
                   key={name}
-                  className="relative flex h-14 w-[342px] items-center justify-center self-stretch rounded-lg border border-solid border-[#3C356D] bg-[#201B43] sm:w-[416px] md:w-max"
+                  className="border-osmoverse-650 relative flex h-14 w-[342px] items-center justify-center self-stretch rounded-lg border border-solid bg-[#201B43] sm:w-[416px] md:w-max"
                 >
                   {isPortrait ? (
                     <div className="flex h-auto w-full items-center justify-center gap-2.5 md:px-6">
@@ -147,7 +147,7 @@ export default function BackersSection() {
         onClick={() => setIsExpanded((p) => !p)}
         className="flex items-center p-4 md:hidden"
       >
-        <span className="text-alpha-60 leading-[25px]">
+        <span className="leading-[25px] text-alpha-60">
           {isExpanded ? "Hide All" : "Show All"}
         </span>
         <Image

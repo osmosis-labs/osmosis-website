@@ -82,8 +82,8 @@ export default function BuildSection() {
   return (
     <section className="relative z-10 mt-28 flex flex-col items-center justify-center gap-8 self-stretch rounded-4xl p-2 sm:mt-30 sm:p-4 md:mt-39 lg:mt-32 xl:mt-44 2xl:mt-[152px] 2xl:gap-14 2xl:p-6">
       <div className="flex flex-col items-center gap-4">
-        <div className="bg-malachite-alpha-200 flex max-w-max items-center justify-center rounded-full px-3 py-1 backdrop-blur-xl">
-          <span className="text-malachite-200 text-sm leading-[22px] lg:text-base lg:leading-[25px]">
+        <div className="flex max-w-max items-center justify-center rounded-full bg-malachite-alpha-200 px-3 py-1 backdrop-blur-xl">
+          <span className="text-sm leading-[22px] text-malachite-200 lg:text-base lg:leading-[25px]">
             Developers
           </span>
         </div>
@@ -125,7 +125,7 @@ function BuildCard({
   descriptionClassName,
 }: Card) {
   return (
-    <div className="relative flex h-60 flex-grow flex-col justify-between self-stretch overflow-hidden rounded-2xl border border-solid border-[#3C356D] bg-[#201b43] p-4 lg:h-[260px] xl:rounded-3xl 2xl:p-6">
+    <div className="border-osmoverse-650 relative flex h-60 flex-grow flex-col justify-between self-stretch overflow-hidden rounded-2xl border border-solid bg-[#201b43] p-4 lg:h-[260px] xl:rounded-3xl 2xl:p-6">
       {illustration}
       <div className="bg-build-card-radial absolute inset-0" />
       <div className="relative z-20 flex items-center justify-between">
@@ -147,7 +147,7 @@ function BuildCard({
         </h5>
         <p
           className={cn(
-            "text-alpha-60 self-stretch leading-[25px]",
+            "self-stretch leading-[25px] text-alpha-60",
             descriptionClassName,
           )}
         >

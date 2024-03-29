@@ -76,12 +76,12 @@ export default function HelpSection() {
       <section className="relative z-10 mt-36 flex flex-col items-center justify-center sm:mt-[112px] md:mt-36 xl:mt-44 2xl:mt-52">
         <div className="flex flex-col items-center justify-center gap-6 self-stretch p-2 sm:p-4 lg:gap-8 2xl:gap-14 2xl:p-6">
           <div className="flex flex-col items-center gap-4">
-            <div className="bg-malachite-alpha-200 flex max-w-max items-center justify-center rounded-full px-3 py-1 backdrop-blur-xl">
-              <span className="text-malachite-200 text-sm leading-[22px] lg:text-base lg:leading-[25px]">
+            <div className="flex max-w-max items-center justify-center rounded-full bg-malachite-alpha-200 px-3 py-1 backdrop-blur-xl">
+              <span className="text-sm leading-[22px] text-malachite-200 lg:text-base lg:leading-[25px]">
                 Meet the community
               </span>
             </div>
-            <h3 className="bg-help-headline font-poppins text-center text-3.5xl font-medium leading-[38px] -tracking-[0.64px] md:text-4xl md:leading-[43px] md:-tracking-[0.72px] lg:text-5xl lg:leading-[52px] lg:-tracking-[0.96px] 2xl:text-[64px] 2xl:leading-[70px] 2xl:-tracking-[1.28px]">
+            <h3 className="bg-help-headline text-center font-poppins text-3.5xl font-medium leading-[38px] -tracking-[0.64px] md:text-4xl md:leading-[43px] md:-tracking-[0.72px] lg:text-5xl lg:leading-[52px] lg:-tracking-[0.96px] 2xl:text-[64px] 2xl:leading-[70px] 2xl:-tracking-[1.28px]">
               Connect with Osmosis.
             </h3>
           </div>
@@ -167,7 +167,7 @@ function HelpCard({
   return (
     <div
       className={cn(
-        "relative flex flex-grow flex-col justify-between self-stretch overflow-hidden rounded-2xl border border-solid border-[#3C356D] bg-[#201B43] p-4 xl:rounded-3xl 2xl:p-6",
+        "border-osmoverse-650 relative flex flex-grow flex-col justify-between self-stretch overflow-hidden rounded-2xl border border-solid bg-[#201B43] p-4 xl:rounded-3xl 2xl:p-6",
         {
           "h-[270px] sm:h-60 lg:h-65": firstRow,
           "h-30 lg:h-40 2xl:h-[200px]": !firstRow,
@@ -209,7 +209,7 @@ function HelpCard({
         {description && (
           <p
             className={cn(
-              "text-alpha-60 max-w-[448px] self-stretch leading-[25px]",
+              "max-w-[448px] self-stretch leading-[25px] text-alpha-60",
               descriptionClassName,
             )}
           >
