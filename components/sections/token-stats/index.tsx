@@ -207,14 +207,14 @@ function TokenStatsRow({
           </div>
         ) : (
           <div className="flex flex-col gap-1.5 2xl:gap-1">
-            <span className="text-sm leading-none max-xl:hidden 2xl:text-base">
+            <span className="text-sm leading-none max-xl:hidden xl:text-base">
               {name}
             </span>
             <span className="text-sm leading-none xl:hidden">
               {name.slice(0, 10)}
               {name.length > 10 && "..."}
             </span>
-            <span className="text-sm leading-none opacity-55 2xl:text-base">
+            <span className="text-sm leading-none opacity-55 xl:text-base">
               {denom}
             </span>
           </div>
