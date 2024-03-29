@@ -69,7 +69,7 @@ export default function HeroSection() {
                     <span className="leading-[22px] text-neutral-100 xl:text-xl xl:leading-7">
                       1000
                     </span>
-                    <span className="relative text-xs font-light leading-[18px] text-[#B0AADC] xl:text-sm xl:leading-[21px] 2xl:text-base 2xl:leading-6">
+                    <span className="xl:leading-5.25 relative text-xs font-light leading-[18px] text-[#B0AADC] xl:text-sm 2xl:text-base 2xl:leading-6">
                       <span className="absolute -left-1 bottom-[1px] font-[sans-serif]">
                         &asymp;
                       </span>{" "}

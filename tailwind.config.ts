@@ -84,6 +84,9 @@ const config: Config = {
         "5.5xl": "56px",
         "6.25xl": "64px",
       },
+      lineHeight: {
+        5.25: "1.3125rem",
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },

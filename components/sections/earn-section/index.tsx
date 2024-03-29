@@ -189,7 +189,7 @@ function EarnCard({
         <Image src={iconUri} alt={`${title} icon`} width={24} height={24} />
         <div className="flex items-center">
           <div className="flex items-center justify-center gap-1 rounded-lg bg-[#87087C] px-3 py-1">
-            <p className="inline-flex items-center gap-1 text-sm font-light leading-[21px] text-neutral-100">
+            <p className="leading-5.25 inline-flex items-center gap-1 text-sm font-light text-neutral-100">
               {typeof badgeDescription !== "string" && "Powered by"}
               {badgeDescription}
             </p>

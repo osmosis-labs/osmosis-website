@@ -181,7 +181,7 @@ function HelpCard({
         <div className="flex items-center">
           {badgeDescription && (
             <div className="flex items-center justify-center gap-1 rounded-lg bg-ion-900 px-3 py-1">
-              <p className="inline-flex items-center gap-1 text-sm font-light leading-[21px] text-neutral-100">
+              <p className="leading-5.25 inline-flex items-center gap-1 text-sm font-light text-neutral-100">
                 {badgeDescription}
               </p>
             </div>
