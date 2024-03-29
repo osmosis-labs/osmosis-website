@@ -118,7 +118,7 @@ export default function ExploreAssets() {
   const otherAssets = assets.filter((asset) => asset.important === false);
 
   return (
-    <section className="relative mt-16 flex flex-col items-center justify-center gap-3.5 sm:mt-20 sm:gap-8 md:mt-28 md:justify-end md:self-stretch lg:mt-8 lg:w-[960px] xl:mt-28 xl:w-[1152px] xl:gap-4 xl:overflow-hidden 2xl:mt-42 2xl:w-[1440px] 2xl:gap-0 2xl:px-6">
+    <section className="relative mt-16 flex flex-col items-center justify-center gap-3.5 sm:mt-20 sm:gap-8 md:mt-[114px] md:justify-end md:gap-4 md:self-stretch lg:mt-8 lg:w-[960px] xl:mt-28 xl:w-[1152px] xl:gap-4 xl:overflow-hidden 2xl:mt-42 2xl:w-[1440px] 2xl:gap-0 2xl:px-6">
       <Heart assetsLists={[otherAssets, importantAssets]} />
       <div className="relative z-10 flex flex-col items-center justify-center gap-6 md:gap-8 2xl:px-6">
         <div className="flex flex-col items-center justify-center gap-4 text-center">
@@ -143,7 +143,7 @@ export default function ExploreAssets() {
         alt="Ion"
         width={105}
         height={105}
-        className="absolute right-0 top-0 hidden sm:block md:-top-9 lg:right-12 lg:top-8 lg:h-[140px] lg:w-[140px] xl:right-9 xl:top-11 xl:h-[180px] xl:w-[180px] 2xl:right-[140px] 2xl:top-[70px]"
+        className="absolute right-0 top-0 hidden sm:block md:-right-3 md:top-1 lg:right-12 lg:top-8 lg:h-[140px] lg:w-[140px] xl:right-9 xl:top-11 xl:h-[180px] xl:w-[180px] 2xl:right-[140px] 2xl:top-[70px]"
       />
     </section>
   );
@@ -156,13 +156,13 @@ function Heart({ assetsLists }: { assetsLists: TAsset[][] }) {
 
   return (
     <div className="relative">
-      <div className="relative z-10 flex h-[380px] w-[360px] items-center justify-center sm:h-[442px] sm:w-[440px] md:h-[388px] md:w-[628px] lg:h-[592px] lg:w-[956px] xl:flex xl:h-[700px] xl:w-[1100px] 2xl:h-[674px]">
+      <div className="relative z-10 flex h-[380px] w-[360px] items-center justify-center sm:h-[442px] sm:w-[440px] md:h-[420px] md:w-[628px] lg:h-[592px] lg:w-[956px] xl:flex xl:h-[700px] xl:w-[1100px] 2xl:h-[674px]">
         <Circle
-          className="external-circle absolute flex h-[300px] w-[300px] items-center justify-center sm:top-10 sm:h-[376px] sm:w-[376px] md:h-[620px] md:w-[560px] lg:top-[110px] lg:h-[790px] lg:w-[768px] xl:top-[200px] xl:h-[780px] xl:w-[760px] 2xl:top-[170px]"
+          className="external-circle absolute flex h-[300px] w-[300px] items-center justify-center sm:top-10 sm:h-[376px] sm:w-[376px] md:h-[604px] md:w-[580px] lg:top-[110px] lg:h-[790px] lg:w-[768px] xl:top-[200px] xl:h-[780px] xl:w-[760px] 2xl:top-[170px]"
           list={assetsLists[0]}
         />
         <Circle
-          className="internal-circle absolute flex h-[170px] w-[170px] items-center justify-center sm:top-[130px] sm:h-[204px] sm:w-[204px] md:h-[382px] md:w-[382px] lg:top-[230px] lg:h-[420px] lg:w-[480px] xl:top-[320px] xl:h-[435px] xl:w-[490px] 2xl:top-[290px] 2xl:h-[425px] 2xl:w-[500px]"
+          className="internal-circle absolute flex h-[170px] w-[170px] items-center justify-center sm:top-[130px] sm:h-[204px] sm:w-[204px] md:h-[340px] md:w-[390px] lg:top-[230px] lg:h-[420px] lg:w-[480px] xl:top-[320px] xl:h-[435px] xl:w-[490px] 2xl:top-[290px] 2xl:h-[425px] 2xl:w-[500px]"
           list={assetsLists[1]}
         />
         <Circle
@@ -171,13 +171,13 @@ function Heart({ assetsLists }: { assetsLists: TAsset[][] }) {
         />
         <div className="void-assets-mask absolute z-10 hidden h-[calc(100%+620px)] w-screen xl:block" />
       </div>
-      <div className="heart-gradient absolute-center absolute flex h-12.5 w-11 before:h-[360px] before:w-[360px] before:sm:h-[440px] before:sm:w-[440px] md:top-[calc(100%-56px)] md:h-16 md:w-16 before:md:h-[620px] before:md:w-[620px] lg:top-[calc(100%-124px)] lg:h-[93px] lg:w-[93px] before:lg:h-[800px] before:lg:w-[800px] xl:z-10 2xl:top-[calc(100%-136px)] 2xl:before:h-[950px] 2xl:before:w-[1000px]">
+      <div className="heart-gradient absolute-center absolute flex h-12.5 w-11 before:h-[360px] before:w-[360px] before:sm:h-[440px] before:sm:w-[440px] md:top-[calc(100%-98px)] md:h-[68px] md:w-[68px] before:md:h-[620px] before:md:w-[620px] lg:top-[calc(100%-124px)] lg:h-[93px] lg:w-[93px] before:lg:h-[800px] before:lg:w-[800px] xl:z-10 2xl:top-[calc(100%-136px)] 2xl:before:h-[950px] 2xl:before:w-[1000px]">
         <Image
           src={"/assets/icons/osmo-logo-icon.svg"}
           width={45}
           alt="OSMO icon"
           height={50}
-          className="relative h-auto w-auto pb-[1.5px] md:pl-[4.45px] md:pr-[2.44px] lg:pb-[2.2px] lg:pl-[6.5px] lg:pr-[3.55px]"
+          className="relative h-auto w-auto pb-[1.5px] md:p-0 md:pl-[4.45px] md:pr-[2.44px] lg:pb-[2.2px] lg:pl-[6.5px] lg:pr-[3.55px]"
         />
       </div>
     </div>
