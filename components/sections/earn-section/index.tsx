@@ -135,7 +135,7 @@ export default function EarnSection() {
               Put your assets to work
             </span>
           </div>
-          <h2 className="bg-earn-headline xl:text-5.5xl 2xl:text-6.25xl leading-9.5 font-poppins text-3.5xl font-medium -tracking-[0.64px] md:text-4xl md:leading-[44px] md:-tracking-[0.72px] lg:text-5xl lg:leading-[58px] lg:-tracking-[0.96px] xl:leading-[68px] xl:-tracking-[1.12px] 2xl:leading-[80px] 2xl:-tracking-[1.28px]">
+          <h2 className="bg-earn-headline xl:text-5.5xl 2xl:text-6.25xl leading-9.5 md:leading-11 font-poppins text-3.5xl font-medium -tracking-[0.64px] md:text-4xl md:-tracking-[0.72px] lg:text-5xl lg:leading-[58px] lg:-tracking-[0.96px] xl:leading-[68px] xl:-tracking-[1.12px] 2xl:leading-[80px] 2xl:-tracking-[1.28px]">
             Unlock your <br /> earning potential.
           </h2>
         </div>
