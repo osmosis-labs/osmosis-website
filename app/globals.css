@@ -85,7 +85,7 @@
       --offset: 0deg;
     }
   }
-  .heart-gradient::before {
+  /* .heart-gradient::before {
     content: "";
     position: absolute;
     top: 50%;
@@ -103,7 +103,7 @@
         rgba(125, 11, 153, 0.8) 40%,
         rgba(32, 27, 67, 0) 100%
       );
-  }
+  } */
   .void-assets-mask {
     background: linear-gradient(to top, #140f34 20%, rgba(46, 30, 144, 0) 40%);
   }
