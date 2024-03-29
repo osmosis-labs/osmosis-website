@@ -118,7 +118,7 @@ export default function ExploreAssets() {
   const otherAssets = assets.filter((asset) => asset.important === false);
 
   return (
-    <section className="relative mt-16 flex flex-col items-center justify-center gap-3.5 sm:mt-20 sm:gap-8 md:mt-[114px] md:justify-end md:gap-4 md:self-stretch lg:mt-8 lg:w-[960px] xl:mt-28 xl:w-[1152px] xl:gap-4 xl:overflow-hidden 2xl:mt-42 2xl:w-[1440px] 2xl:gap-0 2xl:px-6">
+    <section className="relative mt-16 flex flex-col items-center justify-center gap-3.5 sm:mt-20 sm:gap-8 md:mt-[114px] md:justify-end md:gap-4 md:self-stretch lg:mt-8 lg:w-[960px] xl:mt-28 xl:w-[1152px] xl:gap-4 xl:overflow-hidden 2xl:mt-42 2xl:h-[1000px] 2xl:w-[1440px] 2xl:justify-start 2xl:gap-0 2xl:px-6">
       <Heart assetsLists={[otherAssets, importantAssets]} />
       <div className="relative z-10 flex flex-col items-center justify-center gap-6 md:gap-8 2xl:px-6">
         <div className="flex flex-col items-center justify-center gap-4 text-center">
@@ -169,9 +169,9 @@ function Heart({ assetsLists }: { assetsLists: TAsset[][] }) {
           className="void-circle absolute top-20 hidden items-center justify-center xl:flex xl:h-[1100px] xl:w-[985px] 2xl:top-12 2xl:h-[1160px] 2xl:w-[1000px]"
           list={voidAssets}
         />
-        <div className="void-assets-mask absolute z-10 hidden h-[calc(100%+620px)] w-screen xl:block" />
+        <div className="void-assets-mask absolute z-10 hidden h-[calc(100%+660px)] w-screen xl:block" />
       </div>
-      <div className="heart-gradient absolute-center absolute flex h-12.5 w-11 before:h-[360px] before:w-[360px] before:sm:h-[440px] before:sm:w-[440px] md:top-[calc(100%-98px)] md:h-[68px] md:w-[68px] before:md:h-[620px] before:md:w-[620px] lg:top-[calc(100%-124px)] lg:h-[93px] lg:w-[93px] before:lg:h-[800px] before:lg:w-[800px] xl:z-10 2xl:top-[calc(100%-136px)] 2xl:before:h-[950px] 2xl:before:w-[1000px]">
+      <div className="heart-gradient absolute-center absolute flex h-12.5 w-11 before:h-[360px] before:w-[360px] before:sm:h-[440px] before:sm:w-[440px] md:top-[calc(100%-98px)] md:h-[68px] md:w-[68px] before:md:h-[620px] before:md:w-[620px] lg:top-[calc(100%-124px)] lg:h-[93px] lg:w-[93px] before:lg:h-[800px] before:lg:w-[800px] xl:top-[calc(100%-130px)] xl:z-10 2xl:top-[calc(100%-136px)] 2xl:h-[98px] 2xl:w-[98px] 2xl:before:h-[950px] 2xl:before:w-[1000px]">
         <Image
           src={"/assets/icons/osmo-logo-icon.svg"}
           width={45}
