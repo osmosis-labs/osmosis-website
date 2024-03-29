@@ -9,7 +9,7 @@ export default function OsmoCTASection() {
         <div className="border-osmo-cta bg-osmo-cta relative flex flex-col self-stretch rounded-3xl px-6 pb-80 pt-8 sm:rounded-[32px] md:px-8 md:py-12 lg:p-12 2xl:h-[470px] 2xl:px-16 2xl:py-14">
           <div className="flex flex-col justify-center gap-6 self-stretch md:gap-8 md:self-end xl:px-6 2xl:gap-10 2xl:px-0 2xl:py-8">
             <div className="flex flex-col justify-center gap-4 self-stretch md:self-start lg:gap-4">
-              <h5 className="xl:text-5.5xl 2xl:text-6.25xl inline-flex flex-col gap-2 font-poppins text-3.5xl font-medium leading-[35.2px] -tracking-[0.64px] text-neutral-100 sm:flex-row sm:items-center md:flex-col md:items-start md:text-4xl md:leading-[39.6px] md:-tracking-[0.72px] lg:flex-row lg:items-center lg:gap-3 lg:text-5xl lg:leading-[52.8px] lg:-tracking-[0.96px] xl:leading-[61.6px] xl:-tracking-[1.12px] 2xl:gap-1 2xl:leading-[70.4px] 2xl:-tracking-[1.28px]">
+              <h5 className="inline-flex flex-col gap-2 font-poppins text-3.5xl font-medium leading-8.75 -tracking-[0.64px] text-neutral-100 sm:flex-row sm:items-center md:flex-col md:items-start md:text-4xl md:leading-10 md:-tracking-[0.72px] lg:flex-row lg:items-center lg:gap-3 lg:text-5xl lg:leading-[53px] lg:-tracking-[0.96px] xl:text-5.5xl xl:leading-15.25 xl:-tracking-[1.12px] 2xl:gap-1 2xl:text-6.25xl 2xl:leading-17.5 2xl:-tracking-[1.28px]">
                 <span>Powered by</span>
                 <span className="inline-flex items-center gap-2 lg:gap-3 2xl:p-2 2xl:pr-4">
                   OSMO
@@ -38,7 +38,7 @@ export default function OsmoCTASection() {
               type="button"
               className="inline-flex w-full items-center justify-center rounded-[10px] bg-wosmongton-700 px-8 py-4 md:max-w-65 md:rounded-xl lg:px-8 lg:py-5 xl:rounded-[14px]"
             >
-              <span className="leading-[25.6px] md:text-sm md:leading-[22.4px] lg:text-base lg:leading-[25.6px]">
+              <span className="leading-6.25 md:text-sm md:leading-5.5 lg:text-base lg:leading-6.25">
                 Get OSMO
               </span>
             </button>
@@ -56,7 +56,7 @@ export default function OsmoCTASection() {
               />
             </div>
             <div className="flex flex-col gap-1">
-              <span className="leading-5.5 lg:leading-6.25 text-sm text-neutral-100 lg:text-base">
+              <span className="text-sm leading-5.5 text-neutral-100 lg:text-base lg:leading-6.25">
                 Listed on 14 exchanges, including:
               </span>
               <div className="flex items-center gap-1.5">
@@ -93,7 +93,7 @@ export default function OsmoCTASection() {
               />
             </div>
             <div className="flex flex-col">
-              <span className="leading-6.5 xl:leading-7.75 font-poppins text-xl text-neutral-100 xl:text-2xl">
+              <span className="font-poppins text-xl leading-6.5 text-neutral-100 xl:text-2xl xl:leading-7.75">
                 117
               </span>
               <span className="font-light leading-6 text-alpha-60">
@@ -123,7 +123,7 @@ export default function OsmoCTASection() {
               />
             </div>
             <div className="flex flex-col">
-              <span className="leading-6.5 xl:leading-7.75 font-poppins text-xl text-neutral-100 xl:text-2xl">
+              <span className="font-poppins text-xl leading-6.5 text-neutral-100 xl:text-2xl xl:leading-7.75">
                 1M OSMO
               </span>
               <span className="font-light leading-6 text-alpha-60">burned</span>
