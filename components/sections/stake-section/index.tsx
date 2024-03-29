@@ -15,7 +15,7 @@ export default function StakeSection() {
           </span>
         </div>
         <div className="flex flex-col items-center justify-center gap-2 self-stretch lg:gap-4">
-          <h4 className="bg-stake-heading xl:text-5.5xl 2xl:text-6.25xl text-center font-poppins text-3.5xl font-medium leading-[38px] -tracking-[0.64px] md:text-4xl md:leading-[43px] md:-tracking-[0.72px] lg:text-5xl lg:leading-[52px] lg:-tracking-[0.96px] xl:leading-[61px] xl:-tracking-[1.12px] 2xl:leading-[70px] 2xl:-tracking-[1.28px]">
+          <h4 className="bg-stake-heading xl:text-5.5xl 2xl:text-6.25xl lg:leading-13 text-center font-poppins text-3.5xl font-medium leading-[38px] -tracking-[0.64px] md:text-4xl md:leading-[43px] md:-tracking-[0.72px] lg:text-5xl lg:-tracking-[0.96px] xl:leading-[61px] xl:-tracking-[1.12px] 2xl:leading-[70px] 2xl:-tracking-[1.28px]">
             Stake to earn <br className="sm:hidden" />
             rewards.
           </h4>
@@ -87,7 +87,7 @@ export default function StakeSection() {
                 </div>
                 <div className="hidden h-18 w-[1px] bg-osmoverse-650 md:block" />
                 <div className="flex gap-3 max-md:items-center md:flex-col md:gap-1 md:px-4 lg:w-[187px] 2xl:w-auto">
-                  <span className="bg-stake-heading leading-8.75 font-poppins text-3.5xl -tracking-[0.64px] 2xl:text-5xl 2xl:leading-[52px] 2xl:-tracking-[0.96px]">
+                  <span className="bg-stake-heading leading-8.75 2xl:leading-13 font-poppins text-3.5xl -tracking-[0.64px] 2xl:text-5xl 2xl:-tracking-[0.96px]">
                     $65M
                   </span>
                   <p className="leading-6.25 font-light text-alpha-60">
