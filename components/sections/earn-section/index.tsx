@@ -131,7 +131,7 @@ export default function EarnSection() {
       <div className="flex flex-col gap-6 px-2 py-4 sm:p-4 lg:gap-8 2xl:items-start 2xl:gap-14 2xl:p-6">
         <div className="flex flex-col gap-4 2xl:gap-6">
           <div className="flex max-w-max items-center justify-center rounded-full bg-malachite-alpha-200 px-3 py-1 backdrop-blur-xl">
-            <span className="text-sm leading-[22px] text-malachite-200 lg:text-base lg:leading-[25px]">
+            <span className="leading-5.5 text-sm text-malachite-200 lg:text-base lg:leading-[25px]">
               Put your assets to work
             </span>
           </div>

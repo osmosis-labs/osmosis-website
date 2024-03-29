@@ -41,7 +41,7 @@ export default function HeroSection() {
                 </div>
               </span>
             </h1>
-            <p className="font-light leading-[22px] text-[#F9F8F7] text-opacity-60 md:max-w-[185px] lg:max-w-none 2xl:mt-13 2xl:text-xl">
+            <p className="leading-5.5 font-light text-[#F9F8F7] text-opacity-60 md:max-w-[185px] lg:max-w-none 2xl:mt-13 2xl:text-xl">
               The largest decentralized crypto <br className="md:hidden" />
               exchange in Cosmos.
             </p>
@@ -66,7 +66,7 @@ export default function HeroSection() {
                     </div>
                   </div>
                   <div className="flex flex-col text-right">
-                    <span className="leading-[22px] text-neutral-100 xl:text-xl xl:leading-7">
+                    <span className="leading-5.5 text-neutral-100 xl:text-xl xl:leading-7">
                       1000
                     </span>
                     <span className="xl:leading-5.25 relative text-xs font-light leading-[18px] text-[#B0AADC] xl:text-sm 2xl:text-base 2xl:leading-6">

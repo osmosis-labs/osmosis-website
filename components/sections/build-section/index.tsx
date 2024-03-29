@@ -83,7 +83,7 @@ export default function BuildSection() {
     <section className="relative z-10 mt-28 flex flex-col items-center justify-center gap-8 self-stretch rounded-4xl p-2 sm:mt-30 sm:p-4 md:mt-39 lg:mt-32 xl:mt-44 2xl:mt-[152px] 2xl:gap-14 2xl:p-6">
       <div className="flex flex-col items-center gap-4">
         <div className="flex max-w-max items-center justify-center rounded-full bg-malachite-alpha-200 px-3 py-1 backdrop-blur-xl">
-          <span className="text-sm leading-[22px] text-malachite-200 lg:text-base lg:leading-[25px]">
+          <span className="leading-5.5 text-sm text-malachite-200 lg:text-base lg:leading-[25px]">
             Developers
           </span>
         </div>
@@ -91,7 +91,7 @@ export default function BuildSection() {
           <h2 className="bg-build-headline xl:text-5.5xl 2xl:text-6.25xl font-poppins text-3.5xl font-medium leading-[35px] -tracking-[0.64px] md:text-4xl md:leading-[39px] md:-tracking-[0.72px] lg:text-5xl lg:leading-[52px] lg:-tracking-[0.96px] xl:leading-[61px] xl:-tracking-[1.12px] 2xl:leading-[70px] 2xl:-tracking-[1.28px]">
             Build the next <br /> disruptive DeFi App.
           </h2>
-          <p className="font-light leading-[22px] text-neutral-100 lg:text-xl">
+          <p className="leading-5.5 font-light text-neutral-100 lg:text-xl">
             Osmosis empowers developers to <br className="md:hidden" />
             innovate.
           </p>

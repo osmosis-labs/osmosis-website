@@ -125,7 +125,7 @@ export default function ExploreAssets() {
           <h3 className="bg-explore-assets-headline xl:text-5.5xl 2xl:text-6.25xl w-[290px] font-poppins text-3.5xl font-medium leading-[38px] -tracking-[0.64px] sm:w-[390px] md:w-[420px] md:text-4xl md:leading-[41px] md:-tracking-[0.72px] lg:w-[594px] lg:text-5xl lg:leading-[55px] lg:-tracking-[0.96px] xl:w-[660px] xl:leading-[64px] xl:-tracking-[1.12px] 2xl:w-[768px] 2xl:leading-[70px] 2xl:-tracking-[1.28px]">
             The best opportunities are on Osmosis.
           </h3>
-          <span className="max-w-[223px] font-light leading-[25px] text-alpha-60 md:max-w-none md:leading-[22px] lg:text-xl">
+          <span className="md:leading-5.5 max-w-[223px] font-light leading-[25px] text-alpha-60 md:max-w-none lg:text-xl">
             Discover and trade 190+ assets and counting.
           </span>
         </div>
@@ -133,7 +133,7 @@ export default function ExploreAssets() {
           type="button"
           className="flex max-w-[164px] items-center justify-center rounded-[10px] bg-wosmongton-700 px-8 py-4 md:rounded-xl lg:max-w-[178px] lg:py-5 xl:rounded-[14px]"
         >
-          <span className="text-sm leading-[22px] text-neutral-100 lg:text-base lg:leading-[25px]">
+          <span className="leading-5.5 text-sm text-neutral-100 lg:text-base lg:leading-[25px]">
             Explore Assets
           </span>
         </button>

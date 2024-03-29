@@ -121,7 +121,7 @@ export default function BackersSection() {
                       />
                       <span
                         className={cn("text-neutral-100", {
-                          "text-sm leading-[22px]": isTextSm,
+                          "leading-5.5 text-sm": isTextSm,
                           "text-base leading-[25px]": !isTextSm,
                         })}
                       >

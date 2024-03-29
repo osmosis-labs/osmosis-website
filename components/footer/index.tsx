@@ -237,7 +237,7 @@ export default function Footer() {
               ))}
             </div>
           </div>
-          <span className="text-sm leading-[22px] text-alpha-60">
+          <span className="leading-5.5 text-sm text-alpha-60">
             © Osmosis 2024
           </span>
         </div>

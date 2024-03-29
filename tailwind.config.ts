@@ -86,6 +86,7 @@ const config: Config = {
       },
       lineHeight: {
         5.25: "1.3125rem",
+        5.5: "1.375rem",
       },
       keyframes: {
         "accordion-down": {
