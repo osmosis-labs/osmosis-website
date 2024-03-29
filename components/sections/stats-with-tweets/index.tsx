@@ -47,7 +47,7 @@ export default function StatsWithTweets() {
               height={40}
               className="md:h-15 md:w-15"
             />
-            <h4 className="xl:text-5.5xl font-poppins text-[32px] font-medium leading-[38.4px] tracking-[-0.64px] md:text-4xl md:leading-[43.2px] lg:text-5xl lg:leading-[55.2px] xl:leading-[64.4px] 2xl:leading-[70.4px]">
+            <h4 className="font-poppins text-[32px] font-medium leading-[38.4px] tracking-[-0.64px] md:text-4xl md:leading-[43.2px] lg:text-5xl lg:leading-[55.2px] xl:text-5.5xl xl:leading-[64.4px] 2xl:leading-[70.4px]">
               <span className="trusted-heading-bg">Trusted</span> by 1+ million{" "}
               <br /> users and counting.
             </h4>
@@ -109,10 +109,10 @@ const StatCard = ({ bottleUri, iconUri, title, value, bgClass }: StatCard) => {
     >
       <Image src={iconUri} alt={title} width={24} height={24} />
       <div className="flex flex-col gap-1 2xl:gap-3">
-        <span className="text-sm leading-[22.4px] text-neutral-100 lg:text-base lg:leading-[25.6px]">
+        <span className="text-sm leading-[22.4px] text-neutral-100 lg:text-base lg:leading-6.5">
           {title}
         </span>
-        <span className="text-2xl font-medium leading-[28.8px] -tracking-[0.24px] text-neutral-100 lg:text-3.5xl lg:leading-[38.4px] lg:-tracking-[0.32px] 2xl:text-5xl 2xl:leading-[57.6px] 2xl:-tracking-[0.48px]">
+        <span className="text-2xl font-medium leading-[28.8px] -tracking-[0.24px] text-neutral-100 lg:text-3.5xl lg:leading-9.5 lg:-tracking-[0.32px] 2xl:text-5xl 2xl:leading-[58px] 2xl:-tracking-[0.48px]">
           {value}
         </span>
       </div>
