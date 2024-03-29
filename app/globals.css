@@ -105,14 +105,14 @@
       );
   } */
   .void-assets-mask {
-    background: linear-gradient(to top, #140f34 20%, rgba(46, 30, 144, 0) 40%);
+    background: linear-gradient(to top, #140f34 18%, rgba(46, 30, 144, 0) 40%);
   }
   @media (min-width: 1536px) {
     .void-assets-mask {
       background: linear-gradient(
         to top,
-        #140f34 18%,
-        rgba(46, 30, 144, 0) 30%
+        #140f34 17%,
+        rgba(46, 30, 144, 0) 28%
       );
     }
   }
