@@ -56,7 +56,7 @@ export default function OsmoCTASection() {
               />
             </div>
             <div className="flex flex-col gap-1">
-              <span className="leading-5.5 text-sm text-neutral-100 lg:text-base lg:leading-[25px]">
+              <span className="leading-5.5 lg:leading-6.25 text-sm text-neutral-100 lg:text-base">
                 Listed on 14 exchanges, including:
               </span>
               <div className="flex items-center gap-1.5">

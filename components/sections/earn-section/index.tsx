@@ -131,7 +131,7 @@ export default function EarnSection() {
       <div className="flex flex-col gap-6 px-2 py-4 sm:p-4 lg:gap-8 2xl:items-start 2xl:gap-14 2xl:p-6">
         <div className="flex flex-col gap-4 2xl:gap-6">
           <div className="flex max-w-max items-center justify-center rounded-full bg-malachite-alpha-200 px-3 py-1 backdrop-blur-xl">
-            <span className="leading-5.5 text-sm text-malachite-200 lg:text-base lg:leading-[25px]">
+            <span className="leading-5.5 lg:leading-6.25 text-sm text-malachite-200 lg:text-base">
               Put your assets to work
             </span>
           </div>
@@ -212,7 +212,7 @@ function EarnCard({
         </h5>
         <p
           className={cn(
-            "max-w-[448px] self-stretch leading-[25px] text-alpha-60",
+            "leading-6.25 max-w-[448px] self-stretch text-alpha-60",
             descriptionClassName,
           )}
         >

@@ -83,7 +83,7 @@ export default function BuildSection() {
     <section className="relative z-10 mt-28 flex flex-col items-center justify-center gap-8 self-stretch rounded-4xl p-2 sm:mt-30 sm:p-4 md:mt-39 lg:mt-32 xl:mt-44 2xl:mt-[152px] 2xl:gap-14 2xl:p-6">
       <div className="flex flex-col items-center gap-4">
         <div className="flex max-w-max items-center justify-center rounded-full bg-malachite-alpha-200 px-3 py-1 backdrop-blur-xl">
-          <span className="leading-5.5 text-sm text-malachite-200 lg:text-base lg:leading-[25px]">
+          <span className="leading-5.5 lg:leading-6.25 text-sm text-malachite-200 lg:text-base">
             Developers
           </span>
         </div>
@@ -147,7 +147,7 @@ function BuildCard({
         </h5>
         <p
           className={cn(
-            "self-stretch leading-[25px] text-alpha-60",
+            "leading-6.25 self-stretch text-alpha-60",
             descriptionClassName,
           )}
         >

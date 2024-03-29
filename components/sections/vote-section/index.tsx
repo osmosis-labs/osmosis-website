@@ -16,7 +16,7 @@ export default function VoteSection() {
                     Osmosis’ future.
                   </h2>
                 </div>
-                <p className="self-stretch leading-[25px] text-neutral-100 2xl:w-[475px]">
+                <p className="leading-6.25 self-stretch text-neutral-100 2xl:w-[475px]">
                   Join the global decentralized community of OSMO stakers and
                   vote on the future of the network in the latest governance
                   proposals.
@@ -28,7 +28,7 @@ export default function VoteSection() {
                     type="button"
                     className="flex items-center justify-center gap-1 self-stretch rounded-xl bg-wosmongton-700 px-6 py-4 md:flex-1 md:self-start lg:flex-initial xl:rounded-[14px] xl:px-8 xl:py-5"
                   >
-                    <span className="leading-[25px] text-neutral-100">
+                    <span className="leading-6.25 text-neutral-100">
                       Vote now
                     </span>
                     <Image
@@ -42,7 +42,7 @@ export default function VoteSection() {
                     type="button"
                     className="bg-osmoverse-760 flex items-center justify-center gap-1 self-stretch rounded-xl px-6 py-4 md:flex-1 lg:flex-initial xl:rounded-[14px] xl:py-5 2xl:px-8"
                   >
-                    <span className="leading-[25px] text-neutral-100">
+                    <span className="leading-6.25 text-neutral-100">
                       Join the discussion
                     </span>
                     <Image
