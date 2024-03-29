@@ -4,7 +4,7 @@ export default function VoteSection() {
   return (
     <div className="relative">
       <section className="relative z-10 mt-8 flex flex-col items-center justify-center self-stretch p-2 sm:mt-14 sm:p-4 xl:mt-12 2xl:mt-14 2xl:p-6">
-        <div className="bg-vote-section border-vote-section bg-osmoverse-850 flex flex-col self-stretch rounded-3xl px-6 pb-80 pt-8 sm:rounded-4xl md:px-8 md:pt-12 lg:p-12 2xl:p-20">
+        <div className="bg-vote-section border-vote-section flex flex-col self-stretch rounded-3xl bg-osmoverse-850 px-6 pb-80 pt-8 sm:rounded-4xl md:px-8 md:pt-12 lg:p-12 2xl:p-20">
           <div className="flex flex-col justify-center self-stretch md:w-[466px] md:self-start lg:w-[398px] xl:w-[519px]">
             <div className="flex flex-col gap-8 self-stretch lg:self-start 2xl:justify-center">
               <div className="flex flex-col gap-2 self-stretch lg:gap-2.5 2xl:self-start">
@@ -40,7 +40,7 @@ export default function VoteSection() {
                   </button>
                   <button
                     type="button"
-                    className="flex items-center justify-center gap-1 self-stretch rounded-xl bg-[#282750] px-6 py-4 md:flex-1 lg:flex-initial xl:rounded-[14px] xl:py-5 2xl:px-8"
+                    className="bg-osmoverse-760 flex items-center justify-center gap-1 self-stretch rounded-xl px-6 py-4 md:flex-1 lg:flex-initial xl:rounded-[14px] xl:py-5 2xl:px-8"
                   >
                     <span className="leading-[25px] text-neutral-100">
                       Join the discussion

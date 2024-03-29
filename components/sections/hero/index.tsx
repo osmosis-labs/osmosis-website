@@ -7,7 +7,7 @@ export default function HeroSection() {
       <section className="lg:bg-hero-section bg-hero-section-mobile sm:bg-hero-section-sm md:bg-hero-section-md relative z-10 flex rounded-3xl p-2 sm:px-4 sm:py-6 lg:rounded-[32px] lg:p-4 2xl:rounded-[48px] 2xl:px-6 2xl:py-8">
         <div className="flex w-full flex-col sm:gap-6 sm:py-6 md:gap-8 lg:flex-row lg:items-center lg:justify-between lg:py-0">
           <div className="flex flex-col gap-4 px-2 max-sm:py-4 sm:gap-3 sm:px-6 md:flex-row md:items-center md:justify-between md:px-4 lg:flex-col lg:items-start lg:gap-6 lg:px-6 xl:gap-8 xl:px-4 2xl:gap-2 2xl:px-8">
-            <h1 className="font-poppins inline-flex flex-col text-[34px] font-medium leading-[34px] -tracking-[1.2px] text-neutral-100 sm:gap-1 sm:text-[40px] sm:leading-10 lg:gap-2 lg:text-5xl lg:leading-[48px] lg:-tracking-[1.44px] xl:text-[64px] xl:leading-[64px] xl:-tracking-[1.92px] 2xl:gap-1 2xl:text-7xl 2xl:leading-[79.20px] 2xl:-tracking-[2.16px]">
+            <h1 className="inline-flex flex-col font-poppins text-[34px] font-medium leading-[34px] -tracking-[1.2px] text-neutral-100 sm:gap-1 sm:text-[40px] sm:leading-10 lg:gap-2 lg:text-5xl lg:leading-[48px] lg:-tracking-[1.44px] xl:text-[64px] xl:leading-[64px] xl:-tracking-[1.92px] 2xl:gap-1 2xl:text-7xl 2xl:leading-[79.20px] 2xl:-tracking-[2.16px]">
               <span>Discover and trade</span>
               <span className="inline-flex items-center gap-3 sm:gap-5.5">
                 the next
@@ -47,9 +47,9 @@ export default function HeroSection() {
             </p>
           </div>
           <div className="border-swap-tool flex items-center rounded-3xl bg-slate-900 bg-opacity-10 px-2 py-6 backdrop-blur-[20px] sm:w-[376px] sm:self-center xl:w-[452px] xl:px-4 2xl:w-[512px] 2xl:rounded-4xl 2xl:px-4 2xl:py-10 2xl:backdrop-blur-xl">
-            <div className="bg-osmoverse-850 flex w-full flex-col gap-6 rounded-[20px] p-3 sm:rounded-2xl sm:p-3.5 xl:gap-8 2xl:gap-10 2xl:rounded-3xl">
+            <div className="flex w-full flex-col gap-6 rounded-[20px] bg-osmoverse-850 p-3 sm:rounded-2xl sm:p-3.5 xl:gap-8 2xl:gap-10 2xl:rounded-3xl">
               <div className="relative flex flex-col gap-[3px]">
-                <div className="flex h-18 items-center justify-between rounded-xl bg-[#282750] px-3 xl:h-24 xl:px-4 2xl:h-30 2xl:rounded-2xl 2xl:px-6">
+                <div className="bg-osmoverse-760 flex h-18 items-center justify-between rounded-xl px-3 xl:h-24 xl:px-4 2xl:h-30 2xl:rounded-2xl 2xl:px-6">
                   <div className="flex items-center gap-2">
                     <Image
                       src={"/assets/icons/usdc.svg"}
@@ -77,7 +77,7 @@ export default function HeroSection() {
                     </span>
                   </div>
                 </div>
-                <div className="flex h-18 items-center justify-between rounded-xl bg-[#282750] px-3 xl:h-24 xl:px-4 2xl:h-30 2xl:rounded-2xl 2xl:px-6">
+                <div className="bg-osmoverse-760 flex h-18 items-center justify-between rounded-xl px-3 xl:h-24 xl:px-4 2xl:h-30 2xl:rounded-2xl 2xl:px-6">
                   <div className="flex items-center gap-2">
                     <Image
                       src={"/assets/icons/tia.svg"}
