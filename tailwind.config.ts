@@ -79,8 +79,9 @@ const config: Config = {
         65: "16.25rem",
       },
       fontSize: {
-        "3.5xl": "32px",
         xxs: "10px",
+        "3.5xl": "32px",
+        "5.5xl": "56px",
       },
       keyframes: {
         "accordion-down": {
