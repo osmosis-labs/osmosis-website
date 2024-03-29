@@ -80,6 +80,7 @@ const config: Config = {
       },
       fontSize: {
         "3.5xl": "32px",
+        xxs: "10px",
       },
       keyframes: {
         "accordion-down": {

@@ -172,7 +172,7 @@ export default function Footer() {
                         </span>
                         {isNew && (
                           <div className="flex items-center justify-center rounded-full bg-wosmongton-700 px-1.5 py-0.5">
-                            <span className="text-[10px] leading-4 text-neutral-100 lg:text-xs lg:leading-[19px]">
+                            <span className="text-xxs leading-4 text-neutral-100 lg:text-xs lg:leading-[19px]">
                               NEW
                             </span>
                           </div>
