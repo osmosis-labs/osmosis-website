@@ -23,7 +23,7 @@ export default function OsmoCTASection() {
                 </span>
               </h5>
               {/**subject to change */}
-              <p className="leading-[26px] text-neutral-100 lg:max-w-[481px] xl:max-w-[404px] 2xl:max-w-[560px] 2xl:text-xl 2xl:leading-7">
+              <p className="leading-6.5 text-neutral-100 lg:max-w-[481px] xl:max-w-[404px] 2xl:max-w-[560px] 2xl:text-xl 2xl:leading-7">
                 OSMO is the staking asset on{" "}
                 <br className="sm:hidden lg:hidden" /> Osmosis{" "}
                 <br className="hidden md:block lg:hidden" />
@@ -93,7 +93,7 @@ export default function OsmoCTASection() {
               />
             </div>
             <div className="flex flex-col">
-              <span className="font-poppins text-xl leading-[26px] text-neutral-100 xl:text-2xl xl:leading-[31px]">
+              <span className="leading-6.5 font-poppins text-xl text-neutral-100 xl:text-2xl xl:leading-[31px]">
                 117
               </span>
               <span className="font-light leading-6 text-alpha-60">
@@ -123,7 +123,7 @@ export default function OsmoCTASection() {
               />
             </div>
             <div className="flex flex-col">
-              <span className="font-poppins text-xl leading-[26px] text-neutral-100 xl:text-2xl xl:leading-[31px]">
+              <span className="leading-6.5 font-poppins text-xl text-neutral-100 xl:text-2xl xl:leading-[31px]">
                 1M OSMO
               </span>
               <span className="font-light leading-6 text-alpha-60">burned</span>

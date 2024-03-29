@@ -37,7 +37,7 @@ export default function StakeSection() {
               height={24}
             />
             <div className="flex flex-col gap-2">
-              <span className="self-stretch font-poppins text-xl leading-[26px] text-neutral-100">
+              <span className="leading-6.5 self-stretch font-poppins text-xl text-neutral-100">
                 Superfluid staking
               </span>
               <p className="leading-6.25 font-light text-alpha-60">
@@ -56,7 +56,7 @@ export default function StakeSection() {
               height={24}
             />
             <div className="flex flex-col gap-2">
-              <span className="self-stretch font-poppins text-xl leading-[26px] text-neutral-100">
+              <span className="leading-6.5 self-stretch font-poppins text-xl text-neutral-100">
                 Organic yields
               </span>
               <p className="leading-6.25 font-light text-alpha-60">
@@ -76,7 +76,7 @@ export default function StakeSection() {
             <div className="flex flex-col gap-4">
               <div className="flex flex-col gap-4 self-stretch py-3 md:flex-row md:items-center md:gap-8 lg:justify-between lg:gap-0">
                 <div className="flex flex-col gap-2 md:w-[242px] 2xl:w-[300px]">
-                  <span className="self-stretch font-poppins text-xl leading-[26px] text-neutral-100">
+                  <span className="leading-6.5 self-stretch font-poppins text-xl text-neutral-100">
                     Airdrop exposure
                   </span>
                   <p className="leading-6.25 font-light text-alpha-60">
