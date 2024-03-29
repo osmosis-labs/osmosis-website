@@ -125,7 +125,7 @@ function BuildCard({
   descriptionClassName,
 }: Card) {
   return (
-    <div className="border-osmoverse-650 relative flex h-60 flex-grow flex-col justify-between self-stretch overflow-hidden rounded-2xl border border-solid bg-[#201b43] p-4 lg:h-[260px] xl:rounded-3xl 2xl:p-6">
+    <div className="relative flex h-60 flex-grow flex-col justify-between self-stretch overflow-hidden rounded-2xl border border-solid border-osmoverse-650 bg-osmoverse-775 p-4 lg:h-[260px] xl:rounded-3xl 2xl:p-6">
       {illustration}
       <div className="bg-build-card-radial absolute inset-0" />
       <div className="relative z-20 flex items-center justify-between">

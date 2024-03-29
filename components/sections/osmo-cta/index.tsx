@@ -60,7 +60,7 @@ export default function OsmoCTASection() {
                 Listed on 14 exchanges, including:
               </span>
               <div className="flex items-center gap-1.5">
-                <div className="border-osmoverse-650 flex h-8 w-[118px] items-center justify-center rounded-md border border-solid bg-[#201B43] lg:w-[124px]">
+                <div className="flex h-8 w-[118px] items-center justify-center rounded-md border border-solid border-osmoverse-650 bg-osmoverse-775 lg:w-[124px]">
                   <Image
                     src={"/assets/binance-logo.svg"}
                     alt="Binance logo"
@@ -69,7 +69,7 @@ export default function OsmoCTASection() {
                     className="2xl:h-5 2xl:w-25"
                   />
                 </div>
-                <div className="border-osmoverse-650 flex h-8 w-[118px] items-center justify-center rounded-md border border-solid bg-[#201B43]">
+                <div className="flex h-8 w-[118px] items-center justify-center rounded-md border border-solid border-osmoverse-650 bg-osmoverse-775">
                   <Image
                     src={"/assets/coinbase-logo.svg"}
                     alt="Coinbase logo"
@@ -81,7 +81,7 @@ export default function OsmoCTASection() {
               </div>
             </div>
           </div>
-          <div className="bg-osmoverse-650 h-14 w-[1px] max-lg:hidden" />
+          <div className="h-14 w-[1px] bg-osmoverse-650 max-lg:hidden" />
           {/**row */}
           <div className="flex items-center gap-4 lg:py-4 2xl:p-0">
             <div className="flex h-15 w-15 items-center justify-center rounded-xl bg-ammelia-600 bg-opacity-15 lg:h-14 lg:w-14">
@@ -111,7 +111,7 @@ export default function OsmoCTASection() {
               </span>
             </div>
           </div>
-          <div className="bg-osmoverse-650 h-14 w-[1px] max-lg:hidden" />
+          <div className="h-14 w-[1px] bg-osmoverse-650 max-lg:hidden" />
           {/**row */}
           <div className="flex items-center gap-4 lg:py-4 2xl:p-0">
             <div className="flex h-15 w-15 items-center justify-center rounded-xl bg-ammelia-600 bg-opacity-15 lg:h-14 lg:w-14">

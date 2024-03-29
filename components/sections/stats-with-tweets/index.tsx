@@ -133,7 +133,7 @@ const Tweet = ({ className }: { className?: string }) => {
       href={"#"}
       target="_blank"
       className={cn(
-        "flex max-h-[268px] max-w-[309px] flex-1 flex-col gap-3 rounded-2xl bg-[#201B43] px-6 py-8 lg:max-h-[196px] lg:max-w-[472px]",
+        "flex max-h-[268px] max-w-[309px] flex-1 flex-col gap-3 rounded-2xl bg-osmoverse-775 px-6 py-8 lg:max-h-[196px] lg:max-w-[472px]",
         className,
       )}
     >

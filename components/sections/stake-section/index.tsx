@@ -29,7 +29,7 @@ export default function StakeSection() {
       <div className="flex flex-col-reverse gap-4 lg:grid lg:grid-cols-[486px,434px] lg:gap-2 xl:grid-cols-[523px,581px] xl:gap-4 2xl:grid-cols-[664px,712px]">
         <div className="flex flex-col justify-center gap-2 self-stretch md:grid md:grid-cols-2 xl:gap-4">
           {/**card */}
-          <div className="border-osmoverse-650 flex flex-col gap-6 self-stretch rounded-2xl border border-solid bg-[#201B43] px-4 py-6 lg:gap-8 lg:p-6 xl:rounded-3xl 2xl:gap-10">
+          <div className="flex flex-col gap-6 self-stretch rounded-2xl border border-solid border-osmoverse-650 bg-osmoverse-775 px-4 py-6 lg:gap-8 lg:p-6 xl:rounded-3xl 2xl:gap-10">
             <Image
               src={"/assets/icons/stake/osmo-blue.svg"}
               alt="Osmo blue icon"
@@ -48,7 +48,7 @@ export default function StakeSection() {
             </div>
           </div>
           {/**card */}
-          <div className="border-osmoverse-650 flex flex-col gap-6 self-stretch rounded-2xl border border-solid bg-[#201B43] px-4 py-6 lg:gap-8 lg:p-6 xl:rounded-3xl 2xl:gap-10">
+          <div className="flex flex-col gap-6 self-stretch rounded-2xl border border-solid border-osmoverse-650 bg-osmoverse-775 px-4 py-6 lg:gap-8 lg:p-6 xl:rounded-3xl 2xl:gap-10">
             <Image
               src={"/assets/icons/stake/plant-blue.svg"}
               alt="Plant blue icon"
@@ -66,7 +66,7 @@ export default function StakeSection() {
             </div>
           </div>
           {/**card */}
-          <div className="border-osmoverse-650 flex flex-col gap-6 self-stretch overflow-hidden rounded-2xl border border-solid bg-[#201B43] px-4 py-6 md:col-span-2 lg:gap-0 lg:p-6 xl:rounded-3xl 2xl:justify-between 2xl:gap-4">
+          <div className="flex flex-col gap-6 self-stretch overflow-hidden rounded-2xl border border-solid border-osmoverse-650 bg-osmoverse-775 px-4 py-6 md:col-span-2 lg:gap-0 lg:p-6 xl:rounded-3xl 2xl:justify-between 2xl:gap-4">
             <Image
               src={"/assets/icons/stake/giftbox-blue.svg"}
               alt="Giftbox blue icon"
@@ -85,7 +85,7 @@ export default function StakeSection() {
                     <br className="hidden 2xl:block" /> over X airdrops to date.
                   </p>
                 </div>
-                <div className="bg-osmoverse-650 hidden h-18 w-[1px] md:block" />
+                <div className="hidden h-18 w-[1px] bg-osmoverse-650 md:block" />
                 <div className="flex gap-3 max-md:items-center md:flex-col md:gap-1 md:px-4 lg:w-[187px] 2xl:w-auto">
                   <span className="bg-stake-heading font-poppins text-3.5xl leading-[35px] -tracking-[0.64px] 2xl:text-5xl 2xl:leading-[52px] 2xl:-tracking-[0.96px]">
                     $65M

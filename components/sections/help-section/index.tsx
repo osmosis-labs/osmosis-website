@@ -167,7 +167,7 @@ function HelpCard({
   return (
     <div
       className={cn(
-        "border-osmoverse-650 relative flex flex-grow flex-col justify-between self-stretch overflow-hidden rounded-2xl border border-solid bg-[#201B43] p-4 xl:rounded-3xl 2xl:p-6",
+        "relative flex flex-grow flex-col justify-between self-stretch overflow-hidden rounded-2xl border border-solid border-osmoverse-650 bg-osmoverse-775 p-4 xl:rounded-3xl 2xl:p-6",
         {
           "h-[270px] sm:h-60 lg:h-65": firstRow,
           "h-30 lg:h-40 2xl:h-[200px]": !firstRow,

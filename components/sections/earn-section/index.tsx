@@ -176,7 +176,7 @@ function EarnCard({
   return (
     <div
       className={cn(
-        "border-osmoverse-650 relative flex flex-grow flex-col justify-between self-stretch overflow-hidden rounded-2xl border border-solid bg-[#201b43] p-4 xl:rounded-3xl 2xl:p-6",
+        "relative flex flex-grow flex-col justify-between self-stretch overflow-hidden rounded-2xl border border-solid border-osmoverse-650 bg-osmoverse-775 p-4 xl:rounded-3xl 2xl:p-6",
         {
           "h-[330px] md:h-[280px] lg:h-[330px] 2xl:h-[440px]": firstRow,
           "h-[330px] md:h-[280px] lg:h-[284px] 2xl:h-[330px]": !firstRow,

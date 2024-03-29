@@ -108,7 +108,7 @@ export default function BackersSection() {
               return (
                 <div
                   key={name}
-                  className="border-osmoverse-650 relative flex h-14 w-[342px] items-center justify-center self-stretch rounded-lg border border-solid bg-[#201B43] sm:w-[416px] md:w-max"
+                  className="relative flex h-14 w-[342px] items-center justify-center self-stretch rounded-lg border border-solid border-osmoverse-650 bg-osmoverse-775 sm:w-[416px] md:w-max"
                 >
                   {isPortrait ? (
                     <div className="flex h-auto w-full items-center justify-center gap-2.5 md:px-6">
