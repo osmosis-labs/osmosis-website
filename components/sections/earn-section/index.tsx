@@ -207,7 +207,7 @@ function EarnCard({
         </div>
       </div>
       <div className="relative z-20 flex flex-col gap-2">
-        <h5 className="leading-6.5 font-poppins text-xl font-medium text-neutral-100 2xl:text-2xl 2xl:leading-[31px]">
+        <h5 className="leading-6.5 2xl:leading-7.75 font-poppins text-xl font-medium text-neutral-100 2xl:text-2xl">
           {title}
         </h5>
         <p

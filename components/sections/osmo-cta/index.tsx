@@ -93,7 +93,7 @@ export default function OsmoCTASection() {
               />
             </div>
             <div className="flex flex-col">
-              <span className="leading-6.5 font-poppins text-xl text-neutral-100 xl:text-2xl xl:leading-[31px]">
+              <span className="leading-6.5 xl:leading-7.75 font-poppins text-xl text-neutral-100 xl:text-2xl">
                 117
               </span>
               <span className="font-light leading-6 text-alpha-60">
@@ -123,7 +123,7 @@ export default function OsmoCTASection() {
               />
             </div>
             <div className="flex flex-col">
-              <span className="leading-6.5 font-poppins text-xl text-neutral-100 xl:text-2xl xl:leading-[31px]">
+              <span className="leading-6.5 xl:leading-7.75 font-poppins text-xl text-neutral-100 xl:text-2xl">
                 1M OSMO
               </span>
               <span className="font-light leading-6 text-alpha-60">burned</span>
