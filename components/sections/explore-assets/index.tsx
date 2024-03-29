@@ -143,7 +143,7 @@ export default function ExploreAssets() {
         alt="Ion"
         width={105}
         height={105}
-        className="absolute right-0 top-0 hidden sm:block md:-right-3 md:top-1 lg:right-12 lg:top-8 lg:h-[140px] lg:w-[140px] xl:right-9 xl:top-11 xl:h-[180px] xl:w-[180px] 2xl:right-[140px] 2xl:top-[70px]"
+        className="absolute right-0 top-0 hidden sm:block md:-right-3 md:top-1 lg:right-12 lg:top-7 lg:h-[140px] lg:w-[140px] xl:right-9 xl:top-11 xl:h-[180px] xl:w-[180px] 2xl:right-[140px] 2xl:top-[70px]"
       />
     </section>
   );
@@ -156,7 +156,7 @@ function Heart({ assetsLists }: { assetsLists: TAsset[][] }) {
 
   return (
     <div className="relative">
-      <div className="relative z-10 flex h-[380px] w-[360px] items-center justify-center sm:h-[442px] sm:w-[440px] md:h-[420px] md:w-[628px] lg:h-[592px] lg:w-[956px] xl:flex xl:h-[700px] xl:w-[1100px] 2xl:h-[674px]">
+      <div className="relative z-10 flex h-[380px] w-[360px] items-center justify-center sm:h-[442px] sm:w-[440px] md:h-[420px] md:w-[628px] lg:h-[611px] lg:w-[956px] xl:flex xl:h-[700px] xl:w-[1100px] 2xl:h-[674px]">
         <Circle
           className="external-circle absolute flex h-[300px] w-[300px] items-center justify-center sm:top-10 sm:h-[376px] sm:w-[376px] md:h-[604px] md:w-[580px] lg:top-[110px] lg:h-[790px] lg:w-[768px] xl:top-[200px] xl:h-[780px] xl:w-[760px] 2xl:top-[170px]"
           list={assetsLists[0]}
