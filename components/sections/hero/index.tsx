@@ -60,7 +60,7 @@ export default function HeroSection() {
                     />
                     <div className="flex flex-col">
                       <span className="text-neutral-100 xl:text-xl">USDC</span>
-                      <span className="text-xs text-[#958FC0] xl:text-sm 2xl:text-base">
+                      <span className="text-osmoverse-310 text-xs xl:text-sm 2xl:text-base">
                         USD Coin
                       </span>
                     </div>
@@ -90,7 +90,7 @@ export default function HeroSection() {
                       <span className="text-neutral-100 xl:text-xl">
                         Celestia
                       </span>
-                      <span className="text-xs text-[#958FC0] xl:text-sm 2xl:text-base">
+                      <span className="text-osmoverse-310 text-xs xl:text-sm 2xl:text-base">
                         TIA
                       </span>
                     </div>
