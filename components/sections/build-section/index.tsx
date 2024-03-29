@@ -88,7 +88,7 @@ export default function BuildSection() {
           </span>
         </div>
         <div className="flex flex-col items-center gap-4 text-center">
-          <h2 className="bg-build-headline xl:text-5.5xl 2xl:text-6.25xl font-poppins text-3.5xl font-medium leading-[35px] -tracking-[0.64px] md:text-4xl md:leading-[39px] md:-tracking-[0.72px] lg:text-5xl lg:leading-[52px] lg:-tracking-[0.96px] xl:leading-[61px] xl:-tracking-[1.12px] 2xl:leading-[70px] 2xl:-tracking-[1.28px]">
+          <h2 className="bg-build-headline xl:text-5.5xl 2xl:text-6.25xl leading-8.75 md:leading-9.75 font-poppins text-3.5xl font-medium -tracking-[0.64px] md:text-4xl md:-tracking-[0.72px] lg:text-5xl lg:leading-[52px] lg:-tracking-[0.96px] xl:leading-[61px] xl:-tracking-[1.12px] 2xl:leading-[70px] 2xl:-tracking-[1.28px]">
             Build the next <br /> disruptive DeFi App.
           </h2>
           <p className="leading-5.5 font-light text-neutral-100 lg:text-xl">

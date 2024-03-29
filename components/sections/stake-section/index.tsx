@@ -87,7 +87,7 @@ export default function StakeSection() {
                 </div>
                 <div className="hidden h-18 w-[1px] bg-osmoverse-650 md:block" />
                 <div className="flex gap-3 max-md:items-center md:flex-col md:gap-1 md:px-4 lg:w-[187px] 2xl:w-auto">
-                  <span className="bg-stake-heading font-poppins text-3.5xl leading-[35px] -tracking-[0.64px] 2xl:text-5xl 2xl:leading-[52px] 2xl:-tracking-[0.96px]">
+                  <span className="bg-stake-heading leading-8.75 font-poppins text-3.5xl -tracking-[0.64px] 2xl:text-5xl 2xl:leading-[52px] 2xl:-tracking-[0.96px]">
                     $65M
                   </span>
                   <p className="leading-6.25 font-light text-alpha-60">
