@@ -8,15 +8,11 @@ export default function VoteSection() {
           <div className="flex flex-col justify-center self-stretch md:w-[466px] md:self-start lg:w-[398px] xl:w-[519px]">
             <div className="flex flex-col gap-8 self-stretch lg:self-start 2xl:justify-center">
               <div className="flex flex-col gap-2 self-stretch lg:gap-2.5 2xl:self-start">
-                <div className="flex flex-col justify-center gap-1 lg:gap-0">
-                  <h2 className="xl:text-5.5xl 2xl:text-6.25xl leading-8.75 md:leading-9.75 lg:leading-13 xl:leading-15.25 2xl:leading-17.5 font-poppins text-3.5xl font-medium -tracking-[0.64px] text-neutral-100 md:text-4xl lg:text-5xl lg:-tracking-[0.96px] xl:-tracking-[1.12px] 2xl:-tracking-[1.28px]">
-                    Have your say in
-                  </h2>
-                  <h2 className="bg-vote-headline xl:text-5.5xl 2xl:text-6.25xl leading-8.75 md:leading-9.75 lg:leading-13 xl:leading-15.25 2xl:leading-17.5 font-poppins text-3.5xl font-medium -tracking-[0.64px] text-neutral-100 md:text-4xl lg:text-5xl lg:-tracking-[0.96px] xl:-tracking-[1.12px] 2xl:-tracking-[1.28px]">
-                    Osmosis’ future.
-                  </h2>
-                </div>
-                <p className="leading-6.25 self-stretch text-neutral-100 2xl:w-[475px]">
+                <h2 className="inline-flex flex-col justify-center gap-1 font-poppins text-3.5xl font-medium leading-8.75 -tracking-[0.02em] text-neutral-100 md:text-4xl md:leading-9.75 lg:gap-0 lg:text-5xl lg:leading-13 xl:text-5.5xl xl:leading-15.25 2xl:text-6.25xl 2xl:leading-17.5">
+                  <span>Have your say in</span>
+                  <span className="bg-vote-headline">Osmosis’ future.</span>
+                </h2>
+                <p className="self-stretch leading-6.25 text-neutral-100 2xl:w-[475px]">
                   Join the global decentralized community of OSMO stakers and
                   vote on the future of the network in the latest governance
                   proposals.
@@ -40,7 +36,7 @@ export default function VoteSection() {
                   </button>
                   <button
                     type="button"
-                    className="bg-osmoverse-760 flex items-center justify-center gap-1 self-stretch rounded-xl px-6 py-4 md:flex-1 lg:flex-initial xl:rounded-[14px] xl:py-5 2xl:px-8"
+                    className="flex items-center justify-center gap-1 self-stretch rounded-xl bg-osmoverse-760 px-6 py-4 md:flex-1 lg:flex-initial xl:rounded-[14px] xl:py-5 2xl:px-8"
                   >
                     <span className="leading-6.25 text-neutral-100">
                       Join the discussion

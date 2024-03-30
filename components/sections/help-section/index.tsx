@@ -77,11 +77,11 @@ export default function HelpSection() {
         <div className="flex flex-col items-center justify-center gap-6 self-stretch p-2 sm:p-4 lg:gap-8 2xl:gap-14 2xl:p-6">
           <div className="flex flex-col items-center gap-4">
             <div className="flex max-w-max items-center justify-center rounded-full bg-malachite-alpha-200 px-3 py-1 backdrop-blur-xl">
-              <span className="leading-5.5 lg:leading-6.25 text-sm text-malachite-200 lg:text-base">
+              <span className="text-sm leading-5.5 text-malachite-200 lg:text-base lg:leading-6.25">
                 Meet the community
               </span>
             </div>
-            <h3 className="bg-help-headline 2xl:text-6.25xl lg:leading-13 2xl:leading-17.5 leading-9.5 md:leading-10.75 text-center font-poppins text-3.5xl font-medium -tracking-[0.64px] md:text-4xl md:-tracking-[0.72px] lg:text-5xl lg:-tracking-[0.96px] 2xl:-tracking-[1.28px]">
+            <h3 className="bg-help-headline text-center font-poppins text-3.5xl font-medium leading-9.5 -tracking-[0.02em] md:text-4xl md:leading-10.75 lg:text-5xl lg:leading-13 2xl:text-6.25xl 2xl:leading-17.5">
               Connect with Osmosis.
             </h3>
           </div>
@@ -181,7 +181,7 @@ function HelpCard({
         <div className="flex items-center">
           {badgeDescription && (
             <div className="flex items-center justify-center gap-1 rounded-lg bg-ion-900 px-3 py-1">
-              <p className="leading-5.25 inline-flex items-center gap-1 text-sm font-light text-neutral-100">
+              <p className="inline-flex items-center gap-1 text-sm font-light leading-5.25 text-neutral-100">
                 {badgeDescription}
               </p>
             </div>
@@ -203,13 +203,13 @@ function HelpCard({
         </div>
       </div>
       <div className="relative z-20 flex flex-col gap-2">
-        <h5 className="leading-6.5 2xl:leading-7.75 font-poppins text-xl font-medium text-neutral-100 2xl:text-2xl">
+        <h5 className="font-poppins text-xl font-medium leading-6.5 text-neutral-100 2xl:text-2xl 2xl:leading-7.75">
           {title}
         </h5>
         {description && (
           <p
             className={cn(
-              "leading-6.25 max-w-[448px] self-stretch text-alpha-60",
+              "max-w-[448px] self-stretch leading-6.25 text-alpha-60",
               descriptionClassName,
             )}
           >

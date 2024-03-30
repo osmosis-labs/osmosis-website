@@ -83,15 +83,15 @@ export default function BuildSection() {
     <section className="relative z-10 mt-28 flex flex-col items-center justify-center gap-8 self-stretch rounded-4xl p-2 sm:mt-30 sm:p-4 md:mt-39 lg:mt-32 xl:mt-44 2xl:mt-[152px] 2xl:gap-14 2xl:p-6">
       <div className="flex flex-col items-center gap-4">
         <div className="flex max-w-max items-center justify-center rounded-full bg-malachite-alpha-200 px-3 py-1 backdrop-blur-xl">
-          <span className="leading-5.5 lg:leading-6.25 text-sm text-malachite-200 lg:text-base">
+          <span className="text-sm leading-5.5 text-malachite-200 lg:text-base lg:leading-6.25">
             Developers
           </span>
         </div>
         <div className="flex flex-col items-center gap-4 text-center">
-          <h2 className="bg-build-headline xl:text-5.5xl 2xl:text-6.25xl leading-8.75 md:leading-9.75 lg:leading-13 xl:leading-15.25 2xl:leading-17.5 font-poppins text-3.5xl font-medium -tracking-[0.64px] md:text-4xl md:-tracking-[0.72px] lg:text-5xl lg:-tracking-[0.96px] xl:-tracking-[1.12px] 2xl:-tracking-[1.28px]">
+          <h2 className="bg-build-headline font-poppins text-3.5xl font-medium leading-8.75 -tracking-[0.02em] md:text-4xl md:leading-9.75 lg:text-5xl lg:leading-13 xl:text-5.5xl xl:leading-15.25 2xl:text-6.25xl 2xl:leading-17.5">
             Build the next <br /> disruptive DeFi App.
           </h2>
-          <p className="leading-5.5 font-light text-neutral-100 lg:text-xl">
+          <p className="font-light leading-5.5 text-neutral-100 lg:text-xl">
             Osmosis empowers developers to <br className="md:hidden" />
             innovate.
           </p>
@@ -142,12 +142,12 @@ function BuildCard({
         )}
       </div>
       <div className="relative z-20 flex flex-col gap-2">
-        <h5 className="leading-6.5 2xl:leading-7.75 font-poppins text-xl font-medium text-neutral-100 2xl:text-2xl">
+        <h5 className="font-poppins text-xl font-medium leading-6.5 text-neutral-100 2xl:text-2xl 2xl:leading-7.75">
           {title}
         </h5>
         <p
           className={cn(
-            "leading-6.25 self-stretch text-alpha-60",
+            "self-stretch leading-6.25 text-alpha-60",
             descriptionClassName,
           )}
         >

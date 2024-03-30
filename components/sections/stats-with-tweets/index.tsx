@@ -47,7 +47,7 @@ export default function StatsWithTweets() {
               height={40}
               className="md:h-15 md:w-15"
             />
-            <h4 className="lg:leading-13.75 font-poppins text-3.5xl font-medium leading-9.5 tracking-[-0.64px] md:text-4xl md:leading-10.75 lg:text-5xl xl:text-5.5xl xl:leading-16 2xl:leading-17.5">
+            <h4 className="font-poppins text-3.5xl font-medium leading-9.5 tracking-[-0.64px] md:text-4xl md:leading-10.75 lg:text-5xl lg:leading-13.75 xl:text-5.5xl xl:leading-16 2xl:leading-17.5">
               <span className="trusted-heading-bg">Trusted</span> by 1+ million{" "}
               <br /> users and counting.
             </h4>
@@ -112,7 +112,7 @@ const StatCard = ({ bottleUri, iconUri, title, value, bgClass }: StatCard) => {
         <span className="text-sm leading-5.5 text-neutral-100 lg:text-base lg:leading-6.5">
           {title}
         </span>
-        <span className="text-2xl font-medium leading-[29px] -tracking-[0.24px] text-neutral-100 lg:text-3.5xl lg:leading-9.5 lg:-tracking-[0.32px] 2xl:text-5xl 2xl:leading-[58px] 2xl:-tracking-[0.48px]">
+        <span className="text-2xl font-medium leading-[29px] -tracking-[0.01em] text-neutral-100 lg:text-3.5xl lg:leading-9.5 2xl:text-5xl 2xl:leading-[58px]">
           {value}
         </span>
       </div>
