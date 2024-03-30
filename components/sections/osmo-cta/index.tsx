@@ -9,7 +9,7 @@ export default function OsmoCTASection() {
         <div className="border-osmo-cta bg-osmo-cta relative flex flex-col self-stretch rounded-3xl px-6 pb-80 pt-8 sm:rounded-[32px] md:px-8 md:py-12 lg:p-12 2xl:h-[470px] 2xl:px-16 2xl:py-14">
           <div className="flex flex-col justify-center gap-6 self-stretch md:gap-8 md:self-end xl:px-6 2xl:gap-10 2xl:px-0 2xl:py-8">
             <div className="flex flex-col justify-center gap-4 self-stretch md:self-start lg:gap-4">
-              <h5 className="inline-flex flex-col gap-2 font-poppins text-3.5xl font-medium leading-8.75 -tracking-[0.02em] text-neutral-100 sm:flex-row sm:items-center md:flex-col md:items-start md:text-4xl md:leading-10 lg:flex-row lg:items-center lg:gap-3 lg:text-5xl lg:leading-[53px] xl:text-5.5xl xl:leading-15.25 2xl:gap-1 2xl:text-6.25xl 2xl:leading-17.5">
+              <h5 className="-tracking-2% inline-flex flex-col gap-2 font-poppins text-3.5xl font-medium leading-8.75 text-neutral-100 sm:flex-row sm:items-center md:flex-col md:items-start md:text-4xl md:leading-10 lg:flex-row lg:items-center lg:gap-3 lg:text-5xl lg:leading-[53px] xl:text-5.5xl xl:leading-15.25 2xl:gap-1 2xl:text-6.25xl 2xl:leading-17.5">
                 <span>Powered by</span>
                 <span className="inline-flex items-center gap-2 lg:gap-3 2xl:p-2 2xl:pr-4">
                   OSMO

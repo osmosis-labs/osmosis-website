@@ -84,6 +84,9 @@ const config: Config = {
         "5.5xl": "56px",
         "6.25xl": "64px",
       },
+      letterSpacing: {
+        "-2%": "-0.02em",
+      },
       lineHeight: {
         5.25: "1.3125rem",
         5.5: "1.375rem",

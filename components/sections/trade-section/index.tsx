@@ -6,7 +6,7 @@ export default function TradeSection() {
       <div className="bg-trade-section flex self-stretch rounded-3xl border border-solid border-[#403686] bg-osmoverse-775 px-6 pb-80 pt-12 sm:rounded-4xl md:justify-end md:px-8 md:py-12 lg:p-12 2xl:p-20">
         <div className="flex flex-col justify-center gap-8 self-stretch md:w-[291px] md:self-end lg:w-[367px] 2xl:w-[520px]">
           <div className="flex flex-col gap-4 self-stretch md:self-start">
-            <h4 className="inline-flex flex-col gap-1.5 font-poppins text-3.5xl font-medium leading-10 -tracking-[0.02em] text-neutral-100 sm:flex-row md:h-[86px] md:flex-col md:gap-0 md:text-4xl md:leading-11 lg:h-[110px] lg:text-5xl lg:leading-14.5 xl:h-[131px] xl:text-5.5xl xl:leading-17 2xl:h-[147px] 2xl:text-6.25xl 2xl:leading-[78px]">
+            <h4 className="-tracking-2% inline-flex flex-col gap-1.5 font-poppins text-3.5xl font-medium leading-10 text-neutral-100 sm:flex-row md:h-[86px] md:flex-col md:gap-0 md:text-4xl md:leading-11 lg:h-[110px] lg:text-5xl lg:leading-14.5 xl:h-[131px] xl:text-5.5xl xl:leading-17 2xl:h-[147px] 2xl:text-6.25xl 2xl:leading-[78px]">
               <span className="bg-trade-headline">Start trading</span> today.
             </h4>
             <p className="self-stretch leading-6.5 text-neutral-100 md:w-[280px] lg:w-[368px] 2xl:w-[475px]">

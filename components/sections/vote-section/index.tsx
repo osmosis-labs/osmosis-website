@@ -8,7 +8,7 @@ export default function VoteSection() {
           <div className="flex flex-col justify-center self-stretch md:w-[466px] md:self-start lg:w-[398px] xl:w-[519px]">
             <div className="flex flex-col gap-8 self-stretch lg:self-start 2xl:justify-center">
               <div className="flex flex-col gap-2 self-stretch lg:gap-2.5 2xl:self-start">
-                <h2 className="inline-flex flex-col justify-center gap-1 font-poppins text-3.5xl font-medium leading-8.75 -tracking-[0.02em] text-neutral-100 md:text-4xl md:leading-9.75 lg:gap-0 lg:text-5xl lg:leading-13 xl:text-5.5xl xl:leading-15.25 2xl:text-6.25xl 2xl:leading-17.5">
+                <h2 className="-tracking-2% inline-flex flex-col justify-center gap-1 font-poppins text-3.5xl font-medium leading-8.75 text-neutral-100 md:text-4xl md:leading-9.75 lg:gap-0 lg:text-5xl lg:leading-13 xl:text-5.5xl xl:leading-15.25 2xl:text-6.25xl 2xl:leading-17.5">
                   <span>Have your say in</span>
                   <span className="bg-vote-headline">Osmosis’ future.</span>
                 </h2>
