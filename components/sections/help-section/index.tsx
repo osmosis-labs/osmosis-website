@@ -1,3 +1,4 @@
+import Badge from "@/components/shared/badge";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
@@ -76,11 +77,7 @@ export default function HelpSection() {
       <section className="relative z-10 mt-36 flex flex-col items-center justify-center sm:mt-[112px] md:mt-36 xl:mt-44 2xl:mt-52">
         <div className="flex flex-col items-center justify-center gap-6 self-stretch p-2 sm:p-4 lg:gap-8 2xl:gap-14 2xl:p-6">
           <div className="flex flex-col items-center gap-4">
-            <div className="flex max-w-max items-center justify-center rounded-full bg-malachite-alpha-200 px-3 py-1 backdrop-blur-xl">
-              <span className="text-sm leading-5.5 text-malachite-200 lg:text-base lg:leading-6.25">
-                Meet the community
-              </span>
-            </div>
+            <Badge label="Put your assets to work" />
             <h3 className="bg-help-headline -tracking-2% text-center font-poppins text-3.5xl font-medium leading-9.5 md:text-4xl md:leading-10.75 lg:text-5xl lg:leading-13 2xl:text-6.25xl 2xl:leading-17.5">
               Connect with Osmosis.
             </h3>

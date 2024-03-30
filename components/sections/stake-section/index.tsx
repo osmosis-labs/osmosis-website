@@ -1,3 +1,4 @@
+import Badge from "@/components/shared/badge";
 import Image, { getImageProps } from "next/image";
 
 const airdrops = Array<{ uri: string; name: string }>(22).fill({
@@ -9,11 +10,7 @@ export default function StakeSection() {
   return (
     <section className="relative z-10 mt-28 flex flex-col items-center justify-center gap-8 self-stretch px-2 py-4 sm:mt-20 sm:p-4 md:mt-[136px] lg:mt-28 xl:mt-[170px] 2xl:mt-52 2xl:p-6">
       <div className="flex flex-col items-center justify-center gap-4">
-        <div className="flex max-w-max items-center justify-center rounded-full bg-malachite-alpha-200 px-3 py-1 backdrop-blur-xl">
-          <span className="text-sm leading-5.5 text-malachite-200 lg:text-base lg:leading-6.25">
-            Secure the network
-          </span>
-        </div>
+        <Badge label="Secure the network" />
         <div className="flex flex-col items-center justify-center gap-2 self-stretch lg:gap-4">
           <h4 className="bg-stake-heading -tracking-2% text-center font-poppins text-3.5xl font-medium leading-9.5 md:text-4xl md:leading-10.75 lg:text-5xl lg:leading-13 xl:text-5.5xl xl:leading-15.25 2xl:text-6.25xl 2xl:leading-17.5">
             Stake to earn <br className="sm:hidden" />
