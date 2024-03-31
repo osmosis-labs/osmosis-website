@@ -135,7 +135,7 @@ const sections: Section[] = [
 
 export default function TokenStatsSection() {
   return (
-    <section className="mt-17.5 flex flex-col gap-2 p-2 sm:mt-16 sm:p-4 md:mt-14 md:grid md:grid-cols-2 md:gap-y-2 lg:mt-16 lg:grid-cols-[repeat(2,_minmax(0,1fr)),340px] lg:gap-x-2 xl:mt-[136px] xl:grid-cols-[repeat(2,_minmax(0,1fr)),418px] xl:py-0 2xl:mt-20 2xl:grid-cols-3 2xl:gap-x-6 2xl:px-6">
+    <section className="relative z-10 mt-17.5 flex flex-col gap-2 p-2 sm:mt-16 sm:p-4 md:mt-14 md:grid md:grid-cols-2 md:gap-y-2 lg:mt-16 lg:grid-cols-[repeat(2,_minmax(0,1fr)),340px] lg:gap-x-2 xl:mt-[136px] xl:grid-cols-[repeat(2,_minmax(0,1fr)),418px] xl:py-0 2xl:mt-20 2xl:grid-cols-3 2xl:gap-x-6 2xl:px-6">
       {sections.map(({ iconUri, name, isGrid, assets }) => {
         return (
           <div
@@ -182,15 +182,15 @@ function TokenStatsRow({
       className={cn(
         "flex min-h-18 w-full items-center justify-between rounded-xl px-3 xl:min-h-22.5 2xl:px-4",
         {
-          "bg-[#201B43]": !isUpcoming,
-          "border-token-stats-upcoming bg-[#140F34] py-2.5 md:min-h-30 md:flex-col md:items-start md:p-3 lg:min-h-[154px] xl:min-h-[187px] xl:p-4":
+          "bg-osmoverse-775": !isUpcoming,
+          "border-token-stats-upcoming bg-osmoverse-850 py-2.5 md:min-h-30 md:flex-col md:items-start md:p-3 lg:min-h-[154px] xl:min-h-[187px] xl:p-4":
             isUpcoming,
         },
       )}
     >
       <div className="flex items-center gap-2 xl:gap-3">
         {isLoading ? (
-          <div className="h-8 w-8 rounded-full bg-[#3C356D] md:h-10 md:w-10 xl:h-12 xl:w-12" />
+          <div className="h-8 w-8 rounded-full bg-osmoverse-650 md:h-10 md:w-10 xl:h-12 xl:w-12" />
         ) : (
           <Image
             src={iconUri}
@@ -202,19 +202,19 @@ function TokenStatsRow({
         )}
         {isLoading ? (
           <div className="flex flex-col gap-1">
-            <div className="h-2.5 w-25 rounded-full bg-[#3C356D]" />
-            <div className="h-2.5 w-12 rounded-full bg-[#3C356D]" />
+            <div className="h-2.5 w-25 rounded-full bg-osmoverse-650" />
+            <div className="h-2.5 w-12 rounded-full bg-osmoverse-650" />
           </div>
         ) : (
           <div className="flex flex-col gap-1.5 2xl:gap-1">
-            <span className="text-sm leading-none max-xl:hidden 2xl:text-base">
+            <span className="text-sm leading-none max-xl:hidden xl:text-base">
               {name}
             </span>
             <span className="text-sm leading-none xl:hidden">
               {name.slice(0, 10)}
               {name.length > 10 && "..."}
             </span>
-            <span className="text-sm leading-none opacity-55 2xl:text-base">
+            <span className="text-sm leading-none opacity-55 xl:text-base">
               {denom}
             </span>
           </div>
@@ -222,8 +222,8 @@ function TokenStatsRow({
       </div>
       {isLoading ? (
         <div className="flex flex-col items-end justify-center gap-1">
-          <div className="h-2.5 w-14 rounded-full bg-[#3C356D]" />
-          <div className="h-2.5 w-9 rounded-full bg-[#3C356D]" />
+          <div className="h-2.5 w-14 rounded-full bg-osmoverse-650" />
+          <div className="h-2.5 w-9 rounded-full bg-osmoverse-650" />
         </div>
       ) : (
         <>
@@ -234,7 +234,7 @@ function TokenStatsRow({
               </span>
               <span
                 className={cn("inline-flex gap-1.5 leading-none", {
-                  "text-[#37D56D]": isPositive,
+                  "text-malachite-200": isPositive,
                   "text-[#FA825D]": !isPositive,
                 })}
               >

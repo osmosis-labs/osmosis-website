@@ -1,3 +1,4 @@
+import Badge from "@/components/shared/badge";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
@@ -127,15 +128,11 @@ const cards: Card[] = [
 
 export default function EarnSection() {
   return (
-    <section className="bg-earn-section mt-14 flex flex-col rounded-3xl pt-4 sm:rounded-4xl md:mt-16 md:pt-12 lg:rounded-3xl lg:pt-4 xl:mt-18 xl:rounded-4xl xl:pt-8">
+    <section className="bg-earn-section relative z-10 mt-14 flex flex-col rounded-3xl pt-4 sm:rounded-4xl md:mt-16 md:pt-12 lg:rounded-3xl lg:pt-4 xl:mt-18 xl:rounded-4xl xl:pt-8">
       <div className="flex flex-col gap-6 px-2 py-4 sm:p-4 lg:gap-8 2xl:items-start 2xl:gap-14 2xl:p-6">
         <div className="flex flex-col gap-4 2xl:gap-6">
-          <div className="flex max-w-max items-center justify-center rounded-full bg-[#37D56D40] px-3 py-1 backdrop-blur-xl">
-            <span className="text-sm leading-[22px] text-[#37D56D] lg:text-base lg:leading-[25px]">
-              Put your assets to work
-            </span>
-          </div>
-          <h2 className="bg-earn-headline font-h1 text-3.5xl font-medium leading-[38.5px] -tracking-[0.64px] md:text-4xl md:leading-[44px] md:-tracking-[0.72px] lg:text-5xl lg:leading-[58px] lg:-tracking-[0.96px] xl:text-[56px] xl:leading-[68px] xl:-tracking-[1.12px] 2xl:text-[64px] 2xl:leading-[80px] 2xl:-tracking-[1.28px]">
+          <Badge label="Put your assets to work" />
+          <h2 className="bg-earn-headline -tracking-2% font-poppins text-3.5xl font-medium leading-9.5 md:text-4xl md:leading-11 lg:text-5xl lg:leading-14.5 xl:text-5.5xl xl:leading-17 2xl:text-6.25xl 2xl:leading-20">
             Unlock your <br /> earning potential.
           </h2>
         </div>
@@ -176,7 +173,7 @@ function EarnCard({
   return (
     <div
       className={cn(
-        "relative flex flex-grow flex-col justify-between self-stretch overflow-hidden rounded-2xl border border-solid border-[#3C356D] bg-[#201b43] p-4 xl:rounded-3xl 2xl:p-6",
+        "relative flex flex-grow flex-col justify-between self-stretch overflow-hidden rounded-2xl border border-solid border-osmoverse-650 bg-osmoverse-775 p-4 xl:rounded-3xl 2xl:p-6",
         {
           "h-[330px] md:h-[280px] lg:h-[330px] 2xl:h-[440px]": firstRow,
           "h-[330px] md:h-[280px] lg:h-[284px] 2xl:h-[330px]": !firstRow,
@@ -189,7 +186,7 @@ function EarnCard({
         <Image src={iconUri} alt={`${title} icon`} width={24} height={24} />
         <div className="flex items-center">
           <div className="flex items-center justify-center gap-1 rounded-lg bg-[#87087C] px-3 py-1">
-            <p className="inline-flex items-center gap-1 text-sm font-light leading-[21px] text-neutral-100">
+            <p className="inline-flex items-center gap-1 text-sm font-light leading-5.25 text-neutral-100">
               {typeof badgeDescription !== "string" && "Powered by"}
               {badgeDescription}
             </p>
@@ -207,12 +204,12 @@ function EarnCard({
         </div>
       </div>
       <div className="relative z-20 flex flex-col gap-2">
-        <h5 className="font-h1 text-xl font-medium leading-[26px] text-neutral-100 2xl:text-2xl 2xl:leading-[31px]">
+        <h5 className="font-poppins text-xl font-medium leading-6.5 text-neutral-100 2xl:text-2xl 2xl:leading-7.75">
           {title}
         </h5>
         <p
           className={cn(
-            "max-w-[448px] self-stretch leading-[25px] text-[#F9F8F799]",
+            "max-w-[448px] self-stretch leading-6.25 text-alpha-60",
             descriptionClassName,
           )}
         >
