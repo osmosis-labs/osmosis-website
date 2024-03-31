@@ -90,68 +90,66 @@ const backers = [
 
 export default function BackersSection() {
   return (
-    <>
-      <div className="flex flex-col items-center justify-center gap-4 self-stretch xl:py-3">
-        <span className="leading-6.25 text-alpha-60">Backers include</span>
-        <div className="flex flex-col-reverse items-center justify-center">
-          <div className="peer">
-            <Switch className="flex items-center p-4 md:hidden">
-              {({ checked }) => (
-                <>
-                  <span className="leading-6.25 text-alpha-60">
-                    {checked ? "Hide All" : "Show All"}
-                  </span>
-                  <Image
-                    src={"/assets/icons/show-all-caret-down.svg"}
-                    alt="Arrow dropdown"
-                    width={24}
-                    height={24}
-                    className={cn({ "rotate-180": checked })}
-                  />
-                </>
-              )}
-            </Switch>
-          </div>
-          <div className="flex h-[184px] flex-col gap-2 overflow-hidden transition-[height] peer-has-[button[data-headlessui-state='checked']]:h-full md:flex-row md:flex-wrap md:content-center md:items-center md:justify-center md:gap-3 md:self-stretch">
-            {backers.map(({ imageUri, name, isPortrait, isTextSm }) => {
-              return (
-                <div
-                  key={name}
-                  className="relative flex h-14 w-[342px] items-center justify-center self-stretch rounded-lg border border-solid border-osmoverse-650 bg-osmoverse-775 sm:w-[416px] md:w-max"
-                >
-                  {isPortrait ? (
-                    <div className="flex h-auto w-full items-center justify-center gap-2.5 md:px-6">
-                      <Image
-                        src={imageUri}
-                        className="h-auto w-auto"
-                        width={42}
-                        height={34}
-                        alt={name}
-                      />
-                      <span
-                        className={cn("text-neutral-100", {
-                          "text-sm leading-5.5": isTextSm,
-                          "text-base leading-6.25": !isTextSm,
-                        })}
-                      >
-                        {name}
-                      </span>
-                    </div>
-                  ) : (
+    <div className="flex flex-col items-center justify-center gap-4 self-stretch xl:py-3">
+      <span className="leading-6.25 text-alpha-60">Backers include</span>
+      <div className="flex flex-col-reverse items-center justify-center">
+        <div className="peer">
+          <Switch className="flex items-center p-4 md:hidden">
+            {({ checked }) => (
+              <>
+                <span className="leading-6.25 text-alpha-60">
+                  {checked ? "Hide All" : "Show All"}
+                </span>
+                <Image
+                  src={"/assets/icons/show-all-caret-down.svg"}
+                  alt="Arrow dropdown"
+                  width={24}
+                  height={24}
+                  className={cn({ "rotate-180": checked })}
+                />
+              </>
+            )}
+          </Switch>
+        </div>
+        <div className="flex h-[184px] flex-col gap-2 overflow-hidden transition-[height] peer-has-[button[data-headlessui-state='checked']]:h-full md:flex-row md:flex-wrap md:content-center md:items-center md:justify-center md:gap-3 md:self-stretch">
+          {backers.map(({ imageUri, name, isPortrait, isTextSm }) => {
+            return (
+              <div
+                key={name}
+                className="relative flex h-14 w-[342px] items-center justify-center self-stretch rounded-lg border border-solid border-osmoverse-650 bg-osmoverse-775 sm:w-[416px] md:w-max"
+              >
+                {isPortrait ? (
+                  <div className="flex h-auto w-full items-center justify-center gap-2.5 md:px-6">
                     <Image
                       src={imageUri}
-                      className="relative inset-[0%] h-full min-h-1 w-auto min-w-1"
-                      width={140}
-                      height={56}
+                      className="h-auto w-auto"
+                      width={42}
+                      height={34}
                       alt={name}
                     />
-                  )}
-                </div>
-              );
-            })}
-          </div>
+                    <span
+                      className={cn("text-neutral-100", {
+                        "text-sm leading-5.5": isTextSm,
+                        "text-base leading-6.25": !isTextSm,
+                      })}
+                    >
+                      {name}
+                    </span>
+                  </div>
+                ) : (
+                  <Image
+                    src={imageUri}
+                    className="relative inset-[0%] h-full min-h-1 w-auto min-w-1"
+                    width={140}
+                    height={56}
+                    alt={name}
+                  />
+                )}
+              </div>
+            );
+          })}
         </div>
       </div>
-    </>
+    </div>
   );
 }
