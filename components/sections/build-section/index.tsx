@@ -1,19 +1,13 @@
 import Badge from "@/components/shared/badge";
+import Card, { CardProps } from "@/components/shared/card";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
-import Link from "next/link";
-import { ReactElement } from "react";
 
-interface Card {
-  title: string;
-  description: string;
-  descriptionClassName?: string;
-  iconUri: string;
-  illustration: ReactElement;
-  link?: string;
-}
+type BuildCardProps = CardProps & {
+  firstRow?: boolean;
+};
 
-const cards: Card[] = [
+const cards: BuildCardProps[] = [
   {
     title: "Developers Docs",
     description: "Roll up your sleeves and start building.",
@@ -85,7 +79,7 @@ export default function BuildSection() {
       <div className="flex flex-col items-center gap-4">
         <Badge label="Developers" />
         <div className="flex flex-col items-center gap-4 text-center">
-          <h2 className="bg-build-headline -tracking-2% font-poppins text-3.5xl font-medium leading-8.75 md:text-4xl md:leading-9.75 lg:text-5xl lg:leading-13 xl:text-5.5xl xl:leading-15.25 2xl:text-6.25xl 2xl:leading-17.5">
+          <h2 className="bg-build-headline font-poppins text-3.5xl font-medium leading-8.75 -tracking-2% md:text-4xl md:leading-9.75 lg:text-5xl lg:leading-13 xl:text-5.5xl xl:leading-15.25 2xl:text-6.25xl 2xl:leading-17.5">
             Build the next <br /> disruptive DeFi App.
           </h2>
           <p className="font-light leading-5.5 text-neutral-100 lg:text-xl">
@@ -113,44 +107,16 @@ export default function BuildSection() {
   );
 }
 
-function BuildCard({
-  description,
-  iconUri,
-  illustration,
-  title,
-  link,
-  descriptionClassName,
-}: Card) {
+function BuildCard(props: BuildCardProps) {
   return (
-    <div className="relative flex h-60 flex-grow flex-col justify-between self-stretch overflow-hidden rounded-2xl border border-solid border-osmoverse-650 bg-osmoverse-775 p-4 lg:h-[260px] xl:rounded-3xl 2xl:p-6">
-      {illustration}
-      <div className="bg-build-card-radial absolute inset-0" />
-      <div className="relative z-20 flex items-center justify-between">
-        <Image src={iconUri} alt={`${title} icon`} width={24} height={24} />
-        {link && (
-          <Link href={link}>
-            <Image
-              src={"/assets/build/card-icons/link-arrow.svg"}
-              alt="Link"
-              width={32}
-              height={32}
-            />
-          </Link>
-        )}
-      </div>
-      <div className="relative z-20 flex flex-col gap-2">
-        <h5 className="font-poppins text-xl font-medium leading-6.5 text-neutral-100 2xl:text-2xl 2xl:leading-7.75">
-          {title}
-        </h5>
-        <p
-          className={cn(
-            "self-stretch leading-6.25 text-alpha-60",
-            descriptionClassName,
-          )}
-        >
-          {description}
-        </p>
-      </div>
-    </div>
+    <Card
+      {...props}
+      className={cn("h-60 lg:h-[260px]")}
+      linkArrowIconUri={"/assets/build/card-icons/link-arrow.svg"}
+      linkArrowClassName={"w-8 h-8"}
+      gradientOverlay={
+        <div className="bg-build-card-radial absolute inset-0" />
+      }
+    />
   );
 }

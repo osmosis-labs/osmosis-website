@@ -1,20 +1,13 @@
 import Badge from "@/components/shared/badge";
+import Card, { CardProps } from "@/components/shared/card";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
-import Link from "next/link";
-import { ReactElement } from "react";
 
-interface Card {
-  title: string;
-  description: string;
-  iconUri: string;
-  illustration?: ReactElement;
-  badgeDescription: string | ReactElement;
-  descriptionClassName?: string;
-  link?: string;
-}
+type EarnCardProps = CardProps & {
+  firstRow?: boolean;
+};
 
-const cards: Card[] = [
+const cards: EarnCardProps[] = [
   {
     title: "Liquidity Pools",
     description:
@@ -47,15 +40,18 @@ const cards: Card[] = [
     ),
     link: "#",
     badgeDescription: (
-      <span className="inline-flex items-center gap-1 px-0.5">
-        <Image
-          src={"/assets/earn/card-links/levana.svg"}
-          alt="Levana icon"
-          width={24}
-          height={24}
-        />
-        <span className="font-normal">Levana</span>
-      </span>
+      <p className="inline-flex items-center gap-1 text-sm font-light leading-5.25 text-neutral-100">
+        Powered by
+        <span className="inline-flex items-center gap-1 px-0.5">
+          <Image
+            src={"/assets/earn/card-links/levana.svg"}
+            alt="Levana icon"
+            width={24}
+            height={24}
+          />
+          <span className="font-normal">Levana</span>
+        </span>
+      </p>
     ),
   },
   {
@@ -75,15 +71,18 @@ const cards: Card[] = [
     ),
     link: "#",
     badgeDescription: (
-      <span className="inline-flex items-center gap-1 px-0.5">
-        <Image
-          src={"/assets/earn/card-links/mars.svg"}
-          alt="Mars icon"
-          width={24}
-          height={24}
-        />
-        <span className="font-normal">Mars</span>
-      </span>
+      <p className="inline-flex items-center gap-1 text-sm font-light leading-5.25 text-neutral-100">
+        Powered by
+        <span className="inline-flex items-center gap-1 px-0.5">
+          <Image
+            src={"/assets/earn/card-links/mars.svg"}
+            alt="Mars icon"
+            width={24}
+            height={24}
+          />
+          <span className="font-normal">Mars</span>
+        </span>
+      </p>
     ),
   },
   {
@@ -100,12 +99,15 @@ const cards: Card[] = [
       />
     ),
     badgeDescription: (
-      <Image
-        src={"/assets/earn/card-links/staking-apps.svg"}
-        alt="Staking Apps icon"
-        width={91}
-        height={24}
-      />
+      <p className="inline-flex items-center gap-1 text-sm font-light leading-5.25 text-neutral-100">
+        Powered by
+        <Image
+          src={"/assets/earn/card-links/staking-apps.svg"}
+          alt="Staking Apps icon"
+          width={91}
+          height={24}
+        />
+      </p>
     ),
   },
   {
@@ -132,7 +134,7 @@ export default function EarnSection() {
       <div className="flex flex-col gap-6 px-2 py-4 sm:p-4 lg:gap-8 2xl:items-start 2xl:gap-14 2xl:p-6">
         <div className="flex flex-col gap-4 2xl:gap-6">
           <Badge label="Put your assets to work" />
-          <h2 className="bg-earn-headline -tracking-2% font-poppins text-3.5xl font-medium leading-9.5 md:text-4xl md:leading-11 lg:text-5xl lg:leading-14.5 xl:text-5.5xl xl:leading-17 2xl:text-6.25xl 2xl:leading-20">
+          <h2 className="bg-earn-headline font-poppins text-3.5xl font-medium leading-9.5 -tracking-2% md:text-4xl md:leading-11 lg:text-5xl lg:leading-14.5 xl:text-5.5xl xl:leading-17 2xl:text-6.25xl 2xl:leading-20">
             Unlock your <br /> earning potential.
           </h2>
         </div>
@@ -156,66 +158,18 @@ export default function EarnSection() {
   );
 }
 
-interface EarnCardProps extends Card {
-  firstRow?: boolean;
-}
-
-function EarnCard({
-  firstRow,
-  badgeDescription,
-  description,
-  descriptionClassName,
-  iconUri,
-  illustration,
-  link,
-  title,
-}: EarnCardProps) {
+function EarnCard(props: EarnCardProps) {
   return (
-    <div
+    <Card
+      {...props}
+      badgeClassName="bg-[#87087C]"
       className={cn(
-        "relative flex flex-grow flex-col justify-between self-stretch overflow-hidden rounded-2xl border border-solid border-osmoverse-650 bg-osmoverse-775 p-4 xl:rounded-3xl 2xl:p-6",
-        {
-          "h-[330px] md:h-[280px] lg:h-[330px] 2xl:h-[440px]": firstRow,
-          "h-[330px] md:h-[280px] lg:h-[284px] 2xl:h-[330px]": !firstRow,
-        },
+        props.firstRow
+          ? "h-[330px] md:h-[280px] lg:h-[330px] 2xl:h-[440px]"
+          : "h-[330px] md:h-[280px] lg:h-[284px] 2xl:h-[330px]",
       )}
-    >
-      {illustration}
-      <div className="bg-earn-card-radial absolute inset-0" />
-      <div className="relative z-20 flex items-center justify-between self-stretch">
-        <Image src={iconUri} alt={`${title} icon`} width={24} height={24} />
-        <div className="flex items-center">
-          <div className="flex items-center justify-center gap-1 rounded-lg bg-[#87087C] px-3 py-1">
-            <p className="inline-flex items-center gap-1 text-sm font-light leading-5.25 text-neutral-100">
-              {typeof badgeDescription !== "string" && "Powered by"}
-              {badgeDescription}
-            </p>
-          </div>
-          {link && (
-            <Link href={link} className="-ml-0.5">
-              <Image
-                src={"/assets/earn/card-icons/link-arrow.svg"}
-                alt={`${title} link`}
-                width={40}
-                height={32}
-              />
-            </Link>
-          )}
-        </div>
-      </div>
-      <div className="relative z-20 flex flex-col gap-2">
-        <h5 className="font-poppins text-xl font-medium leading-6.5 text-neutral-100 2xl:text-2xl 2xl:leading-7.75">
-          {title}
-        </h5>
-        <p
-          className={cn(
-            "max-w-[448px] self-stretch leading-6.25 text-alpha-60",
-            descriptionClassName,
-          )}
-        >
-          {description}
-        </p>
-      </div>
-    </div>
+      linkArrowIconUri={"/assets/earn/card-icons/link-arrow.svg"}
+      gradientOverlay={<div className="bg-earn-card-radial absolute inset-0" />}
+    />
   );
 }

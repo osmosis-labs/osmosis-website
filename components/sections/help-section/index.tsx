@@ -1,20 +1,13 @@
 import Badge from "@/components/shared/badge";
+import Card, { CardProps } from "@/components/shared/card";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
-import Link from "next/link";
-import { ReactElement } from "react";
 
-interface Card {
-  title: string;
-  description?: string;
-  descriptionClassName?: string;
-  iconUri: string;
-  link?: string;
-  illustration?: ReactElement;
-  badgeDescription?: string;
-}
+type HelpCardProps = CardProps & {
+  firstRow?: boolean;
+};
 
-const cards: Card[] = [
+const cards: HelpCardProps[] = [
   {
     title: "Support",
     description:
@@ -78,7 +71,7 @@ export default function HelpSection() {
         <div className="flex flex-col items-center justify-center gap-6 self-stretch p-2 sm:p-4 lg:gap-8 2xl:gap-14 2xl:p-6">
           <div className="flex flex-col items-center gap-4">
             <Badge label="Put your assets to work" />
-            <h3 className="bg-help-headline -tracking-2% text-center font-poppins text-3.5xl font-medium leading-9.5 md:text-4xl md:leading-10.75 lg:text-5xl lg:leading-13 2xl:text-6.25xl 2xl:leading-17.5">
+            <h3 className="bg-help-headline text-center font-poppins text-3.5xl font-medium leading-9.5 -tracking-2% md:text-4xl md:leading-10.75 lg:text-5xl lg:leading-13 2xl:text-6.25xl 2xl:leading-17.5">
               Connect with Osmosis.
             </h3>
           </div>
@@ -87,7 +80,7 @@ export default function HelpSection() {
             {/**row */}
             <div className="flex flex-col justify-center gap-2 self-stretch lg:grid lg:grid-cols-2 xl:gap-4">
               {cards.slice(0, 2).map((props) => (
-                <HelpCard key={props.title} {...props} firstRow showGradient />
+                <HelpCard key={props.title} {...props} firstRow />
               ))}
             </div>
             {/**row */}
@@ -145,75 +138,27 @@ export default function HelpSection() {
   );
 }
 
-interface HelpCardProps extends Card {
-  firstRow?: boolean;
-  showGradient?: boolean;
-}
-
-function HelpCard({
-  firstRow,
-  showGradient,
-  iconUri,
-  title,
-  badgeDescription,
-  description,
-  descriptionClassName,
-  illustration,
-  link,
-}: HelpCardProps) {
+function HelpCard(props: HelpCardProps) {
   return (
-    <div
+    <Card
+      {...props}
+      badgeClassName="bg-ion-900"
       className={cn(
-        "relative flex flex-grow flex-col justify-between self-stretch overflow-hidden rounded-2xl border border-solid border-osmoverse-650 bg-osmoverse-775 p-4 xl:rounded-3xl 2xl:p-6",
-        {
-          "h-[270px] sm:h-60 lg:h-65": firstRow,
-          "h-30 lg:h-40 2xl:h-[200px]": !firstRow,
-        },
+        props.firstRow
+          ? "h-[270px] sm:h-60 lg:h-65"
+          : "h-30 lg:h-40 2xl:h-[200px]",
       )}
-    >
-      {illustration}
-      {showGradient && <div className="bg-help-card-radial absolute inset-0" />}
-      <div className="relative z-20 flex items-center justify-between self-stretch">
-        <Image src={iconUri} alt={`${title} icon`} width={24} height={24} />
-        <div className="flex items-center">
-          {badgeDescription && (
-            <div className="flex items-center justify-center gap-1 rounded-lg bg-ion-900 px-3 py-1">
-              <p className="inline-flex items-center gap-1 text-sm font-light leading-5.25 text-neutral-100">
-                {badgeDescription}
-              </p>
-            </div>
-          )}
-          {link && (
-            <Link href={link} className="-ml-0.5">
-              <Image
-                src={
-                  badgeDescription
-                    ? "/assets/help/card-icons/link-arrow-connected.svg"
-                    : "/assets/help/card-icons/link-arrow.svg"
-                }
-                alt={`${title} link`}
-                width={badgeDescription ? 40 : 32}
-                height={32}
-              />
-            </Link>
-          )}
-        </div>
-      </div>
-      <div className="relative z-20 flex flex-col gap-2">
-        <h5 className="font-poppins text-xl font-medium leading-6.5 text-neutral-100 2xl:text-2xl 2xl:leading-7.75">
-          {title}
-        </h5>
-        {description && (
-          <p
-            className={cn(
-              "max-w-[448px] self-stretch leading-6.25 text-alpha-60",
-              descriptionClassName,
-            )}
-          >
-            {description}
-          </p>
-        )}
-      </div>
-    </div>
+      linkArrowIconUri={
+        props.badgeDescription
+          ? "/assets/help/card-icons/link-arrow-connected.svg"
+          : "/assets/help/card-icons/link-arrow.svg"
+      }
+      linkArrowClassName={cn("h-8", props.badgeDescription ? "w-10" : "w-8")}
+      gradientOverlay={
+        props.firstRow ? (
+          <div className="bg-help-card-radial absolute inset-0" />
+        ) : undefined
+      }
+    />
   );
 }
