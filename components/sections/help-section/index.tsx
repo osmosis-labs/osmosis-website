@@ -1,3 +1,4 @@
+import Badge from "@/components/shared/badge";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
@@ -76,12 +77,8 @@ export default function HelpSection() {
       <section className="relative z-10 mt-36 flex flex-col items-center justify-center sm:mt-[112px] md:mt-36 xl:mt-44 2xl:mt-52">
         <div className="flex flex-col items-center justify-center gap-6 self-stretch p-2 sm:p-4 lg:gap-8 2xl:gap-14 2xl:p-6">
           <div className="flex flex-col items-center gap-4">
-            <div className="flex max-w-max items-center justify-center rounded-full bg-[#37D56D40] px-3 py-1 backdrop-blur-xl">
-              <span className="text-sm leading-[22px] text-[#37D56D] lg:text-base lg:leading-[25px]">
-                Meet the community
-              </span>
-            </div>
-            <h3 className="bg-help-headline text-center font-h1 text-3.5xl font-medium leading-[38px] -tracking-[0.64px] md:text-4xl md:leading-[43px] md:-tracking-[0.72px] lg:text-5xl lg:leading-[52px] lg:-tracking-[0.96px] 2xl:text-[64px] 2xl:leading-[70px] 2xl:-tracking-[1.28px]">
+            <Badge label="Put your assets to work" />
+            <h3 className="bg-help-headline -tracking-2% text-center font-poppins text-3.5xl font-medium leading-9.5 md:text-4xl md:leading-10.75 lg:text-5xl lg:leading-13 2xl:text-6.25xl 2xl:leading-17.5">
               Connect with Osmosis.
             </h3>
           </div>
@@ -167,7 +164,7 @@ function HelpCard({
   return (
     <div
       className={cn(
-        "relative flex flex-grow flex-col justify-between self-stretch overflow-hidden rounded-2xl border border-solid border-[#3C356D] bg-[#201B43] p-4 xl:rounded-3xl 2xl:p-6",
+        "relative flex flex-grow flex-col justify-between self-stretch overflow-hidden rounded-2xl border border-solid border-osmoverse-650 bg-osmoverse-775 p-4 xl:rounded-3xl 2xl:p-6",
         {
           "h-[270px] sm:h-60 lg:h-65": firstRow,
           "h-30 lg:h-40 2xl:h-[200px]": !firstRow,
@@ -181,7 +178,7 @@ function HelpCard({
         <div className="flex items-center">
           {badgeDescription && (
             <div className="flex items-center justify-center gap-1 rounded-lg bg-ion-900 px-3 py-1">
-              <p className="inline-flex items-center gap-1 text-sm font-light leading-[21px] text-neutral-100">
+              <p className="inline-flex items-center gap-1 text-sm font-light leading-5.25 text-neutral-100">
                 {badgeDescription}
               </p>
             </div>
@@ -203,13 +200,13 @@ function HelpCard({
         </div>
       </div>
       <div className="relative z-20 flex flex-col gap-2">
-        <h5 className="font-h1 text-xl font-medium leading-[26px] text-neutral-100 2xl:text-2xl 2xl:leading-[31px]">
+        <h5 className="font-poppins text-xl font-medium leading-6.5 text-neutral-100 2xl:text-2xl 2xl:leading-7.75">
           {title}
         </h5>
         {description && (
           <p
             className={cn(
-              "max-w-[448px] self-stretch leading-[25px] text-[#F9F8F799]",
+              "max-w-[448px] self-stretch leading-6.25 text-alpha-60",
               descriptionClassName,
             )}
           >

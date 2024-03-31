@@ -28,28 +28,34 @@
     box-shadow: inset 0px 0px 0px 1px #ffffff45;
   }
   .bg-hero-section {
-    background-image: url("/assets/hero-bg.svg");
+    background-image: url("/assets/hero/bg.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
   }
-  .bg-hero-section-sm {
-    background-image: url("/assets/hero-bg-sm.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+  @media (min-width: 640px) {
+    .bg-hero-section {
+      background-image: url("/assets/hero/bg-sm.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
   }
-  .bg-hero-section-md {
-    background-image: url("/assets/hero-bg-md.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+  @media (min-width: 768px) {
+    .bg-hero-section {
+      background-image: url("/assets/hero/bg-md.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
   }
-  .bg-hero-section-mobile {
-    background-image: url("/assets/hero-bg-mobile.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+  @media (min-width: 1024px) {
+    .bg-hero-section {
+      background-image: url("/assets/hero/bg-lg.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
   }
   .border-token-stats-upcoming {
     box-shadow: inset 0px 0px 0px 1px #565081;
@@ -60,19 +66,59 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+  .absolute-center {
+    @apply left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2;
+  }
+  .external-circle {
+    --angle: 30deg;
+    --offset: 60deg;
+  }
+  .internal-circle {
+    --angle: 45deg;
+    --offset: 45deg;
+  }
+  .void-circle {
+    --angle: 12.86deg;
+    --offset: 0deg;
+  }
+  @media (min-width: 768px) {
+    .external-circle {
+      --angle: 18deg;
+      --offset: 0deg;
+    }
+    .internal-circle {
+      --angle: 30deg;
+      --offset: 0deg;
+    }
+  }
+  /* .heart-gradient::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: radial-gradient(
+        22% 25% at 50% 50%,
+        #ffa5f7 3%,
+        #ca2ebd 25%,
+        rgba(148, 37, 149, 0.53) 50%,
+        rgba(21, 16, 53, 0) 100%
+      ),
+      radial-gradient(
+        22% 25% at 50% 50%,
+        rgba(125, 11, 153, 0.8) 40%,
+        rgba(32, 27, 67, 0) 100%
+      );
+  } */
   .void-assets-mask {
-    background: linear-gradient(
-      to top,
-      #140f34 26%,
-      rgba(46, 30, 144, 0) 71.01%
-    );
+    background: linear-gradient(to top, #140f34 18%, rgba(46, 30, 144, 0) 40%);
   }
   @media (min-width: 1536px) {
     .void-assets-mask {
       background: linear-gradient(
         to top,
-        #140f34 32%,
-        rgba(46, 30, 144, 0) 71.01%
+        #140f34 17%,
+        rgba(46, 30, 144, 0) 28%
       );
     }
   }
@@ -165,18 +211,15 @@
         #090520 77%
       );
   }
-  .border-osmo-cta {
-    border: 1px solid rgba(255, 255, 255, 0.1);
-  }
   .bg-osmo-cta {
-    background-image: url("/assets/bg-osmo-cta.svg");
+    background-image: url("/assets/osmo-cta/bg.svg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
   }
   @media (min-width: 640px) {
     .bg-osmo-cta {
-      background-image: url("/assets/bg-osmo-cta-sm.svg");
+      background-image: url("/assets/osmo-cta/bg-sm.svg");
       background-repeat: no-repeat;
       background-position: center;
       background-size: cover;
@@ -184,7 +227,7 @@
   }
   @media (min-width: 768px) {
     .bg-osmo-cta {
-      background-image: url("/assets/bg-osmo-cta-md.svg");
+      background-image: url("/assets/osmo-cta/bg-md.svg");
       background-repeat: no-repeat;
       background-position: center;
       background-size: cover;
@@ -192,7 +235,7 @@
   }
   @media (min-width: 1024px) {
     .bg-osmo-cta {
-      background-image: url("/assets/bg-osmo-cta-lg.svg");
+      background-image: url("/assets/osmo-cta/bg-lg.svg");
       background-repeat: no-repeat;
       background-position: center;
       background-size: cover;
@@ -200,7 +243,7 @@
   }
   @media (min-width: 1280px) {
     .bg-osmo-cta {
-      background-image: url("/assets/bg-osmo-cta-xl.svg");
+      background-image: url("/assets/osmo-cta/bg-xl.svg");
       background-repeat: no-repeat;
       background-position: center;
       background-size: cover;
@@ -208,7 +251,7 @@
   }
   @media (min-width: 1536px) {
     .bg-osmo-cta {
-      background-image: url("/assets/bg-osmo-cta-2xl.svg");
+      background-image: url("/assets/osmo-cta/bg-2xl.svg");
       background-repeat: no-repeat;
       background-position: center;
       background-size: cover;

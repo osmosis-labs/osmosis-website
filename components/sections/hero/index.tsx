@@ -4,10 +4,10 @@ import Image from "next/image";
 export default function HeroSection() {
   return (
     <div className="relative">
-      <section className="lg:bg-hero-section bg-hero-section-mobile sm:bg-hero-section-sm md:bg-hero-section-md relative z-10 flex rounded-3xl p-2 sm:px-4 sm:py-6 lg:rounded-[32px] lg:p-4 2xl:rounded-[48px] 2xl:px-6 2xl:py-8">
+      <section className="bg-hero-section relative z-10 flex rounded-3xl p-2 sm:px-4 sm:py-6 lg:rounded-[32px] lg:p-4 2xl:rounded-[48px] 2xl:px-6 2xl:py-8">
         <div className="flex w-full flex-col sm:gap-6 sm:py-6 md:gap-8 lg:flex-row lg:items-center lg:justify-between lg:py-0">
           <div className="flex flex-col gap-4 px-2 max-sm:py-4 sm:gap-3 sm:px-6 md:flex-row md:items-center md:justify-between md:px-4 lg:flex-col lg:items-start lg:gap-6 lg:px-6 xl:gap-8 xl:px-4 2xl:gap-2 2xl:px-8">
-            <h1 className="inline-flex flex-col font-h1 text-[34px] font-medium leading-[34px] -tracking-[1.2px] text-neutral-100 sm:gap-1 sm:text-[40px] sm:leading-10 lg:gap-2 lg:text-5xl lg:leading-[48px] lg:-tracking-[1.44px] xl:text-[64px] xl:leading-[64px] xl:-tracking-[1.92px] 2xl:gap-1 2xl:text-7xl 2xl:leading-[79.20px] 2xl:-tracking-[2.16px]">
+            <h1 className="inline-flex flex-col font-poppins text-[34px] font-medium leading-[34px] -tracking-[0.03em] text-neutral-100 sm:gap-1 sm:text-[40px] sm:leading-10 lg:gap-2 lg:text-5xl lg:leading-[48px] xl:text-6.25xl xl:leading-16 2xl:gap-1 2xl:text-7xl 2xl:leading-20">
               <span>Discover and trade</span>
               <span className="inline-flex items-center gap-3 sm:gap-5.5">
                 the next
@@ -41,15 +41,15 @@ export default function HeroSection() {
                 </div>
               </span>
             </h1>
-            <p className="font-light leading-[22px] text-[#F9F8F7] text-opacity-60 md:max-w-[185px] lg:max-w-none 2xl:mt-13 2xl:text-xl">
+            <p className="font-light leading-5.5 text-[#F9F8F7] text-opacity-60 md:max-w-[185px] lg:max-w-none 2xl:mt-13 2xl:text-xl">
               The largest decentralized crypto <br className="md:hidden" />
               exchange in Cosmos.
             </p>
           </div>
           <div className="border-swap-tool flex items-center rounded-3xl bg-slate-900 bg-opacity-10 px-2 py-6 backdrop-blur-[20px] sm:w-[376px] sm:self-center xl:w-[452px] xl:px-4 2xl:w-[512px] 2xl:rounded-4xl 2xl:px-4 2xl:py-10 2xl:backdrop-blur-xl">
-            <div className="flex w-full flex-col gap-6 rounded-[20px] bg-[#140F34] p-3 sm:rounded-2xl sm:p-3.5 xl:gap-8 2xl:gap-10 2xl:rounded-3xl">
+            <div className="flex w-full flex-col gap-6 rounded-[20px] bg-osmoverse-850 p-3 sm:rounded-2xl sm:p-3.5 xl:gap-8 2xl:gap-10 2xl:rounded-3xl">
               <div className="relative flex flex-col gap-[3px]">
-                <div className="flex h-18 items-center justify-between rounded-xl bg-[#282750] px-3 xl:h-24 xl:px-4 2xl:h-30 2xl:rounded-2xl 2xl:px-6">
+                <div className="flex h-18 items-center justify-between rounded-xl bg-osmoverse-760 px-3 xl:h-24 xl:px-4 2xl:h-30 2xl:rounded-2xl 2xl:px-6">
                   <div className="flex items-center gap-2">
                     <Image
                       src={"/assets/icons/usdc.svg"}
@@ -60,16 +60,16 @@ export default function HeroSection() {
                     />
                     <div className="flex flex-col">
                       <span className="text-neutral-100 xl:text-xl">USDC</span>
-                      <span className="text-xs text-[#958FC0] xl:text-sm 2xl:text-base">
+                      <span className="text-xs text-osmoverse-310 xl:text-sm 2xl:text-base">
                         USD Coin
                       </span>
                     </div>
                   </div>
                   <div className="flex flex-col text-right">
-                    <span className="leading-[22px] text-neutral-100 xl:text-xl xl:leading-7">
+                    <span className="leading-5.5 text-neutral-100 xl:text-xl xl:leading-7">
                       1000
                     </span>
-                    <span className="relative text-xs font-light leading-[18px] text-[#B0AADC] xl:text-sm xl:leading-[21px] 2xl:text-base 2xl:leading-6">
+                    <span className="relative text-xs font-light leading-[18px] text-[#B0AADC] xl:text-sm xl:leading-5.25 2xl:text-base 2xl:leading-6">
                       <span className="absolute -left-1 bottom-[1px] font-[sans-serif]">
                         &asymp;
                       </span>{" "}
@@ -77,7 +77,7 @@ export default function HeroSection() {
                     </span>
                   </div>
                 </div>
-                <div className="flex h-18 items-center justify-between rounded-xl bg-[#282750] px-3 xl:h-24 xl:px-4 2xl:h-30 2xl:rounded-2xl 2xl:px-6">
+                <div className="flex h-18 items-center justify-between rounded-xl bg-osmoverse-760 px-3 xl:h-24 xl:px-4 2xl:h-30 2xl:rounded-2xl 2xl:px-6">
                   <div className="flex items-center gap-2">
                     <Image
                       src={"/assets/icons/tia.svg"}
@@ -90,7 +90,7 @@ export default function HeroSection() {
                       <span className="text-neutral-100 xl:text-xl">
                         Celestia
                       </span>
-                      <span className="text-xs text-[#958FC0] xl:text-sm 2xl:text-base">
+                      <span className="text-xs text-osmoverse-310 xl:text-sm 2xl:text-base">
                         TIA
                       </span>
                     </div>
@@ -110,8 +110,8 @@ export default function HeroSection() {
                 />
               </div>
               <div className="flex flex-col gap-1">
-                <div className="h-2.5 w-30 rounded-full bg-[#3C356D] 2xl:h-3 2xl:w-[150px]" />
-                <div className="h-2.5 w-18 rounded-full bg-[#3C356D] 2xl:h-3 2xl:w-22.5" />
+                <div className="h-2.5 w-30 rounded-full bg-osmoverse-650 2xl:h-3 2xl:w-[150px]" />
+                <div className="h-2.5 w-18 rounded-full bg-osmoverse-650 2xl:h-3 2xl:w-22.5" />
               </div>
               <button
                 type="button"

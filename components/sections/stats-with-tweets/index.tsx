@@ -36,7 +36,7 @@ const stats: StatCard[] = [
 
 export default function StatsWithTweets() {
   return (
-    <section className="stats-with-tweets-bg relative z-10 mt-14 rounded-3xl pt-2 sm:mt-16 sm:rounded-4xl sm:pt-4 md:mt-24 md:pt-12 lg:mt-20 lg:pt-16 xl:mt-24 xl:pt-20 2xl:mt-36">
+    <section className="stats-with-tweets-bg relative z-10 mt-14 rounded-3xl pt-2 sm:mt-16 sm:rounded-4xl sm:pt-4 md:mt-24 md:pt-12 lg:mt-20 lg:pt-16 xl:mt-24 xl:pt-20 2xl:mt-25">
       <div className="flex flex-col gap-8 p-2 sm:p-4 2xl:gap-16">
         <div className="flex flex-col gap-6 lg:gap-12">
           <div className="flex flex-col gap-2 md:flex-row">
@@ -47,7 +47,7 @@ export default function StatsWithTweets() {
               height={40}
               className="md:h-15 md:w-15"
             />
-            <h4 className="font-h1 text-[32px] font-medium leading-[38.4px] tracking-[-0.64px] md:text-4xl md:leading-[43.2px] lg:text-5xl lg:leading-[55.2px] xl:text-[56px] xl:leading-[64.4px] 2xl:leading-[70.4px]">
+            <h4 className="font-poppins text-3.5xl font-medium leading-9.5 tracking-[-0.64px] md:text-4xl md:leading-10.75 lg:text-5xl lg:leading-13.75 xl:text-5.5xl xl:leading-16 2xl:leading-17.5">
               <span className="trusted-heading-bg">Trusted</span> by 1+ million{" "}
               <br /> users and counting.
             </h4>
@@ -109,10 +109,10 @@ const StatCard = ({ bottleUri, iconUri, title, value, bgClass }: StatCard) => {
     >
       <Image src={iconUri} alt={title} width={24} height={24} />
       <div className="flex flex-col gap-1 2xl:gap-3">
-        <span className="text-sm leading-[22.4px] text-neutral-100 lg:text-base lg:leading-[25.6px]">
+        <span className="text-sm leading-5.5 text-neutral-100 lg:text-base lg:leading-6.5">
           {title}
         </span>
-        <span className="text-2xl font-medium leading-[28.8px] -tracking-[0.24px] text-neutral-100 lg:text-3.5xl lg:leading-[38.4px] lg:-tracking-[0.32px] 2xl:text-5xl 2xl:leading-[57.6px] 2xl:-tracking-[0.48px]">
+        <span className="text-2xl font-medium leading-[29px] -tracking-[0.01em] text-neutral-100 lg:text-3.5xl lg:leading-9.5 2xl:text-5xl 2xl:leading-[58px]">
           {value}
         </span>
       </div>
@@ -133,7 +133,7 @@ const Tweet = ({ className }: { className?: string }) => {
       href={"#"}
       target="_blank"
       className={cn(
-        "flex max-h-[268px] max-w-[309px] flex-1 flex-col gap-3 rounded-2xl bg-[#201B43] px-6 py-8 lg:max-h-[196px] lg:max-w-[472px]",
+        "flex max-h-[268px] max-w-[309px] flex-1 flex-col gap-3 rounded-2xl bg-osmoverse-775 px-6 py-8 lg:max-h-[196px] lg:max-w-[472px]",
         className,
       )}
     >
