@@ -1,8 +1,8 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import { Switch } from "@headlessui/react";
 import Image from "next/image";
-import { useState } from "react";
 
 const backers = [
   {
@@ -89,21 +89,30 @@ const backers = [
 ];
 
 export default function BackersSection() {
-  const [isExpanded, setIsExpanded] = useState(false);
-
   return (
     <>
       <div className="flex flex-col items-center justify-center gap-4 self-stretch xl:py-3">
         <span className="leading-6.25 text-alpha-60">Backers include</span>
-        <div
-          className={cn(
-            "relative h-[184px] overflow-hidden transition-all md:h-full",
-            {
-              "h-full": isExpanded,
-            },
-          )}
-        >
-          <div className="flex flex-col gap-2 md:flex-row md:flex-wrap md:content-center md:items-center md:justify-center md:gap-3 md:self-stretch">
+        <div className="flex flex-col-reverse items-center justify-center">
+          <div className="peer">
+            <Switch className="flex items-center p-4 md:hidden">
+              {({ checked }) => (
+                <>
+                  <span className="leading-6.25 text-alpha-60">
+                    {checked ? "Hide All" : "Show All"}
+                  </span>
+                  <Image
+                    src={"/assets/icons/show-all-caret-down.svg"}
+                    alt="Arrow dropdown"
+                    width={24}
+                    height={24}
+                    className={cn({ "rotate-180": checked })}
+                  />
+                </>
+              )}
+            </Switch>
+          </div>
+          <div className="flex h-[184px] flex-col gap-2 overflow-hidden transition-[height] peer-has-[button[data-headlessui-state='checked']]:h-full md:flex-row md:flex-wrap md:content-center md:items-center md:justify-center md:gap-3 md:self-stretch">
             {backers.map(({ imageUri, name, isPortrait, isTextSm }) => {
               return (
                 <div
@@ -121,8 +130,8 @@ export default function BackersSection() {
                       />
                       <span
                         className={cn("text-neutral-100", {
-                          "leading-5.5 text-sm": isTextSm,
-                          "leading-6.25 text-base": !isTextSm,
+                          "text-sm leading-5.5": isTextSm,
+                          "text-base leading-6.25": !isTextSm,
                         })}
                       >
                         {name}
@@ -143,21 +152,6 @@ export default function BackersSection() {
           </div>
         </div>
       </div>
-      <button
-        onClick={() => setIsExpanded((p) => !p)}
-        className="flex items-center p-4 md:hidden"
-      >
-        <span className="leading-6.25 text-alpha-60">
-          {isExpanded ? "Hide All" : "Show All"}
-        </span>
-        <Image
-          src={"/assets/icons/show-all-caret-down.svg"}
-          alt="Arrow dropdown"
-          width={24}
-          height={24}
-          className={cn({ "rotate-180": isExpanded })}
-        />
-      </button>
     </>
   );
 }
