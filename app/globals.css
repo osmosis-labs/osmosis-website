@@ -51,7 +51,7 @@
   }
   @media (min-width: 1024px) {
     .bg-hero-section {
-      background-image: url("/assets/hero/bg-lg.png");
+      background-image: url("/assets/hero/bg-lg.webp");
       background-repeat: no-repeat;
       background-position: center;
       background-size: cover;
