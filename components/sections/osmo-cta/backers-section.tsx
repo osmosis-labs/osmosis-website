@@ -111,7 +111,7 @@ export default function BackersSection() {
             )}
           </Switch>
         </div>
-        <div className="flex h-[184px] flex-col gap-2 overflow-hidden transition-[height] peer-has-[button[data-headlessui-state='checked']]:h-full md:flex-row md:flex-wrap md:content-center md:items-center md:justify-center md:gap-3 md:self-stretch">
+        <div className="flex h-[184px] flex-col gap-2 overflow-hidden transition-[height] peer-has-[button[data-headlessui-state='checked']]:h-full md:h-full md:flex-row md:flex-wrap md:content-center md:items-center md:justify-center md:gap-3 md:self-stretch">
           {backers.map(({ imageUri, name, isPortrait, isTextSm }) => {
             return (
               <div
