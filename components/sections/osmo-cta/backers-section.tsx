@@ -38,7 +38,7 @@ const backers = [
     name: "EtherealVentures",
   },
   {
-    imageUri: "/assets/backers/RobotoVentures.png",
+    imageUri: "/assets/backers/RobotoVentures.webp",
     name: "RobotoVentures",
   },
   {
@@ -54,34 +54,34 @@ const backers = [
     name: "BCAP",
   },
   {
-    imageUri: "/assets/backers/Anatoly.png",
+    imageUri: "/assets/backers/Anatoly.webp",
     isTextSm: true,
     isPortrait: true,
     name: "Anatoly Yakovenko",
   },
   {
-    imageUri: "/assets/backers/Naval.png",
+    imageUri: "/assets/backers/Naval.webp",
     isPortrait: true,
     name: "Naval",
   },
   {
-    imageUri: "/assets/backers/Ethan.png",
+    imageUri: "/assets/backers/Ethan.webp",
     isTextSm: true,
     isPortrait: true,
     name: "Ethan Buchman",
   },
   {
-    imageUri: "/assets/backers/Eric.png",
+    imageUri: "/assets/backers/Eric.webp",
     isPortrait: true,
     name: "Eric Schmidt",
   },
   {
-    imageUri: "/assets/backers/Hasu.png",
+    imageUri: "/assets/backers/Hasu.webp",
     isPortrait: true,
     name: "Hasu",
   },
   {
-    imageUri: "/assets/backers/Raj.png",
+    imageUri: "/assets/backers/Raj.webp",
     isTextSm: true,
     isPortrait: true,
     name: "Raj Gokal",
@@ -121,8 +121,8 @@ export default function BackersSection() {
                       />
                       <span
                         className={cn("text-neutral-100", {
-                          "leading-5.5 text-sm": isTextSm,
-                          "leading-6.25 text-base": !isTextSm,
+                          "text-sm leading-5.5": isTextSm,
+                          "text-base leading-6.25": !isTextSm,
                         })}
                       >
                         {name}
