@@ -211,49 +211,32 @@
         #090520 77%
       );
   }
-  .bg-osmo-cta {
-    background-image: url("/assets/osmo-cta/bg.svg");
+  .bg-gradient-osmo-cta {
+    background: radial-gradient(
+      121.96% 97.14% at 91.55% 91.55%,
+      rgba(245, 48, 228, 0.7) 0%,
+      rgba(126, 27, 253, 0.7) 18.84%,
+      rgba(76, 30, 152, 0.31) 77%,
+      rgba(35, 32, 71, 0) 100%
+    );
     background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-  }
-  @media (min-width: 640px) {
-    .bg-osmo-cta {
-      background-image: url("/assets/osmo-cta/bg-sm.svg");
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-    }
   }
   @media (min-width: 768px) {
-    .bg-osmo-cta {
-      background-image: url("/assets/osmo-cta/bg-md.svg");
+    .bg-gradient-osmo-cta {
+      background-image: url("/assets/osmo-cta/bg-grad-md.svg");
       background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
     }
   }
   @media (min-width: 1024px) {
-    .bg-osmo-cta {
-      background-image: url("/assets/osmo-cta/bg-lg.svg");
+    .bg-gradient-osmo-cta {
+      background-image: url("/assets/osmo-cta/bg-grad-lg.svg");
       background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
     }
   }
   @media (min-width: 1280px) {
-    .bg-osmo-cta {
-      background-image: url("/assets/osmo-cta/bg-xl.svg");
+    .bg-gradient-osmo-cta {
+      background-image: url("/assets/osmo-cta/bg-grad-lg.svg");
       background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-    }
-  }
-  @media (min-width: 1536px) {
-    .bg-osmo-cta {
-      background-image: url("/assets/osmo-cta/bg-2xl.svg");
-      background-repeat: no-repeat;
-      background-position: center;
       background-size: cover;
     }
   }
