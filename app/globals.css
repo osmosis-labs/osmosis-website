@@ -419,49 +419,40 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-  .bg-trade-section {
-    background-image: url("/assets/trade-section-bgs/bg-trade-section.svg");
+  .bg-gradient-trade {
+    background-image: url("/assets/trade-section/bg.svg");
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: 0px 10px;
     background-size: cover;
   }
   @media (min-width: 640px) {
-    .bg-trade-section {
-      background-image: url("/assets/trade-section-bgs/bg-trade-section-sm.svg");
+    .bg-gradient-trade {
+      background-image: url("/assets/trade-section/bg-sm.svg");
       background-repeat: no-repeat;
-      background-position: center;
       background-size: cover;
     }
   }
   @media (min-width: 768px) {
-    .bg-trade-section {
-      background-image: url("/assets/trade-section-bgs/bg-trade-section-md.svg");
+    .bg-gradient-trade {
+      background-image: url("/assets/trade-section/bg-md.svg");
       background-repeat: no-repeat;
-      background-position: bottom;
+      background-position: 0px 0px;
       background-size: cover;
     }
   }
   @media (min-width: 1024px) {
-    .bg-trade-section {
-      background-image: url("/assets/trade-section-bgs/bg-trade-section-lg.svg");
+    .bg-gradient-trade {
+      background-image: url("/assets/trade-section/bg-lg.svg");
       background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-    }
-  }
-  @media (min-width: 1280px) {
-    .bg-trade-section {
-      background-image: url("/assets/trade-section-bgs/bg-trade-section-xl.svg");
-      background-repeat: no-repeat;
-      background-position: center;
+      background-position: 0px 0px;
       background-size: cover;
     }
   }
   @media (min-width: 1536px) {
-    .bg-trade-section {
-      background-image: url("/assets/trade-section-bgs/bg-trade-section-2xl.svg");
+    .bg-gradient-trade {
+      background-image: url("/assets/trade-section/bg-2xl.svg");
       background-repeat: no-repeat;
-      background-position: center;
+      background-position: 0px 0px;
       background-size: cover;
     }
   }
