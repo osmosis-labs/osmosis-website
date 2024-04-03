@@ -28,14 +28,14 @@
     box-shadow: inset 0px 0px 0px 1px #ffffff45;
   }
   .bg-hero-section {
-    background-image: url("/assets/hero/bg.png");
+    background-image: url("/assets/hero/bg.webp");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
   }
   @media (min-width: 640px) {
     .bg-hero-section {
-      background-image: url("/assets/hero/bg-sm.png");
+      background-image: url("/assets/hero/bg-sm.webp");
       background-repeat: no-repeat;
       background-position: center;
       background-size: cover;
@@ -43,7 +43,7 @@
   }
   @media (min-width: 768px) {
     .bg-hero-section {
-      background-image: url("/assets/hero/bg-md.png");
+      background-image: url("/assets/hero/bg-md.webp");
       background-repeat: no-repeat;
       background-position: center;
       background-size: cover;
@@ -51,7 +51,7 @@
   }
   @media (min-width: 1024px) {
     .bg-hero-section {
-      background-image: url("/assets/hero/bg-lg.svg");
+      background-image: url("/assets/hero/bg-lg.webp");
       background-repeat: no-repeat;
       background-position: center;
       background-size: cover;
@@ -211,50 +211,50 @@
         #090520 77%
       );
   }
-  .bg-osmo-cta {
-    background-image: url("/assets/osmo-cta/bg.svg");
+  .bg-gradient-osmo-cta {
+    background: radial-gradient(
+      121.96% 97.14% at 91.55% 91.55%,
+      rgba(245, 48, 228, 0.7) 0%,
+      rgba(126, 27, 253, 0.7) 18.84%,
+      rgba(76, 30, 152, 0.31) 77%,
+      rgba(35, 32, 71, 0) 100%
+    );
     background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-  }
-  @media (min-width: 640px) {
-    .bg-osmo-cta {
-      background-image: url("/assets/osmo-cta/bg-sm.svg");
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-    }
   }
   @media (min-width: 768px) {
-    .bg-osmo-cta {
-      background-image: url("/assets/osmo-cta/bg-md.svg");
+    .bg-gradient-osmo-cta {
+      background: radial-gradient(
+          53% 50% at 100% 100%,
+          #8a03a0 1.21%,
+          rgba(61, 37, 190, 0.4) 42.82%,
+          rgba(54, 31, 178, 0) 100%
+        ),
+        radial-gradient(
+          55% 84% at 0.94% 100%,
+          #f530e4 0%,
+          #7e1bfd 35.29%,
+          rgba(76, 30, 152, 0.45) 77%,
+          rgba(35, 32, 71, 0) 100%
+        );
       background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
     }
   }
   @media (min-width: 1024px) {
-    .bg-osmo-cta {
-      background-image: url("/assets/osmo-cta/bg-lg.svg");
+    .bg-gradient-osmo-cta {
+      background: radial-gradient(
+          50% 60% at 104% 104%,
+          #8a03a0 1.21%,
+          rgba(61, 37, 190, 0.4) 42.82%,
+          rgba(54, 31, 178, 0) 100%
+        ),
+        radial-gradient(
+          60% 130% at 0.94% 97.67%,
+          #f530e4 0%,
+          #7e1bfd 35.29%,
+          rgba(76, 30, 152, 0.45) 77%,
+          rgba(35, 32, 71, 0) 100%
+        );
       background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-    }
-  }
-  @media (min-width: 1280px) {
-    .bg-osmo-cta {
-      background-image: url("/assets/osmo-cta/bg-xl.svg");
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-    }
-  }
-  @media (min-width: 1536px) {
-    .bg-osmo-cta {
-      background-image: url("/assets/osmo-cta/bg-2xl.svg");
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
     }
   }
   .is-checked .is-checked-arrow-rotation {
@@ -351,50 +351,74 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-  .bg-vote-section {
-    background-image: url("/assets/vote-section-bgs/bg-vote-section.svg");
+  .bg-vote-section-grad {
+    background: radial-gradient(
+        70.61% 38.78% at 98.28% 98.28%,
+        #f7752f 0%,
+        rgba(39, 9, 76, 0) 100%
+      ),
+      radial-gradient(
+        141.29% 43.33% at 99.49% 99.49%,
+        #ca2ebd 0%,
+        rgba(23, 15, 79, 0) 100%
+      ),
+      radial-gradient(
+        210.07% 72.35% at 94.78% 94.78%,
+        #f530e4 0%,
+        rgba(126, 27, 253, 0.85) 29.82%,
+        rgba(47, 15, 100, 0.45) 63.16%,
+        rgba(20, 15, 52, 0) 100%
+      ),
+      linear-gradient(to bottom, #140f34 0%, #140f34 100%);
     background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-  }
-  @media (min-width: 640px) {
-    .bg-vote-section {
-      background-image: url("/assets/vote-section-bgs/bg-vote-section-sm.svg");
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-    }
   }
   @media (min-width: 768px) {
-    .bg-vote-section {
-      background-image: url("/assets/vote-section-bgs/bg-vote-section-md.svg");
+    .bg-vote-section-grad {
+      background-image: url("/assets/vote-section/bg-grad-md.svg");
       background-repeat: no-repeat;
-      background-position: bottom;
       background-size: cover;
+      background-position: 0px 1px;
+      background-color: #140f34;
     }
   }
   @media (min-width: 1024px) {
-    .bg-vote-section {
-      background-image: url("/assets/vote-section-bgs/bg-vote-section-lg.svg");
+    .bg-vote-section-grad {
+      background-image: url("/assets/vote-section/bg-grad-lg.svg");
       background-repeat: no-repeat;
-      background-position: center;
       background-size: cover;
+      background-color: #140f34;
     }
   }
   @media (min-width: 1280px) {
-    .bg-vote-section {
-      background-image: url("/assets/vote-section-bgs/bg-vote-section-xl.svg");
+    .bg-vote-section-grad {
+      background-image: url("/assets/vote-section/bg-grad-xl.svg");
       background-repeat: no-repeat;
-      background-position: center;
       background-size: cover;
+      background-color: #140f34;
     }
   }
   @media (min-width: 1536px) {
-    .bg-vote-section {
-      background-image: url("/assets/vote-section-bgs/bg-vote-section-2xl.svg");
+    .bg-vote-section-grad {
+      background-image: url("/assets/vote-section/bg-grad-2xl.svg");
       background-repeat: no-repeat;
-      background-position: center;
       background-size: cover;
+      background-color: #140f34;
+    }
+  }
+  .vote-grid {
+    mask-image: linear-gradient(
+      180deg,
+      rgba(217, 217, 217, 0) 0.21%,
+      #737373 50.07%
+    );
+  }
+  @media (min-width: 1024px) {
+    .vote-grid {
+      mask-image: linear-gradient(
+        90deg,
+        rgba(217, 217, 217, 0) 0.21%,
+        #737373 100.07%
+      );
     }
   }
   .bg-build-headline {
@@ -422,49 +446,40 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-  .bg-trade-section {
-    background-image: url("/assets/trade-section-bgs/bg-trade-section.svg");
+  .bg-gradient-trade {
+    background-image: url("/assets/trade-section/bg.svg");
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: 0px 10px;
     background-size: cover;
   }
   @media (min-width: 640px) {
-    .bg-trade-section {
-      background-image: url("/assets/trade-section-bgs/bg-trade-section-sm.svg");
+    .bg-gradient-trade {
+      background-image: url("/assets/trade-section/bg-sm.svg");
       background-repeat: no-repeat;
-      background-position: center;
       background-size: cover;
     }
   }
   @media (min-width: 768px) {
-    .bg-trade-section {
-      background-image: url("/assets/trade-section-bgs/bg-trade-section-md.svg");
+    .bg-gradient-trade {
+      background-image: url("/assets/trade-section/bg-md.svg");
       background-repeat: no-repeat;
-      background-position: bottom;
+      background-position: 0px 0px;
       background-size: cover;
     }
   }
   @media (min-width: 1024px) {
-    .bg-trade-section {
-      background-image: url("/assets/trade-section-bgs/bg-trade-section-lg.svg");
+    .bg-gradient-trade {
+      background-image: url("/assets/trade-section/bg-lg.svg");
       background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-    }
-  }
-  @media (min-width: 1280px) {
-    .bg-trade-section {
-      background-image: url("/assets/trade-section-bgs/bg-trade-section-xl.svg");
-      background-repeat: no-repeat;
-      background-position: center;
+      background-position: 0px 0px;
       background-size: cover;
     }
   }
   @media (min-width: 1536px) {
-    .bg-trade-section {
-      background-image: url("/assets/trade-section-bgs/bg-trade-section-2xl.svg");
+    .bg-gradient-trade {
+      background-image: url("/assets/trade-section/bg-2xl.svg");
       background-repeat: no-repeat;
-      background-position: center;
+      background-position: 0px 0px;
       background-size: cover;
     }
   }
