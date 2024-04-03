@@ -9,22 +9,11 @@ export default function HeroSection() {
           <div className="flex flex-col gap-4 px-2 max-sm:py-4 sm:gap-3 sm:px-6 md:flex-row md:items-center md:justify-between md:px-4 lg:flex-col lg:items-start lg:gap-6 lg:px-6 xl:gap-8 xl:px-4 2xl:gap-2 2xl:px-8">
             <h1 className="inline-flex flex-col font-poppins text-[34px] font-medium leading-[34px] -tracking-[0.03em] text-neutral-100 sm:gap-1 sm:text-[40px] sm:leading-10 lg:gap-2 lg:text-5xl lg:leading-[48px] xl:text-6.25xl xl:leading-16 2xl:gap-1 2xl:text-7xl 2xl:leading-20">
               <span>Discover and trade</span>
-              <span className="inline-flex items-center gap-3 sm:gap-5.5">
+              <span className="inline-flex items-center gap-3 whitespace-nowrap sm:gap-5.5">
                 the next
                 {/**base gap is compensated in the widths of the brackets */}
-                <div className="flex w-[122px] items-center justify-between sm:w-[131px] lg:w-40 xl:w-[203px] xl:gap-2.5 2xl:w-[238px]">
-                  <Bracket />
-                  <div className="flex items-center gap-2 pb-[1px] pl-[7.5px] pr-[6.5px] sm:p-0 lg:pb-[9px] lg:pl-1 lg:pr-[3px] lg:pt-0.5 xl:p-0 2xl:gap-3">
-                    <Image
-                      src={"/assets/icons/tia.svg"}
-                      alt="TIA icon"
-                      width={34}
-                      height={34}
-                      className="sm:h-10 sm:w-10 lg:h-12 lg:w-12 xl:h-16 xl:w-16 2xl:h-17.5 2xl:w-17.5"
-                    />
-                    <span>TIA</span>
-                  </div>
-                  <Bracket isMirrored />
+                <div className="ticker-mask relative h-12 overflow-hidden sm:h-[46px] lg:h-[58px] xl:h-20 2xl:h-22.5">
+                  <Tickers />
                 </div>
               </span>
               <span className="inline-flex items-center gap-1 2xl:gap-4">
@@ -174,6 +163,70 @@ export default function HeroSection() {
         height={912}
         className="bottom absolute top-[410px] z-0 hidden h-auto w-full 2xl:block"
       />
+    </div>
+  );
+}
+
+interface TickerProps {
+  denom: string;
+  iconUri: string;
+}
+
+const ticketAnimationAssets: TickerProps[] = [
+  {
+    denom: "TIA",
+    iconUri: "/assets/icons/tia.svg",
+  },
+  {
+    denom: "DYM",
+    iconUri: "/assets/icons/dym.svg",
+  },
+  {
+    denom: "PEPE",
+    iconUri: "/assets/icons/pepe.svg",
+  },
+  {
+    denom: "STARS",
+    iconUri: "/assets/icons/stars.svg",
+  },
+  {
+    denom: "TIA",
+    iconUri: "/assets/icons/tia.svg",
+  },
+  {
+    denom: "DYM",
+    iconUri: "/assets/icons/dym.svg",
+  },
+];
+
+function Tickers() {
+  // double the assets array
+  const displayArray = ticketAnimationAssets.concat(ticketAnimationAssets);
+
+  return (
+    <div className="hero-vertical-marquee-vars animate-hero-vertical-marquee flex flex-col gap-1 transition-transform">
+      {displayArray.map((asset, i) => (
+        <Ticker key={`ticker ${i}`} {...asset} />
+      ))}
+    </div>
+  );
+}
+
+function Ticker({ denom, iconUri }: TickerProps) {
+  return (
+    <div className="flex max-w-fit items-center justify-between sm:gap-2.5 lg:gap-2 xl:gap-2.5">
+      <Bracket />
+      <div className="flex items-center gap-2 pb-[1px] pl-[7.5px] pr-[6.5px] sm:p-0 lg:pb-[2px] lg:pl-1 lg:pr-[3px] lg:pt-0.5 xl:p-0 2xl:gap-3">
+        <Image
+          src={iconUri}
+          alt={`${denom} icon`}
+          width={34}
+          height={34}
+          className="sm:h-10 sm:w-10 lg:h-12 lg:w-12 xl:h-16 xl:w-16 2xl:h-17.5 2xl:w-17.5"
+        />
+        <span>{denom}</span>
+      </div>
+      <Bracket isMirrored />
     </div>
   );
 }
