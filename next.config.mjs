@@ -3,6 +3,14 @@ import million from "million/compiler";
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  images: {
+    remotePatterns: [
+      {
+        hostname: "raw.githubusercontent.com",
+        protocol: "https",
+      },
+    ],
+  },
 };
 
 const millionConfig = {
