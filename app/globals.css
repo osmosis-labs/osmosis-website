@@ -223,21 +223,38 @@
   }
   @media (min-width: 768px) {
     .bg-gradient-osmo-cta {
-      background-image: url("/assets/osmo-cta/bg-grad-md.svg");
+      background: radial-gradient(
+          53% 50% at 100% 100%,
+          #8a03a0 1.21%,
+          rgba(61, 37, 190, 0.4) 42.82%,
+          rgba(54, 31, 178, 0) 100%
+        ),
+        radial-gradient(
+          55% 84% at 0.94% 100%,
+          #f530e4 0%,
+          #7e1bfd 35.29%,
+          rgba(76, 30, 152, 0.45) 77%,
+          rgba(35, 32, 71, 0) 100%
+        );
       background-repeat: no-repeat;
     }
   }
   @media (min-width: 1024px) {
     .bg-gradient-osmo-cta {
-      background-image: url("/assets/osmo-cta/bg-grad-lg.svg");
+      background: radial-gradient(
+          50% 60% at 104% 104%,
+          #8a03a0 1.21%,
+          rgba(61, 37, 190, 0.4) 42.82%,
+          rgba(54, 31, 178, 0) 100%
+        ),
+        radial-gradient(
+          60% 130% at 0.94% 97.67%,
+          #f530e4 0%,
+          #7e1bfd 35.29%,
+          rgba(76, 30, 152, 0.45) 77%,
+          rgba(35, 32, 71, 0) 100%
+        );
       background-repeat: no-repeat;
-    }
-  }
-  @media (min-width: 1280px) {
-    .bg-gradient-osmo-cta {
-      background-image: url("/assets/osmo-cta/bg-grad-lg.svg");
-      background-repeat: no-repeat;
-      background-size: cover;
     }
   }
   .bg-stake-heading {
