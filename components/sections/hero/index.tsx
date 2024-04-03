@@ -216,7 +216,7 @@ function Ticker({ denom, iconUri }: TickerProps) {
   return (
     <div className="flex max-w-fit items-center justify-between sm:gap-2.5 lg:gap-2 xl:gap-2.5">
       <Bracket />
-      <div className="flex items-center gap-2 pb-[1px] pl-[7.5px] pr-[6.5px] sm:p-0 lg:pb-[2px] lg:pl-1 lg:pr-[3px] lg:pt-0.5 xl:p-0 2xl:gap-3">
+      <div className="flex items-center gap-2 pb-[1px] pl-[7.5px] pr-[6.5px] sm:p-0 lg:pb-0.5 lg:pl-1 lg:pr-[3px] lg:pt-0.5 xl:p-0 2xl:gap-3">
         <Image
           src={iconUri}
           alt={`${denom} icon`}
