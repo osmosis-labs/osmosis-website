@@ -1,5 +1,5 @@
 import BackersSection from "@/components/sections/osmo-cta/backers-section";
-import Image, { getImageProps } from "next/image";
+import Image from "next/image";
 
 export default function OsmoCTASection() {
   return (
