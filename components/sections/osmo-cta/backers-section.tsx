@@ -1,7 +1,4 @@
-"use client";
-
 import { cn } from "@/lib/utils";
-import { Switch } from "@headlessui/react";
 import Image from "next/image";
 
 const backers = [
@@ -93,25 +90,30 @@ export default function BackersSection() {
     <div className="flex flex-col items-center justify-center gap-4 self-stretch xl:py-3">
       <span className="leading-6.25 text-alpha-60">Backers include</span>
       <div className="flex flex-col-reverse items-center justify-center">
-        <div className="peer">
-          <Switch className="flex items-center p-4 md:hidden">
-            {({ checked }) => (
-              <>
-                <span className="leading-6.25 text-alpha-60">
-                  {checked ? "Hide All" : "Show All"}
-                </span>
-                <Image
-                  src={"/assets/icons/show-all-caret-down.svg"}
-                  alt="Arrow dropdown"
-                  width={24}
-                  height={24}
-                  className={cn({ "rotate-180": checked })}
-                />
-              </>
-            )}
-          </Switch>
-        </div>
-        <div className="flex h-[184px] flex-col gap-2 overflow-hidden transition-[height] peer-has-[button[data-headlessui-state='checked']]:h-full md:h-full md:flex-row md:flex-wrap md:content-center md:items-center md:justify-center md:gap-3 md:self-stretch">
+        <input
+          type="checkbox"
+          className="check peer hidden"
+          id="backersButton"
+        />
+        <label
+          htmlFor="backersButton"
+          className="peer-[.check]:peer-checked:is-checked flex cursor-pointer items-center p-4 md:hidden"
+        >
+          <span className="is-checked-hide relative leading-6.25 text-alpha-60">
+            Show All
+          </span>
+          <span className="is-checked-show relative hidden leading-6.25 text-alpha-60">
+            Hide All
+          </span>
+          <Image
+            src={"/assets/icons/show-all-caret-down.svg"}
+            alt="Arrow dropdown"
+            width={24}
+            height={24}
+            className="is-checked-arrow-rotation transition-[rotate]"
+          />
+        </label>
+        <div className="flex h-[184px] flex-col gap-2 overflow-hidden transition-[height] peer-checked:h-full md:h-full md:flex-row md:flex-wrap md:content-center md:items-center md:justify-center md:gap-3 md:self-stretch">
           {backers.map(({ imageUri, name, isPortrait, isTextSm }) => {
             return (
               <div
