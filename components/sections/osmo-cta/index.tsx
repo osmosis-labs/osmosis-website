@@ -187,21 +187,14 @@ function OsmoCTAIllustration() {
         alt=""
         width={573}
         height={503}
-        className="absolute -bottom-35 -left-28 h-[503px] w-[573px] max-w-none sm:-bottom-45 sm:h-[560px] sm:w-[637px] md:-bottom-[134px] md:-left-44 md:h-[520px] md:w-[593px] md:-scale-x-[1] lg:-bottom-[148px] lg:-left-42 lg:h-[568px] lg:w-[650px] xl:-left-19.5 2xl:-bottom-52 2xl:-left-[148px] 2xl:h-[757px] 2xl:w-[864px]"
+        className="absolute -bottom-35 -left-28 h-[503px] w-[573px] max-w-none -scale-x-[1] sm:-bottom-45 sm:h-[560px] sm:w-[637px] md:-bottom-[134px] md:-left-44 md:h-[520px] md:w-[593px] lg:-bottom-[148px] lg:-left-42 lg:h-[568px] lg:w-[650px] xl:-left-19.5 2xl:-bottom-52 2xl:-left-[148px] 2xl:h-[757px] 2xl:w-[864px]"
       />
       <Image
         src={"/assets/osmo-cta/coin.svg"}
         alt=""
-        width={246}
-        height={246}
-        className="absolute bottom-4 left-8.5 sm:bottom-1 sm:left-16 sm:h-[268px] sm:w-[268px] md:hidden"
-      />
-      <Image
-        src={"/assets/osmo-cta/coin-md.svg"}
-        alt=""
-        width={251}
-        height={251}
-        className="absolute hidden md:bottom-15 md:left-3.5 md:block lg:bottom-0 lg:h-[318px] lg:w-[318px] xl:bottom-2 xl:left-28 2xl:bottom-4 2xl:left-24 2xl:h-[418px] 2xl:w-[418px]"
+        width={294}
+        height={294}
+        className="absolute bottom-4 left-8.5 -rotate-[4deg] sm:bottom-1 sm:left-16 sm:h-[268px] sm:w-[268px] md:bottom-15 md:left-3.5 md:block md:h-[251px] md:w-[251px] lg:bottom-0 lg:h-[318px] lg:w-[318px] xl:bottom-2 xl:left-28 2xl:bottom-4 2xl:left-24 2xl:h-[418px] 2xl:w-[418px]"
       />
     </>
   );
