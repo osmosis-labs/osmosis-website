@@ -1,3 +1,4 @@
+import { Section } from "@/components/sections/token-stats";
 import { LandingPageData } from "@/lib/types/cms";
 
 export async function queryLandingPageCMSData(): Promise<LandingPageData> {
@@ -8,4 +9,32 @@ export async function queryLandingPageCMSData(): Promise<LandingPageData> {
 
   const res = await fetch(url, { method: "GET" });
   return await res.json();
+}
+
+export async function queryUpcomingAssets(): Promise<Section> {
+  const data = await queryLandingPageCMSData();
+  const section = {
+    name: "Upcoming",
+    iconUri: "/assets/icons/star.svg",
+    isGrid: true,
+    assets: data.upcomingAssets.map(
+      ({
+        assetName,
+        estimatedLaunchDate,
+        logoURL,
+        osmosisAirdrop,
+        showLaunchDate,
+        symbol,
+      }) => ({
+        denom: symbol,
+        iconUri: logoURL,
+        name: assetName,
+        isAirdrop: osmosisAirdrop,
+        releaseDate: showLaunchDate ? estimatedLaunchDate : undefined,
+        isUpcoming: true,
+      }),
+    ),
+  } satisfies Section;
+
+  return section;
 }
