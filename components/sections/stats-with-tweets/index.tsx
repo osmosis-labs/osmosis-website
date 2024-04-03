@@ -1,3 +1,4 @@
+import Divider from "@/components/shared/divider";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
@@ -58,16 +59,7 @@ export default function StatsWithTweets() {
             ))}
           </div>
         </div>
-        <div className="flex items-center gap-2.5 py-6">
-          <div className="h-[1px] flex-1 bg-osmoverse-750" />
-          <Image
-            src={"/assets/icons/star-divider.svg"}
-            alt="Divider"
-            width={21}
-            height={21}
-          />
-          <div className="h-[1px] flex-1 bg-osmoverse-750" />
-        </div>
+        <Divider className="py-6" />
         <div className="md:tweets-mask relative -mx-6 flex h-[555px] overflow-hidden sm:-mx-28 lg:-mx-0 lg:h-[408px]">
           <div className="absolute flex flex-col gap-3 lg:gap-4">
             {Array(2)

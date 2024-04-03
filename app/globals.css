@@ -257,6 +257,16 @@
       background-repeat: no-repeat;
     }
   }
+  .is-checked .is-checked-arrow-rotation {
+    rotate: 180deg;
+  }
+  .is-checked .is-checked-hide {
+    display: none;
+  }
+  .is-checked .is-checked-show {
+    display: block;
+  }
+
   .bg-stake-heading {
     background: linear-gradient(180deg, #eeecea 22.39%, #acd9e7 100%);
     background-clip: text;

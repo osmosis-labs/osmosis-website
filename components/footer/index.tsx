@@ -1,3 +1,4 @@
+import Divider from "@/components/shared/divider";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -142,20 +143,11 @@ export default function Footer() {
     <footer className="mb-7 self-stretch px-2 sm:mb-8 sm:px-4 md:mb-17.5 lg:mb-16 xl:mb-[38px] 2xl:mb-[54px] 2xl:px-6">
       <div className="flex flex-col gap-2 self-stretch lg:gap-4 2xl:gap-6">
         {/**divider */}
-        <div className="flex items-center gap-2.5 py-6">
-          <div className="h-[1px] flex-1 bg-osmoverse-750" />
-          <Image
-            src={"/assets/icons/star-divider.svg"}
-            alt="Divider"
-            width={21}
-            height={21}
-          />
-          <div className="h-[1px] flex-1 bg-osmoverse-750" />
-        </div>
+        <Divider className="py-6" />
         <div className="relative grid grid-cols-2 gap-x-8 gap-y-6 md:grid-cols-3 lg:max-w-[764px] lg:grid-cols-5 lg:gap-x-4 2xl:max-w-[1020px] 2xl:gap-x-20">
           {sections.map(({ links, title }) => (
             <div key={title} className="flex flex-col gap-2.5">
-              <span className="leading-5.25 whitespace-nowrap text-sm font-light text-alpha-60">
+              <span className="whitespace-nowrap text-sm font-light leading-5.25 text-alpha-60">
                 {title}
               </span>
               <div className="flex flex-col gap-0.5">
@@ -201,16 +193,7 @@ export default function Footer() {
           />
         </div>
         {/**divider */}
-        <div className="flex items-center gap-2.5 py-6">
-          <div className="h-[1px] flex-1 bg-osmoverse-750" />
-          <Image
-            src={"/assets/icons/star-divider.svg"}
-            alt="Divider"
-            width={21}
-            height={21}
-          />
-          <div className="h-[1px] flex-1 bg-osmoverse-750" />
-        </div>
+        <Divider className="py-6" />
         <div className="flex flex-col gap-8 py-6 lg:flex-row lg:items-center lg:justify-between lg:gap-0">
           <div className="flex items-center justify-between sm:w-[351px] lg:w-auto lg:gap-8">
             <Image
@@ -237,7 +220,7 @@ export default function Footer() {
               ))}
             </div>
           </div>
-          <span className="leading-5.5 text-sm text-alpha-60">
+          <span className="text-sm leading-5.5 text-alpha-60">
             © Osmosis 2024
           </span>
         </div>

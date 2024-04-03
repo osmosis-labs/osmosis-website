@@ -138,7 +138,7 @@ export default function OsmoCTASection() {
         alt="Grid 2"
         width={358}
         height={1663}
-        className="absolute -bottom-[350px] z-0 h-auto w-full sm:hidden"
+        className="absolute -bottom-[380px] z-0 h-auto w-full sm:hidden"
       />
       <Image
         src={"/assets/grids/sm/grid-2.svg"}
