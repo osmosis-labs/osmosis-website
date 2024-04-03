@@ -17,23 +17,26 @@ export async function queryUpcomingAssets(): Promise<Section> {
     name: "Upcoming",
     iconUri: "/assets/icons/star.svg",
     isGrid: true,
-    assets: data.upcomingAssets.map(
-      ({
-        assetName,
-        estimatedLaunchDate,
-        logoURL,
-        osmosisAirdrop,
-        showLaunchDate,
-        symbol,
-      }) => ({
-        denom: symbol,
-        iconUri: logoURL,
-        name: assetName,
-        isAirdrop: osmosisAirdrop,
-        releaseDate: showLaunchDate ? estimatedLaunchDate : undefined,
-        isUpcoming: true,
-      }),
-    ),
+    assets: data.upcomingAssets
+      .map(
+        ({
+          assetName,
+          estimatedLaunchDate,
+          logoURL,
+          osmosisAirdrop,
+          showLaunchDate,
+          symbol,
+        }) => ({
+          denom: symbol,
+          iconUri: logoURL,
+          name: assetName,
+          isAirdrop: osmosisAirdrop,
+          releaseDate: showLaunchDate ? estimatedLaunchDate : undefined,
+          isUpcoming: true,
+        }),
+      )
+      // this slice is temporary
+      .slice(0, 4),
   } satisfies Section;
 
   return section;
