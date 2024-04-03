@@ -20,6 +20,38 @@
       background-position: center;
     }
   }
+  .hero-vertical-marquee-vars {
+    --hero-vertical-marquee-height: 48px;
+  }
+  @media (min-width: 640px) {
+    .hero-vertical-marquee-vars {
+      --hero-vertical-marquee-height: 46px;
+    }
+  }
+  @media (min-width: 1024px) {
+    .hero-vertical-marquee-vars {
+      --hero-vertical-marquee-height: 58px;
+    }
+  }
+  @media (min-width: 1280px) {
+    .hero-vertical-marquee-vars {
+      --hero-vertical-marquee-height: 80px;
+    }
+  }
+  @media (min-width: 1536px) {
+    .hero-vertical-marquee-vars {
+      --hero-vertical-marquee-height: 90px;
+    }
+  }
+  .ticker-mask {
+    mask-image: linear-gradient(
+      180deg,
+      #d9d9d900 0%,
+      #d9d9d9 15%,
+      #d9d9d9 85%,
+      #d9d9d900 100%
+    );
+  }
   .swap-tool-bg {
     background-color: rgba(20, 15, 52, 0.1);
     backdrop-filter: blur(24px);
