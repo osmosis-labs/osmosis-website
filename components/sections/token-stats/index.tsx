@@ -1,10 +1,10 @@
 import { DEFAULT_VS_CURRENCY, formatPretty } from "@/lib/formatting";
+import { queryUpcomingAssets } from "@/lib/queries/cms";
 import { cn } from "@/lib/utils";
 import { Dec, PricePretty, RatePretty } from "@keplr-wallet/unit";
-import { format } from "date-fns/format";
 import Image from "next/image";
 
-interface SectionAsset {
+export interface SectionAsset {
   name: string;
   denom: string;
   iconUri: string;
@@ -16,14 +16,13 @@ interface SectionAsset {
   isAirdrop?: boolean;
 }
 
-interface Section {
+export interface Section {
   name: string;
   iconUri: string;
   assets: SectionAsset[];
   isGrid?: boolean;
 }
-
-const sections: Section[] = [
+const mockSections: Section[] = [
   {
     name: "Top Gainers",
     iconUri: "/assets/icons/trending.svg",
@@ -94,46 +93,12 @@ const sections: Section[] = [
       },
     ],
   },
-  {
-    name: "Upcoming",
-    iconUri: "/assets/icons/star.svg",
-    isGrid: true,
-    assets: [
-      {
-        name: "Dymension",
-        denom: "DYM",
-        iconUri: "/assets/icons/dym.svg",
-        isUpcoming: true,
-        releaseDate: "Jun 2025",
-        isAirdrop: true,
-      },
-      {
-        name: "Dymension",
-        denom: "DYM",
-        iconUri: "/assets/icons/dym.svg",
-        isUpcoming: true,
-        isAirdrop: true,
-      },
-      {
-        name: "Dymension",
-        denom: "DYM",
-        iconUri: "/assets/icons/dym.svg",
-        isUpcoming: true,
-        releaseDate: "Jun 2025",
-        isAirdrop: true,
-      },
-      {
-        name: "Dymension",
-        denom: "DYM",
-        iconUri: "/assets/icons/dym.svg",
-        isUpcoming: true,
-        releaseDate: "Jun 2025",
-      },
-    ],
-  },
 ];
 
-export default function TokenStatsSection() {
+export default async function TokenStatsSection() {
+  const upcomingAssetsSection = await queryUpcomingAssets();
+  const sections = [...mockSections, upcomingAssetsSection];
+
   return (
     <section className="relative z-10 mt-17.5 flex flex-col gap-2 p-2 sm:mt-16 sm:p-4 md:mt-14 md:grid md:grid-cols-2 md:gap-y-2 lg:mt-16 lg:grid-cols-[repeat(2,_minmax(0,1fr)),340px] lg:gap-x-2 xl:mt-[136px] xl:grid-cols-[repeat(2,_minmax(0,1fr)),418px] xl:py-0 2xl:mt-20 2xl:grid-cols-3 2xl:gap-x-6 2xl:px-6">
       {sections.map(({ iconUri, name, isGrid, assets }) => {
