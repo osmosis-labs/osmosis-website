@@ -25,11 +25,12 @@ export const queryOsmoAPR = async (): Promise<OsmoAPR[]> => {
   return await res.json();
 };
 
-export const queryLandingPageStats = async (): Promise<LandingPageMetrics> => {
-  const res = await fetch(new URL("/landing_page_metrics", NUMIA_BASE_URL), {
-    method: "GET",
-    next: { revalidate: 3600 },
-  });
+export const queryLandingPageMetrics =
+  async (): Promise<LandingPageMetrics> => {
+    const res = await fetch(new URL("/landing_page_metrics", NUMIA_BASE_URL), {
+      method: "GET",
+      next: { revalidate: 3600 },
+    });
 
-  return await res.json();
-};
+    return await res.json();
+  };
