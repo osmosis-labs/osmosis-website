@@ -60,4 +60,4 @@ export const queryUpcomingAssetsSection = unstable_cache(async () => {
   } as Section;
 
   return section;
-}, ["upcoming-assets"]);
+}, ["upcoming-assets-section"]);
