@@ -1,8 +1,11 @@
+"use client";
+
 import React, { ReactElement } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
 import { cn } from "@/lib/utils";
+import { sendGTMEvent } from "@next/third-parties/google";
 
 export interface CardProps {
   title: string;
@@ -56,7 +59,13 @@ export default function Card({
             </div>
           )}
           {link && linkArrowIconUri && (
-            <Link href={link} className="-ml-0.5">
+            <Link
+              onClick={() =>
+                sendGTMEvent({ name: "cardClicked", label: title })
+              }
+              href={link}
+              className="-ml-0.5"
+            >
               <Image
                 src={linkArrowIconUri}
                 alt={`${title} link`}
