@@ -1,8 +1,6 @@
 import Divider from "@/components/shared/divider";
-import { DEFAULT_VS_CURRENCY, formatPretty } from "@/lib/formatting";
 import { queryLandingPageMetrics } from "@/lib/queries/numia";
 import { cn } from "@/lib/utils";
-import { Dec, PricePretty } from "@keplr-wallet/unit";
 import Image from "next/image";
 import Link from "next/link";
 
