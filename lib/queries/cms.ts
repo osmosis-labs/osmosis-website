@@ -1,8 +1,9 @@
+import { GITHUB_RAW_DEFAULT_BASEURL } from "@/lib/shared";
 import { LandingPageData } from "@/lib/types/cms";
 
 const LANDING_PAGE_CMS_DATA_URL = new URL(
-  process.env.LANDING_PAGE_CMS_DATA_ENDPOINT!,
-  process.env.GITHUB_RAW_DEFAULT_BASEURL,
+  "/osmosis-labs/fe-content/main/cms/landing-page/landing-page.json",
+  GITHUB_RAW_DEFAULT_BASEURL,
 );
 
 export async function queryLandingPageCMSData(): Promise<LandingPageData> {
