@@ -17,7 +17,7 @@ export async function queryLandingPageCMSData(): Promise<LandingPageData> {
   return await res.json();
 }
 
-export const queryMappedUpcomingAssets = async () => {
+export const queryMappedUpcomingAssets = unstable_cache(async () => {
   const data = await queryLandingPageCMSData();
 
   return data.upcomingAssets.map(
@@ -37,7 +37,7 @@ export const queryMappedUpcomingAssets = async () => {
       isUpcoming: true,
     }),
   );
-};
+}, ["mapped-upcoming-assets"]);
 
 export const queryUpcomingAssetsSection = unstable_cache(async () => {
   const section = {
