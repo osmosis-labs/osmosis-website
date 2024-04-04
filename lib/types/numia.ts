@@ -36,3 +36,18 @@ export interface OsmoAPR {
   symbol: string;
   apr: number;
 }
+
+export interface LandingPageMetrics {
+  assets_in_chain: {
+    value: number;
+    growth_rate_seconds: number;
+  };
+  traders_last_30_days: {
+    value: number;
+    growth_rate_seconds: number;
+  };
+  cumulative_volume: {
+    value: number;
+    growth_rate_seconds: number;
+  };
+}
