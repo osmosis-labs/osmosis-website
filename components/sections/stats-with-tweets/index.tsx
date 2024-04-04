@@ -1,5 +1,8 @@
 import Divider from "@/components/shared/divider";
+import { DEFAULT_VS_CURRENCY, formatPretty } from "@/lib/formatting";
+import { queryLandingPageMetrics } from "@/lib/queries/numia";
 import { cn } from "@/lib/utils";
+import { Dec, PricePretty } from "@keplr-wallet/unit";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -11,31 +14,33 @@ interface StatCard {
   bgClass: string;
 }
 
-const stats: StatCard[] = [
-  {
-    title: "All Time Volume",
-    value: "$3,200,492.53",
-    iconUri: "/assets/icons/rocket-gray.svg",
-    bottleUri: "/assets/bottle-blue.svg",
-    bgClass: "trend-card-bg-1",
-  },
-  {
-    title: "Asset on the Platform",
-    value: "$3,200,492.53",
-    iconUri: "/assets/icons/checkmark-gray.svg",
-    bottleUri: "/assets/bottle-red.svg",
-    bgClass: "trend-card-bg-2",
-  },
-  {
-    title: "24h Trading Volume",
-    value: "$5,800,492.53",
-    iconUri: "/assets/icons/trending-gray.svg",
-    bottleUri: "/assets/bottle-super.svg",
-    bgClass: "trend-card-bg-3",
-  },
-];
+export default async function StatsWithTweets() {
+  const metrics = await queryLandingPageMetrics();
 
-export default function StatsWithTweets() {
+  const stats: StatCard[] = [
+    {
+      title: "All Time Volume",
+      value: `${Intl.NumberFormat("en-US", { notation: "standard", maximumFractionDigits: 0, currency: "USD", style: "currency" }).format(metrics[0].cumulative_volume.value)}`,
+      iconUri: "/assets/icons/rocket-gray.svg",
+      bottleUri: "/assets/bottle-blue.svg",
+      bgClass: "trend-card-bg-1",
+    },
+    {
+      title: "Asset on the Platform",
+      value: `${Intl.NumberFormat("en-US", { notation: "standard", maximumFractionDigits: 0, currency: "USD", style: "currency" }).format(metrics[0].assets_in_chain.value)}`,
+      iconUri: "/assets/icons/checkmark-gray.svg",
+      bottleUri: "/assets/bottle-red.svg",
+      bgClass: "trend-card-bg-2",
+    },
+    {
+      title: "24h Trading Volume",
+      value: "$5,800,492.53",
+      iconUri: "/assets/icons/trending-gray.svg",
+      bottleUri: "/assets/bottle-super.svg",
+      bgClass: "trend-card-bg-3",
+    },
+  ];
+
   return (
     <section className="stats-with-tweets-bg relative z-10 mt-14 rounded-3xl pt-2 sm:mt-16 sm:rounded-4xl sm:pt-4 md:mt-24 md:pt-12 lg:mt-20 lg:pt-16 xl:mt-24 xl:pt-20 2xl:mt-25">
       <div className="flex flex-col gap-8 p-2 sm:p-4 2xl:gap-16">
