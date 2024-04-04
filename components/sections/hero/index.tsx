@@ -1,6 +1,5 @@
 import { StartTradingButton } from "@/components/sections/hero/start-trading-button";
 import { cn } from "@/lib/utils";
-import { sendGTMEvent } from "@next/third-parties/google";
 import Image from "next/image";
 
 export default function HeroSection() {
