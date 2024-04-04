@@ -1,5 +1,6 @@
 import { Section } from "@/components/sections/token-stats";
 import { LandingPageData } from "@/lib/types/cms";
+import { unstable_cache } from "next/cache";
 
 export async function queryLandingPageCMSData(): Promise<LandingPageData> {
   const url = new URL(
@@ -11,7 +12,7 @@ export async function queryLandingPageCMSData(): Promise<LandingPageData> {
   return await res.json();
 }
 
-export async function queryUpcomingAssets(): Promise<Section> {
+export const queryUpcomingAssets = unstable_cache(async () => {
   const data = await queryLandingPageCMSData();
   const section = {
     name: "Upcoming",
@@ -37,7 +38,7 @@ export async function queryUpcomingAssets(): Promise<Section> {
       )
       // this slice is temporary
       .slice(0, 4),
-  } satisfies Section;
+  } as Section;
 
   return section;
-}
+}, ["upcoming-assets"]);
