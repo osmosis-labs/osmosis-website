@@ -46,15 +46,16 @@ export const queryUpcomingAssetsSection = unstable_cache(async () => {
     iconUri: "/assets/icons/star.svg",
     isGrid: true,
     assets: (await queryMappedUpcomingAssets())
-      .filter((asset) => {
-        const releaseDate = parse(
-          asset.releaseDate ?? "",
-          "MM yyyy",
-          new Date(),
-        );
+      // temp disabled
+      // .filter((asset) => {
+      //   const releaseDate = parse(
+      //     asset.releaseDate ?? "",
+      //     "MM yyyy",
+      //     new Date(),
+      //   );
 
-        return isAfter(releaseDate, new Date());
-      })
+      //   return isAfter(releaseDate, new Date());
+      // })
       // this slice is temporary
       .slice(0, 4),
   } as Section;
