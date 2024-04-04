@@ -1,6 +1,7 @@
 import { Section } from "@/components/sections/token-stats";
 import { GITHUB_RAW_DEFAULT_BASEURL } from "@/lib/shared";
 import { LandingPageData } from "@/lib/types/cms";
+import { isAfter, parse } from "date-fns";
 import { unstable_cache } from "next/cache";
 
 const LANDING_PAGE_CMS_DATA_URL = new URL(
@@ -17,30 +18,43 @@ export async function queryLandingPageCMSData(): Promise<LandingPageData> {
   return await res.json();
 }
 
-export const queryUpcomingAssets = unstable_cache(async () => {
+export const queryMappedUpcomingAssets = async () => {
   const data = await queryLandingPageCMSData();
+
+  return data.upcomingAssets.map(
+    ({
+      assetName,
+      estimatedLaunchDate,
+      logoURL,
+      osmosisAirdrop,
+      showLaunchDate,
+      symbol,
+    }) => ({
+      denom: symbol,
+      iconUri: logoURL,
+      name: assetName,
+      isAirdrop: osmosisAirdrop,
+      releaseDate: showLaunchDate ? estimatedLaunchDate : undefined,
+      isUpcoming: true,
+    }),
+  );
+};
+
+export const queryUpcomingAssetsSection = unstable_cache(async () => {
   const section = {
     name: "Upcoming",
     iconUri: "/assets/icons/star.svg",
     isGrid: true,
-    assets: data.upcomingAssets
-      .map(
-        ({
-          assetName,
-          estimatedLaunchDate,
-          logoURL,
-          osmosisAirdrop,
-          showLaunchDate,
-          symbol,
-        }) => ({
-          denom: symbol,
-          iconUri: logoURL,
-          name: assetName,
-          isAirdrop: osmosisAirdrop,
-          releaseDate: showLaunchDate ? estimatedLaunchDate : undefined,
-          isUpcoming: true,
-        }),
-      )
+    assets: (await queryMappedUpcomingAssets())
+      .filter((asset) => {
+        const releaseDate = parse(
+          asset.releaseDate ?? "",
+          "MM yyyy",
+          new Date(),
+        );
+
+        return isAfter(releaseDate, new Date());
+      })
       // this slice is temporary
       .slice(0, 4),
   } as Section;

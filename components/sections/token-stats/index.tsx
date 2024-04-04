@@ -1,5 +1,5 @@
 import { DEFAULT_VS_CURRENCY, formatPretty } from "@/lib/formatting";
-import { queryUpcomingAssets } from "@/lib/queries/cms";
+import { queryUpcomingAssetsSection } from "@/lib/queries/cms";
 import { cn } from "@/lib/utils";
 import { Dec, PricePretty, RatePretty } from "@keplr-wallet/unit";
 import Image from "next/image";
@@ -96,7 +96,7 @@ const mockSections: Section[] = [
 ];
 
 export default async function TokenStatsSection() {
-  const upcomingAssetsSection = await queryUpcomingAssets();
+  const upcomingAssetsSection = await queryUpcomingAssetsSection();
   const sections = [...mockSections, upcomingAssetsSection];
 
   return (
