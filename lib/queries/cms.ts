@@ -1,7 +1,6 @@
 import { Section } from "@/components/sections/token-stats";
 import { GITHUB_RAW_DEFAULT_BASEURL } from "@/lib/shared";
 import { LandingPageData } from "@/lib/types/cms";
-import { isAfter, parse } from "date-fns";
 import { unstable_cache } from "next/cache";
 
 const LANDING_PAGE_CMS_DATA_URL = new URL(
