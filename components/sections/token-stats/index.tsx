@@ -26,101 +26,63 @@ type QueryFn = () => Promise<SectionAsset[]>;
 export interface ISection {
   name: string;
   iconUri: string;
-  assets: SectionAsset[];
+  mockAssets: SectionAsset[];
   isGrid?: boolean;
-  queryFn?: QueryFn;
+  queryAssetsFn?: QueryFn;
 }
 
-const mockSections: ISection[] = [
+const mockAssets = [
   {
-    name: "Top Gainers",
-    iconUri: "/assets/icons/trending.svg",
-    assets: [
-      {
-        name: "Celestia",
-        isLoading: true,
-        denom: "TIA",
-        iconUri: "/assets/icons/tia.svg",
-        price: new PricePretty(DEFAULT_VS_CURRENCY, new Dec(2.123)),
-        variation: new RatePretty(new Dec(0.01)),
-      },
-      {
-        name: "Very looooong name",
-        denom: "VLN",
-        iconUri: "/assets/icons/dym.svg",
-        price: new PricePretty(DEFAULT_VS_CURRENCY, new Dec(0.69)),
-        variation: new RatePretty(new Dec(0.025)),
-      },
-      {
-        name: "Dymension",
-        denom: "DYM",
-        iconUri: "/assets/icons/dym.svg",
-        price: new PricePretty(DEFAULT_VS_CURRENCY, new Dec(1.2)),
-        variation: new RatePretty(new Dec(-0.04)),
-      },
-      {
-        name: "Pepe",
-        denom: "PEPE",
-        iconUri: "/assets/icons/pepe.svg",
-        price: new PricePretty(DEFAULT_VS_CURRENCY, new Dec(5)),
-        variation: new RatePretty(new Dec(0.08)),
-      },
-    ],
+    name: "Celestia",
+    isLoading: true,
+    denom: "TIA",
+    iconUri: "/assets/icons/tia.svg",
+    price: new PricePretty(DEFAULT_VS_CURRENCY, new Dec(2.123)),
+    variation: new RatePretty(new Dec(0.01)),
   },
   {
-    name: "Newest",
-    iconUri: "/assets/icons/rocket.svg",
-    assets: [
-      {
-        name: "Celestia",
-        isLoading: true,
-        denom: "TIA",
-        iconUri: "/assets/icons/tia.svg",
-        price: new PricePretty(DEFAULT_VS_CURRENCY, new Dec(2.123)),
-        variation: new RatePretty(new Dec(0.01)),
-      },
-      {
-        name: "Very looooong name",
-        denom: "VLN",
-        iconUri: "/assets/icons/dym.svg",
-        price: new PricePretty(DEFAULT_VS_CURRENCY, new Dec(0.69)),
-        variation: new RatePretty(new Dec(0.025)),
-      },
-      {
-        name: "Dymension",
-        denom: "DYM",
-        iconUri: "/assets/icons/dym.svg",
-        price: new PricePretty(DEFAULT_VS_CURRENCY, new Dec(1.2)),
-        variation: new RatePretty(new Dec(-0.04)),
-      },
-      {
-        name: "Pepe",
-        denom: "PEPE",
-        iconUri: "/assets/icons/pepe.svg",
-        price: new PricePretty(DEFAULT_VS_CURRENCY, new Dec(5)),
-        variation: new RatePretty(new Dec(0.08)),
-      },
-    ],
+    name: "Very looooong name",
+    denom: "VLN",
+    iconUri: "/assets/icons/dym.svg",
+    price: new PricePretty(DEFAULT_VS_CURRENCY, new Dec(0.69)),
+    variation: new RatePretty(new Dec(0.025)),
   },
-];
-
-const sections: ISection[] = [
-  ...mockSections,
   {
-    name: "Upcoming",
-    iconUri: "/assets/icons/star.svg",
-    isGrid: true,
-    assets: [],
-    queryFn: queryUpcomingAssetsSectionAssets,
+    name: "Dymension",
+    denom: "DYM",
+    iconUri: "/assets/icons/dym.svg",
+    price: new PricePretty(DEFAULT_VS_CURRENCY, new Dec(1.2)),
+    variation: new RatePretty(new Dec(-0.04)),
+  },
+  {
+    name: "Pepe",
+    denom: "PEPE",
+    iconUri: "/assets/icons/pepe.svg",
+    price: new PricePretty(DEFAULT_VS_CURRENCY, new Dec(5)),
+    variation: new RatePretty(new Dec(0.08)),
   },
 ];
 
 export default async function TokenStatsSection() {
   return (
     <section className="relative z-10 mt-17.5 flex flex-col gap-2 p-2 sm:mt-16 sm:p-4 md:mt-14 md:grid md:grid-cols-2 md:gap-y-2 lg:mt-16 lg:grid-cols-[repeat(2,_minmax(0,1fr)),340px] lg:gap-x-2 xl:mt-[136px] xl:grid-cols-[repeat(2,_minmax(0,1fr)),418px] xl:py-0 2xl:mt-20 2xl:grid-cols-3 2xl:gap-x-6 2xl:px-6">
-      {sections.map((sectionProps) => {
-        return <Section key={sectionProps.name} {...sectionProps} />;
-      })}
+      <Section
+        name="Top Gainers"
+        mockAssets={mockAssets}
+        iconUri="/assets/icons/trending.svg"
+      />
+      <Section
+        name="Newest"
+        mockAssets={mockAssets}
+        iconUri="/assets/icons/rocket.svg"
+      />
+      <Section
+        name="Upcoming"
+        mockAssets={mockAssets}
+        queryAssetsFn={queryUpcomingAssetsSectionAssets}
+        iconUri="/assets/icons/star.svg"
+        isGrid
+      />
     </section>
   );
 }
@@ -129,8 +91,8 @@ async function Section({
   iconUri,
   name,
   isGrid,
-  queryFn,
-  assets: mockAssets,
+  queryAssetsFn,
+  mockAssets,
 }: ISection) {
   return (
     <div
@@ -145,7 +107,7 @@ async function Section({
       <Suspense fallback={<Skeleton name={name as SectionName} />}>
         <SectionDataContent
           isGrid={isGrid}
-          queryFn={queryFn}
+          queryAssetsFn={queryAssetsFn}
           mockAssets={mockAssets}
         />
       </Suspense>
@@ -153,17 +115,20 @@ async function Section({
   );
 }
 
+interface SectionDataContentProps {
+  isGrid?: boolean;
+  queryAssetsFn?: QueryFn;
+  mockAssets: SectionAsset[];
+}
+
 async function SectionDataContent({
   isGrid,
-  queryFn,
+  queryAssetsFn,
   mockAssets,
-}: {
-  isGrid?: boolean;
-  queryFn?: QueryFn;
-  mockAssets: SectionAsset[];
-}) {
+}: SectionDataContentProps) {
+  // testing
   // await new Promise<void>((res) => setTimeout(() => res(), 1000 * 2));
-  const assets = queryFn ? await queryFn() : mockAssets;
+  const assets = queryAssetsFn ? await queryAssetsFn() : mockAssets;
 
   return (
     <div
