@@ -1,4 +1,6 @@
 import Badge from "@/components/shared/badge";
+import { queryOsmoAPR } from "@/lib/queries/numia";
+import { RatePretty } from "@keplr-wallet/unit";
 import Image, { getImageProps } from "next/image";
 
 const airdrops = Array<{ uri: string; name: string }>(22).fill({
@@ -6,20 +8,24 @@ const airdrops = Array<{ uri: string; name: string }>(22).fill({
   name: "Pepe",
 });
 
-export default function StakeSection() {
+export default async function StakeSection() {
+  const stakingApr = new RatePretty((await queryOsmoAPR())[0].apr / 100)
+    .maxDecimals(2)
+    .toString();
+
   return (
     <section className="relative z-10 mt-28 flex flex-col items-center justify-center gap-8 self-stretch px-2 py-4 sm:mt-20 sm:p-4 md:mt-[136px] lg:mt-28 xl:mt-[170px] 2xl:mt-52 2xl:p-6">
       <div className="flex flex-col items-center justify-center gap-4">
         <Badge label="Secure the network" />
         <div className="flex flex-col items-center justify-center gap-2 self-stretch lg:gap-4">
-          <h4 className="bg-stake-heading -tracking-2% text-center font-poppins text-3.5xl font-medium leading-9.5 md:text-4xl md:leading-10.75 lg:text-5xl lg:leading-13 xl:text-5.5xl xl:leading-15.25 2xl:text-6.25xl 2xl:leading-17.5">
+          <h4 className="bg-stake-heading text-center font-poppins text-3.5xl font-medium leading-9.5 -tracking-2% md:text-4xl md:leading-10.75 lg:text-5xl lg:leading-13 xl:text-5.5xl xl:leading-15.25 2xl:text-6.25xl 2xl:leading-17.5">
             Stake to earn <br className="sm:hidden" />
             rewards.
           </h4>
           <p className="self-stretch text-center font-light leading-5.5 text-neutral-100 lg:text-xl lg:leading-7">
             Lock up your OSMO and earn passive <br className="sm:hidden" />
             staking <br className="hidden sm:block" /> rewards with up to{" "}
-            <span className="text-malachite-200">10.86% APR.</span>
+            <span className="text-malachite-200">{stakingApr} APR.</span>
           </p>
         </div>
       </div>
@@ -84,7 +90,7 @@ export default function StakeSection() {
                 </div>
                 <div className="hidden h-18 w-[1px] bg-osmoverse-650 md:block" />
                 <div className="flex gap-3 max-md:items-center md:flex-col md:gap-1 md:px-4 lg:w-[187px] 2xl:w-auto">
-                  <span className="bg-stake-heading -tracking-2% font-poppins text-3.5xl leading-8.75 2xl:text-5xl 2xl:leading-13">
+                  <span className="bg-stake-heading font-poppins text-3.5xl leading-8.75 -tracking-2% 2xl:text-5xl 2xl:leading-13">
                     $65M
                   </span>
                   <p className="font-light leading-6.25 text-alpha-60">
