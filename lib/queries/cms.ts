@@ -45,7 +45,7 @@ export const queryUpcomingAssetsSection = unstable_cache(async () => {
     iconUri: "/assets/icons/star.svg",
     isGrid: true,
     assets: (await queryMappedUpcomingAssets())
-      // temp disabled
+      // temp disabled as there currently are no upcoming assets on the cms
       // .filter((asset) => {
       //   const releaseDate = parse(
       //     asset.releaseDate ?? "",
