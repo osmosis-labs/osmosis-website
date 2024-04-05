@@ -89,7 +89,7 @@ export const aggregateAssetsPrices = async (
 
     aggregated.push({
       denom: asset.symbol,
-      iconUri: asset.logoURIs.svg ?? "",
+      iconUri: asset.logoURIs.svg ?? asset.logoURIs.png ?? "",
       name: asset.name,
       price:
         priceData.length > 0
