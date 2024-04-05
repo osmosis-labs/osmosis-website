@@ -1,5 +1,6 @@
 import { GITHUB_RAW_DEFAULT_BASEURL } from "@/lib/shared";
 import { LandingPageData } from "@/lib/types/cms";
+import { parse } from "date-fns";
 
 const LANDING_PAGE_CMS_DATA_URL = new URL(
   "/osmosis-labs/fe-content/main/cms/landing-page/landing-page.json",
@@ -14,3 +15,24 @@ export async function queryLandingPageCMSData(): Promise<LandingPageData> {
 
   return await res.json();
 }
+
+export const queryUpcomingAndPastAirdrops = async () => {
+  const upcomingAssets = (await queryLandingPageCMSData()).upcomingAssets;
+
+  const airdrops = upcomingAssets.filter((asset) => asset.osmosisAirdrop);
+  const upcomingAirdrops = airdrops.filter(
+    (asset) =>
+      parse(asset.estimatedLaunchDate, "MM yyyy", new Date()).getTime() >
+      new Date().getTime(),
+  );
+  const pastAirdrops = airdrops.filter(
+    (asset) =>
+      parse(asset.estimatedLaunchDate, "MM yyyy", new Date()).getTime() <
+      new Date().getTime(),
+  );
+
+  return {
+    upcomingAirdrops,
+    pastAirdrops,
+  };
+};
