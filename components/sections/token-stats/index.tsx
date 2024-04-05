@@ -4,7 +4,7 @@ import {
 } from "@/components/sections/token-stats/skeleton";
 import { DEFAULT_VS_CURRENCY, formatPretty } from "@/lib/formatting";
 import {
-  queryNewestAssetsSection,
+  queryNewestAssetsSectionAssets,
   queryUpcomingAssetsSectionAssets,
 } from "@/lib/queries/cms";
 import { cn } from "@/lib/utils";
@@ -74,6 +74,12 @@ const mockSections: ISection[] = [
 
 const sections: ISection[] = [
   ...mockSections,
+  {
+    name: "Newest",
+    iconUri: "/assets/icons/rocket.svg",
+    queryFn: queryNewestAssetsSectionAssets,
+    assets: [],
+  },
   {
     name: "Upcoming",
     iconUri: "/assets/icons/star.svg",

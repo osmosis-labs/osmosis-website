@@ -101,13 +101,11 @@ export const aggregateAssetsPrices = async (
   return aggregated;
 };
 
-export const queryNewestAssetsSection = async (): Promise<ISection> => {
+export const queryNewestAssetsSectionAssets = async (): Promise<
+  SectionAsset[]
+> => {
   const newestAssets = await queryNewestAssets();
   const aggregatedAssets = await aggregateAssetsPrices(newestAssets);
 
-  return {
-    name: "Newest",
-    iconUri: "/assets/icons/rocket.svg",
-    assets: aggregatedAssets,
-  };
+  return aggregatedAssets;
 };
