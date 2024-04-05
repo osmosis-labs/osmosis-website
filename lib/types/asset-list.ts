@@ -1,109 +1,108 @@
-export type IntegratedBridge =
-  | {
-      [k: string]: unknown;
-    }
-  | {
-      [k: string]: unknown;
-    };
-
 /**
- * Osmosis Zone List is a basic list of assets, in order as shown on the Osmosis Zone.
+ * List of assets generated in `assetlist.json` on the Osmosis Zone frontend CMS.
  */
 export interface AssetList {
   chain_name: string;
   assets: Asset[];
 }
 
+/**
+ * Represents an asset present in the AssetList.
+ */
 export interface Asset {
-  /**
-   * Chain name as used in the Cosmos Chain Registry
-   */
-  chain_name: string;
-  /**
-   * Base denomination as used for the asset in the Cosmos Chain Registry
-   */
-  base_denom: string;
-  /**
-   * The entire IBC path, with the port and channel data for each hop
-   */
-  path?: string;
-  /**
-   * Whether the asset have verified status Osmosis Zone app.
-   */
-  osmosis_verified?: boolean;
-  /**
-   * Whether the asset can reliably be transferred to or from Osmosis.
-   */
-  osmosis_unstable?: boolean;
-  /**
-   * Whether the asset Deposit and Withdraw functions are disabled on Osmosis.
-   */
-  osmosis_disabled?: boolean;
-  /**
-   * Whether the asset should be temporarily unlisted on the Osmosis Zone app.
-   */
-  osmosis_unlisted?: boolean;
-  /**
-   * A custom on-hover tooltip message descirbing the asset on the Osmosis Zone app.
-   */
-  tooltip_message?: string;
-  listing_date_time_utc?: string;
-  /**
-   * Whether the asset has been confrimed by a human to display and function correctly on Osmosis Zone.
-   */
-  osmosis_validated?: boolean;
-  canonical?: {
-    /**
-     * Chain name as used in the Cosmos Chain Registry
-     */
-    chain_name: string;
-    /**
-     * Base denomination as used for the asset in the Cosmos Chain Registry
-     */
-    base_denom: string;
-  };
-  transfer_methods?: (ExternalInterface | IntegratedBridge | FiatOnramp)[];
-  /**
-   * The peg mechanism for synthetically created assets--most important for stablecoins.
-   */
-  peg_mechanism?: "collateralized" | "algorithmic" | "hybrid";
-  twitter_URL?: string;
-  /**
-   * Properties that should not follow the Chain Registry, and behave or appear differently on Osmosis Zone.
-   */
-  /**
-   * The symbol of an asset. For example BTC.
-   */
-  symbol?: string;
-  logo_URIs?: {
-    png?: string;
+  /** Name of the blockchain network. */
+  chainName: string;
+  /** Denomination of the asset on its source chain. */
+  sourceDenom: string;
+  /** Minimal denomination of the asset. */
+  coinMinimalDenom: string;
+  /** Symbol of the asset. */
+  symbol: string;
+  /** Number of decimal places for the asset. */
+  decimals: number;
+  /** URIs for the asset's logo in different formats. */
+  logoURIs: {
+    /** URI for the SVG format of the logo. */
     svg?: string;
+    /** URI for the PNG format of the logo. */
+    png?: string;
   };
-  /**
-   * [OPTIONAL] The coingecko id to fetch asset data from coingecko v3 api. See https://api.coingecko.com/api/v3/coins/list
-   */
-  coingecko_id?: string;
-  /**
-   * How the asset should be described. E.g., $USTC is named: 'Terra USD'.
-   */
-  name?: string;
-  categories?: string[];
+  /** Coingecko ID of the asset. */
+  coingeckoId: string;
+  /** Categories that the asset belongs to. */
+  categories: string[];
+  /** Pegging mechanism used by the asset. */
+  pegMechanism: string;
+  /** Methods available for transferring the asset. */
+  transferMethods: TransferMethod[];
+  /** Counterparty chains associated with the asset. */
+  counterparty: Counterparty[];
+  /** Key identifying the variant group of the asset. */
+  variantGroupKey: string;
+  /** Name of the asset. */
+  name: string;
+  /** Indicates whether the asset is verified. */
+  verified: boolean;
+  /** Indicates whether the asset is unstable. */
+  unstable: boolean;
+  /** Indicates whether the asset is disabled. */
+  disabled: boolean;
+  /** Indicates whether the asset is in preview mode. */
+  preview: boolean;
+  /** Indicates the launch date of the asset */
+  listingDate?: string;
 }
 
-export interface ExternalInterface {
-  type?: "external_interface";
-  /**
-   * The URL of the interface used for depositing the asset to this chain.
-   */
-  deposit_url?: string;
-  /**
-   * The URL of the interface used for withdrawing the asset to this chain.
-   */
-  withdraw_url?: string;
+/**
+ * Represents a transfer method for the asset.
+ */
+interface TransferMethod {
+  /** Name of the transfer method. */
+  name: string;
+  /** Type of the transfer method. */
+  type: string;
+  /** URL for depositing the asset. */
+  depositUrl?: string;
+  /** URL for withdrawing the asset. */
+  withdrawUrl?: string;
+  /** Counterparty chains associated with this transfer method. */
+  counterparty?: Counterparty[];
+  /** ID of the unwrapped asset. */
+  unwrappedAssetId?: string;
+  /** Chain information for the transfer. */
+  chain?: {
+    /** Port of the chain. */
+    port: string;
+    /** Channel ID of the chain. */
+    channelId: string;
+    /** Path of the transfer on the chain. */
+    path: string;
+  };
 }
 
-export interface FiatOnramp {
-  type?: "fiat_onramp";
-  name?: string;
-  providerAssetId: string;
+/**
+ * Represents a counterparty chain associated with the asset.
+ */
+interface Counterparty {
+  /** Name of the counterparty chain. */
+  chainName: string;
+  /** Denomination of the asset on the counterparty chain. */
+  sourceDenom: string;
+  /** Type of the counterparty chain. */
+  chainType?: string;
+  /** ID of the counterparty chain. */
+  chainId?: string | number;
+  /** Address associated with the chain. */
+  address?: string;
+  /** Symbol of the asset on the counterparty chain. */
+  symbol: string;
+  /** Number of decimal places for the asset on the counterparty chain. */
+  decimals: number;
+  /** URIs for the asset's logo in different formats on the counterparty chain. */
+  logoURIs: {
+    /** URI for the SVG format of the logo on the counterparty chain. */
+    svg?: string;
+    /** URI for the PNG format of the logo on the counterparty chain. */
+    png?: string;
+  };
 }
