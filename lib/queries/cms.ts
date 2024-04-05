@@ -1,4 +1,4 @@
-import { Section, SectionAsset } from "@/components/sections/token-stats";
+import { ISection, SectionAsset } from "@/components/sections/token-stats";
 import { DEFAULT_VS_CURRENCY } from "@/lib/formatting";
 import { queryAssetList } from "@/lib/queries/asset-list";
 import { queryTokenInfo } from "@/lib/queries/numia";
@@ -44,28 +44,24 @@ export const queryMappedUpcomingAssets = unstable_cache(async () => {
   );
 }, ["mapped-upcoming-assets"]);
 
-export const queryUpcomingAssetsSection = unstable_cache(async () => {
-  const section = {
-    name: "Upcoming",
-    iconUri: "/assets/icons/star.svg",
-    isGrid: true,
-    assets: (await queryMappedUpcomingAssets())
-      // temp disabled as there currently are no upcoming assets on the cms
-      // .filter((asset) => {
-      //   const releaseDate = parse(
-      //     asset.releaseDate ?? "",
-      //     "MM yyyy",
-      //     new Date(),
-      //   );
+export const queryUpcomingAssetsSectionAssets =
+  unstable_cache(async (): Promise<SectionAsset[]> => {
+    return (
+      (await queryMappedUpcomingAssets())
+        // temp disabled as there currently are no upcoming assets on the cms
+        // .filter((asset) => {
+        //   const releaseDate = parse(
+        //     asset.releaseDate ?? "",
+        //     "MM yyyy",
+        //     new Date(),
+        //   );
 
-      //   return isAfter(releaseDate, new Date());
-      // })
-      // this slice is temporary
-      .slice(0, 4),
-  } as Section;
-
-  return section;
-}, ["upcoming-assets-section"]);
+        //   return isAfter(releaseDate, new Date());
+        // })
+        // this slice is temporary
+        .slice(0, 4)
+    );
+  }, ["upcoming-assets-section-assets"]);
 
 export const queryNewestAssets = unstable_cache(async () => {
   const assetList = await queryAssetList();
@@ -105,7 +101,7 @@ export const aggregateAssetsPrices = async (
   return aggregated;
 };
 
-export const queryNewestAssetsSection = async (): Promise<Section> => {
+export const queryNewestAssetsSection = async (): Promise<ISection> => {
   const newestAssets = await queryNewestAssets();
   const aggregatedAssets = await aggregateAssetsPrices(newestAssets);
 
