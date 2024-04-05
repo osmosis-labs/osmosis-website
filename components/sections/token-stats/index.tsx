@@ -1,8 +1,13 @@
+import {
+  SectionName,
+  Skeleton,
+} from "@/components/sections/token-stats/skeleton";
 import { DEFAULT_VS_CURRENCY, formatPretty } from "@/lib/formatting";
 import { queryUpcomingAssetsSectionAssets } from "@/lib/queries/cms";
 import { cn } from "@/lib/utils";
 import { Dec, PricePretty, RatePretty } from "@keplr-wallet/unit";
 import Image from "next/image";
+import { Suspense } from "react";
 
 export interface SectionAsset {
   name: string;
@@ -16,12 +21,14 @@ export interface SectionAsset {
   isAirdrop?: boolean;
 }
 
+type QueryFn = () => Promise<SectionAsset[]>;
+
 export interface ISection {
   name: string;
   iconUri: string;
   assets: SectionAsset[];
   isGrid?: boolean;
-  queryFn?: () => Promise<SectionAsset[]>;
+  queryFn?: QueryFn;
 }
 
 const mockSections: ISection[] = [
@@ -125,8 +132,6 @@ async function Section({
   queryFn,
   assets: mockAssets,
 }: ISection) {
-  const assets = queryFn ? await queryFn() : mockAssets;
-
   return (
     <div
       className={cn("flex flex-col gap-2", {
@@ -137,20 +142,43 @@ async function Section({
         <Image src={iconUri} alt={name} width={24} height={24} />
         <span>{name}</span>
       </div>
-      <div
-        className={cn("flex flex-col gap-2", {
-          "h-full md:grid md:grid-cols-2": isGrid,
-        })}
-      >
-        {assets.map((props) => (
-          <TokenStatsRow key={props.denom} {...props} />
-        ))}
-      </div>
+      <Suspense fallback={<Skeleton name={name as SectionName} />}>
+        <SectionDataContent
+          isGrid={isGrid}
+          queryFn={queryFn}
+          mockAssets={mockAssets}
+        />
+      </Suspense>
     </div>
   );
 }
 
-function TokenStatsRow({
+async function SectionDataContent({
+  isGrid,
+  queryFn,
+  mockAssets,
+}: {
+  isGrid?: boolean;
+  queryFn?: QueryFn;
+  mockAssets: SectionAsset[];
+}) {
+  // await new Promise<void>((res) => setTimeout(() => res(), 1000 * 2));
+  const assets = queryFn ? await queryFn() : mockAssets;
+
+  return (
+    <div
+      className={cn("flex flex-col gap-2", {
+        "h-full md:grid md:grid-cols-2": isGrid,
+      })}
+    >
+      {assets.map((props) => (
+        <TokenStatsRow key={props.denom} {...props} />
+      ))}
+    </div>
+  );
+}
+
+export function TokenStatsRow({
   isLoading,
   denom,
   iconUri,
@@ -207,7 +235,11 @@ function TokenStatsRow({
         )}
       </div>
       {isLoading ? (
-        <div className="flex flex-col items-end justify-center gap-1">
+        <div
+          className={cn("flex flex-col items-end justify-center gap-1", {
+            "items-start": isUpcoming,
+          })}
+        >
           <div className="h-2.5 w-14 rounded-full bg-osmoverse-650" />
           <div className="h-2.5 w-9 rounded-full bg-osmoverse-650" />
         </div>
