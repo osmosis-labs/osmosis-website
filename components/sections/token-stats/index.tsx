@@ -77,6 +77,7 @@ export default async function TokenStatsSection() {
       <Section
         name="Newest"
         mockAssets={mockAssets}
+        queryAssetsFn={queryNewestAssetsSectionAssets}
         iconUri="/assets/icons/rocket.svg"
       />
       <Section
