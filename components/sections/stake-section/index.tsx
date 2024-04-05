@@ -1,7 +1,7 @@
+import StakingApr from "@/components/sections/stake-section/staking-apr";
 import Badge from "@/components/shared/badge";
-import { queryOsmoAPR } from "@/lib/queries/numia";
-import { RatePretty } from "@keplr-wallet/unit";
 import Image, { getImageProps } from "next/image";
+import { Suspense } from "react";
 
 const airdrops = Array<{ uri: string; name: string }>(22).fill({
   uri: "/assets/icons/pepe.svg",
@@ -9,10 +9,6 @@ const airdrops = Array<{ uri: string; name: string }>(22).fill({
 });
 
 export default async function StakeSection() {
-  const stakingApr = new RatePretty((await queryOsmoAPR())[0].apr / 100)
-    .maxDecimals(2)
-    .toString();
-
   return (
     <section className="relative z-10 mt-28 flex flex-col items-center justify-center gap-8 self-stretch px-2 py-4 sm:mt-20 sm:p-4 md:mt-[136px] lg:mt-28 xl:mt-[170px] 2xl:mt-52 2xl:p-6">
       <div className="flex flex-col items-center justify-center gap-4">
@@ -25,7 +21,15 @@ export default async function StakeSection() {
           <p className="self-stretch text-center font-light leading-5.5 text-neutral-100 lg:text-xl lg:leading-7">
             Lock up your OSMO and earn passive <br className="sm:hidden" />
             staking <br className="hidden sm:block" /> rewards with up to{" "}
-            <span className="text-malachite-200">{stakingApr} APR.</span>
+            <Suspense
+              fallback={
+                <span className="relative h-5.5 w-22.5 from-[#25AF55] to-malachite-200 after:absolute after:inset-0 after:rounded-lg after:bg-gradient-to-t lg:h-7 lg:w-28">
+                  10.88% APR.
+                </span>
+              }
+            >
+              <StakingApr />
+            </Suspense>
           </p>
         </div>
       </div>
