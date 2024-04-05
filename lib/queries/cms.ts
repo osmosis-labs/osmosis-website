@@ -1,6 +1,11 @@
-import { Section } from "@/components/sections/token-stats";
+import { Section, SectionAsset } from "@/components/sections/token-stats";
+import { DEFAULT_VS_CURRENCY } from "@/lib/formatting";
+import { queryAssetList } from "@/lib/queries/asset-list";
+import { queryTokenInfo } from "@/lib/queries/numia";
 import { GITHUB_RAW_DEFAULT_BASEURL } from "@/lib/shared";
+import { Asset } from "@/lib/types/asset-list";
 import { LandingPageData } from "@/lib/types/cms";
+import { PricePretty, RatePretty } from "@keplr-wallet/unit";
 import { unstable_cache } from "next/cache";
 
 const LANDING_PAGE_CMS_DATA_URL = new URL(
@@ -61,3 +66,52 @@ export const queryUpcomingAssetsSection = unstable_cache(async () => {
 
   return section;
 }, ["upcoming-assets-section"]);
+
+export const queryNewestAssets = unstable_cache(async () => {
+  const assetList = await queryAssetList();
+  const assets = assetList.assets;
+
+  return assets
+    .filter((asset) => !!asset.listingDate)
+    .sort((a, b) =>
+      Date.parse(a.listingDate!) > Date.parse(b.listingDate!) ? -1 : 1,
+    )
+    .slice(0, 4);
+}, ["query-newest-assets"]);
+
+export const aggregateAssetsPrices = async (
+  listAssets: Asset[],
+): Promise<SectionAsset[]> => {
+  const aggregated: SectionAsset[] = [];
+
+  for await (const asset of listAssets) {
+    const priceData = await queryTokenInfo({ symbol: asset.symbol });
+
+    aggregated.push({
+      denom: asset.symbol,
+      iconUri: asset.logoURIs.svg ?? "",
+      name: asset.name,
+      price:
+        priceData.length > 0
+          ? new PricePretty(DEFAULT_VS_CURRENCY, priceData[0].price!)
+          : undefined,
+      variation:
+        priceData.length > 0
+          ? new RatePretty(priceData[0].price_24h_change! / 100)
+          : undefined,
+    });
+  }
+
+  return aggregated;
+};
+
+export const queryNewestAssetsSection = async (): Promise<Section> => {
+  const newestAssets = await queryNewestAssets();
+  const aggregatedAssets = await aggregateAssetsPrices(newestAssets);
+
+  return {
+    name: "Newest",
+    iconUri: "/assets/icons/rocket.svg",
+    assets: aggregatedAssets,
+  };
+};
