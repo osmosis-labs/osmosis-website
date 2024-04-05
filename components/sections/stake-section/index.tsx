@@ -79,7 +79,8 @@ export default function StakeSection() {
                   <p className="font-light leading-6.25 text-alpha-60">
                     OSMO stakers have received
                     <br className="hidden md:block 2xl:hidden" /> up to{" "}
-                    <br className="hidden 2xl:block" /> over X airdrops to date.
+                    <br className="hidden 2xl:block" /> over 15 airdrops to
+                    date.
                   </p>
                 </div>
                 <div className="hidden h-18 w-[1px] bg-osmoverse-650 md:block" />
