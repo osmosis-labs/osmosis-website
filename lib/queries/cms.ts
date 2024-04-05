@@ -1,4 +1,4 @@
-import { Section } from "@/components/sections/token-stats";
+import { SectionAsset } from "@/components/sections/token-stats";
 import { GITHUB_RAW_DEFAULT_BASEURL } from "@/lib/shared";
 import { LandingPageData } from "@/lib/types/cms";
 import { unstable_cache } from "next/cache";
@@ -39,25 +39,21 @@ export const queryMappedUpcomingAssets = unstable_cache(async () => {
   );
 }, ["mapped-upcoming-assets"]);
 
-export const queryUpcomingAssetsSection = unstable_cache(async () => {
-  const section = {
-    name: "Upcoming",
-    iconUri: "/assets/icons/star.svg",
-    isGrid: true,
-    assets: (await queryMappedUpcomingAssets())
-      // temp disabled as there currently are no upcoming assets on the cms
-      // .filter((asset) => {
-      //   const releaseDate = parse(
-      //     asset.releaseDate ?? "",
-      //     "MM yyyy",
-      //     new Date(),
-      //   );
+export const queryUpcomingAssetsSectionAssets =
+  unstable_cache(async (): Promise<SectionAsset[]> => {
+    return (
+      (await queryMappedUpcomingAssets())
+        // temp disabled as there currently are no upcoming assets on the cms
+        // .filter((asset) => {
+        //   const releaseDate = parse(
+        //     asset.releaseDate ?? "",
+        //     "MM yyyy",
+        //     new Date(),
+        //   );
 
-      //   return isAfter(releaseDate, new Date());
-      // })
-      // this slice is temporary
-      .slice(0, 4),
-  } as Section;
-
-  return section;
-}, ["upcoming-assets-section"]);
+        //   return isAfter(releaseDate, new Date());
+        // })
+        // this slice is temporary
+        .slice(0, 4)
+    );
+  }, ["upcoming-assets-section-assets"]);

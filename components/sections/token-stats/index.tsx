@@ -1,5 +1,5 @@
 import { DEFAULT_VS_CURRENCY, formatPretty } from "@/lib/formatting";
-import { queryUpcomingAssetsSection } from "@/lib/queries/cms";
+import { queryUpcomingAssetsSectionAssets } from "@/lib/queries/cms";
 import { cn } from "@/lib/utils";
 import { Dec, PricePretty, RatePretty } from "@keplr-wallet/unit";
 import Image from "next/image";
@@ -16,13 +16,15 @@ export interface SectionAsset {
   isAirdrop?: boolean;
 }
 
-export interface Section {
+export interface ISection {
   name: string;
   iconUri: string;
   assets: SectionAsset[];
   isGrid?: boolean;
+  queryFn?: () => Promise<SectionAsset[]>;
 }
-const mockSections: Section[] = [
+
+const mockSections: ISection[] = [
   {
     name: "Top Gainers",
     iconUri: "/assets/icons/trending.svg",
@@ -95,37 +97,56 @@ const mockSections: Section[] = [
   },
 ];
 
-export default async function TokenStatsSection() {
-  const upcomingAssetsSection = await queryUpcomingAssetsSection();
-  const sections = [...mockSections, upcomingAssetsSection];
+const sections: ISection[] = [
+  ...mockSections,
+  {
+    name: "Upcoming",
+    iconUri: "/assets/icons/star.svg",
+    isGrid: true,
+    assets: [],
+    queryFn: queryUpcomingAssetsSectionAssets,
+  },
+];
 
+export default async function TokenStatsSection() {
   return (
     <section className="relative z-10 mt-17.5 flex flex-col gap-2 p-2 sm:mt-16 sm:p-4 md:mt-14 md:grid md:grid-cols-2 md:gap-y-2 lg:mt-16 lg:grid-cols-[repeat(2,_minmax(0,1fr)),340px] lg:gap-x-2 xl:mt-[136px] xl:grid-cols-[repeat(2,_minmax(0,1fr)),418px] xl:py-0 2xl:mt-20 2xl:grid-cols-3 2xl:gap-x-6 2xl:px-6">
-      {sections.map(({ iconUri, name, isGrid, assets }) => {
-        return (
-          <div
-            key={name}
-            className={cn("flex flex-col gap-2", {
-              "max-lg:col-span-2": isGrid,
-            })}
-          >
-            <div className="flex gap-2 py-3">
-              <Image src={iconUri} alt={name} width={24} height={24} />
-              <span>{name}</span>
-            </div>
-            <div
-              className={cn("flex flex-col gap-2", {
-                "h-full md:grid md:grid-cols-2": isGrid,
-              })}
-            >
-              {assets.map((props) => (
-                <TokenStatsRow key={props.denom} {...props} />
-              ))}
-            </div>
-          </div>
-        );
+      {sections.map((sectionProps) => {
+        return <Section key={sectionProps.name} {...sectionProps} />;
       })}
     </section>
+  );
+}
+
+async function Section({
+  iconUri,
+  name,
+  isGrid,
+  queryFn,
+  assets: mockAssets,
+}: ISection) {
+  const assets = queryFn ? await queryFn() : mockAssets;
+
+  return (
+    <div
+      className={cn("flex flex-col gap-2", {
+        "max-lg:col-span-2": isGrid,
+      })}
+    >
+      <div className="flex gap-2 py-3">
+        <Image src={iconUri} alt={name} width={24} height={24} />
+        <span>{name}</span>
+      </div>
+      <div
+        className={cn("flex flex-col gap-2", {
+          "h-full md:grid md:grid-cols-2": isGrid,
+        })}
+      >
+        {assets.map((props) => (
+          <TokenStatsRow key={props.denom} {...props} />
+        ))}
+      </div>
+    </div>
   );
 }
 
