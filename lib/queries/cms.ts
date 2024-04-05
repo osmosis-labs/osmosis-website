@@ -72,7 +72,7 @@ export const queryNewestAssets = unstable_cache(async () => {
   const assets = assetList.assets;
 
   return assets
-    .filter((asset) => !!asset.listingDate)
+    .filter((asset) => !!asset.listingDate && asset.verified && !asset.disabled)
     .sort((a, b) =>
       Date.parse(a.listingDate!) > Date.parse(b.listingDate!) ? -1 : 1,
     )
