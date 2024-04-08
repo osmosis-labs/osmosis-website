@@ -119,6 +119,7 @@ const Tweet = ({
   date,
   meatDetails,
   tweetLink,
+  profilePicture,
 }: { className?: string } & Partial<(typeof tweets)[0]>) => {
   return (
     <Link
@@ -133,10 +134,11 @@ const Tweet = ({
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Image
-            src={"/assets/icons/pepe.svg"}
-            alt="@handle avatar"
+            src={profilePicture!}
+            alt={`@${userhandle} avatar`}
             width={48}
             height={48}
+            className="rounded-full"
           />
           <div className="flex flex-col gap-1">
             <span className="font-semibold leading-4 text-neutral-100">
