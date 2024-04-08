@@ -9,7 +9,10 @@ export const queryTokenInfo = async ({
   symbol,
 }: QueryTokenInfoProps): Promise<NumiaToken[]> => {
   const url = new URL(`/tokens/v2/${symbol}`, NUMIA_BASE_URL);
-  const res = await fetch(url, { method: "GET", next: { revalidate: 3600 } });
+  const res = await fetch(url, {
+    method: "GET",
+    next: { revalidate: 3600, tags: ["token-info", symbol] },
+  });
 
   return await res.json();
 };
