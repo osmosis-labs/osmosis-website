@@ -24,4 +24,7 @@ export const queryAssetFromAssetList = unstable_cache(
     return assets.filter((asset) => asset.symbol === symbol)[0];
   },
   ["query-asset-from-asset-list"],
+  {
+    revalidate: 86_400,
+  },
 );
