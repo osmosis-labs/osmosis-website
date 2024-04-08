@@ -20,16 +20,17 @@ export default function StakeSection() {
           </h4>
           <p className="self-stretch text-center font-light leading-5.5 text-neutral-100 lg:text-xl lg:leading-7">
             Lock up your OSMO and earn passive <br className="sm:hidden" />
-            staking <br className="hidden sm:block" /> rewards with up to{" "}
-            <Suspense
-              fallback={
-                <span className="relative h-5.5 w-22.5 from-[#25AF55] to-malachite-200 after:absolute after:inset-0 after:rounded-lg after:bg-gradient-to-t lg:h-7 lg:w-28">
-                  10.88% APR.
-                </span>
-              }
-            >
-              <StakingApr />
-            </Suspense>
+            staking <br className="hidden sm:block" />{" "}
+            <span className="inline-flex items-center gap-1">
+              rewards with up to{" "}
+              <Suspense
+                fallback={
+                  <span className="relative min-h-5.5 min-w-22.5 after:absolute after:inset-0 after:h-5.5 after:w-22.5 after:rounded-lg after:bg-gradient-to-t after:from-[#25AF55] after:to-malachite-200 lg:after:h-7 lg:after:w-28"></span>
+                }
+              >
+                <StakingApr />
+              </Suspense>
+            </span>
           </p>
         </div>
       </div>
