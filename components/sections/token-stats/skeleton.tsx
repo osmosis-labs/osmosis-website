@@ -25,3 +25,16 @@ export function Skeleton({ name }: { name: SectionName }) {
     </div>
   );
 }
+
+export function PriceSkeleton({ isUpcoming }: { isUpcoming?: boolean }) {
+  return (
+    <div
+      className={cn("flex flex-col items-end justify-center gap-1", {
+        "items-start": isUpcoming,
+      })}
+    >
+      <div className="h-2.5 w-14 rounded-full bg-osmoverse-650" />
+      <div className="h-2.5 w-9 rounded-full bg-osmoverse-650" />
+    </div>
+  );
+}

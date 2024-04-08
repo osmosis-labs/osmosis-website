@@ -1,4 +1,5 @@
 import {
+  PriceSkeleton,
   SectionName,
   Skeleton,
 } from "@/components/sections/token-stats/skeleton";
@@ -7,6 +8,7 @@ import {
   queryNewestAssetsSectionAssets,
   queryUpcomingAssetsSectionAssets,
 } from "@/lib/queries/cms";
+import { queryTokenInfo } from "@/lib/queries/numia";
 import { cn } from "@/lib/utils";
 import { Dec, PricePretty, RatePretty } from "@keplr-wallet/unit";
 import Image from "next/image";
@@ -106,14 +108,10 @@ export function TokenStatsRow({
   denom,
   iconUri,
   name,
-  price,
-  variation,
   isUpcoming,
   releaseDate,
   isAirdrop,
 }: SectionAsset) {
-  const isPositive = variation && variation.toDec().isPositive();
-
   return (
     <div
       className={cn(
@@ -168,37 +166,10 @@ export function TokenStatsRow({
         </div>
       ) : (
         <>
-          {price && variation && (
-            <div className="flex flex-col items-end justify-center gap-1.5">
-              <span className="leading-none 2xl:text-lg">
-                {formatPretty(price)}
-              </span>
-              <span
-                className={cn("inline-flex gap-1.5 leading-none", {
-                  "text-malachite-200": isPositive,
-                  "text-[#FA825D]": !isPositive,
-                })}
-              >
-                {isPositive ? (
-                  <Image
-                    src={"/assets/icons/variation-indicator-up.svg"}
-                    alt="Indicator Up"
-                    width={10}
-                    height={9}
-                    className="translate-y-0.5 self-baseline"
-                  />
-                ) : (
-                  <Image
-                    src={"/assets/icons/variation-indicator-down.svg"}
-                    alt="Indicator Down"
-                    width={10}
-                    height={9}
-                    className="-translate-y-0.5 self-end"
-                  />
-                )}
-                {formatPretty(variation)}
-              </span>
-            </div>
+          {!isUpcoming && (
+            <Suspense fallback={<PriceSkeleton isUpcoming={isUpcoming} />}>
+              <TokenPriceStats symbol={denom} />
+            </Suspense>
           )}
           {isUpcoming && (
             <div
@@ -230,5 +201,54 @@ export function TokenStatsRow({
         </>
       )}
     </div>
+  );
+}
+
+async function TokenPriceStats({ symbol }: { symbol: string }) {
+  const infos = await queryTokenInfo({ symbol });
+  if (infos.length === 0) return;
+
+  const { price: _price, price_24h_change: _variation } = infos[0];
+
+  const price = new PricePretty(DEFAULT_VS_CURRENCY, _price ?? 0);
+  const variation = new RatePretty((_variation && _variation / 100) ?? 0);
+
+  const isPositive = variation.toDec().isPositive();
+
+  return (
+    <>
+      {_price && _variation && (
+        <div className="flex flex-col items-end justify-center gap-1.5">
+          <span className="leading-none 2xl:text-lg">
+            {formatPretty(price)}
+          </span>
+          <span
+            className={cn("inline-flex gap-1.5 leading-none", {
+              "text-malachite-200": isPositive,
+              "text-[#FA825D]": !isPositive,
+            })}
+          >
+            {isPositive ? (
+              <Image
+                src={"/assets/icons/variation-indicator-up.svg"}
+                alt="Indicator Up"
+                width={10}
+                height={9}
+                className="translate-y-0.5 self-baseline"
+              />
+            ) : (
+              <Image
+                src={"/assets/icons/variation-indicator-down.svg"}
+                alt="Indicator Down"
+                width={10}
+                height={9}
+                className="-translate-y-0.5 self-end"
+              />
+            )}
+            {formatPretty(variation)}
+          </span>
+        </div>
+      )}
+    </>
   );
 }
