@@ -36,7 +36,7 @@ export default function OsmoCTASection() {
               </p>
             </div>
             <Link
-              href={"#"}
+              href={"https://app.osmosis.zone/assets/OSMO"}
               type="button"
               className="inline-flex w-full items-center justify-center rounded-[10px] bg-wosmongton-700 px-8 py-4 md:max-w-65 md:rounded-xl lg:px-8 lg:py-5 xl:rounded-[14px]"
             >

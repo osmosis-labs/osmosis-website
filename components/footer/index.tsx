@@ -42,7 +42,7 @@ const sections: Section[] = [
     links: [
       {
         label: "OSMO",
-        href: "#",
+        href: "https://app.osmosis.zone/assets/OSMO",
       },
       {
         label: "CoinGecko",
@@ -58,7 +58,7 @@ const sections: Section[] = [
       },
       {
         label: "Vote",
-        href: "#",
+        href: "https://daodao.zone/gov/osmosis/proposals",
       },
     ],
   },
@@ -113,7 +113,7 @@ const sections: Section[] = [
       },
       {
         label: "Careers",
-        href: "#",
+        href: "https://boards.greenhouse.io/osmosisdex",
         isNew: true,
       },
     ],
@@ -196,12 +196,14 @@ export default function Footer() {
         <Divider className="py-6" />
         <div className="flex flex-col gap-8 py-6 lg:flex-row lg:items-center lg:justify-between lg:gap-0">
           <div className="flex items-center justify-between sm:w-[351px] lg:w-auto lg:gap-8">
-            <Image
-              src={"/assets/icons/osmo-logo.svg"}
-              alt="Osmosis Logo"
-              width={167}
-              height={40}
-            />
+            <Link href={"/"}>
+              <Image
+                src={"/assets/icons/osmo-logo.svg"}
+                alt="Osmosis Logo"
+                width={167}
+                height={40}
+              />
+            </Link>
             <div className="flex items-center gap-1">
               {socials.map(({ icon, name, href }) => (
                 <Link
