@@ -38,3 +38,17 @@ export const queryLandingPageMetrics = async (): Promise<
 
   return await res.json();
 };
+
+export const queryAllTokens = async (): Promise<NumiaToken[]> => {
+  const res = await fetch(new URL("/tokens/v2/all", NUMIA_BASE_URL), {
+    method: "GET",
+    /**
+     * The main purpose of this endpoint is to get
+     * the price_24h_change for top gainers,
+     * so I think that we can get along with a 24h cache.
+     */
+    next: { revalidate: 1000 * 60 * 60 * 24 },
+  });
+
+  return await res.json();
+};
