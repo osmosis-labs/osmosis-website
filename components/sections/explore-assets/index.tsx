@@ -1,5 +1,5 @@
 import Circle, { TAsset } from "@/components/sections/explore-assets/circle";
-import { ExploreAssetsButton } from "@/components/sections/explore-assets/explore-assets-button";
+import { GTagLink } from "@/components/shared/gtag-link";
 import { RatePretty } from "@keplr-wallet/unit";
 import Image from "next/image";
 
@@ -130,7 +130,16 @@ export default function ExploreAssets() {
             Discover and trade 190+ assets and counting.
           </span>
         </div>
-        <ExploreAssetsButton />
+        <GTagLink asChild eventName="buttonClicked" label="Explore Assets">
+          <button
+            type="button"
+            className="flex max-w-[164px] items-center justify-center rounded-[10px] bg-wosmongton-700 px-8 py-4 md:rounded-xl lg:max-w-[178px] lg:py-5 xl:rounded-[14px]"
+          >
+            <span className="text-sm leading-5.5 text-neutral-100 lg:text-base lg:leading-6.25">
+              Explore Assets
+            </span>
+          </button>
+        </GTagLink>
       </div>
       <Image
         src={"/assets/explore-assets/ion.svg"}
