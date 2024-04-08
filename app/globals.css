@@ -137,11 +137,66 @@
     outline-offset: -1px;
     outline: 1px solid rgba(200, 169, 255, 0.25);
   }
-  .row-width-xl {
-    width: calc((472px * 8 + 16px * 6) * 2);
+  .tweets-upper-half {
+    --tweet-count: 13;
+    --tweet-width: 309px;
+    --tweet-gap: 8px;
   }
-  .row-width {
-    width: calc((309px * 8 + 8px * 6) * 2);
+  .tweets-bottom-half {
+    --tweet-count: 14;
+    --tweet-width: 309px;
+    --tweet-gap: 8px;
+  }
+  @media (min-width: 1024px) {
+    .tweets-upper-half {
+      --tweet-count: 13;
+      --tweet-width: 472px;
+      --tweet-gap: 16px;
+    }
+    .tweets-bottom-half {
+      --tweet-count: 14;
+      --tweet-width: 472px;
+      --tweet-gap: 16px;
+    }
+  }
+  @keyframes tweets-animation {
+    from {
+      transform: translateZ(0);
+    }
+    to {
+      transform: translate3d(
+        calc(
+          (
+              var(--tweet-width) * var(--tweet-count) +
+                (var(--tweet-gap) * (var(--tweet-count) - 1))
+            ) * -1 - var(--tweet-gap)
+        ),
+        0,
+        0
+      );
+    }
+  }
+  .tweets-row-marquee-animation {
+    width: calc(
+      (
+          var(--tweet-width) * var(--tweet-count) +
+            (16px * (var(--tweet-count)) - 2)
+        ) * 2
+    );
+    animation: tweets-animation 60s linear infinite;
+  }
+  .tweets-row-marquee-animation-reverse {
+    width: calc(
+      (
+          var(--tweet-width) * var(--tweet-count) +
+            (16px * (var(--tweet-count)) - 2)
+        ) * 2
+    );
+    animation: tweets-animation 60s linear infinite reverse;
+  }
+  .tweet-paragraph-mask-gradient::after {
+    @apply absolute inset-0 content-[''] lg:hidden;
+    background: linear-gradient(to top, #201b43 0%, #201b4300 50%);
   }
   .tweets-mask {
     mask-image: linear-gradient(

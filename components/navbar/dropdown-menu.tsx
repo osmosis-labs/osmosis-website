@@ -13,11 +13,11 @@ const menuLinks = [
     links: [
       {
         label: "Governance",
-        href: "#",
+        href: "https://support.osmosis.zone/tutorials/governance",
       },
       {
         label: "Analytics",
-        href: "#",
+        href: "https://info.osmosis.zone/",
       },
     ],
   },
@@ -26,11 +26,11 @@ const menuLinks = [
     links: [
       {
         label: "Documentation",
-        href: "#",
+        href: "https://docs.osmosis.zone/",
       },
       {
         label: "Contribute",
-        href: "#",
+        href: "https://docs.osmosis.zone/osmosis-core/contributing/",
       },
     ],
   },
@@ -39,11 +39,11 @@ const menuLinks = [
     links: [
       {
         label: "Brand Kit",
-        href: "#",
+        href: "https://drive.google.com/u/1/uc?id=1rKUX9X7EyJylDlrYT6wBIgziT53CQr7G",
       },
       {
         label: "Developer Docs",
-        href: "#",
+        href: "https://docs.osmosis.zone/",
       },
     ],
   },
@@ -52,7 +52,7 @@ const menuLinks = [
     links: [
       {
         label: "Support Lab",
-        href: "#",
+        href: "https://support.osmosis.zone/",
       },
     ],
   },
@@ -62,17 +62,17 @@ const socials = [
   {
     name: "X",
     icon: "/assets/icons/x.svg",
-    href: "#",
+    href: "https://twitter.com/osmosiszone",
   },
   {
     name: "Reddit",
     icon: "/assets/icons/reddit.svg",
-    href: "#",
+    href: "https://www.reddit.com/r/OsmosisLab/",
   },
   {
     name: "Telegram",
     icon: "/assets/icons/telegram.svg",
-    href: "#",
+    href: "https://t.me/osmosis_chat",
   },
 ];
 

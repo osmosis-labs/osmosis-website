@@ -1,10 +1,20 @@
+import {
+  PriceSkeleton,
+  SectionName,
+  Skeleton,
+} from "@/components/sections/token-stats/skeleton";
 import { DEFAULT_VS_CURRENCY, formatPretty } from "@/lib/formatting";
+import {
+  queryNewestAssetsSectionAssets,
+  queryUpcomingAssetsSectionAssets,
+} from "@/lib/queries/cms";
+import { queryTokenInfo } from "@/lib/queries/numia";
 import { cn } from "@/lib/utils";
-import { Dec, PricePretty, RatePretty } from "@keplr-wallet/unit";
-import { format } from "date-fns/format";
+import { PricePretty, RatePretty } from "@keplr-wallet/unit";
 import Image from "next/image";
+import { Suspense } from "react";
 
-interface SectionAsset {
+export interface SectionAsset {
   name: string;
   denom: string;
   iconUri: string;
@@ -16,167 +26,90 @@ interface SectionAsset {
   isAirdrop?: boolean;
 }
 
-interface Section {
+type QueryFn = () => Promise<SectionAsset[]>;
+
+export interface ISection {
   name: string;
   iconUri: string;
-  assets: SectionAsset[];
   isGrid?: boolean;
+  queryAssetsFn: QueryFn;
 }
 
-const sections: Section[] = [
-  {
-    name: "Top Gainers",
-    iconUri: "/assets/icons/trending.svg",
-    assets: [
-      {
-        name: "Celestia",
-        isLoading: true,
-        denom: "TIA",
-        iconUri: "/assets/icons/tia.svg",
-        price: new PricePretty(DEFAULT_VS_CURRENCY, new Dec(2.123)),
-        variation: new RatePretty(new Dec(0.01)),
-      },
-      {
-        name: "Very looooong name",
-        denom: "VLN",
-        iconUri: "/assets/icons/dym.svg",
-        price: new PricePretty(DEFAULT_VS_CURRENCY, new Dec(0.69)),
-        variation: new RatePretty(new Dec(0.025)),
-      },
-      {
-        name: "Dymension",
-        denom: "DYM",
-        iconUri: "/assets/icons/dym.svg",
-        price: new PricePretty(DEFAULT_VS_CURRENCY, new Dec(1.2)),
-        variation: new RatePretty(new Dec(-0.04)),
-      },
-      {
-        name: "Pepe",
-        denom: "PEPE",
-        iconUri: "/assets/icons/pepe.svg",
-        price: new PricePretty(DEFAULT_VS_CURRENCY, new Dec(5)),
-        variation: new RatePretty(new Dec(0.08)),
-      },
-    ],
-  },
-  {
-    name: "Newest",
-    iconUri: "/assets/icons/rocket.svg",
-    assets: [
-      {
-        name: "Celestia",
-        isLoading: true,
-        denom: "TIA",
-        iconUri: "/assets/icons/tia.svg",
-        price: new PricePretty(DEFAULT_VS_CURRENCY, new Dec(2.123)),
-        variation: new RatePretty(new Dec(0.01)),
-      },
-      {
-        name: "Very looooong name",
-        denom: "VLN",
-        iconUri: "/assets/icons/dym.svg",
-        price: new PricePretty(DEFAULT_VS_CURRENCY, new Dec(0.69)),
-        variation: new RatePretty(new Dec(0.025)),
-      },
-      {
-        name: "Dymension",
-        denom: "DYM",
-        iconUri: "/assets/icons/dym.svg",
-        price: new PricePretty(DEFAULT_VS_CURRENCY, new Dec(1.2)),
-        variation: new RatePretty(new Dec(-0.04)),
-      },
-      {
-        name: "Pepe",
-        denom: "PEPE",
-        iconUri: "/assets/icons/pepe.svg",
-        price: new PricePretty(DEFAULT_VS_CURRENCY, new Dec(5)),
-        variation: new RatePretty(new Dec(0.08)),
-      },
-    ],
-  },
-  {
-    name: "Upcoming",
-    iconUri: "/assets/icons/star.svg",
-    isGrid: true,
-    assets: [
-      {
-        name: "Dymension",
-        denom: "DYM",
-        iconUri: "/assets/icons/dym.svg",
-        isUpcoming: true,
-        releaseDate: "Jun 2025",
-        isAirdrop: true,
-      },
-      {
-        name: "Dymension",
-        denom: "DYM",
-        iconUri: "/assets/icons/dym.svg",
-        isUpcoming: true,
-        isAirdrop: true,
-      },
-      {
-        name: "Dymension",
-        denom: "DYM",
-        iconUri: "/assets/icons/dym.svg",
-        isUpcoming: true,
-        releaseDate: "Jun 2025",
-        isAirdrop: true,
-      },
-      {
-        name: "Dymension",
-        denom: "DYM",
-        iconUri: "/assets/icons/dym.svg",
-        isUpcoming: true,
-        releaseDate: "Jun 2025",
-      },
-    ],
-  },
-];
-
-export default function TokenStatsSection() {
+export default async function TokenStatsSection() {
   return (
     <section className="relative z-10 mt-17.5 flex flex-col gap-2 p-2 sm:mt-16 sm:p-4 md:mt-14 md:grid md:grid-cols-2 md:gap-y-2 lg:mt-16 lg:grid-cols-[repeat(2,_minmax(0,1fr)),340px] lg:gap-x-2 xl:mt-[136px] xl:grid-cols-[repeat(2,_minmax(0,1fr)),418px] xl:py-0 2xl:mt-20 2xl:grid-cols-3 2xl:gap-x-6 2xl:px-6">
-      {sections.map(({ iconUri, name, isGrid, assets }) => {
-        return (
-          <div
-            key={name}
-            className={cn("flex flex-col gap-2", {
-              "max-lg:col-span-2": isGrid,
-            })}
-          >
-            <div className="flex gap-2 py-3">
-              <Image src={iconUri} alt={name} width={24} height={24} />
-              <span>{name}</span>
-            </div>
-            <div
-              className={cn("flex flex-col gap-2", {
-                "h-full md:grid md:grid-cols-2": isGrid,
-              })}
-            >
-              {assets.map((props) => (
-                <TokenStatsRow key={props.denom} {...props} />
-              ))}
-            </div>
-          </div>
-        );
-      })}
+      <Section
+        name="Top Gainers"
+        // TEMP | waiting for endpoint integration
+        queryAssetsFn={queryNewestAssetsSectionAssets}
+        iconUri="/assets/icons/trending.svg"
+      />
+      <Section
+        name="Newest"
+        queryAssetsFn={queryNewestAssetsSectionAssets}
+        iconUri="/assets/icons/rocket.svg"
+      />
+      <Section
+        name="Upcoming"
+        queryAssetsFn={queryUpcomingAssetsSectionAssets}
+        iconUri="/assets/icons/star.svg"
+        isGrid
+      />
     </section>
   );
 }
 
-function TokenStatsRow({
+async function Section({ iconUri, name, isGrid, queryAssetsFn }: ISection) {
+  return (
+    <div
+      className={cn("flex flex-col gap-2", {
+        "max-lg:col-span-2": isGrid,
+      })}
+    >
+      <div className="flex gap-2 py-3">
+        <Image src={iconUri} alt={name} width={24} height={24} />
+        <span>{name}</span>
+      </div>
+      <Suspense fallback={<Skeleton name={name as SectionName} />}>
+        <SectionDataContent isGrid={isGrid} queryAssetsFn={queryAssetsFn} />
+      </Suspense>
+    </div>
+  );
+}
+
+interface SectionDataContentProps {
+  isGrid?: boolean;
+  queryAssetsFn: QueryFn;
+}
+
+async function SectionDataContent({
+  isGrid,
+  queryAssetsFn,
+}: SectionDataContentProps) {
+  const assets = await queryAssetsFn();
+
+  return (
+    <div
+      className={cn("flex flex-col gap-2", {
+        "h-full md:grid md:grid-cols-2": isGrid,
+      })}
+    >
+      {assets.map((props) => (
+        <TokenStatsRow key={props.denom} {...props} />
+      ))}
+    </div>
+  );
+}
+
+export function TokenStatsRow({
   isLoading,
   denom,
   iconUri,
   name,
-  price,
-  variation,
   isUpcoming,
   releaseDate,
   isAirdrop,
 }: SectionAsset) {
-  const isPositive = variation && variation.toDec().isPositive();
-
   return (
     <div
       className={cn(
@@ -197,7 +130,7 @@ function TokenStatsRow({
             alt={`${denom} image`}
             width={32}
             height={32}
-            className="rounded-full md:h-10 md:w-10 xl:h-12 xl:w-12"
+            className="rounded-full bg-osmoverse-650 md:h-10 md:w-10 xl:h-12 xl:w-12"
           />
         )}
         {isLoading ? (
@@ -221,43 +154,20 @@ function TokenStatsRow({
         )}
       </div>
       {isLoading ? (
-        <div className="flex flex-col items-end justify-center gap-1">
+        <div
+          className={cn("flex flex-col items-end justify-center gap-1", {
+            "items-start": isUpcoming,
+          })}
+        >
           <div className="h-2.5 w-14 rounded-full bg-osmoverse-650" />
           <div className="h-2.5 w-9 rounded-full bg-osmoverse-650" />
         </div>
       ) : (
         <>
-          {price && variation && (
-            <div className="flex flex-col items-end justify-center gap-1.5">
-              <span className="leading-none 2xl:text-lg">
-                {formatPretty(price)}
-              </span>
-              <span
-                className={cn("inline-flex gap-1.5 leading-none", {
-                  "text-malachite-200": isPositive,
-                  "text-[#FA825D]": !isPositive,
-                })}
-              >
-                {isPositive ? (
-                  <Image
-                    src={"/assets/icons/variation-indicator-up.svg"}
-                    alt="Indicator Up"
-                    width={10}
-                    height={9}
-                    className="translate-y-0.5 self-baseline"
-                  />
-                ) : (
-                  <Image
-                    src={"/assets/icons/variation-indicator-down.svg"}
-                    alt="Indicator Down"
-                    width={10}
-                    height={9}
-                    className="-translate-y-0.5 self-end"
-                  />
-                )}
-                {formatPretty(variation)}
-              </span>
-            </div>
+          {!isUpcoming && (
+            <Suspense fallback={<PriceSkeleton isUpcoming={isUpcoming} />}>
+              <TokenPriceStats symbol={denom} />
+            </Suspense>
           )}
           {isUpcoming && (
             <div
@@ -289,5 +199,54 @@ function TokenStatsRow({
         </>
       )}
     </div>
+  );
+}
+
+async function TokenPriceStats({ symbol }: { symbol: string }) {
+  const infos = await queryTokenInfo({ symbol });
+  if (infos.length === 0) return;
+
+  const { price: _price, price_24h_change: _variation } = infos[0];
+
+  const price = new PricePretty(DEFAULT_VS_CURRENCY, _price ?? 0);
+  const variation = new RatePretty((_variation && _variation / 100) ?? 0);
+
+  const isPositive = variation.toDec().isPositive();
+
+  return (
+    <>
+      {_price && _variation && (
+        <div className="flex flex-col items-end justify-center gap-1.5">
+          <span className="leading-none 2xl:text-lg">
+            {formatPretty(price)}
+          </span>
+          <span
+            className={cn("inline-flex gap-1.5 leading-none", {
+              "text-malachite-200": isPositive,
+              "text-[#FA825D]": !isPositive,
+            })}
+          >
+            {isPositive ? (
+              <Image
+                src={"/assets/icons/variation-indicator-up.svg"}
+                alt="Indicator Up"
+                width={10}
+                height={9}
+                className="translate-y-0.5 self-baseline"
+              />
+            ) : (
+              <Image
+                src={"/assets/icons/variation-indicator-down.svg"}
+                alt="Indicator Down"
+                width={10}
+                height={9}
+                className="-translate-y-0.5 self-end"
+              />
+            )}
+            {formatPretty(variation)}
+          </span>
+        </div>
+      )}
+    </>
   );
 }
