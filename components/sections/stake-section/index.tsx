@@ -8,7 +8,7 @@ const airdrops = Array<{ uri: string; name: string }>(22).fill({
   name: "Pepe",
 });
 
-export default async function StakeSection() {
+export default function StakeSection() {
   return (
     <section className="relative z-10 mt-28 flex flex-col items-center justify-center gap-8 self-stretch px-2 py-4 sm:mt-20 sm:p-4 md:mt-[136px] lg:mt-28 xl:mt-[170px] 2xl:mt-52 2xl:p-6">
       <div className="flex flex-col items-center justify-center gap-4">
