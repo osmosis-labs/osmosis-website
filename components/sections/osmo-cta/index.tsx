@@ -1,5 +1,6 @@
 import BackersSection from "@/components/sections/osmo-cta/backers-section";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function OsmoCTASection() {
   return (
@@ -34,14 +35,15 @@ export default function OsmoCTASection() {
                 the protocol.
               </p>
             </div>
-            <button
+            <Link
+              href={"#"}
               type="button"
               className="inline-flex w-full items-center justify-center rounded-[10px] bg-wosmongton-700 px-8 py-4 md:max-w-65 md:rounded-xl lg:px-8 lg:py-5 xl:rounded-[14px]"
             >
               <span className="leading-6.25 md:text-sm md:leading-5.5 lg:text-base lg:leading-6.25">
                 Get OSMO
               </span>
-            </button>
+            </Link>
           </div>
           <OsmoCTAIllustration />
         </div>

@@ -13,27 +13,27 @@ const sections: Section[] = [
     links: [
       {
         label: "Trade",
-        href: "#",
+        href: "https://app.osmosis.zone/",
       },
       {
         label: "Assets",
-        href: "#",
+        href: "https://app.osmosis.zone/assets",
       },
       {
         label: "Earn",
-        href: "#",
+        href: "https://app.osmosis.zone/earn",
       },
       {
         label: "Staking",
-        href: "#",
+        href: "https://app.osmosis.zone/stake",
       },
       {
         label: "Pools",
-        href: "#",
+        href: "https://app.osmosis.zone/pools",
       },
       {
         label: "Apps",
-        href: "#",
+        href: "https://app.osmosis.zone/apps",
       },
     ],
   },
@@ -46,15 +46,15 @@ const sections: Section[] = [
       },
       {
         label: "CoinGecko",
-        href: "#",
+        href: "https://www.coingecko.com/it/monete/osmosis",
       },
       {
         label: "CoinMarketCap",
-        href: "#",
+        href: "https://coinmarketcap.com/it/currencies/osmosis/",
       },
       {
         label: "Governance",
-        href: "#",
+        href: "https://support.osmosis.zone/tutorials/governance",
       },
       {
         label: "Vote",
@@ -67,19 +67,19 @@ const sections: Section[] = [
     links: [
       {
         label: "X (Twitter)",
-        href: "#",
+        href: "https://twitter.com/osmosiszone",
       },
       {
         label: "Telegram",
-        href: "#",
+        href: "https://t.me/osmosis_chat",
       },
       {
         label: "Discord",
-        href: "#",
+        href: "https://discord.com/invite/osmosis",
       },
       {
         label: "Forum",
-        href: "#",
+        href: "https://forum.osmosis.zone/",
       },
     ],
   },
@@ -88,15 +88,15 @@ const sections: Section[] = [
     links: [
       {
         label: "Docs",
-        href: "#",
+        href: "https://docs.osmosis.zone/",
       },
       {
         label: "GitHub",
-        href: "#",
+        href: "https://github.com/osmosis-labs",
       },
       {
         label: "Grants",
-        href: "#",
+        href: "https://grants.osmosis.zone/",
       },
     ],
   },
@@ -105,11 +105,11 @@ const sections: Section[] = [
     links: [
       {
         label: "Contact",
-        href: "#",
+        href: "https://support.osmosis.zone/",
       },
       {
         label: "Blog",
-        href: "#",
+        href: "https://forum.osmosis.zone/c/blog/13",
       },
       {
         label: "Careers",
@@ -124,17 +124,17 @@ const socials = [
   {
     name: "X",
     icon: "/assets/icons/x.svg",
-    href: "#",
+    href: "https://twitter.com/osmosiszone",
   },
   {
     name: "Reddit",
     icon: "/assets/icons/reddit.svg",
-    href: "#",
+    href: "https://www.reddit.com/r/OsmosisLab/",
   },
   {
     name: "Telegram",
     icon: "/assets/icons/telegram.svg",
-    href: "#",
+    href: "https://t.me/osmosis_chat",
   },
 ];
 

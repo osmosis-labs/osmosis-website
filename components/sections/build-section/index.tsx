@@ -12,7 +12,7 @@ const cards: BuildCardProps[] = [
     title: "Developers Docs",
     description: "Roll up your sleeves and start building.",
     iconUri: "/assets/build/card-icons/docs.svg",
-    link: "#",
+    link: "https://docs.osmosis.zone/",
     illustration: (
       <Image
         src={"/assets/build/illustrations/docs.svg"}
@@ -28,7 +28,7 @@ const cards: BuildCardProps[] = [
     title: "Grants",
     description: "Get funding to build something.",
     iconUri: "/assets/build/card-icons/grants.svg",
-    link: "#",
+    link: "https://grants.osmosis.zone/",
     illustration: (
       <Image
         src={"/assets/build/illustrations/grants.svg"}
@@ -43,7 +43,7 @@ const cards: BuildCardProps[] = [
     title: "Github",
     description: "Osmosis is open-source and audited.",
     iconUri: "/assets/build/card-icons/github.svg",
-    link: "#",
+    link: "https://github.com/osmosis-labs",
     illustration: (
       <Image
         src={"/assets/build/illustrations/github.svg"}
@@ -60,7 +60,7 @@ const cards: BuildCardProps[] = [
     // these widths are temp, waiting for copy adaptation
     descriptionClassName: "lg:w-[240px] xl:w-[300px] 2xl:w-auto",
     iconUri: "/assets/build/card-icons/discord.svg",
-    link: "#",
+    link: "https://discord.com/invite/osmosis",
     illustration: (
       <Image
         src={"/assets/build/illustrations/discord.svg"}
