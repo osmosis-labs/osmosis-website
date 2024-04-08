@@ -50,10 +50,10 @@ export default async function StatsWithTweets() {
     },
   ];
 
-const upperHalf = tweets.slice(0, 13);
-const lowerHalf = tweets.slice(13, 27);
+  const upperHalf = tweets.slice(0, 13);
+  const lowerHalf = tweets.slice(13, 27);
 
-return (
+  return (
     <section className="stats-with-tweets-bg relative z-10 mt-14 rounded-3xl pt-2 sm:mt-16 sm:rounded-4xl sm:pt-4 md:mt-24 md:pt-12 lg:mt-20 lg:pt-16 xl:mt-24 xl:pt-20 2xl:mt-25">
       <div className="flex flex-col gap-8 p-2 sm:p-4 2xl:gap-16">
         <div className="flex flex-col gap-6 lg:gap-12">
