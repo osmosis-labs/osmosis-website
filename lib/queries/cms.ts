@@ -1,11 +1,7 @@
-import { ISection, SectionAsset } from "@/components/sections/token-stats";
-import { DEFAULT_VS_CURRENCY } from "@/lib/formatting";
+import { SectionAsset } from "@/components/sections/token-stats";
 import { queryAssetList } from "@/lib/queries/asset-list";
-import { queryTokenInfo } from "@/lib/queries/numia";
 import { GITHUB_RAW_DEFAULT_BASEURL } from "@/lib/shared";
-import { Asset } from "@/lib/types/asset-list";
 import { LandingPageData } from "@/lib/types/cms";
-import { PricePretty, RatePretty } from "@keplr-wallet/unit";
 import { unstable_cache } from "next/cache";
 
 const LANDING_PAGE_CMS_DATA_URL = new URL(
@@ -50,13 +46,9 @@ export const queryUpcomingAssetsSectionAssets =
       (await queryMappedUpcomingAssets())
         // temp disabled as there currently are no upcoming assets on the cms
         // .filter((asset) => {
-        //   const releaseDate = parse(
-        //     asset.releaseDate ?? "",
-        //     "MM yyyy",
-        //     new Date(),
-        //   );
+        //   const releaseDate = new Date(asset.releaseDate!).getTime();
 
-        //   return isAfter(releaseDate, new Date());
+        //   return releaseDate > new Date().getTime();
         // })
         // this slice is temporary
         .slice(0, 4)

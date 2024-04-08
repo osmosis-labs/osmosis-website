@@ -13,7 +13,6 @@
     "@keplr-wallet/unit": "^0.12.74",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
-    "date-fns": "^3.4.0",
     "lucide-react": "^0.350.0",
     "million": "latest",
     "next": "14.1.0",
