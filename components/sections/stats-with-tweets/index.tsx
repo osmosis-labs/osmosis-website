@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 
-import tweets from "@/lib/tweets.json";
+import tweets from "@/lib/tweets";
 
 interface StatCard {
   title: string;
