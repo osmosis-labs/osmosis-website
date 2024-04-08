@@ -143,7 +143,12 @@ const Tweet = ({
               {username}
             </span>
             <span className="text-sm font-light text-neutral-100/60">
-              {userhandle} · {date}
+              {userhandle} ·{" "}
+              {Intl.DateTimeFormat("en-US", {
+                month: "short",
+                day: "numeric",
+                year: "numeric",
+              }).format(new Date(date!))}
             </span>
           </div>
         </div>
