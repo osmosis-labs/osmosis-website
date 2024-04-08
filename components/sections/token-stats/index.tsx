@@ -4,10 +4,13 @@ import {
   Skeleton,
 } from "@/components/sections/token-stats/skeleton";
 import { DEFAULT_VS_CURRENCY, formatPretty } from "@/lib/formatting";
-import { queryUpcomingAssetsSectionAssets } from "@/lib/queries/cms";
+import {
+  queryNewestAssetsSectionAssets,
+  queryUpcomingAssetsSectionAssets,
+} from "@/lib/queries/cms";
 import { queryTokenInfo } from "@/lib/queries/numia";
 import { cn } from "@/lib/utils";
-import { Dec, PricePretty, RatePretty } from "@keplr-wallet/unit";
+import { PricePretty, RatePretty } from "@keplr-wallet/unit";
 import Image from "next/image";
 import { Suspense } from "react";
 
@@ -28,59 +31,26 @@ type QueryFn = () => Promise<SectionAsset[]>;
 export interface ISection {
   name: string;
   iconUri: string;
-  mockAssets: SectionAsset[];
   isGrid?: boolean;
-  queryAssetsFn?: QueryFn;
+  queryAssetsFn: QueryFn;
 }
-
-const mockAssets = [
-  {
-    name: "Celestia",
-    isLoading: true,
-    denom: "TIA",
-    iconUri: "/assets/icons/tia.svg",
-    price: new PricePretty(DEFAULT_VS_CURRENCY, new Dec(2.123)),
-    variation: new RatePretty(new Dec(0.01)),
-  },
-  {
-    name: "Very looooong name",
-    denom: "VLN",
-    iconUri: "/assets/icons/dym.svg",
-    price: new PricePretty(DEFAULT_VS_CURRENCY, new Dec(0.69)),
-    variation: new RatePretty(new Dec(0.025)),
-  },
-  {
-    name: "Dymension",
-    denom: "DYM",
-    iconUri: "/assets/icons/dym.svg",
-    price: new PricePretty(DEFAULT_VS_CURRENCY, new Dec(1.2)),
-    variation: new RatePretty(new Dec(-0.04)),
-  },
-  {
-    name: "Pepe",
-    denom: "PEPE",
-    iconUri: "/assets/icons/pepe.svg",
-    price: new PricePretty(DEFAULT_VS_CURRENCY, new Dec(5)),
-    variation: new RatePretty(new Dec(0.08)),
-  },
-];
 
 export default async function TokenStatsSection() {
   return (
     <section className="relative z-10 mt-17.5 flex flex-col gap-2 p-2 sm:mt-16 sm:p-4 md:mt-14 md:grid md:grid-cols-2 md:gap-y-2 lg:mt-16 lg:grid-cols-[repeat(2,_minmax(0,1fr)),340px] lg:gap-x-2 xl:mt-[136px] xl:grid-cols-[repeat(2,_minmax(0,1fr)),418px] xl:py-0 2xl:mt-20 2xl:grid-cols-3 2xl:gap-x-6 2xl:px-6">
       <Section
         name="Top Gainers"
-        mockAssets={mockAssets}
+        // TEMP | waiting for endpoint integration
+        queryAssetsFn={queryNewestAssetsSectionAssets}
         iconUri="/assets/icons/trending.svg"
       />
       <Section
         name="Newest"
-        mockAssets={mockAssets}
+        queryAssetsFn={queryNewestAssetsSectionAssets}
         iconUri="/assets/icons/rocket.svg"
       />
       <Section
         name="Upcoming"
-        mockAssets={mockAssets}
         queryAssetsFn={queryUpcomingAssetsSectionAssets}
         iconUri="/assets/icons/star.svg"
         isGrid
@@ -89,13 +59,7 @@ export default async function TokenStatsSection() {
   );
 }
 
-async function Section({
-  iconUri,
-  name,
-  isGrid,
-  queryAssetsFn,
-  mockAssets,
-}: ISection) {
+async function Section({ iconUri, name, isGrid, queryAssetsFn }: ISection) {
   return (
     <div
       className={cn("flex flex-col gap-2", {
@@ -107,11 +71,7 @@ async function Section({
         <span>{name}</span>
       </div>
       <Suspense fallback={<Skeleton name={name as SectionName} />}>
-        <SectionDataContent
-          isGrid={isGrid}
-          queryAssetsFn={queryAssetsFn}
-          mockAssets={mockAssets}
-        />
+        <SectionDataContent isGrid={isGrid} queryAssetsFn={queryAssetsFn} />
       </Suspense>
     </div>
   );
@@ -119,16 +79,14 @@ async function Section({
 
 interface SectionDataContentProps {
   isGrid?: boolean;
-  queryAssetsFn?: QueryFn;
-  mockAssets: SectionAsset[];
+  queryAssetsFn: QueryFn;
 }
 
 async function SectionDataContent({
   isGrid,
   queryAssetsFn,
-  mockAssets,
 }: SectionDataContentProps) {
-  const assets = queryAssetsFn ? await queryAssetsFn() : mockAssets;
+  const assets = await queryAssetsFn();
 
   return (
     <div
