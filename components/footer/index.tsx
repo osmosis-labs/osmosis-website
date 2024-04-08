@@ -13,27 +13,27 @@ const sections: Section[] = [
     links: [
       {
         label: "Trade",
-        href: "#",
+        href: "https://app.osmosis.zone/",
       },
       {
         label: "Assets",
-        href: "#",
+        href: "https://app.osmosis.zone/assets",
       },
       {
         label: "Earn",
-        href: "#",
+        href: "https://app.osmosis.zone/earn",
       },
       {
         label: "Staking",
-        href: "#",
+        href: "https://app.osmosis.zone/stake",
       },
       {
         label: "Pools",
-        href: "#",
+        href: "https://app.osmosis.zone/pools",
       },
       {
         label: "Apps",
-        href: "#",
+        href: "https://app.osmosis.zone/apps",
       },
     ],
   },
@@ -42,23 +42,23 @@ const sections: Section[] = [
     links: [
       {
         label: "OSMO",
-        href: "#",
+        href: "https://app.osmosis.zone/assets/OSMO",
       },
       {
         label: "CoinGecko",
-        href: "#",
+        href: "https://www.coingecko.com/it/monete/osmosis",
       },
       {
         label: "CoinMarketCap",
-        href: "#",
+        href: "https://coinmarketcap.com/it/currencies/osmosis/",
       },
       {
         label: "Governance",
-        href: "#",
+        href: "https://support.osmosis.zone/tutorials/governance",
       },
       {
         label: "Vote",
-        href: "#",
+        href: "https://daodao.zone/gov/osmosis/proposals",
       },
     ],
   },
@@ -67,19 +67,19 @@ const sections: Section[] = [
     links: [
       {
         label: "X (Twitter)",
-        href: "#",
+        href: "https://twitter.com/osmosiszone",
       },
       {
         label: "Telegram",
-        href: "#",
+        href: "https://t.me/osmosis_chat",
       },
       {
         label: "Discord",
-        href: "#",
+        href: "https://discord.com/invite/osmosis",
       },
       {
         label: "Forum",
-        href: "#",
+        href: "https://forum.osmosis.zone/",
       },
     ],
   },
@@ -88,15 +88,15 @@ const sections: Section[] = [
     links: [
       {
         label: "Docs",
-        href: "#",
+        href: "https://docs.osmosis.zone/",
       },
       {
         label: "GitHub",
-        href: "#",
+        href: "https://github.com/osmosis-labs",
       },
       {
         label: "Grants",
-        href: "#",
+        href: "https://grants.osmosis.zone/",
       },
     ],
   },
@@ -105,15 +105,15 @@ const sections: Section[] = [
     links: [
       {
         label: "Contact",
-        href: "#",
+        href: "https://support.osmosis.zone/",
       },
       {
         label: "Blog",
-        href: "#",
+        href: "https://forum.osmosis.zone/c/blog/13",
       },
       {
         label: "Careers",
-        href: "#",
+        href: "https://boards.greenhouse.io/osmosisdex",
         isNew: true,
       },
     ],
@@ -124,17 +124,17 @@ const socials = [
   {
     name: "X",
     icon: "/assets/icons/x.svg",
-    href: "#",
+    href: "https://twitter.com/osmosiszone",
   },
   {
     name: "Reddit",
     icon: "/assets/icons/reddit.svg",
-    href: "#",
+    href: "https://www.reddit.com/r/OsmosisLab/",
   },
   {
     name: "Telegram",
     icon: "/assets/icons/telegram.svg",
-    href: "#",
+    href: "https://t.me/osmosis_chat",
   },
 ];
 
@@ -196,12 +196,14 @@ export default function Footer() {
         <Divider className="py-6" />
         <div className="flex flex-col gap-8 py-6 lg:flex-row lg:items-center lg:justify-between lg:gap-0">
           <div className="flex items-center justify-between sm:w-[351px] lg:w-auto lg:gap-8">
-            <Image
-              src={"/assets/icons/osmo-logo.svg"}
-              alt="Osmosis Logo"
-              width={167}
-              height={40}
-            />
+            <Link href={"/"}>
+              <Image
+                src={"/assets/icons/osmo-logo.svg"}
+                alt="Osmosis Logo"
+                width={167}
+                height={40}
+              />
+            </Link>
             <div className="flex items-center gap-1">
               {socials.map(({ icon, name, href }) => (
                 <Link
