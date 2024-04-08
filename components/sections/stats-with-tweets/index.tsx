@@ -14,25 +14,34 @@ interface StatCard {
 
 export default async function StatsWithTweets() {
   const metrics = await queryLandingPageMetrics();
+  const metricFormatter = Intl.NumberFormat("en-US", {
+    notation: "standard",
+    maximumFractionDigits: 0,
+    currency: "USD",
+    style: "currency",
+  });
 
   const stats: StatCard[] = [
     {
       title: "All Time Volume",
-      value: `${Intl.NumberFormat("en-US", { notation: "standard", maximumFractionDigits: 0, currency: "USD", style: "currency" }).format(metrics[0].cumulative_volume.value)}`,
+      value: `${metricFormatter.format(metrics[0].cumulative_volume.value)}`,
       iconUri: "/assets/icons/rocket-gray.svg",
       bottleUri: "/assets/bottle-blue.svg",
       bgClass: "trend-card-bg-1",
     },
     {
       title: "Asset on the Platform",
-      value: `${Intl.NumberFormat("en-US", { notation: "standard", maximumFractionDigits: 0, currency: "USD", style: "currency" }).format(metrics[0].assets_in_chain.value)}`,
+      value: `${metricFormatter.format(metrics[0].assets_in_chain.value)}`,
       iconUri: "/assets/icons/checkmark-gray.svg",
       bottleUri: "/assets/bottle-red.svg",
       bgClass: "trend-card-bg-2",
     },
     {
-      title: "24h Trading Volume",
-      value: "$5,800,492.53",
+      title: "Traders in the last 30 days",
+      value: `${Intl.NumberFormat("en-US", {
+        notation: "standard",
+        maximumFractionDigits: 0,
+      }).format(metrics[0].traders_last_30_days.value)}`,
       iconUri: "/assets/icons/trending-gray.svg",
       bottleUri: "/assets/bottle-super.svg",
       bgClass: "trend-card-bg-3",
