@@ -1,5 +1,5 @@
 /**
- * Interface representing a Token returned by the "/tokens/v2/{tokenSymbol}" Numia endpoint
+ * Interface representing a Token returned by the Numia endpoints
  */
 export interface NumiaToken {
   /** Symbol of the token. */
