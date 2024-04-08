@@ -3,7 +3,7 @@ import { queryTokenInfo } from "@/lib/queries/numia";
 import { cn } from "@/lib/utils";
 import { RatePretty } from "@keplr-wallet/unit";
 import Image from "next/image";
-import { CSSProperties } from "react";
+import { CSSProperties, Suspense } from "react";
 
 interface IAsset {
   iconUri: string;
@@ -79,7 +79,18 @@ function Element({
           className="md:h-12 md:w-12 lg:h-18 lg:w-18"
         />
       )}
-      {!isVoid && <VariationBadge symbol={symbol!} />}
+      {!isVoid && (
+        <Suspense
+          fallback={
+            <div className="-mt-1.5 flex h-4 w-max items-center gap-1 rounded-full bg-osmoverse-650 px-1 py-0.5 md:h-5 md:pr-1.5">
+              <div className="h-2.5 w-2.5 rounded-full bg-osmoverse-310 sm:h-3 sm:w-3" />
+              <div className="h-[3px] w-3.5 rounded-full bg-osmoverse-310 sm:w-5 md:w-4.5 lg:h-1 lg:w-6" />
+            </div>
+          }
+        >
+          <VariationBadge symbol={symbol!} />
+        </Suspense>
+      )}
     </div>
   );
 }
