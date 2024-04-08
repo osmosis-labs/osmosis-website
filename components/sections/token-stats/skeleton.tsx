@@ -38,3 +38,9 @@ export function PriceSkeleton({ isUpcoming }: { isUpcoming?: boolean }) {
     </div>
   );
 }
+
+export function ImageSkeleton() {
+  return (
+    <div className="h-8 w-8 rounded-full bg-osmoverse-650 md:h-10 md:w-10 xl:h-12 xl:w-12" />
+  );
+}
