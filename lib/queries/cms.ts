@@ -1,5 +1,6 @@
 import { SectionAsset } from "@/components/sections/token-stats";
 import { queryAssetList } from "@/lib/queries/asset-list";
+import { queryAllTokens } from "@/lib/queries/numia";
 import { GITHUB_RAW_DEFAULT_BASEURL } from "@/lib/shared";
 import { LandingPageData } from "@/lib/types/cms";
 import { unstable_cache } from "next/cache";
@@ -75,6 +76,26 @@ export const queryNewestAssetsSectionAssets = async (): Promise<
   return newestAssets.map(({ symbol, logoURIs, name }) => ({
     denom: symbol,
     iconUri: logoURIs.svg ?? logoURIs.png ?? "",
+    name,
+  }));
+};
+
+export const queryTopGainersSectionAssets = async (): Promise<
+  SectionAsset[]
+> => {
+  const assets = await queryAllTokens();
+
+  const topGainers = assets
+    .sort((a, b) => (a.price_24h_change! > b.price_24h_change! ? -1 : 1))
+    .slice(0, 4);
+
+  return topGainers.map(({ symbol, name }) => ({
+    denom: symbol,
+    /**
+     * since we have no icons/logos returned from Numia
+     * we will elaborate them later in a separate server component
+     */
+    iconUri: "",
     name,
   }));
 };
