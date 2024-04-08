@@ -90,13 +90,14 @@ export default function StakeSection() {
                   <p className="font-light leading-6.25 text-alpha-60">
                     OSMO stakers have received
                     <br className="hidden md:block 2xl:hidden" /> up to{" "}
-                    <br className="hidden 2xl:block" /> over X airdrops to date.
+                    <br className="hidden 2xl:block" /> over 15 airdrops to
+                    date.
                   </p>
                 </div>
                 <div className="hidden h-18 w-[1px] bg-osmoverse-650 md:block" />
                 <div className="flex gap-3 max-md:items-center md:flex-col md:gap-1 md:px-4 lg:w-[187px] 2xl:w-auto">
                   <span className="bg-stake-heading font-poppins text-3.5xl leading-8.75 -tracking-2% 2xl:text-5xl 2xl:leading-13">
-                    $65M
+                    $47.5M+
                   </span>
                   <p className="font-light leading-6.25 text-alpha-60">
                     Airdropped to <br className="hidden md:block 2xl:hidden" />{" "}

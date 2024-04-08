@@ -3,6 +3,8 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 
+import tweets from "@/lib/tweets";
+
 interface StatCard {
   title: string;
   value: string;
@@ -35,6 +37,9 @@ const stats: StatCard[] = [
   },
 ];
 
+const upperHalf = tweets.slice(0, 13);
+const lowerHalf = tweets.slice(13, 27);
+
 export default function StatsWithTweets() {
   return (
     <section className="stats-with-tweets-bg relative z-10 mt-14 rounded-3xl pt-2 sm:mt-16 sm:rounded-4xl sm:pt-4 md:mt-24 md:pt-12 lg:mt-20 lg:pt-16 xl:mt-24 xl:pt-20 2xl:mt-25">
@@ -62,28 +67,16 @@ export default function StatsWithTweets() {
         <Divider className="py-6" />
         <div className="md:tweets-mask relative -mx-6 flex h-[555px] overflow-hidden sm:-mx-28 lg:-mx-0 lg:h-[408px]">
           <div className="absolute flex flex-col gap-3 lg:gap-4">
-            {Array(2)
-              .fill(null)
-              .map((_, i) => (
-                <div
-                  key={`tweets row ${i}`}
-                  className={cn(
-                    "lg:row-width-xl max-lg:row-width relative flex gap-2 transition-transform lg:gap-4",
-                    {
-                      "animate-marquee-sm-reverse lg:animate-marquee-reverse":
-                        (i + 1) % 2 === 0,
-                      "animate-marquee-sm lg:animate-marquee":
-                        (i + 1) % 2 !== 0,
-                    },
-                  )}
-                >
-                  {Array(8)
-                    .fill(null)
-                    .map((_, i) => (
-                      <Tweet key={`tweet ${i}`} />
-                    ))}
-                </div>
+            <div className="tweets-row-marquee-animation tweets-upper-half relative flex gap-2 transition-transform lg:gap-4">
+              {upperHalf.concat(upperHalf).map((tweet, i) => (
+                <Tweet key={tweet.tweetLink} {...tweet} />
               ))}
+            </div>
+            <div className="tweets-row-marquee-animation-reverse tweets-bottom-half relative flex gap-2 transition-transform lg:gap-4">
+              {lowerHalf.concat(lowerHalf).map((tweet, i) => (
+                <Tweet key={tweet.tweetLink} {...tweet} />
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -119,13 +112,21 @@ const StatCard = ({ bottleUri, iconUri, title, value, bgClass }: StatCard) => {
   );
 };
 
-const Tweet = ({ className }: { className?: string }) => {
+const Tweet = ({
+  className,
+  username,
+  userhandle,
+  date,
+  meatDetails,
+  tweetLink,
+}: { className?: string } & Partial<(typeof tweets)[0]>) => {
   return (
     <Link
-      href={"#"}
+      href={tweetLink ?? "#"}
+      rel="external"
       target="_blank"
       className={cn(
-        "flex max-h-[268px] max-w-[309px] flex-1 flex-col gap-3 rounded-2xl bg-osmoverse-775 px-6 py-8 lg:max-h-[196px] lg:max-w-[472px]",
+        "flex h-[268px] w-[309px] flex-col gap-3 rounded-2xl bg-osmoverse-775 px-6 py-8 lg:h-[196px] lg:w-[472px]",
         className,
       )}
     >
@@ -138,11 +139,11 @@ const Tweet = ({ className }: { className?: string }) => {
             height={48}
           />
           <div className="flex flex-col gap-1">
-            <span className="font-semibold leading-none text-neutral-100">
-              User
+            <span className="font-semibold leading-4 text-neutral-100">
+              {username}
             </span>
-            <span className="text-sm font-light leading-none text-neutral-100/60">
-              @handler · Nov 27, 2021
+            <span className="text-sm font-light text-neutral-100/60">
+              {userhandle} · {date}
             </span>
           </div>
         </div>
@@ -153,12 +154,8 @@ const Tweet = ({ className }: { className?: string }) => {
           height={24}
         />
       </div>
-      <p className="line-clamp-6 flex-1 font-light text-neutral-100 lg:line-clamp-3">
-        Lorem ipsum dolor sit amet <br className="lg:hidden" /> consectetur
-        adipiscing elit Ut et <br className="lg:hidden" /> massa mi. Aliquam in
-        hendrerit <br className="lg:hidden" /> urna. Pellentesque sit amet
-        sapien <br className="lg:hidden" /> fringilla, mattis ligula{" "}
-        <br className="lg:hidden" /> consectetur...
+      <p className="tweet-paragraph-mask-gradient relative line-clamp-6 flex-1 whitespace-break-spaces font-light text-neutral-100 lg:line-clamp-3">
+        {meatDetails}
       </p>
     </Link>
   );
