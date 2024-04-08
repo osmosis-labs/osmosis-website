@@ -12,6 +12,7 @@
     "@headlessui/react": "^1.7.18",
     "@keplr-wallet/unit": "^0.12.74",
     "@next/third-parties": "latest",
+    "@radix-ui/react-slot": "^1.0.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "date-fns": "^3.4.0",
