@@ -1,4 +1,5 @@
 import Divider from "@/components/shared/divider";
+import { queryLandingPageMetrics } from "@/lib/queries/numia";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
@@ -13,35 +14,46 @@ interface StatCard {
   bgClass: string;
 }
 
-const stats: StatCard[] = [
-  {
-    title: "All Time Volume",
-    value: "$3,200,492.53",
-    iconUri: "/assets/icons/rocket-gray.svg",
-    bottleUri: "/assets/bottle-blue.svg",
-    bgClass: "trend-card-bg-1",
-  },
-  {
-    title: "Asset on the Platform",
-    value: "$3,200,492.53",
-    iconUri: "/assets/icons/checkmark-gray.svg",
-    bottleUri: "/assets/bottle-red.svg",
-    bgClass: "trend-card-bg-2",
-  },
-  {
-    title: "24h Trading Volume",
-    value: "$5,800,492.53",
-    iconUri: "/assets/icons/trending-gray.svg",
-    bottleUri: "/assets/bottle-super.svg",
-    bgClass: "trend-card-bg-3",
-  },
-];
+export default async function StatsWithTweets() {
+  const metrics = await queryLandingPageMetrics();
+  const metricFormatter = Intl.NumberFormat("en-US", {
+    notation: "standard",
+    maximumFractionDigits: 0,
+    currency: "USD",
+    style: "currency",
+  });
+
+  const stats: StatCard[] = [
+    {
+      title: "All Time Volume",
+      value: `${metricFormatter.format(metrics[0].cumulative_volume.value)}`,
+      iconUri: "/assets/icons/rocket-gray.svg",
+      bottleUri: "/assets/bottle-blue.svg",
+      bgClass: "trend-card-bg-1",
+    },
+    {
+      title: "Asset on the Platform",
+      value: `${metricFormatter.format(metrics[0].assets_in_chain.value)}`,
+      iconUri: "/assets/icons/checkmark-gray.svg",
+      bottleUri: "/assets/bottle-red.svg",
+      bgClass: "trend-card-bg-2",
+    },
+    {
+      title: "Traders in the last 30 days",
+      value: `${Intl.NumberFormat("en-US", {
+        notation: "standard",
+        maximumFractionDigits: 0,
+      }).format(metrics[0].traders_last_30_days.value)}`,
+      iconUri: "/assets/icons/trending-gray.svg",
+      bottleUri: "/assets/bottle-super.svg",
+      bgClass: "trend-card-bg-3",
+    },
+  ];
 
 const upperHalf = tweets.slice(0, 13);
 const lowerHalf = tweets.slice(13, 27);
 
-export default function StatsWithTweets() {
-  return (
+return (
     <section className="stats-with-tweets-bg relative z-10 mt-14 rounded-3xl pt-2 sm:mt-16 sm:rounded-4xl sm:pt-4 md:mt-24 md:pt-12 lg:mt-20 lg:pt-16 xl:mt-24 xl:pt-20 2xl:mt-25">
       <div className="flex flex-col gap-8 p-2 sm:p-4 2xl:gap-16">
         <div className="flex flex-col gap-6 lg:gap-12">
