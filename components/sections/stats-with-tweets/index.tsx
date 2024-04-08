@@ -123,6 +123,7 @@ const Tweet = ({
   return (
     <Link
       href={tweetLink ?? "#"}
+      rel="external"
       target="_blank"
       className={cn(
         "flex h-[268px] w-[309px] flex-col gap-3 rounded-2xl bg-osmoverse-775 px-6 py-8 lg:h-[196px] lg:w-[472px]",
