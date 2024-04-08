@@ -106,7 +106,7 @@ async function VariationBadge({ symbol }: { symbol: string }) {
   return (
     <div
       className={cn(
-        "-mt-1.5 flex h-4 w-max items-center justify-center rounded-full p-1 md:h-5",
+        "-mt-1.5 flex h-4 w-max items-center justify-center rounded-full px-1 py-0.5 md:h-5 md:pr-1.5",
         {
           "bg-rust-500": !isPositive,
           "bg-malachite-200": isPositive,
