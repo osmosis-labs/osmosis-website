@@ -63,7 +63,7 @@ export const queryUpcomingAssetsSectionAssets =
     );
   }, ["upcoming-assets-section-assets"]);
 
-export const queryNewestAssets = unstable_cache(async () => {
+export const queryNewestAssets = async () => {
   const assetList = await queryAssetList();
   const assets = assetList.assets;
 
@@ -73,7 +73,7 @@ export const queryNewestAssets = unstable_cache(async () => {
       Date.parse(a.listingDate!) > Date.parse(b.listingDate!) ? -1 : 1,
     )
     .slice(0, 4);
-}, ["query-newest-assets"]);
+};
 
 export const aggregateAssetsPrices = async (
   listAssets: Asset[],
