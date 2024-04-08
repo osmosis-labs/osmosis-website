@@ -68,7 +68,7 @@ function Heart({ assetsLists }: { assetsLists: TAsset[][] }) {
         alt=""
         width={363}
         height={353}
-        className="absolute-center absolute !top-[calc(50%-20px)] h-[360px] w-[360px] sm:h-[440px] sm:w-[440px] md:!top-[calc(100%-120px)] md:h-[620px] md:w-[620px] lg:!left-[calc(50%+12px)] lg:!top-[calc(100%-160px)] lg:h-[800px] lg:w-[800px] xl:z-10 2xl:!top-[calc(100%-175px)] 2xl:h-[950px] 2xl:w-[1000px]"
+        className="absolute-center absolute !top-[calc(50%-20px)] h-[360px] w-[360px] sm:h-[440px] sm:w-[440px] md:!top-[calc(100%-120px)] md:h-[620px] md:w-[620px] lg:!left-[calc(50%+12px)] lg:!top-[calc(100%-160px)] lg:h-[800px] lg:w-[800px] xl:z-10 2xl:!top-[calc(100%-175px)] 2xl:z-0 2xl:h-[950px] 2xl:w-[1000px]"
       />
       <div className="absolute-center absolute flex h-12.5 w-11 md:top-[calc(100%-98px)] md:h-[68px] md:w-[68px] lg:top-[calc(100%-124px)] lg:h-[93px] lg:w-[93px] xl:z-10 2xl:top-[calc(100%-136px)] 2xl:h-[98px] 2xl:w-[98px]">
         <Image
