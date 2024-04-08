@@ -1,11 +1,9 @@
 import {
-  ImageSkeleton,
   PriceSkeleton,
   SectionName,
   Skeleton,
 } from "@/components/sections/token-stats/skeleton";
 import { DEFAULT_VS_CURRENCY, formatPretty } from "@/lib/formatting";
-import { queryAssetFromAssetList } from "@/lib/queries/asset-list";
 import {
   queryNewestAssetsSectionAssets,
   queryTopGainersSectionAssets,
@@ -129,19 +127,13 @@ export function TokenStatsRow({
           <div className="h-8 w-8 rounded-full bg-osmoverse-650 md:h-10 md:w-10 xl:h-12 xl:w-12" />
         ) : (
           <>
-            {iconUri === "" ? (
-              <Suspense fallback={<ImageSkeleton />}>
-                <TokenImage symbol={denom} />
-              </Suspense>
-            ) : (
-              <Image
-                src={iconUri}
-                alt={`${denom} image`}
-                width={32}
-                height={32}
-                className="rounded-full bg-osmoverse-650 md:h-10 md:w-10 xl:h-12 xl:w-12"
-              />
-            )}
+            <Image
+              src={iconUri}
+              alt={`${denom} image`}
+              width={32}
+              height={32}
+              className="rounded-full bg-osmoverse-650 md:h-10 md:w-10 xl:h-12 xl:w-12"
+            />
           </>
         )}
         {isLoading ? (
@@ -210,23 +202,6 @@ export function TokenStatsRow({
         </>
       )}
     </div>
-  );
-}
-
-async function TokenImage({ symbol }: { symbol: string }) {
-  const asset = await queryAssetFromAssetList({ symbol });
-  if (!asset) return;
-
-  const logoURIs = asset.logoURIs;
-
-  return (
-    <Image
-      src={logoURIs.svg ?? logoURIs.png ?? ""}
-      alt={`${symbol} image`}
-      width={32}
-      height={32}
-      className="rounded-full bg-osmoverse-650 md:h-10 md:w-10 xl:h-12 xl:w-12"
-    />
   );
 }
 
