@@ -69,12 +69,12 @@ export default function StatsWithTweets() {
           <div className="absolute flex flex-col gap-3 lg:gap-4">
             <div className="tweets-row-marquee-animation tweets-upper-half relative flex gap-2 transition-transform lg:gap-4">
               {upperHalf.concat(upperHalf).map((tweet, i) => (
-                <Tweet key={`tweet ${i}`} {...tweet} />
+                <Tweet key={tweet.tweetLink} {...tweet} />
               ))}
             </div>
             <div className="tweets-row-marquee-animation-reverse tweets-bottom-half relative flex gap-2 transition-transform lg:gap-4">
               {lowerHalf.concat(lowerHalf).map((tweet, i) => (
-                <Tweet key={`tweet ${i}`} {...tweet} />
+                <Tweet key={tweet.tweetLink} {...tweet} />
               ))}
             </div>
           </div>
