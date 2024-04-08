@@ -75,37 +75,14 @@ export const queryNewestAssets = async () => {
     .slice(0, 4);
 };
 
-export const aggregateAssetsPrices = async (
-  listAssets: Asset[],
-): Promise<SectionAsset[]> => {
-  const aggregated: SectionAsset[] = [];
-
-  for await (const asset of listAssets) {
-    const priceData = await queryTokenInfo({ symbol: asset.symbol });
-
-    aggregated.push({
-      denom: asset.symbol,
-      iconUri: asset.logoURIs.svg ?? asset.logoURIs.png ?? "",
-      name: asset.name,
-      price:
-        priceData.length > 0
-          ? new PricePretty(DEFAULT_VS_CURRENCY, priceData[0].price!)
-          : undefined,
-      variation:
-        priceData.length > 0
-          ? new RatePretty(priceData[0].price_24h_change! / 100)
-          : undefined,
-    });
-  }
-
-  return aggregated;
-};
-
 export const queryNewestAssetsSectionAssets = async (): Promise<
   SectionAsset[]
 > => {
   const newestAssets = await queryNewestAssets();
-  const aggregatedAssets = await aggregateAssetsPrices(newestAssets);
 
-  return aggregatedAssets;
+  return newestAssets.map(({ symbol, logoURIs, name }) => ({
+    denom: symbol,
+    iconUri: logoURIs.svg ?? logoURIs.png ?? "",
+    name,
+  }));
 };
