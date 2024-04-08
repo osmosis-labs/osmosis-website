@@ -10,7 +10,7 @@ import {
 } from "@/lib/queries/cms";
 import { queryTokenInfo } from "@/lib/queries/numia";
 import { cn } from "@/lib/utils";
-import { Dec, PricePretty, RatePretty } from "@keplr-wallet/unit";
+import { PricePretty, RatePretty } from "@keplr-wallet/unit";
 import Image from "next/image";
 import { Suspense } from "react";
 
@@ -86,8 +86,6 @@ async function SectionDataContent({
   isGrid,
   queryAssetsFn,
 }: SectionDataContentProps) {
-  // testing
-  // await new Promise<void>((res) => setTimeout(() => res(), 1000 * 2));
   const assets = await queryAssetsFn();
 
   return (
