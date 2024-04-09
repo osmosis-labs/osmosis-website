@@ -33,7 +33,6 @@ export function Banner() {
           </span>
         </Link>
       </p>
-
       <CloseButton
         action={async () => {
           "use server";
