@@ -46,11 +46,11 @@ const sections: Section[] = [
       },
       {
         label: "CoinGecko",
-        href: "https://www.coingecko.com/it/monete/osmosis",
+        href: "https://www.coingecko.com/en/coins/osmosis",
       },
       {
         label: "CoinMarketCap",
-        href: "https://coinmarketcap.com/it/currencies/osmosis/",
+        href: "https://coinmarketcap.com/currencies/osmosis/",
       },
       {
         label: "Governance",

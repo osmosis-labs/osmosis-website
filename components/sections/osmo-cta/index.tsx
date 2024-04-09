@@ -64,22 +64,32 @@ export default function OsmoCTASection() {
               </span>
               <div className="flex items-center gap-1.5">
                 <div className="flex h-8 w-[118px] items-center justify-center rounded-md border border-solid border-osmoverse-650 bg-osmoverse-775 lg:w-[124px]">
-                  <Image
-                    src={"/assets/binance-logo.svg"}
-                    alt="Binance logo"
-                    width={87}
-                    height={17}
-                    className="2xl:h-5 2xl:w-25"
-                  />
+                  <Link
+                    href={"https://www.binance.com/en/price/osmosis"}
+                    target="_blank"
+                  >
+                    <Image
+                      src={"/assets/binance-logo.svg"}
+                      alt="Binance logo"
+                      width={87}
+                      height={17}
+                      className="2xl:h-5 2xl:w-25"
+                    />
+                  </Link>
                 </div>
                 <div className="flex h-8 w-[118px] items-center justify-center rounded-md border border-solid border-osmoverse-650 bg-osmoverse-775">
-                  <Image
-                    src={"/assets/coinbase-logo.svg"}
-                    alt="Coinbase logo"
-                    width={91}
-                    height={18}
-                    className="2xl:h-5 2xl:w-25"
-                  />
+                  <Link
+                    href={"https://www.coinbase.com/price/osmosis"}
+                    target="_blank"
+                  >
+                    <Image
+                      src={"/assets/coinbase-logo.svg"}
+                      alt="Coinbase logo"
+                      width={91}
+                      height={18}
+                      className="2xl:h-5 2xl:w-25"
+                    />
+                  </Link>
                 </div>
               </div>
             </div>
@@ -101,16 +111,21 @@ export default function OsmoCTASection() {
               </span>
               <span className="font-light leading-6 text-alpha-60">
                 rank on{" "}
-                <span className="inline-flex text-neutral-100">
-                  CoinGecko
-                  <Image
-                    src={"/assets/icons/arrow-up-right.svg"}
-                    alt="CoinGecko link"
-                    width={20}
-                    height={20}
-                    className="-translate-y-0.5"
-                  />
-                </span>
+                <Link
+                  href={"https://www.coingecko.com/en/coins/osmosis"}
+                  target="_blank"
+                >
+                  <span className="inline-flex text-neutral-100">
+                    CoinGecko
+                    <Image
+                      src={"/assets/icons/arrow-up-right.svg"}
+                      alt="CoinGecko link"
+                      width={20}
+                      height={20}
+                      className="-translate-y-0.5"
+                    />
+                  </span>
+                </Link>
               </span>
             </div>
           </div>
