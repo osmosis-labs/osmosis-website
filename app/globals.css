@@ -183,7 +183,7 @@
             (16px * (var(--tweet-count)) - 2)
         ) * 2
     );
-    animation: tweets-animation 60s linear infinite;
+    animation: tweets-animation 120s linear infinite;
   }
   .tweets-row-marquee-animation-reverse {
     width: calc(
@@ -192,7 +192,7 @@
             (16px * (var(--tweet-count)) - 2)
         ) * 2
     );
-    animation: tweets-animation 60s linear infinite reverse;
+    animation: tweets-animation 120s linear infinite reverse;
   }
   .tweet-paragraph-mask-gradient::after {
     @apply absolute inset-0 content-[''] lg:hidden;
