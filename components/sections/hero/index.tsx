@@ -1,3 +1,4 @@
+import { Tickers } from "@/components/sections/hero/tickers";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 
@@ -12,8 +13,12 @@ export default function HeroSection() {
               <span className="inline-flex items-center gap-3 whitespace-nowrap sm:gap-5.5">
                 the next
                 {/**base gap is compensated in the widths of the brackets */}
-                <div className="ticker-mask relative h-12 overflow-hidden sm:h-[46px] lg:h-[58px] xl:h-20 2xl:h-22.5">
-                  <Tickers />
+                <div className="ticker-mask relative h-12 overflow-hidden transition-all sm:h-[46px] lg:h-[58px] xl:h-20 2xl:h-22.5">
+                  <div className="flex items-center justify-between sm:gap-2.5 lg:gap-2 xl:gap-2.5">
+                    <Bracket />
+                    <Tickers />
+                    <Bracket isMirrored />
+                  </div>
                 </div>
               </span>
               <span className="inline-flex items-center gap-1 2xl:gap-4">
@@ -163,70 +168,6 @@ export default function HeroSection() {
         height={912}
         className="bottom absolute top-[410px] z-0 hidden h-auto w-full 2xl:block"
       />
-    </div>
-  );
-}
-
-interface TickerProps {
-  denom: string;
-  iconUri: string;
-}
-
-const ticketAnimationAssets: TickerProps[] = [
-  {
-    denom: "TIA",
-    iconUri: "/assets/icons/tia.svg",
-  },
-  {
-    denom: "DYM",
-    iconUri: "/assets/icons/dym.svg",
-  },
-  {
-    denom: "PEPE",
-    iconUri: "/assets/icons/pepe.svg",
-  },
-  {
-    denom: "STARS",
-    iconUri: "/assets/icons/stars.svg",
-  },
-  {
-    denom: "TIA",
-    iconUri: "/assets/icons/tia.svg",
-  },
-  {
-    denom: "DYM",
-    iconUri: "/assets/icons/dym.svg",
-  },
-];
-
-function Tickers() {
-  // double the assets array
-  const displayArray = ticketAnimationAssets.concat(ticketAnimationAssets);
-
-  return (
-    <div className="hero-vertical-marquee-vars animate-hero-vertical-marquee flex flex-col gap-1 transition-transform">
-      {displayArray.map((asset, i) => (
-        <Ticker key={`ticker ${i}`} {...asset} />
-      ))}
-    </div>
-  );
-}
-
-function Ticker({ denom, iconUri }: TickerProps) {
-  return (
-    <div className="flex max-w-fit items-center justify-between sm:gap-2.5 lg:gap-2 xl:gap-2.5">
-      <Bracket />
-      <div className="flex items-center gap-2 pb-[1px] pl-[7.5px] pr-[6.5px] sm:p-0 lg:pb-0.5 lg:pl-1 lg:pr-[3px] lg:pt-0.5 xl:p-0 2xl:gap-3">
-        <Image
-          src={iconUri}
-          alt={`${denom} icon`}
-          width={34}
-          height={34}
-          className="sm:h-10 sm:w-10 lg:h-12 lg:w-12 xl:h-16 xl:w-16 2xl:h-17.5 2xl:w-17.5"
-        />
-        <span>{denom}</span>
-      </div>
-      <Bracket isMirrored />
     </div>
   );
 }
