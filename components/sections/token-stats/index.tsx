@@ -118,7 +118,7 @@ export function TokenStatsRow({
       href={
         isUpcoming
           ? projectURL ?? "#"
-          : `https://app.osmosis.zone/assets/${denom}`
+          : `https://app.osmosis.zone/assets/${denom}?utm_source=osmosis_landing_page`
       }
       target={"_blank"}
       className={cn(

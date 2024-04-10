@@ -65,7 +65,7 @@ function Element({
 } & TAsset) {
   return (
     <Link
-      href={`https://app.osmosis.zone/assets/${symbol}`}
+      href={`https://app.osmosis.zone/assets/${symbol}?utm_source=osmosis_landing_page`}
       target="_blank"
       style={style}
       className={cn(
