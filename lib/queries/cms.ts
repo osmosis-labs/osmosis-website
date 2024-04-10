@@ -20,30 +20,38 @@ export async function queryLandingPageCMSData(): Promise<LandingPageData> {
   return await res.json();
 }
 
-export const queryMappedUpcomingAssets = unstable_cache(async () => {
-  const data = await queryLandingPageCMSData();
+export const queryMappedUpcomingAssets = unstable_cache(
+  async () => {
+    const data = await queryLandingPageCMSData();
 
-  return data.upcomingAssets.map(
-    ({
-      assetName,
-      estimatedLaunchDate,
-      logoURL,
-      osmosisAirdrop,
-      showLaunchDate,
-      symbol,
-    }) => ({
-      denom: symbol,
-      iconUri: logoURL,
-      name: assetName,
-      isAirdrop: osmosisAirdrop,
-      releaseDate: showLaunchDate ? estimatedLaunchDate : undefined,
-      isUpcoming: true,
-    }),
-  );
-}, ["mapped-upcoming-assets"]);
+    return data.upcomingAssets.map(
+      ({
+        assetName,
+        estimatedLaunchDate,
+        logoURL,
+        osmosisAirdrop,
+        showLaunchDate,
+        symbol,
+        projectURL,
+      }) => {
+        return {
+          denom: symbol,
+          iconUri: logoURL,
+          name: assetName,
+          isAirdrop: osmosisAirdrop,
+          releaseDate: showLaunchDate ? estimatedLaunchDate : undefined,
+          isUpcoming: true,
+          projectURL,
+        };
+      },
+    );
+  },
+  ["mapped-upcoming-assets"],
+  { revalidate: 3600 },
+);
 
-export const queryUpcomingAssetsSectionAssets =
-  unstable_cache(async (): Promise<SectionAsset[]> => {
+export const queryUpcomingAssetsSectionAssets = unstable_cache(
+  async (): Promise<SectionAsset[]> => {
     return (
       (await queryMappedUpcomingAssets())
         // temp disabled as there currently are no upcoming assets on the cms
@@ -55,7 +63,10 @@ export const queryUpcomingAssetsSectionAssets =
         // this slice is temporary
         .slice(0, 4)
     );
-  }, ["upcoming-assets-section-assets"]);
+  },
+  ["upcoming-assets-section-assets"],
+  { revalidate: 3600 },
+);
 
 export const queryNewestAssets = async () => {
   const assetList = await queryAssetList();
