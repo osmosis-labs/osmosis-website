@@ -1,3 +1,4 @@
+import { GTagLink } from "@/components/shared/gtag-link";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 
@@ -113,21 +114,23 @@ export default function HeroSection() {
                 <div className="h-2.5 w-30 rounded-full bg-osmoverse-650 2xl:h-3 2xl:w-[150px]" />
                 <div className="h-2.5 w-18 rounded-full bg-osmoverse-650 2xl:h-3 2xl:w-22.5" />
               </div>
-              <button
-                type="button"
-                className="flex h-14 w-full items-center justify-center gap-1 rounded-xl bg-wosmongton-700 xl:h-16"
-              >
-                <p className="text-sm text-neutral-100 lg:text-base">
-                  Start Trading
-                </p>
-                <Image
-                  src={"/assets/icons/arrow-up-right.svg"}
-                  alt="Start Trading"
-                  width={20}
-                  height={20}
-                  className="h-5 w-5"
-                />
-              </button>
+              <GTagLink asChild eventName="buttonClicked" label="Start Trading">
+                <button
+                  type="button"
+                  className="flex h-14 w-full items-center justify-center gap-1 rounded-xl bg-wosmongton-700 xl:h-16"
+                >
+                  <p className="text-sm text-neutral-100 lg:text-base">
+                    Start Trading
+                  </p>
+                  <Image
+                    src={"/assets/icons/arrow-up-right.svg"}
+                    alt="Start Trading"
+                    width={20}
+                    height={20}
+                    className="h-5 w-5"
+                  />
+                </button>
+              </GTagLink>
             </div>
           </div>
         </div>

@@ -1,6 +1,7 @@
 import BackersSection from "@/components/sections/osmo-cta/backers-section";
 import { BurnedOSMOSkeleton } from "@/components/sections/osmo-cta/skeleton";
 import { querySupplyMetrics } from "@/lib/queries/numia";
+import { GTagLink } from "@/components/shared/gtag-link";
 import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
@@ -38,15 +39,17 @@ export default function OsmoCTASection() {
                 the protocol.
               </p>
             </div>
-            <Link
-              href={"https://app.osmosis.zone/assets/OSMO"}
-              type="button"
-              className="inline-flex w-full items-center justify-center rounded-[10px] bg-wosmongton-700 px-8 py-4 md:max-w-65 md:rounded-xl lg:px-8 lg:py-5 xl:rounded-[14px]"
-            >
-              <span className="leading-6.25 md:text-sm md:leading-5.5 lg:text-base lg:leading-6.25">
-                Get OSMO
-              </span>
-            </Link>
+            <GTagLink asChild eventName="buttonClicked" label="Get OSMO">
+              <Link
+                href={"https://app.osmosis.zone/assets/OSMO"}
+                type="button"
+                className="inline-flex w-full items-center justify-center rounded-[10px] bg-wosmongton-700 px-8 py-4 md:max-w-65 md:rounded-xl lg:px-8 lg:py-5 xl:rounded-[14px]"
+              >
+                <span className="leading-6.25 md:text-sm md:leading-5.5 lg:text-base lg:leading-6.25">
+                  Get OSMO
+                </span>
+              </Link>
+            </GTagLink>
           </div>
           <OsmoCTAIllustration />
         </div>
