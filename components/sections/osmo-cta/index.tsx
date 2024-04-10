@@ -2,6 +2,8 @@ import BackersSection from "@/components/sections/osmo-cta/backers-section";
 import { BurnedOSMOSkeleton } from "@/components/sections/osmo-cta/skeleton";
 import { querySupplyMetrics } from "@/lib/queries/numia";
 import { GTagLink } from "@/components/shared/gtag-link";
+import { CoinGeckoRankSkeleton } from "@/components/sections/osmo-cta/skeleton";
+import { queryCoinGeckoCoin } from "@/lib/queries/coingecko";
 import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
@@ -112,9 +114,9 @@ export default function OsmoCTASection() {
               />
             </div>
             <div className="flex flex-col">
-              <span className="font-poppins text-xl leading-6.5 text-neutral-100 xl:text-2xl xl:leading-7.75">
-                117
-              </span>
+              <Suspense fallback={<CoinGeckoRankSkeleton />}>
+                <CoinGeckoRank />
+              </Suspense>
               <span className="font-light leading-6 text-alpha-60">
                 rank on{" "}
                 <Link
@@ -233,6 +235,17 @@ async function BurnedOSMO() {
         maximumFractionDigits: 0,
       }).format(metrics.burntSupply)}{" "}
       OSMO
+    </span>
+  );
+}
+
+async function CoinGeckoRank() {
+  const marketCapRank = (await queryCoinGeckoCoin({ name: "osmosis" }))
+    .market_cap_rank;
+
+  return (
+    <span className="font-poppins text-xl leading-6.5 text-neutral-100 xl:text-2xl xl:leading-7.75">
+      {marketCapRank ?? "N/D"}
     </span>
   );
 }
