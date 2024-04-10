@@ -13,27 +13,27 @@ const sections: Section[] = [
     links: [
       {
         label: "Trade",
-        href: "https://app.osmosis.zone/",
+        href: "https://app.osmosis.zone?utm_source=osmosis_landing_page",
       },
       {
         label: "Assets",
-        href: "https://app.osmosis.zone/assets",
+        href: "https://app.osmosis.zone/assets?utm_source=osmosis_landing_page",
       },
       {
         label: "Earn",
-        href: "https://app.osmosis.zone/earn",
+        href: "https://app.osmosis.zone/earn?utm_source=osmosis_landing_page",
       },
       {
         label: "Staking",
-        href: "https://app.osmosis.zone/stake",
+        href: "https://app.osmosis.zone/stake?utm_source=osmosis_landing_page",
       },
       {
         label: "Pools",
-        href: "https://app.osmosis.zone/pools",
+        href: "https://app.osmosis.zone/pools?utm_source=osmosis_landing_page",
       },
       {
         label: "Apps",
-        href: "https://app.osmosis.zone/apps",
+        href: "https://app.osmosis.zone/apps?utm_source=osmosis_landing_page",
       },
     ],
   },
@@ -42,7 +42,7 @@ const sections: Section[] = [
     links: [
       {
         label: "OSMO",
-        href: "https://app.osmosis.zone/assets/OSMO",
+        href: "https://app.osmosis.zone/assets/OSMO?utm_source=osmosis_landing_page",
       },
       {
         label: "CoinGecko",
