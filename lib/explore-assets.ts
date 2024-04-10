@@ -37,8 +37,7 @@ const EXPLORE_ASSETS: Omit<TAsset, "variation">[] = [
   {
     name: "Polygon",
     symbol: "MATIC",
-    iconUri:
-      "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/polygon/images/matic-purple.png",
+    iconUri: "/assets/icons/matic.svg",
     important: true,
   },
   {
