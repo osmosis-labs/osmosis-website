@@ -153,7 +153,7 @@ export function TokenStatsRow({
           </div>
         ) : (
           <div className="flex flex-col gap-1.5 2xl:gap-1">
-            <div className="flex items-center gap-2.5">
+            <div className="relative flex items-center">
               <span className="text-sm leading-none max-xl:hidden xl:text-base">
                 {name}
               </span>
@@ -163,7 +163,7 @@ export function TokenStatsRow({
               </span>
               <div
                 className={cn(
-                  "hidden h-6 w-6 items-center justify-center rounded-full bg-white-full/15",
+                  "absolute -right-8.5 hidden h-6 w-6 items-center justify-center rounded-full bg-white-full/15",
                   { "group-hover:flex": !isUpcoming },
                 )}
               >
