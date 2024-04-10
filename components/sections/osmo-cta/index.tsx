@@ -142,7 +142,7 @@ export default function OsmoCTASection() {
               />
             </div>
             <div className="flex flex-col">
-              <BurntOsmo />
+              <BurnedOSMO />
               <span className="font-light leading-6 text-alpha-60">burned</span>
             </div>
           </div>
@@ -216,7 +216,7 @@ function OsmoCTAIllustration() {
   );
 }
 
-async function BurntOsmo() {
+async function BurnedOSMO() {
   const metrics = await querySupplyMetrics();
 
   return (
