@@ -18,6 +18,7 @@ bun dev
 
 Here are the required values to put into an .env.local file or on the hosting platform env vars
 
-| Name    |        Description        |
-| ------- | :-----------------------: |
-| GTAG_ID | The Google Tag Manager ID |
+| Name              |        Description        |
+| ----------------- | :-----------------------: |
+| GTAG_ID           | The Google Tag Manager ID |
+| COINGECKO_API_KEY |   The CoinGecko API Key   |
