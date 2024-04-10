@@ -22,6 +22,7 @@ export default function HeroSection() {
                       width={34}
                       height={34}
                       className="sm:h-10 sm:w-10 lg:h-12 lg:w-12 xl:h-16 xl:w-16 2xl:h-17.5 2xl:w-17.5"
+                      priority
                     />
                     <span>TIA</span>
                   </div>
@@ -37,6 +38,7 @@ export default function HeroSection() {
                     width={34}
                     height={34}
                     className="pb-[1px] pl-[2.37px] pr-[1.3px] sm:h-10 sm:w-10 lg:h-12 lg:w-12 xl:h-16 xl:w-16 2xl:h-20 2xl:w-20"
+                    priority
                   />
                   <span>Osmosis.</span>
                 </div>
@@ -58,6 +60,7 @@ export default function HeroSection() {
                       width={40}
                       height={40}
                       className="xl:h-12 xl:w-12"
+                      priority
                     />
                     <div className="flex flex-col">
                       <span className="text-neutral-100 xl:text-xl">USDC</span>
@@ -86,6 +89,7 @@ export default function HeroSection() {
                       width={40}
                       height={40}
                       className="xl:h-12 xl:w-12"
+                      priority
                     />
                     <div className="flex flex-col">
                       <span className="text-neutral-100 xl:text-xl">
@@ -108,6 +112,7 @@ export default function HeroSection() {
                   width={38}
                   height={38}
                   className="absolute inset-x-0 left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 2xl:h-[46px] 2xl:w-[46px]"
+                  priority
                 />
               </div>
               <div className="flex flex-col gap-1">
@@ -128,6 +133,7 @@ export default function HeroSection() {
                     width={20}
                     height={20}
                     className="h-5 w-5"
+                    priority
                   />
                 </button>
               </GTagLink>
@@ -192,6 +198,7 @@ function Bracket({ isMirrored }: { isMirrored?: boolean }) {
         "h-12 self-stretch sm:h-[46px] lg:h-[58px] lg:w-2 xl:h-[80px] xl:w-2.5 2xl:h-22.5 2xl:w-3",
         { "scale-x-[-1]": isMirrored },
       )}
+      priority
     />
   );
 }
