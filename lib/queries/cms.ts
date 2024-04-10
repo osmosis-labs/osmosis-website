@@ -7,7 +7,7 @@ import { NumiaToken } from "@/lib/types/numia";
 import { unstable_cache } from "next/cache";
 
 const LANDING_PAGE_CMS_DATA_URL = new URL(
-  "/osmosis-labs/fe-content/main/cms/landing-page/landing-page.json",
+  "/osmosis-labs/assetlists/main/upcoming/upcoming_assets.json",
   GITHUB_RAW_DEFAULT_BASEURL,
 );
 
@@ -32,16 +32,19 @@ export const queryMappedUpcomingAssets = unstable_cache(
         osmosisAirdrop,
         showLaunchDate,
         symbol,
-        projectURL,
+        socials,
+        images,
+        airdropInfoUrl,
       }) => {
         return {
           denom: symbol,
-          iconUri: logoURL,
+          iconUri: images[0].svg ?? images[0].png ?? logoURL ?? "",
           name: assetName,
           isAirdrop: osmosisAirdrop,
           releaseDate: showLaunchDate ? estimatedLaunchDate : undefined,
           isUpcoming: true,
-          projectURL,
+          projectLink: socials?.website ?? socials?.twitter ?? undefined,
+          airdropInfoUrl,
         };
       },
     );
