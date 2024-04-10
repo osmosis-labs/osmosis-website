@@ -15,6 +15,7 @@ const numiaRequestInit: RequestInit = {
         Authorization: `Bearer ${process.env.NUMIA_API_KEY}`,
       }
     : undefined,
+  method: "GET",
 };
 
 export const queryTokenInfo = async ({
@@ -23,7 +24,6 @@ export const queryTokenInfo = async ({
   const url = new URL(`/tokens/v2/${symbol}`, process.env.NUMIA_BASE_URL);
   const res = await fetch(url, {
     ...numiaRequestInit,
-    method: "GET",
     next: { revalidate: 3600, tags: ["token-info", symbol] },
   });
 
@@ -35,7 +35,6 @@ const OSMO_APR_DATA_URL = new URL("/apr", process.env.NUMIA_BASE_URL);
 export const queryOsmoAPR = async (): Promise<OsmoAPR[]> => {
   const res = await fetch(OSMO_APR_DATA_URL, {
     ...numiaRequestInit,
-    method: "GET",
     next: { revalidate: 3600 * 6 },
   });
 
@@ -49,7 +48,6 @@ export const queryLandingPageMetrics = async (): Promise<
     new URL("/landing_page_metrics", process.env.NUMIA_BASE_URL),
     {
       ...numiaRequestInit,
-      method: "GET",
       next: { revalidate: 3600 },
     },
   );
@@ -62,7 +60,6 @@ export const querySupplyMetrics = async (): Promise<SupplyMetrics> => {
     new URL(`/supply/v1/metrics`, process.env.NUMIA_BASE_URL),
     {
       ...numiaRequestInit,
-      method: "GET",
       next: { revalidate: 1000 * 60 * 60 * 24 },
     },
   );
@@ -75,7 +72,6 @@ export const queryAllTokens = async (): Promise<NumiaToken[]> => {
     new URL("/tokens/v2/all", process.env.NUMIA_BASE_URL),
     {
       ...numiaRequestInit,
-      method: "GET",
       /**
        * The main purpose of this endpoint is to get
        * the price_24h_change for top gainers,
