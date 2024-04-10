@@ -15,6 +15,9 @@ export const queryTokenInfo = async ({
   const url = new URL(`/tokens/v2/${symbol}`, process.env.NUMIA_BASE_URL);
   const res = await fetch(url, {
     method: "GET",
+    headers: process.env.NUMIA_API_KEY ? {
+      Authorization: `Bearer ${process.env.NUMIA_API_KEY}`,
+    } : undefined,
     next: { revalidate: 3600, tags: ["token-info", symbol] },
   });
 
@@ -26,6 +29,9 @@ const OSMO_APR_DATA_URL = new URL("/apr", process.env.NUMIA_BASE_URL);
 export const queryOsmoAPR = async (): Promise<OsmoAPR[]> => {
   const res = await fetch(OSMO_APR_DATA_URL, {
     method: "GET",
+    headers: process.env.NUMIA_API_KEY ? {
+      Authorization: `Bearer ${process.env.NUMIA_API_KEY}`,
+    } : undefined,
     next: { revalidate: 3600 * 6 },
   });
 
@@ -39,6 +45,9 @@ export const queryLandingPageMetrics = async (): Promise<
     new URL("/landing_page_metrics", process.env.NUMIA_BASE_URL),
     {
       method: "GET",
+      headers: process.env.NUMIA_API_KEY ? {
+        Authorization: `Bearer ${process.env.NUMIA_API_KEY}`,
+      } : undefined,
       next: { revalidate: 3600 },
     },
   );
@@ -51,6 +60,9 @@ export const querySupplyMetrics = async (): Promise<SupplyMetrics> => {
     new URL(`/supply/v1/metrics`, process.env.NUMIA_BASE_URL),
     {
       method: "GET",
+      headers: process.env.NUMIA_API_KEY ? {
+        Authorization: `Bearer ${process.env.NUMIA_API_KEY}`,
+      } : undefined,
       next: { revalidate: 1000 * 60 * 60 * 24 },
     },
   );
@@ -68,6 +80,9 @@ export const queryAllTokens = async (): Promise<NumiaToken[]> => {
        * the price_24h_change for top gainers,
        * so I think that we can get along with a 24h cache.
        */
+      headers: process.env.NUMIA_API_KEY ? {
+        Authorization: `Bearer ${process.env.NUMIA_API_KEY}`,
+      } : undefined,
       next: { revalidate: 1000 * 60 * 60 * 24 },
     },
   );
