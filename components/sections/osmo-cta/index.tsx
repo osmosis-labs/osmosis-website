@@ -1,7 +1,9 @@
 import BackersSection from "@/components/sections/osmo-cta/backers-section";
+import { BurnedOSMOSkeleton } from "@/components/sections/osmo-cta/skeleton";
 import { querySupplyMetrics } from "@/lib/queries/numia";
 import Image from "next/image";
 import Link from "next/link";
+import { Suspense } from "react";
 
 export default function OsmoCTASection() {
   return (
@@ -142,7 +144,9 @@ export default function OsmoCTASection() {
               />
             </div>
             <div className="flex flex-col">
-              <BurnedOSMO />
+              <Suspense fallback={<BurnedOSMOSkeleton />}>
+                <BurnedOSMO />
+              </Suspense>
               <span className="font-light leading-6 text-alpha-60">burned</span>
             </div>
           </div>
