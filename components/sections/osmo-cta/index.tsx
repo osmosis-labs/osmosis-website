@@ -3,7 +3,7 @@ import { BurnedOSMOSkeleton } from "@/components/sections/osmo-cta/skeleton";
 import { querySupplyMetrics } from "@/lib/queries/numia";
 import { GTagLink } from "@/components/shared/gtag-link";
 import { CoinGeckoRankSkeleton } from "@/components/sections/osmo-cta/skeleton";
-import { queryCGMarketCapRank } from "@/lib/queries/coingecko";
+import { queryCoinGeckoCoin } from "@/lib/queries/coingecko";
 import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
@@ -240,7 +240,8 @@ async function BurnedOSMO() {
 }
 
 async function CoinGeckoRank() {
-  const marketCapRank = await queryCGMarketCapRank({ name: "osmosis" });
+  const marketCapRank = (await queryCoinGeckoCoin({ name: "osmosis" }))
+    .market_cap_rank;
 
   return (
     <span className="font-poppins text-xl leading-6.5 text-neutral-100 xl:text-2xl xl:leading-7.75">
