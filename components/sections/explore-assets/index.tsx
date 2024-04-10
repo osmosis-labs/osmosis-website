@@ -52,11 +52,11 @@ function Heart({ assetsLists }: { assetsLists: TAsset[][] }) {
     <div className="relative">
       <div className="relative z-10 flex h-[380px] w-[360px] items-center justify-center sm:h-[442px] sm:w-[440px] md:h-[420px] md:w-[628px] lg:h-[611px] lg:w-[956px] xl:flex xl:h-[700px] xl:w-[1100px] 2xl:h-[674px]">
         <Circle
-          className="external-circle absolute flex h-[300px] w-[300px] items-center justify-center sm:top-10 sm:h-[376px] sm:w-[376px] md:h-[604px] md:w-[580px] lg:top-[110px] lg:h-[790px] lg:w-[768px] xl:top-[200px] xl:h-[780px] xl:w-[760px] 2xl:top-[170px]"
+          className="external-circle absolute z-20 flex h-[300px] w-[300px] items-center justify-center sm:top-10 sm:h-[376px] sm:w-[376px] md:h-[604px] md:w-[580px] lg:top-[110px] lg:h-[790px] lg:w-[768px] xl:top-[200px] xl:h-[780px] xl:w-[760px] 2xl:top-[170px]"
           list={assetsLists[0]}
         />
         <Circle
-          className="internal-circle absolute flex h-[170px] w-[170px] items-center justify-center sm:top-[130px] sm:h-[204px] sm:w-[204px] md:h-[340px] md:w-[390px] lg:top-[230px] lg:h-[420px] lg:w-[480px] xl:top-[320px] xl:h-[435px] xl:w-[490px] 2xl:top-[290px] 2xl:h-[425px] 2xl:w-[500px]"
+          className="internal-circle absolute z-20 flex h-[170px] w-[170px] items-center justify-center sm:top-[130px] sm:h-[204px] sm:w-[204px] md:h-[340px] md:w-[390px] lg:top-[230px] lg:h-[420px] lg:w-[480px] xl:top-[320px] xl:h-[435px] xl:w-[490px] 2xl:top-[290px] 2xl:h-[425px] 2xl:w-[500px]"
           list={assetsLists[1]}
         />
         <Circle
@@ -70,7 +70,7 @@ function Heart({ assetsLists }: { assetsLists: TAsset[][] }) {
         alt=""
         width={363}
         height={353}
-        className="absolute-center absolute !top-[calc(50%-20px)] h-[360px] w-[360px] sm:h-[440px] sm:w-[440px] md:!top-[calc(100%-120px)] md:h-[620px] md:w-[620px] lg:!left-[calc(50%+12px)] lg:!top-[calc(100%-160px)] lg:h-[800px] lg:w-[800px] xl:z-10 2xl:!top-[calc(100%-175px)] 2xl:z-0 2xl:h-[950px] 2xl:w-[1000px]"
+        className="absolute-center pointer-events-none absolute !top-[calc(50%-20px)] h-[360px] w-[360px] sm:h-[440px] sm:w-[440px] md:!top-[calc(100%-120px)] md:h-[620px] md:w-[620px] lg:!left-[calc(50%+12px)] lg:!top-[calc(100%-160px)] lg:h-[800px] lg:w-[800px] xl:z-10 2xl:!top-[calc(100%-175px)] 2xl:z-0 2xl:h-[950px] 2xl:w-[1000px]"
       />
       <div className="absolute-center absolute flex h-12.5 w-11 md:top-[calc(100%-98px)] md:h-[68px] md:w-[68px] lg:top-[calc(100%-124px)] lg:h-[93px] lg:w-[93px] xl:z-10 2xl:top-[calc(100%-136px)] 2xl:h-[98px] 2xl:w-[98px]">
         <Image

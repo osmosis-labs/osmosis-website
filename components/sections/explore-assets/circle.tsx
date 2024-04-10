@@ -3,6 +3,7 @@ import { queryTokenInfo } from "@/lib/queries/numia";
 import { cn } from "@/lib/utils";
 import { RatePretty } from "@keplr-wallet/unit";
 import Image from "next/image";
+import Link from "next/link";
 import { CSSProperties, Suspense } from "react";
 
 interface IAsset {
@@ -63,13 +64,21 @@ function Element({
   style?: CSSProperties;
 } & TAsset) {
   return (
-    <div
+    <Link
+      href={`https://app.osmosis.zone/assets/${symbol}`}
+      target="_blank"
       style={style}
       className={cn(
-        "absolute z-10 flex h-10 w-10 -translate-y-1/2 translate-x-1/2 flex-col items-center justify-center md:h-20 md:w-20 lg:h-[110px] lg:w-24",
+        "group absolute z-10 flex h-10 w-10 -translate-y-1/2 translate-x-1/2 flex-col items-center justify-center md:h-20 md:w-20 lg:h-[110px] lg:w-24",
         className,
       )}
     >
+      <div className="relative z-50 flex items-center gap-1 px-2 py-0.5 opacity-0 transition-opacity group-hover:opacity-100">
+        <span className="whitespace-nowrap text-sm leading-5.5 text-neutral-100">
+          {name}
+        </span>
+        <span className="leading-6.25 text-[#8E8B9C]">{symbol}</span>
+      </div>
       {iconUri && (
         <Image
           src={iconUri}
@@ -91,7 +100,7 @@ function Element({
           <VariationBadge symbol={symbol!} />
         </Suspense>
       )}
-    </div>
+    </Link>
   );
 }
 
