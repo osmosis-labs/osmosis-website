@@ -221,7 +221,7 @@ async function TokenPriceStats({ symbol }: { symbol: string }) {
       {_price && _variation && (
         <div className="flex flex-col items-end justify-center gap-1.5">
           <span className="leading-none 2xl:text-lg">
-            {formatPretty(price)}
+            {formatPretty(price, { maxDecimals: 3 })}
           </span>
           <span
             className={cn("inline-flex gap-1.5 leading-none", {
