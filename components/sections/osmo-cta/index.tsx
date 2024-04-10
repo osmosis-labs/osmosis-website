@@ -43,7 +43,9 @@ export default function OsmoCTASection() {
             </div>
             <GTagLink asChild eventName="buttonClicked" label="Get OSMO">
               <Link
-                href={"https://app.osmosis.zone/assets/OSMO"}
+                href={
+                  "https://app.osmosis.zone/assets/OSMO?utm_source=osmosis_landing_page"
+                }
                 type="button"
                 className="inline-flex w-full items-center justify-center rounded-[10px] bg-wosmongton-700 px-8 py-4 md:max-w-65 md:rounded-xl lg:px-8 lg:py-5 xl:rounded-[14px]"
               >

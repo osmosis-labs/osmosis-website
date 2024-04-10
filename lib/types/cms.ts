@@ -37,6 +37,11 @@ export interface UpcomingAsset {
    * Indicates whether Osmosis Stakers or LPs are eligible for an airdrop of the asset.
    */
   osmosisAirdrop: boolean;
+
+  /**
+   * Project link URL
+   */
+  projectURL?: string;
 }
 
 /**
