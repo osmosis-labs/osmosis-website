@@ -1,5 +1,10 @@
 import { NUMIA_BASE_URL } from "@/lib/shared";
-import { LandingPageMetrics, NumiaToken, OsmoAPR } from "@/lib/types/numia";
+import {
+  LandingPageMetrics,
+  NumiaToken,
+  OsmoAPR,
+  SupplyMetrics,
+} from "@/lib/types/numia";
 
 interface QueryTokenInfoProps {
   symbol: string;
@@ -34,6 +39,15 @@ export const queryLandingPageMetrics = async (): Promise<
   const res = await fetch(new URL("/landing_page_metrics", NUMIA_BASE_URL), {
     method: "GET",
     next: { revalidate: 3600 },
+  });
+
+  return await res.json();
+};
+
+export const querySupplyMetrics = async (): Promise<SupplyMetrics> => {
+  const res = await fetch(new URL(`/supply/v1/metrics`, NUMIA_BASE_URL), {
+    method: "GET",
+    next: { revalidate: 1000 * 60 * 60 * 24 },
   });
 
   return await res.json();

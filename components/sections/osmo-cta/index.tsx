@@ -1,6 +1,12 @@
 import BackersSection from "@/components/sections/osmo-cta/backers-section";
+import { BurnedOSMOSkeleton } from "@/components/sections/osmo-cta/skeleton";
+import { querySupplyMetrics } from "@/lib/queries/numia";
+import { GTagLink } from "@/components/shared/gtag-link";
+import { CoinGeckoRankSkeleton } from "@/components/sections/osmo-cta/skeleton";
+import { queryCoinGeckoCoin } from "@/lib/queries/coingecko";
 import Image from "next/image";
 import Link from "next/link";
+import { Suspense } from "react";
 
 export default function OsmoCTASection() {
   return (
@@ -35,15 +41,17 @@ export default function OsmoCTASection() {
                 the protocol.
               </p>
             </div>
-            <Link
-              href={"https://app.osmosis.zone/assets/OSMO"}
-              type="button"
-              className="inline-flex w-full items-center justify-center rounded-[10px] bg-wosmongton-700 px-8 py-4 md:max-w-65 md:rounded-xl lg:px-8 lg:py-5 xl:rounded-[14px]"
-            >
-              <span className="leading-6.25 md:text-sm md:leading-5.5 lg:text-base lg:leading-6.25">
-                Get OSMO
-              </span>
-            </Link>
+            <GTagLink asChild eventName="buttonClicked" label="Get OSMO">
+              <Link
+                href={"https://app.osmosis.zone/assets/OSMO"}
+                type="button"
+                className="inline-flex w-full items-center justify-center rounded-[10px] bg-wosmongton-700 px-8 py-4 md:max-w-65 md:rounded-xl lg:px-8 lg:py-5 xl:rounded-[14px]"
+              >
+                <span className="leading-6.25 md:text-sm md:leading-5.5 lg:text-base lg:leading-6.25">
+                  Get OSMO
+                </span>
+              </Link>
+            </GTagLink>
           </div>
           <OsmoCTAIllustration />
         </div>
@@ -106,9 +114,9 @@ export default function OsmoCTASection() {
               />
             </div>
             <div className="flex flex-col">
-              <span className="font-poppins text-xl leading-6.5 text-neutral-100 xl:text-2xl xl:leading-7.75">
-                117
-              </span>
+              <Suspense fallback={<CoinGeckoRankSkeleton />}>
+                <CoinGeckoRank />
+              </Suspense>
               <span className="font-light leading-6 text-alpha-60">
                 rank on{" "}
                 <Link
@@ -141,9 +149,9 @@ export default function OsmoCTASection() {
               />
             </div>
             <div className="flex flex-col">
-              <span className="font-poppins text-xl leading-6.5 text-neutral-100 xl:text-2xl xl:leading-7.75">
-                1M OSMO
-              </span>
+              <Suspense fallback={<BurnedOSMOSkeleton />}>
+                <BurnedOSMO />
+              </Suspense>
               <span className="font-light leading-6 text-alpha-60">burned</span>
             </div>
           </div>
@@ -214,5 +222,30 @@ function OsmoCTAIllustration() {
         className="absolute bottom-4 left-8.5 -rotate-[4deg] sm:bottom-1 sm:left-16 sm:h-[268px] sm:w-[268px] md:bottom-15 md:left-3.5 md:block md:h-[251px] md:w-[251px] lg:bottom-0 lg:h-[318px] lg:w-[318px] xl:bottom-2 xl:left-28 2xl:bottom-4 2xl:left-24 2xl:h-[418px] 2xl:w-[418px]"
       />
     </>
+  );
+}
+
+async function BurnedOSMO() {
+  const metrics = await querySupplyMetrics();
+
+  return (
+    <span className="font-poppins text-xl leading-6.5 text-neutral-100 xl:text-2xl xl:leading-7.75">
+      {Intl.NumberFormat("en-US", {
+        notation: "compact",
+        maximumFractionDigits: 0,
+      }).format(metrics.burntSupply)}{" "}
+      OSMO
+    </span>
+  );
+}
+
+async function CoinGeckoRank() {
+  const marketCapRank = (await queryCoinGeckoCoin({ name: "osmosis" }))
+    .market_cap_rank;
+
+  return (
+    <span className="font-poppins text-xl leading-6.5 text-neutral-100 xl:text-2xl xl:leading-7.75">
+      {marketCapRank ?? "N/D"}
+    </span>
   );
 }

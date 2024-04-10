@@ -1,8 +1,11 @@
+"use client";
+
 import React, { ReactElement } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
 import { cn } from "@/lib/utils";
+import { GTagLink } from "@/components/shared/gtag-link";
 
 export interface CardProps {
   title: string;
@@ -56,15 +59,17 @@ export default function Card({
             </div>
           )}
           {link && linkArrowIconUri && (
-            <Link href={link} className="-ml-0.5">
-              <Image
-                src={linkArrowIconUri}
-                alt={`${title} link`}
-                width={40}
-                height={32}
-                className={linkArrowClassName}
-              />
-            </Link>
+            <GTagLink asChild eventName="cardClicked" href={link} label={title}>
+              <Link href={link} className="-ml-0.5">
+                <Image
+                  src={linkArrowIconUri}
+                  alt={`${title} link`}
+                  width={40}
+                  height={32}
+                  className={linkArrowClassName}
+                />
+              </Link>
+            </GTagLink>
           )}
         </div>
       </div>

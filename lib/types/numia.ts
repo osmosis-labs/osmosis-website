@@ -37,6 +37,12 @@ export interface OsmoAPR {
   apr: number;
 }
 
+export interface SupplyMetrics {
+  lastUpdate: string;
+  totalSupply: number;
+  burntSupply: number;
+  circulatingSupply: number;
+}
 export interface LandingPageMetrics {
   assets_in_chain: {
     value: number;
