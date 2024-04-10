@@ -31,9 +31,16 @@ export const metadata: Metadata = {
     locale: "en_US",
     type: "website",
     siteName: "Osmosis",
+    title: "Osmosis",
+    description:
+      "Swap, earn, and build on the leading decentralized Cosmos exchange.",
   },
   twitter: {
     site: "@osmosiszone",
+    title: "Osmosis",
+    description:
+      "Swap, earn, and build on the leading decentralized Cosmos exchange.",
+    card: "summary_large_image",
   },
 };
 
