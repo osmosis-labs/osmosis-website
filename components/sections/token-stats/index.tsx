@@ -133,6 +133,7 @@ export function TokenStatsRow({
               width={32}
               height={32}
               className="rounded-full bg-osmoverse-650 md:h-10 md:w-10 xl:h-12 xl:w-12"
+              quality={100}
             />
           </>
         )}
