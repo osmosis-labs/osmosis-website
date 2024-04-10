@@ -6,6 +6,7 @@ import NavigationMenu from "@/components/navbar/navigation-menu";
 import Footer from "@/components/footer";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { Banner } from "@/components/banner";
+import { cookies } from "next/headers";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -43,6 +44,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const bannerHidden = cookies().get("bannerHidden")?.value;
+
   return (
     <html
       lang="en"
@@ -56,7 +59,7 @@ export default function RootLayout({
         className={`bg-osmoverse-850 ${inter.variable} ${poppins.variable} container max-sm:px-4 sm:max-w-[448px] md:max-w-screen-sm lg:max-w-[960px] xl:max-w-[1152px] 2xl:max-w-[1440px]`}
       >
         <div className="fixed left-0 top-0 z-[999] flex w-screen max-w-none flex-col">
-          <Banner />
+          {!bannerHidden && <Banner />}
           <Navbar />
         </div>
         {children}
