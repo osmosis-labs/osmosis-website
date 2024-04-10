@@ -1,4 +1,3 @@
-import { COINGECKO_BASE_URL } from "@/lib/shared";
 import { Coin } from "@/lib/types/coingecko";
 
 export const queryCoinGeckoCoin = async ({
@@ -7,7 +6,7 @@ export const queryCoinGeckoCoin = async ({
   name: string;
 }): Promise<Coin> => {
   const res = await fetch(
-    new URL(`/api/v3/coins/${name}`, COINGECKO_BASE_URL),
+    new URL(`/api/v3/coins/${name}`, process.env.COINGECKO_BASE_URL),
     {
       method: "GET",
       next: { revalidate: 1000 * 60 * 60 * 24, tags: ["coingecko-coin", name] },

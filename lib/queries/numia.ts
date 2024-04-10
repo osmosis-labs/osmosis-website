@@ -1,4 +1,3 @@
-import { NUMIA_BASE_URL } from "@/lib/shared";
 import {
   LandingPageMetrics,
   NumiaToken,
@@ -13,7 +12,7 @@ interface QueryTokenInfoProps {
 export const queryTokenInfo = async ({
   symbol,
 }: QueryTokenInfoProps): Promise<NumiaToken[]> => {
-  const url = new URL(`/tokens/v2/${symbol}`, NUMIA_BASE_URL);
+  const url = new URL(`/tokens/v2/${symbol}`, process.env.NUMIA_BASE_URL);
   const res = await fetch(url, {
     method: "GET",
     next: { revalidate: 3600, tags: ["token-info", symbol] },
@@ -22,7 +21,7 @@ export const queryTokenInfo = async ({
   return await res.json();
 };
 
-const OSMO_APR_DATA_URL = new URL("/apr", NUMIA_BASE_URL);
+const OSMO_APR_DATA_URL = new URL("/apr", process.env.NUMIA_BASE_URL);
 
 export const queryOsmoAPR = async (): Promise<OsmoAPR[]> => {
   const res = await fetch(OSMO_APR_DATA_URL, {
@@ -36,33 +35,42 @@ export const queryOsmoAPR = async (): Promise<OsmoAPR[]> => {
 export const queryLandingPageMetrics = async (): Promise<
   LandingPageMetrics[]
 > => {
-  const res = await fetch(new URL("/landing_page_metrics", NUMIA_BASE_URL), {
-    method: "GET",
-    next: { revalidate: 3600 },
-  });
+  const res = await fetch(
+    new URL("/landing_page_metrics", process.env.NUMIA_BASE_URL),
+    {
+      method: "GET",
+      next: { revalidate: 3600 },
+    },
+  );
 
   return await res.json();
 };
 
 export const querySupplyMetrics = async (): Promise<SupplyMetrics> => {
-  const res = await fetch(new URL(`/supply/v1/metrics`, NUMIA_BASE_URL), {
-    method: "GET",
-    next: { revalidate: 1000 * 60 * 60 * 24 },
-  });
+  const res = await fetch(
+    new URL(`/supply/v1/metrics`, process.env.NUMIA_BASE_URL),
+    {
+      method: "GET",
+      next: { revalidate: 1000 * 60 * 60 * 24 },
+    },
+  );
 
   return await res.json();
 };
 
 export const queryAllTokens = async (): Promise<NumiaToken[]> => {
-  const res = await fetch(new URL("/tokens/v2/all", NUMIA_BASE_URL), {
-    method: "GET",
-    /**
-     * The main purpose of this endpoint is to get
-     * the price_24h_change for top gainers,
-     * so I think that we can get along with a 24h cache.
-     */
-    next: { revalidate: 1000 * 60 * 60 * 24 },
-  });
+  const res = await fetch(
+    new URL("/tokens/v2/all", process.env.NUMIA_BASE_URL),
+    {
+      method: "GET",
+      /**
+       * The main purpose of this endpoint is to get
+       * the price_24h_change for top gainers,
+       * so I think that we can get along with a 24h cache.
+       */
+      next: { revalidate: 1000 * 60 * 60 * 24 },
+    },
+  );
 
   return await res.json();
 };
