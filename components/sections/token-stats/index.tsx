@@ -155,12 +155,13 @@ export function TokenStatsRow({
         ) : (
           <div className="flex flex-col gap-1.5 2xl:gap-1">
             <div className="relative flex items-center">
-              <span className="text-sm leading-none max-xl:hidden xl:text-base">
+              <span
+                className={cn(
+                  "line-clamp-1 max-w-fit text-sm leading-none xl:text-base 2xl:line-clamp-none 2xl:max-w-none",
+                  name.length > 10 ? "max-w-25" : "sm:max-w-none",
+                )}
+              >
                 {name}
-              </span>
-              <span className="text-sm leading-none xl:hidden">
-                {name.slice(0, 10)}
-                {name.length > 10 && "..."}
               </span>
               <div
                 className={cn(
