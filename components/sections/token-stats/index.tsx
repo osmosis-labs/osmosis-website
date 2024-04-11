@@ -157,8 +157,7 @@ export function TokenStatsRow({
             <div className="relative flex items-center">
               <span
                 className={cn(
-                  "line-clamp-1 max-w-fit text-sm leading-none xl:text-base 2xl:line-clamp-none 2xl:max-w-none",
-                  name.length > 10 ? "max-w-25" : "sm:max-w-none",
+                  "line-clamp-1 w-min text-sm leading-none xl:text-base 2xl:line-clamp-none 2xl:w-auto",
                 )}
               >
                 {name}
