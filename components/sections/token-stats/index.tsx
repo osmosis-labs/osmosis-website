@@ -26,7 +26,7 @@ export interface SectionAsset {
   isUpcoming?: boolean;
   releaseDate?: string;
   isAirdrop?: boolean;
-  projectURL?: string;
+  projectLink?: string;
 }
 
 type QueryFn = () => Promise<SectionAsset[]>;
@@ -111,13 +111,13 @@ export function TokenStatsRow({
   isUpcoming,
   releaseDate,
   isAirdrop,
-  projectURL,
+  projectLink,
 }: SectionAsset) {
   return (
     <Link
       href={
         isUpcoming
-          ? projectURL ?? "#"
+          ? projectLink ?? "#"
           : `https://app.osmosis.zone/assets/${denom}?utm_source=osmosis_landing_page`
       }
       target={"_blank"}
@@ -128,7 +128,7 @@ export function TokenStatsRow({
             !isUpcoming,
           "border-token-stats-upcoming bg-osmoverse-850 py-2.5 md:min-h-30 md:flex-col md:items-start md:p-3 lg:min-h-[154px] xl:min-h-[187px] xl:p-4":
             isUpcoming,
-          "pointer-events-none": !projectURL && isUpcoming,
+          "pointer-events-none": !projectLink && isUpcoming,
         },
       )}
     >
