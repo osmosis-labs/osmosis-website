@@ -49,20 +49,19 @@ export default function ExploreAssets() {
 function Heart({ assetsLists }: { assetsLists: TAsset[][] }) {
   return (
     <div className="relative">
-      <div className="group/rings relative z-10 flex h-[380px] w-[360px] items-center justify-center sm:h-[442px] sm:w-[440px] md:h-[420px] md:w-[628px] lg:h-[611px] lg:w-[956px] xl:flex xl:h-[700px] xl:w-[1100px] 2xl:h-[674px]">
+      <div className="relative z-10 flex h-[380px] w-[360px] items-center justify-center sm:h-[442px] sm:w-[440px] md:h-[420px] md:w-[628px] lg:h-[611px] lg:w-[956px] xl:flex xl:h-[700px] xl:w-[1100px] 2xl:h-[674px]">
         <Circle
-          className="first-ring absolute flex h-[170px] w-[170px] items-center justify-center sm:top-[130px] sm:h-[204px] sm:w-[204px] md:h-[340px] md:w-[390px] lg:top-[230px] lg:h-[420px] lg:w-[480px] xl:top-[320px] xl:h-[435px] xl:w-[490px] 2xl:top-[290px] 2xl:h-[425px] 2xl:w-[500px]"
-          list={assetsLists[0]}
+          className="third-ring absolute top-20 hidden items-center justify-center xl:flex xl:h-[1100px] xl:w-[985px] 2xl:top-12 2xl:h-[1160px] 2xl:w-[1000px]"
+          list={assetsLists[2]}
         />
         <Circle
-          className="second-ring absolute flex h-[300px] w-[300px] items-center justify-center sm:top-10 sm:h-[376px] sm:w-[376px] md:h-[604px] md:w-[580px] lg:top-[110px] lg:h-[790px] lg:w-[768px] xl:top-[200px] xl:h-[780px] xl:w-[760px] 2xl:top-[170px]"
+          className="second-ring absolute z-20 flex h-[300px] w-[300px] items-center justify-center sm:top-10 sm:h-[376px] sm:w-[376px] md:h-[604px] md:w-[580px] lg:top-[110px] lg:h-[790px] lg:w-[768px] xl:top-[200px] xl:h-[780px] xl:w-[760px] 2xl:top-[170px]"
           list={assetsLists[1]}
         />
         <Circle
-          className="third-circle third-ring-mask absolute top-20 hidden items-center justify-center xl:flex xl:h-[1100px] xl:w-[985px] 2xl:top-12 2xl:h-[1160px] 2xl:w-[1000px]"
-          list={assetsLists[2]}
+          className="first-ring absolute z-20 flex h-[170px] w-[170px] items-center justify-center sm:top-[130px] sm:h-[204px] sm:w-[204px] md:h-[340px] md:w-[390px] lg:top-[230px] lg:h-[420px] lg:w-[480px] xl:top-[320px] xl:h-[435px] xl:w-[490px] 2xl:top-[290px] 2xl:h-[425px] 2xl:w-[500px]"
+          list={assetsLists[0]}
         />
-        <div className="ring-mask pointer-events-none absolute z-10 hidden h-[985px] w-[1100px] translate-y-48 rounded-full transition-opacity ease-out group-hover/rings:opacity-0 xl:block 2xl:h-[1050px] 2xl:translate-y-48" />
       </div>
       <Image
         src={"/assets/explore-assets/heart-bg-gradient.svg"}

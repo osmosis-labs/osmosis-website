@@ -72,19 +72,22 @@
   .second-ring {
     --angle: 30deg;
     --offset: 60deg;
+    --ring-asset-opacity: 0.75;
   }
   .first-ring {
     --angle: 45deg;
     --offset: 45deg;
   }
-  .third-circle {
+  .third-ring {
     --angle: 12.86deg;
     --offset: 0deg;
+    --ring-asset-opacity: 0.5;
   }
   @media (min-width: 768px) {
     .second-ring {
       --angle: 18deg;
       --offset: 0deg;
+      --ring-asset-opacity: 0.75;
     }
     .first-ring {
       --angle: 30deg;
@@ -109,26 +112,6 @@
         rgba(125, 11, 153, 0.8) 40%,
         rgba(32, 27, 67, 0) 100%
       );
-  } */
-  .ring-mask {
-    background: radial-gradient(
-      100% 100% at 50% 50%,
-      /* red 30%,
-      green 35%,
-      blue 75% */ rgba(20, 15, 52, 0) 30%,
-      rgba(20, 15, 52, 0.3) 35%,
-      rgba(20, 15, 52, 1) 75%
-    );
-  }
-  /* @media (min-width: 1536px) {
-    .third-ring-mask {
-      mask-image: radial-gradient(
-        200% 200% at 50% 50%,
-        #140f34 40%,
-        rgba(46, 30, 144, 0) 100%
-      );
-      mask-mode: luminance;
-    }
   } */
   .stats-with-tweets-bg {
     background: radial-gradient(

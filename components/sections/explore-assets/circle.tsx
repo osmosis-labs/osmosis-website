@@ -69,7 +69,7 @@ function Element({
       target="_blank"
       style={style}
       className={cn(
-        "group absolute z-10 flex h-10 w-10 -translate-y-1/2 translate-x-1/2 flex-col items-center justify-center md:h-20 md:w-20 lg:h-[110px] lg:w-24",
+        "group absolute flex h-10 w-10 -translate-y-1/2 translate-x-1/2 flex-col items-center justify-center opacity-[var(--ring-asset-opacity)] transition-opacity ease-out hover:opacity-100 md:h-20 md:w-20 lg:h-[110px] lg:w-24",
         className,
       )}
     >
