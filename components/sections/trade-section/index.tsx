@@ -23,7 +23,6 @@ export default function TradeSection() {
           >
             <Link
               href={"https://app.osmosis.zone?utm_source=osmosis_landing_page"}
-              type="button"
               className="flex items-center justify-center gap-1 self-stretch rounded-xl bg-wosmongton-700 px-6 py-4 md:w-[220px] xl:rounded-[14px] xl:py-5"
             >
               <span className="leading-6.5">Get Started</span>

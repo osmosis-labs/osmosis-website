@@ -120,10 +120,7 @@ export default function HeroSection() {
                 <div className="h-2.5 w-18 rounded-full bg-osmoverse-650 2xl:h-3 2xl:w-22.5" />
               </div>
               <GTagLink asChild eventName="buttonClicked" label="Start Trading">
-                <button
-                  type="button"
-                  className="flex h-14 w-full items-center justify-center gap-1 rounded-xl bg-wosmongton-700 xl:h-16"
-                >
+                <button className="flex h-14 w-full items-center justify-center gap-1 rounded-xl bg-wosmongton-700 xl:h-16">
                   <p className="text-sm text-neutral-100 lg:text-base">
                     Start Trading
                   </p>
