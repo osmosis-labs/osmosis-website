@@ -69,24 +69,24 @@
   .absolute-center {
     @apply left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2;
   }
-  .external-circle {
+  .second-ring {
     --angle: 30deg;
     --offset: 60deg;
   }
-  .internal-circle {
+  .first-ring {
     --angle: 45deg;
     --offset: 45deg;
   }
-  .void-circle {
+  .third-circle {
     --angle: 12.86deg;
     --offset: 0deg;
   }
   @media (min-width: 768px) {
-    .external-circle {
+    .second-ring {
       --angle: 18deg;
       --offset: 0deg;
     }
-    .internal-circle {
+    .first-ring {
       --angle: 30deg;
       --offset: 0deg;
     }
@@ -110,18 +110,26 @@
         rgba(32, 27, 67, 0) 100%
       );
   } */
-  .void-assets-mask {
-    background: linear-gradient(to top, #140f34 18%, rgba(46, 30, 144, 0) 40%);
+  .ring-mask {
+    background: radial-gradient(
+      100% 100% at 50% 50%,
+      /* red 30%,
+      green 35%,
+      blue 75% */ rgba(20, 15, 52, 0) 30%,
+      rgba(20, 15, 52, 0.3) 35%,
+      rgba(20, 15, 52, 1) 75%
+    );
   }
-  @media (min-width: 1536px) {
-    .void-assets-mask {
-      background: linear-gradient(
-        to top,
-        #140f34 17%,
-        rgba(46, 30, 144, 0) 28%
+  /* @media (min-width: 1536px) {
+    .third-ring-mask {
+      mask-image: radial-gradient(
+        200% 200% at 50% 50%,
+        #140f34 40%,
+        rgba(46, 30, 144, 0) 100%
       );
+      mask-mode: luminance;
     }
-  }
+  } */
   .stats-with-tweets-bg {
     background: radial-gradient(
         68.58% 65.85% at 98.59% -2.72%,

@@ -10,7 +10,7 @@ interface IAsset {
   iconUri: string;
   name: string;
   symbol: string;
-  important: boolean;
+  ring: number;
   isVoid: boolean;
 }
 
@@ -85,7 +85,7 @@ function Element({
           alt={`${name} logo`}
           width={40}
           height={40}
-          className="md:h-12 md:w-12 lg:h-18 lg:w-18"
+          className="rounded-full md:h-12 md:w-12 lg:h-18 lg:w-18"
         />
       )}
       {!isVoid && (
