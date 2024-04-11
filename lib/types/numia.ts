@@ -56,4 +56,8 @@ export interface LandingPageMetrics {
     value: number;
     growth_rate_seconds: number;
   };
+  volume_24h: {
+    value: number;
+    growth_rate_seconds: number;
+  };
 }

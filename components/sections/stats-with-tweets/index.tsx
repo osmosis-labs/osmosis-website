@@ -26,24 +26,21 @@ export default async function StatsWithTweets() {
   const stats: StatCard[] = [
     {
       title: "All Time Volume",
-      value: `${metricFormatter.format(metrics[0].cumulative_volume.value)}`,
+      value: `${metricFormatter.format(metrics.cumulative_volume.value)}`,
       iconUri: "/assets/icons/rocket-gray.svg",
       bottleUri: "/assets/bottle-blue.svg",
       bgClass: "trend-card-bg-1",
     },
     {
       title: "Asset on the Platform",
-      value: `${metricFormatter.format(metrics[0].assets_in_chain.value)}`,
+      value: `${metricFormatter.format(metrics.assets_in_chain.value)}`,
       iconUri: "/assets/icons/checkmark-gray.svg",
       bottleUri: "/assets/bottle-red.svg",
       bgClass: "trend-card-bg-2",
     },
     {
-      title: "Traders in the last 30 days",
-      value: `${Intl.NumberFormat("en-US", {
-        notation: "standard",
-        maximumFractionDigits: 0,
-      }).format(metrics[0].traders_last_30_days.value)}`,
+      title: "24h trading volume",
+      value: `${metricFormatter.format(metrics.volume_24h.value)}`,
       iconUri: "/assets/icons/trending-gray.svg",
       bottleUri: "/assets/bottle-super.svg",
       bgClass: "trend-card-bg-3",
