@@ -41,19 +41,18 @@ export const queryOsmoAPR = async (): Promise<OsmoAPR[]> => {
   return await res.json();
 };
 
-export const queryLandingPageMetrics = async (): Promise<
-  LandingPageMetrics[]
-> => {
-  const res = await fetch(
-    new URL("/landing_page_metrics", process.env.NUMIA_BASE_URL),
-    {
-      ...numiaRequestInit,
-      next: { revalidate: 3600 },
-    },
-  );
+export const queryLandingPageMetrics =
+  async (): Promise<LandingPageMetrics> => {
+    const res = await fetch(
+      new URL("/landing_page_metrics", process.env.NUMIA_BASE_URL),
+      {
+        ...numiaRequestInit,
+        next: { revalidate: 3600 },
+      },
+    );
 
-  return await res.json();
-};
+    return await res.json();
+  };
 
 export const querySupplyMetrics = async (): Promise<SupplyMetrics> => {
   const res = await fetch(
