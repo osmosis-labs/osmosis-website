@@ -122,7 +122,7 @@ export default function StakeSection() {
                         Upcoming Airdrops*
                       </span>
                     </div>
-                    <div className="tweets-mask relative flex h-[48px]">
+                    <div className="horizontal-mask relative flex h-[48px]">
                       <div className="upcoming-airdrops-row-width absolute flex animate-upcoming-airdrops-marquee items-center gap-2">
                         {airdrops.map(({ name, uri }, i) => {
                           return (
@@ -152,7 +152,7 @@ export default function StakeSection() {
                         Past Airdrops
                       </span>
                     </div>
-                    <div className="tweets-mask relative flex h-[48px]">
+                    <div className="horizontal-mask relative flex h-[48px]">
                       <div className="upcoming-airdrops-row-width absolute flex animate-upcoming-airdrops-marquee-reverse items-center gap-2">
                         {airdrops.map(({ name, uri }, i) => {
                           return (

@@ -189,7 +189,7 @@
     @apply absolute inset-0 content-[''] lg:hidden;
     background: linear-gradient(to top, #201b43 0%, #201b4300 50%);
   }
-  .tweets-mask {
+  .horizontal-mask {
     mask-image: linear-gradient(
       90deg,
       #d9d9d900 0%,
