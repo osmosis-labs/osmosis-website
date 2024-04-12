@@ -11,19 +11,6 @@ const config: Config = {
   prefix: "",
   theme: {
     keyframes: {
-      marquee: {
-        "0%": { transform: "translateZ(0)" },
-        "100%": {
-          transform:
-            "translate3d(calc((472px * 4 + 16px * 3) * -1 - 16px),0,0)",
-        },
-      },
-      "marquee-sm": {
-        "0%": { transform: "translateZ(0)" },
-        "100%": {
-          transform: "translate3d(calc((309px * 4 + 8px * 3) * -1 - 8px),0,0)",
-        },
-      },
       "upcoming-airdrops-marquee": {
         "0%": { transform: "translateZ(0)" },
         "100%": {
@@ -41,10 +28,6 @@ const config: Config = {
       },
     },
     animation: {
-      marquee: "marquee 40s linear infinite",
-      "marquee-reverse": "marquee 40s linear infinite reverse",
-      "marquee-sm": "marquee-sm 40s linear infinite",
-      "marquee-sm-reverse": "marquee-sm 40s linear infinite reverse",
       "upcoming-airdrops-marquee":
         "upcoming-airdrops-marquee 10s linear infinite",
       "upcoming-airdrops-marquee-reverse":

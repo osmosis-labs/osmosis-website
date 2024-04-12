@@ -15,7 +15,7 @@ const cards: HelpCardProps[] = [
     descriptionClassName:
       "w-[250px] sm:w-[230px] md:w-[300px] lg:w-[240px] xl:w-[277px] 2xl:w-[355px]",
     iconUri: "/assets/help/card-icons/questions.svg",
-    link: "#",
+    link: "https://support.osmosis.zone/",
     illustration: (
       <Image
         src={"/assets/help/illustrations/support.svg"}
@@ -33,7 +33,7 @@ const cards: HelpCardProps[] = [
     descriptionClassName:
       "w-[250px] sm:w-[228px] md:w-[300px] lg:w-[240px] xl:w-[300px] 2xl:w-[355px]",
     iconUri: "/assets/help/card-icons/blog.svg",
-    link: "#",
+    link: "https://forum.osmosis.zone/c/blog/13",
     illustration: (
       <Image
         src={"/assets/help/illustrations/blog.svg"}
@@ -47,19 +47,19 @@ const cards: HelpCardProps[] = [
   {
     title: "X(Twitter)",
     iconUri: "/assets/help/card-icons/x.svg",
-    link: "#",
+    link: "https://twitter.com/osmosiszone",
     badgeDescription: "@osmosiszone",
   },
   {
     title: "Telegram",
     iconUri: "/assets/help/card-icons/telegram.svg",
-    link: "#",
+    link: "https://t.me/osmosis_chat",
     badgeDescription: "osmosis_chat",
   },
   {
     title: "Forum",
     iconUri: "/assets/help/card-icons/forum.svg",
-    link: "#",
+    link: "https://forum.osmosis.zone",
     badgeDescription: "forum.osmosis.zone",
   },
 ];

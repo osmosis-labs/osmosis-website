@@ -1,3 +1,4 @@
+import Divider from "@/components/shared/divider";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -12,27 +13,27 @@ const sections: Section[] = [
     links: [
       {
         label: "Trade",
-        href: "#",
+        href: "https://app.osmosis.zone/",
       },
       {
         label: "Assets",
-        href: "#",
+        href: "https://app.osmosis.zone/assets",
       },
       {
         label: "Earn",
-        href: "#",
+        href: "https://app.osmosis.zone/earn",
       },
       {
         label: "Staking",
-        href: "#",
+        href: "https://app.osmosis.zone/stake",
       },
       {
         label: "Pools",
-        href: "#",
+        href: "https://app.osmosis.zone/pools",
       },
       {
         label: "Apps",
-        href: "#",
+        href: "https://app.osmosis.zone/apps",
       },
     ],
   },
@@ -41,23 +42,23 @@ const sections: Section[] = [
     links: [
       {
         label: "OSMO",
-        href: "#",
+        href: "https://app.osmosis.zone/assets/OSMO",
       },
       {
         label: "CoinGecko",
-        href: "#",
+        href: "https://www.coingecko.com/en/coins/osmosis",
       },
       {
         label: "CoinMarketCap",
-        href: "#",
+        href: "https://coinmarketcap.com/currencies/osmosis/",
       },
       {
         label: "Governance",
-        href: "#",
+        href: "https://support.osmosis.zone/tutorials/governance",
       },
       {
         label: "Vote",
-        href: "#",
+        href: "https://daodao.zone/gov/osmosis/proposals",
       },
     ],
   },
@@ -66,19 +67,19 @@ const sections: Section[] = [
     links: [
       {
         label: "X (Twitter)",
-        href: "#",
+        href: "https://twitter.com/osmosiszone",
       },
       {
         label: "Telegram",
-        href: "#",
+        href: "https://t.me/osmosis_chat",
       },
       {
         label: "Discord",
-        href: "#",
+        href: "https://discord.com/invite/osmosis",
       },
       {
         label: "Forum",
-        href: "#",
+        href: "https://forum.osmosis.zone/",
       },
     ],
   },
@@ -87,15 +88,15 @@ const sections: Section[] = [
     links: [
       {
         label: "Docs",
-        href: "#",
+        href: "https://docs.osmosis.zone/",
       },
       {
         label: "GitHub",
-        href: "#",
+        href: "https://github.com/osmosis-labs",
       },
       {
         label: "Grants",
-        href: "#",
+        href: "https://grants.osmosis.zone/",
       },
     ],
   },
@@ -104,15 +105,15 @@ const sections: Section[] = [
     links: [
       {
         label: "Contact",
-        href: "#",
+        href: "https://support.osmosis.zone/",
       },
       {
         label: "Blog",
-        href: "#",
+        href: "https://forum.osmosis.zone/c/blog/13",
       },
       {
         label: "Careers",
-        href: "#",
+        href: "https://boards.greenhouse.io/osmosisdex",
         isNew: true,
       },
     ],
@@ -123,17 +124,17 @@ const socials = [
   {
     name: "X",
     icon: "/assets/icons/x.svg",
-    href: "#",
+    href: "https://twitter.com/osmosiszone",
   },
   {
     name: "Reddit",
     icon: "/assets/icons/reddit.svg",
-    href: "#",
+    href: "https://www.reddit.com/r/OsmosisLab/",
   },
   {
     name: "Telegram",
     icon: "/assets/icons/telegram.svg",
-    href: "#",
+    href: "https://t.me/osmosis_chat",
   },
 ];
 
@@ -142,20 +143,11 @@ export default function Footer() {
     <footer className="mb-7 self-stretch px-2 sm:mb-8 sm:px-4 md:mb-17.5 lg:mb-16 xl:mb-[38px] 2xl:mb-[54px] 2xl:px-6">
       <div className="flex flex-col gap-2 self-stretch lg:gap-4 2xl:gap-6">
         {/**divider */}
-        <div className="flex items-center gap-2.5 py-6">
-          <div className="h-[1px] flex-1 bg-osmoverse-750" />
-          <Image
-            src={"/assets/icons/star-divider.svg"}
-            alt="Divider"
-            width={21}
-            height={21}
-          />
-          <div className="h-[1px] flex-1 bg-osmoverse-750" />
-        </div>
+        <Divider className="py-6" />
         <div className="relative grid grid-cols-2 gap-x-8 gap-y-6 md:grid-cols-3 lg:max-w-[764px] lg:grid-cols-5 lg:gap-x-4 2xl:max-w-[1020px] 2xl:gap-x-20">
           {sections.map(({ links, title }) => (
             <div key={title} className="flex flex-col gap-2.5">
-              <span className="leading-5.25 whitespace-nowrap text-sm font-light text-alpha-60">
+              <span className="whitespace-nowrap text-sm font-light leading-5.25 text-alpha-60">
                 {title}
               </span>
               <div className="flex flex-col gap-0.5">
@@ -201,24 +193,17 @@ export default function Footer() {
           />
         </div>
         {/**divider */}
-        <div className="flex items-center gap-2.5 py-6">
-          <div className="h-[1px] flex-1 bg-osmoverse-750" />
-          <Image
-            src={"/assets/icons/star-divider.svg"}
-            alt="Divider"
-            width={21}
-            height={21}
-          />
-          <div className="h-[1px] flex-1 bg-osmoverse-750" />
-        </div>
+        <Divider className="py-6" />
         <div className="flex flex-col gap-8 py-6 lg:flex-row lg:items-center lg:justify-between lg:gap-0">
           <div className="flex items-center justify-between sm:w-[351px] lg:w-auto lg:gap-8">
-            <Image
-              src={"/assets/icons/osmo-logo.svg"}
-              alt="Osmosis Logo"
-              width={167}
-              height={40}
-            />
+            <Link href={"/"}>
+              <Image
+                src={"/assets/icons/osmo-logo.svg"}
+                alt="Osmosis Logo"
+                width={167}
+                height={40}
+              />
+            </Link>
             <div className="flex items-center gap-1">
               {socials.map(({ icon, name, href }) => (
                 <Link
@@ -237,7 +222,7 @@ export default function Footer() {
               ))}
             </div>
           </div>
-          <span className="leading-5.5 text-sm text-alpha-60">
+          <span className="text-sm leading-5.5 text-alpha-60">
             © Osmosis 2024
           </span>
         </div>

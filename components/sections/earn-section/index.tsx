@@ -38,7 +38,7 @@ const cards: EarnCardProps[] = [
         className="absolute right-10 top-[84px] z-10 md:top-[62px] lg:right-9 lg:top-16 lg:h-[89px] lg:w-[151px] xl:top-11 xl:h-[115px] xl:w-[195px] 2xl:right-6 2xl:top-30 2xl:h-[151px] 2xl:w-64"
       />
     ),
-    link: "#",
+    link: "https://www.levana.finance/",
     badgeDescription: (
       <p className="inline-flex items-center gap-1 text-sm font-light leading-5.25 text-neutral-100">
         Powered by
@@ -69,7 +69,7 @@ const cards: EarnCardProps[] = [
         className="absolute right-10 top-8 z-10 md:right-9 md:top-6 md:h-[186px] md:w-[186px] lg:right-3 lg:top-9 lg:h-[157px] lg:w-[157px] xl:top-1 xl:h-[193px] xl:w-[193px] 2xl:right-1 2xl:top-24 2xl:h-[250px] 2xl:w-[250px]"
       />
     ),
-    link: "#",
+    link: "https://osmosis.marsprotocol.io/",
     badgeDescription: (
       <p className="inline-flex items-center gap-1 text-sm font-light leading-5.25 text-neutral-100">
         Powered by

@@ -1,6 +1,7 @@
 "use client";
 
 import DiamondGradient from "@/components/navbar/diamond-gradient";
+import Divider from "@/components/shared/divider";
 import { Menu, Transition } from "@headlessui/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -12,11 +13,11 @@ const menuLinks = [
     links: [
       {
         label: "Governance",
-        href: "#",
+        href: "https://support.osmosis.zone/tutorials/governance",
       },
       {
         label: "Analytics",
-        href: "#",
+        href: "https://info.osmosis.zone/",
       },
     ],
   },
@@ -25,11 +26,11 @@ const menuLinks = [
     links: [
       {
         label: "Documentation",
-        href: "#",
+        href: "https://docs.osmosis.zone/",
       },
       {
         label: "Contribute",
-        href: "#",
+        href: "https://docs.osmosis.zone/osmosis-core/contributing/",
       },
     ],
   },
@@ -38,11 +39,11 @@ const menuLinks = [
     links: [
       {
         label: "Brand Kit",
-        href: "#",
+        href: "https://drive.google.com/u/1/uc?id=1rKUX9X7EyJylDlrYT6wBIgziT53CQr7G",
       },
       {
         label: "Developer Docs",
-        href: "#",
+        href: "https://docs.osmosis.zone/",
       },
     ],
   },
@@ -51,7 +52,7 @@ const menuLinks = [
     links: [
       {
         label: "Support Lab",
-        href: "#",
+        href: "https://support.osmosis.zone/",
       },
     ],
   },
@@ -61,17 +62,17 @@ const socials = [
   {
     name: "X",
     icon: "/assets/icons/x.svg",
-    href: "#",
+    href: "https://twitter.com/osmosiszone",
   },
   {
     name: "Reddit",
     icon: "/assets/icons/reddit.svg",
-    href: "#",
+    href: "https://www.reddit.com/r/OsmosisLab/",
   },
   {
     name: "Telegram",
     icon: "/assets/icons/telegram.svg",
-    href: "#",
+    href: "https://t.me/osmosis_chat",
   },
 ];
 
@@ -110,7 +111,7 @@ export function DropdownMenu() {
             <div className="relative z-10 grid grid-cols-2 gap-x-4 gap-y-6">
               {menuLinks.map(({ name, links }) => (
                 <div key={name} className="col-span-1 flex flex-col gap-2.5">
-                  <span className="leading-5.25 text-sm font-light text-alpha-60">
+                  <span className="text-sm font-light leading-5.25 text-alpha-60">
                     {name}
                   </span>
                   <div className="flex flex-col gap-0.5">
@@ -121,18 +122,9 @@ export function DropdownMenu() {
                 </div>
               ))}
             </div>
-            <div className="flex items-center justify-between gap-2.5 py-1">
-              <div className="h-[1px] flex-1 bg-osmoverse-750" />
-              <Image
-                src={"/assets/icons/star-divider.svg"}
-                alt="Divider"
-                width={14}
-                height={14}
-              />
-              <div className="h-[1px] flex-1 bg-osmoverse-750" />
-            </div>
+            <Divider imageH={14} imageW={14} className="py-1" />
             <div className="flex w-full items-center justify-between">
-              <span className="leading-5.25 text-sm text-alpha-60">
+              <span className="text-sm leading-5.25 text-alpha-60">
                 Connect with us
               </span>
               <div className="flex items-center gap-1">

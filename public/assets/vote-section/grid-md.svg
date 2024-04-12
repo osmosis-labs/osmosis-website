@@ -1,0 +1,53 @@
+<svg width="801" height="742" viewBox="0 0 801 742" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g opacity="0.15">
+<mask id="mask0_1082_34252" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="801" height="742">
+<ellipse cx="400.5" cy="371" rx="400.5" ry="371" fill="url(#paint0_linear_1082_34252)"/>
+</mask>
+<g mask="url(#mask0_1082_34252)">
+<path d="M326.054 392.445L-67.0535 -0.148438" stroke="white" stroke-width="0.942597"/>
+<path d="M326.054 475.074L-67.0535 740.793" stroke="white" stroke-width="0.942597"/>
+<path d="M326.055 458.659L-67.0532 588.594" stroke="white" stroke-width="0.942597"/>
+<path d="M326.055 440.575L-67.0532 452.849" stroke="white" stroke-width="0.942597"/>
+<path d="M326.298 422.512L-67.0532 303.221" stroke="white" stroke-width="0.942597"/>
+<path d="M326.054 406.077L-67.0535 157.706" stroke="white" stroke-width="0.942597"/>
+<path d="M326.054 493.713L-67.0535 886.821" stroke="white" stroke-width="0.942597"/>
+<path d="M427.045 493.713L819.917 886.821" stroke="white" stroke-width="0.942597"/>
+<path d="M408.054 493.47L673.888 886.821" stroke="white" stroke-width="0.942597"/>
+<path d="M391.6 493.47L521.689 886.821" stroke="white" stroke-width="0.942597"/>
+<path d="M373.604 492.955L385.944 886.821" stroke="white" stroke-width="0.942597"/>
+<path d="M355.607 493.47L236.316 886.821" stroke="white" stroke-width="0.942597"/>
+<path d="M339.667 492.955L90.801 886.821" stroke="white" stroke-width="0.942597"/>
+<path d="M427.045 392.723L819.875 -0.663086" stroke="white" stroke-width="0.942597"/>
+<path d="M408.056 392.688L673.89 -0.663086" stroke="white" stroke-width="0.942597"/>
+<path d="M391.6 392.688L521.689 -0.663086" stroke="white" stroke-width="0.942597"/>
+<path d="M373.628 392.445L385.944 -0.663085" stroke="white" stroke-width="0.942597"/>
+<path d="M355.267 392.445L236.194 -0.663086" stroke="white" stroke-width="0.942597"/>
+<path d="M339.131 392.445L90.8027 -0.663086" stroke="white" stroke-width="0.942597"/>
+<path d="M427.321 475.628L820.429 741.305" stroke="white" stroke-width="0.942597"/>
+<path d="M427.321 458.937L820.429 589.107" stroke="white" stroke-width="0.942597"/>
+<path d="M427.321 441.131L820.429 453.362" stroke="white" stroke-width="0.942597"/>
+<path d="M427.321 422.769L820.429 303.734" stroke="white" stroke-width="0.942597"/>
+<path d="M427.321 406.911L820.429 158.22" stroke="white" stroke-width="0.942597"/>
+<rect x="326.255" y="392.646" width="100.866" height="100.866" stroke="white" stroke-width="0.942597"/>
+<rect x="320.087" y="386.475" width="113.206" height="113.206" stroke="white" stroke-width="0.942597"/>
+<rect x="307.745" y="374.135" width="137.887" height="137.887" stroke="white" stroke-width="0.942597"/>
+<rect x="296.758" y="362.036" width="160.512" height="160.512" stroke="white" stroke-width="0.942597"/>
+<rect x="285.122" y="351.511" width="183.136" height="183.136" stroke="white" stroke-width="0.942597"/>
+<rect x="271.751" y="338.141" width="209.873" height="209.873" stroke="white" stroke-width="0.942597"/>
+<rect x="251.185" y="317.575" width="251.008" height="251.008" stroke="white" stroke-width="0.942597"/>
+<rect x="231.646" y="298.036" width="290.086" height="290.086" stroke="white" stroke-width="0.942597"/>
+<rect x="206.963" y="273.356" width="339.448" height="339.448" stroke="white" stroke-width="0.942597"/>
+<rect x="179.198" y="245.588" width="394.98" height="394.98" stroke="white" stroke-width="0.942597"/>
+<rect x="145.262" y="211.653" width="462.852" height="462.852" stroke="white" stroke-width="0.942597"/>
+<rect x="105.156" y="171.546" width="543.065" height="543.065" stroke="white" stroke-width="0.942597"/>
+<rect x="58.8785" y="125.269" width="635.618" height="635.618" stroke="white" stroke-width="0.942597"/>
+<rect x="1.29161" y="67.6803" width="750.796" height="750.796" stroke="white" stroke-width="0.942597"/>
+</g>
+</g>
+<defs>
+<linearGradient id="paint0_linear_1082_34252" x1="398.025" y1="53.4629" x2="398.025" y2="547.5" gradientUnits="userSpaceOnUse">
+<stop stop-color="#D9D9D9" stop-opacity="0"/>
+<stop offset="1" stop-color="#737373"/>
+</linearGradient>
+</defs>
+</svg>
