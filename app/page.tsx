@@ -12,7 +12,7 @@ import VoteSection from "@/components/sections/vote-section";
 
 export default function Home() {
   return (
-    <main className="mb-8 mt-6 flex w-full flex-col sm:mb-5.5 sm:mt-4 md:mb-14 md:mt-5.5 lg:mt-4.5 xl:mt-11 2xl:mb-18 2xl:mt-6.5">
+    <main className="mb-8 mt-[147px] flex w-full flex-col sm:mb-5.5 sm:mt-[140px] md:mb-14 md:mt-[124px] xl:mt-[151px] 2xl:mb-18 2xl:mt-[132px]">
       <HeroSection />
       <TokenStatsSection />
       <ExploreAssets />

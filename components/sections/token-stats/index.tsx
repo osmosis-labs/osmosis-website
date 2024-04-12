@@ -13,6 +13,7 @@ import { queryTokenInfo } from "@/lib/queries/numia";
 import { cn } from "@/lib/utils";
 import { PricePretty, RatePretty } from "@keplr-wallet/unit";
 import Image from "next/image";
+import Link from "next/link";
 import { Suspense } from "react";
 
 export interface SectionAsset {
@@ -25,6 +26,7 @@ export interface SectionAsset {
   isUpcoming?: boolean;
   releaseDate?: string;
   isAirdrop?: boolean;
+  projectLink?: string;
 }
 
 type QueryFn = () => Promise<SectionAsset[]>;
@@ -41,7 +43,6 @@ export default async function TokenStatsSection() {
     <section className="relative z-10 mt-17.5 flex flex-col gap-2 p-2 sm:mt-16 sm:p-4 md:mt-14 md:grid md:grid-cols-2 md:gap-y-2 lg:mt-16 lg:grid-cols-[repeat(2,_minmax(0,1fr)),340px] lg:gap-x-2 xl:mt-[136px] xl:grid-cols-[repeat(2,_minmax(0,1fr)),418px] xl:py-0 2xl:mt-20 2xl:grid-cols-3 2xl:gap-x-6 2xl:px-6">
       <Section
         name="Top Gainers"
-        // TEMP | waiting for endpoint integration
         queryAssetsFn={queryTopGainersSectionAssets}
         iconUri="/assets/icons/trending.svg"
       />
@@ -110,15 +111,24 @@ export function TokenStatsRow({
   isUpcoming,
   releaseDate,
   isAirdrop,
+  projectLink,
 }: SectionAsset) {
   return (
-    <div
+    <Link
+      href={
+        isUpcoming
+          ? projectLink ?? "#"
+          : `https://app.osmosis.zone/assets/${denom}?utm_source=osmosis_landing_page`
+      }
+      target={"_blank"}
       className={cn(
-        "flex min-h-18 w-full items-center justify-between rounded-xl px-3 xl:min-h-22.5 2xl:px-4",
+        "group flex min-h-18 w-full items-center justify-between rounded-xl px-3 xl:min-h-22.5 2xl:px-4",
         {
-          "bg-osmoverse-775": !isUpcoming,
+          "bg-osmoverse-775 transition-colors hover:bg-wosmongton-50":
+            !isUpcoming,
           "border-token-stats-upcoming bg-osmoverse-850 py-2.5 md:min-h-30 md:flex-col md:items-start md:p-3 lg:min-h-[154px] xl:min-h-[187px] xl:p-4":
             isUpcoming,
+          "pointer-events-none": !projectLink && isUpcoming,
         },
       )}
     >
@@ -133,6 +143,7 @@ export function TokenStatsRow({
               width={32}
               height={32}
               className="rounded-full bg-osmoverse-650 md:h-10 md:w-10 xl:h-12 xl:w-12"
+              quality={100}
             />
           </>
         )}
@@ -143,13 +154,29 @@ export function TokenStatsRow({
           </div>
         ) : (
           <div className="flex flex-col gap-1.5 2xl:gap-1">
-            <span className="text-sm leading-none max-xl:hidden xl:text-base">
-              {name}
-            </span>
-            <span className="text-sm leading-none xl:hidden">
-              {name.slice(0, 10)}
-              {name.length > 10 && "..."}
-            </span>
+            <div className="relative flex items-center">
+              <span className="text-sm leading-none max-xl:hidden xl:text-base">
+                {name}
+              </span>
+              <span className="text-sm leading-none xl:hidden">
+                {name.slice(0, 10)}
+                {name.length > 10 && "..."}
+              </span>
+              <div
+                className={cn(
+                  "absolute -right-8.5 hidden h-6 w-6 items-center justify-center rounded-full bg-white-full/15",
+                  { "group-hover:flex": !isUpcoming },
+                )}
+              >
+                <Image
+                  src={"/assets/icons/arrow-up-right.svg"}
+                  alt={`Visit ${denom} asset page`}
+                  width={16}
+                  height={16}
+                  className="h-4 w-4"
+                />
+              </div>
+            </div>
             <span className="text-sm leading-none opacity-55 xl:text-base">
               {denom}
             </span>
@@ -201,7 +228,7 @@ export function TokenStatsRow({
           )}
         </>
       )}
-    </div>
+    </Link>
   );
 }
 
@@ -221,7 +248,7 @@ async function TokenPriceStats({ symbol }: { symbol: string }) {
       {_price && _variation && (
         <div className="flex flex-col items-end justify-center gap-1.5">
           <span className="leading-none 2xl:text-lg">
-            {formatPretty(price)}
+            {formatPretty(price, { maxDecimals: 6 })}
           </span>
           <span
             className={cn("inline-flex gap-1.5 leading-none", {

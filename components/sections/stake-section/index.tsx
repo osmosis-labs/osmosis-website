@@ -186,7 +186,7 @@ export default function StakeSection() {
 }
 
 function StakeIllustration() {
-  const common = { alt: "Stake Illustration" };
+  const common = { alt: "Stake Illustration", quality: 100 };
 
   const {
     props: { srcSet: mobile, ...rest },

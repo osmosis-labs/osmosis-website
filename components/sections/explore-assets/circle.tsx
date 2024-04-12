@@ -10,7 +10,7 @@ interface IAsset {
   iconUri: string;
   name: string;
   symbol: string;
-  important: boolean;
+  ring: number;
   isVoid: boolean;
 }
 
@@ -42,7 +42,6 @@ export default function Circle({ list, className }: CircleProps) {
                 )
               )
             )`,
-            transform: "translate(50%, -50%)",
             //@ts-ignore
             "--index": i,
           }}
@@ -65,11 +64,11 @@ function Element({
 } & TAsset) {
   return (
     <Link
-      href={`https://app.osmosis.zone/assets/${symbol}`}
+      href={`https://app.osmosis.zone/assets/${symbol}?utm_source=osmosis_landing_page`}
       target="_blank"
       style={style}
       className={cn(
-        "group absolute z-10 flex h-10 w-10 -translate-y-1/2 translate-x-1/2 flex-col items-center justify-center md:h-20 md:w-20 lg:h-[110px] lg:w-24",
+        "group absolute flex h-10 w-10 -translate-y-1/2 translate-x-1/2 flex-col items-center justify-center opacity-[var(--ring-asset-opacity)] transition-all ease-out hover:scale-105 hover:opacity-100 md:h-20 md:w-20 lg:h-[110px] lg:w-24",
         className,
       )}
     >
@@ -85,7 +84,7 @@ function Element({
           alt={`${name} logo`}
           width={40}
           height={40}
-          className="md:h-12 md:w-12 lg:h-18 lg:w-18"
+          className="rounded-full md:h-12 md:w-12 lg:h-18 lg:w-18"
         />
       )}
       {!isVoid && (

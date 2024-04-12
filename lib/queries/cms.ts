@@ -7,7 +7,7 @@ import { NumiaToken } from "@/lib/types/numia";
 import { unstable_cache } from "next/cache";
 
 const LANDING_PAGE_CMS_DATA_URL = new URL(
-  "/osmosis-labs/fe-content/main/cms/landing-page/landing-page.json",
+  "/osmosis-labs/assetlists/main/upcoming/upcoming_assets.json",
   GITHUB_RAW_DEFAULT_BASEURL,
 );
 
@@ -20,30 +20,41 @@ export async function queryLandingPageCMSData(): Promise<LandingPageData> {
   return await res.json();
 }
 
-export const queryMappedUpcomingAssets = unstable_cache(async () => {
-  const data = await queryLandingPageCMSData();
+export const queryMappedUpcomingAssets = unstable_cache(
+  async () => {
+    const data = await queryLandingPageCMSData();
 
-  return data.upcomingAssets.map(
-    ({
-      assetName,
-      estimatedLaunchDate,
-      logoURL,
-      osmosisAirdrop,
-      showLaunchDate,
-      symbol,
-    }) => ({
-      denom: symbol,
-      iconUri: logoURL,
-      name: assetName,
-      isAirdrop: osmosisAirdrop,
-      releaseDate: showLaunchDate ? estimatedLaunchDate : undefined,
-      isUpcoming: true,
-    }),
-  );
-}, ["mapped-upcoming-assets"]);
+    return data.upcomingAssets.map(
+      ({
+        assetName,
+        estimatedLaunchDate,
+        logoURL,
+        osmosisAirdrop,
+        showLaunchDate,
+        symbol,
+        socials,
+        images,
+        airdropInfoUrl,
+      }) => {
+        return {
+          denom: symbol,
+          iconUri: images[0].svg ?? images[0].png ?? logoURL ?? "",
+          name: assetName,
+          isAirdrop: osmosisAirdrop,
+          releaseDate: showLaunchDate ? estimatedLaunchDate : undefined,
+          isUpcoming: true,
+          projectLink: socials?.website ?? socials?.twitter ?? undefined,
+          airdropInfoUrl,
+        };
+      },
+    );
+  },
+  ["mapped-upcoming-assets"],
+  { revalidate: 3600 },
+);
 
-export const queryUpcomingAssetsSectionAssets =
-  unstable_cache(async (): Promise<SectionAsset[]> => {
+export const queryUpcomingAssetsSectionAssets = unstable_cache(
+  async (): Promise<SectionAsset[]> => {
     return (
       (await queryMappedUpcomingAssets())
         // temp disabled as there currently are no upcoming assets on the cms
@@ -55,7 +66,10 @@ export const queryUpcomingAssetsSectionAssets =
         // this slice is temporary
         .slice(0, 4)
     );
-  }, ["upcoming-assets-section-assets"]);
+  },
+  ["upcoming-assets-section-assets"],
+  { revalidate: 3600 },
+);
 
 export const queryNewestAssets = async () => {
   const assetList = await queryAssetList();

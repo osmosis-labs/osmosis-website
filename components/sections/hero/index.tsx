@@ -1,3 +1,4 @@
+import { GTagLink } from "@/components/shared/gtag-link";
 import { Tickers } from "@/components/sections/hero/tickers";
 import Image from "next/image";
 
@@ -25,6 +26,7 @@ export default function HeroSection() {
                     width={34}
                     height={34}
                     className="pb-[1px] pl-[2.37px] pr-[1.3px] sm:h-10 sm:w-10 lg:h-12 lg:w-12 xl:h-16 xl:w-16 2xl:h-20 2xl:w-20"
+                    priority
                   />
                   <span>Osmosis.</span>
                 </div>
@@ -46,6 +48,7 @@ export default function HeroSection() {
                       width={40}
                       height={40}
                       className="xl:h-12 xl:w-12"
+                      priority
                     />
                     <div className="flex flex-col">
                       <span className="text-neutral-100 xl:text-xl">USDC</span>
@@ -74,6 +77,7 @@ export default function HeroSection() {
                       width={40}
                       height={40}
                       className="xl:h-12 xl:w-12"
+                      priority
                     />
                     <div className="flex flex-col">
                       <span className="text-neutral-100 xl:text-xl">
@@ -96,27 +100,28 @@ export default function HeroSection() {
                   width={38}
                   height={38}
                   className="absolute inset-x-0 left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 2xl:h-[46px] 2xl:w-[46px]"
+                  priority
                 />
               </div>
               <div className="flex flex-col gap-1">
                 <div className="h-2.5 w-30 rounded-full bg-osmoverse-650 2xl:h-3 2xl:w-[150px]" />
                 <div className="h-2.5 w-18 rounded-full bg-osmoverse-650 2xl:h-3 2xl:w-22.5" />
               </div>
-              <button
-                type="button"
-                className="flex h-14 w-full items-center justify-center gap-1 rounded-xl bg-wosmongton-700 xl:h-16"
-              >
-                <p className="text-sm text-neutral-100 lg:text-base">
-                  Start Trading
-                </p>
-                <Image
-                  src={"/assets/icons/arrow-up-right.svg"}
-                  alt="Start Trading"
-                  width={20}
-                  height={20}
-                  className="h-5 w-5"
-                />
-              </button>
+              <GTagLink asChild eventName="buttonClicked" label="Start Trading">
+                <button className="flex h-14 w-full items-center justify-center gap-1 rounded-xl bg-wosmongton-700 xl:h-16">
+                  <p className="text-sm text-neutral-100 lg:text-base">
+                    Start Trading
+                  </p>
+                  <Image
+                    src={"/assets/icons/arrow-up-right.svg"}
+                    alt="Start Trading"
+                    width={20}
+                    height={20}
+                    className="h-5 w-5"
+                    priority
+                  />
+                </button>
+              </GTagLink>
             </div>
           </div>
         </div>
