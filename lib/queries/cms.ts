@@ -1,9 +1,8 @@
 import { SectionAsset } from "@/components/sections/token-stats";
 import { queryAssetList } from "@/lib/queries/asset-list";
-import { queryAllTokens } from "@/lib/queries/numia";
+import { queryValidTokens } from "@/lib/queries/numia";
 import { GITHUB_RAW_DEFAULT_BASEURL } from "@/lib/shared";
 import { LandingPageData } from "@/lib/types/cms";
-import { NumiaToken } from "@/lib/types/numia";
 import { unstable_cache } from "next/cache";
 
 const LANDING_PAGE_CMS_DATA_URL = new URL(
@@ -94,42 +93,6 @@ export const queryNewestAssetsSectionAssets = async (): Promise<
     name,
   }));
 };
-
-type NumiaTokenWithLogo = NumiaToken & { logoURIs: string };
-
-export const queryValidTokens = unstable_cache(
-  async (): Promise<NumiaTokenWithLogo[]> => {
-    const assets = await queryAllTokens();
-    const assetList = await queryAssetList();
-
-    const aggregatedAndFiltered: (NumiaTokenWithLogo | undefined)[] = assets
-      .map((asset) => {
-        const assetInfoAsset = assetList.assets.filter(
-          ({ coinMinimalDenom, verified, disabled, unstable }) => {
-            return (
-              coinMinimalDenom === asset.denom &&
-              verified &&
-              !disabled &&
-              !unstable
-            );
-          },
-        )[0];
-
-        if (!assetInfoAsset) return;
-
-        return {
-          ...asset,
-          logoURIs:
-            assetInfoAsset.logoURIs.svg ?? assetInfoAsset.logoURIs.png ?? "",
-        };
-      })
-      .filter(Boolean);
-
-    return aggregatedAndFiltered as NumiaTokenWithLogo[];
-  },
-  ["query-dust-filtered-assets"],
-  { revalidate: 86_400 },
-);
 
 export const queryTopGainersSectionAssets = async (): Promise<
   SectionAsset[]
