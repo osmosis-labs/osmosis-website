@@ -1,5 +1,6 @@
 import StakingApr from "@/components/sections/stake-section/staking-apr";
 import Badge from "@/components/shared/badge";
+import { queryPastAirdrops } from "@/lib/queries/cms";
 import Image, { getImageProps } from "next/image";
 import { Suspense } from "react";
 
@@ -152,22 +153,7 @@ export default function StakeSection() {
                         Past Airdrops
                       </span>
                     </div>
-                    <div className="horizontal-mask relative flex h-[48px]">
-                      <div className="upcoming-airdrops-row-width absolute flex animate-upcoming-airdrops-marquee-reverse items-center gap-2">
-                        {airdrops.map(({ name, uri }, i) => {
-                          return (
-                            <Image
-                              key={`${name} icon ${i}`}
-                              alt={`${name} icon`}
-                              src={uri}
-                              width={48}
-                              height={48}
-                              className="rounded-full"
-                            />
-                          );
-                        })}
-                      </div>
-                    </div>
+                    <AirdropRow variant="past" />
                   </div>
                 </div>
                 <div className="flex items-center self-stretch px-2 opacity-55">
@@ -182,6 +168,35 @@ export default function StakeSection() {
         <StakeIllustration />
       </div>
     </section>
+  );
+}
+
+interface AirdropRowProps {
+  variant: "upcoming" | "past";
+}
+
+async function AirdropRow({}: AirdropRowProps) {
+  // query based on variant
+
+  console.log(await queryPastAirdrops());
+
+  return (
+    <div className="horizontal-mask relative flex h-[48px]">
+      <div className="upcoming-airdrops-row-width absolute flex animate-upcoming-airdrops-marquee-reverse items-center gap-2">
+        {airdrops.map(({ name, uri }, i) => {
+          return (
+            <Image
+              key={`${name} icon ${i}`}
+              alt={`${name} icon`}
+              src={uri}
+              width={48}
+              height={48}
+              className="rounded-full"
+            />
+          );
+        })}
+      </div>
+    </div>
   );
 }
 

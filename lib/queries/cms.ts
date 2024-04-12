@@ -2,7 +2,8 @@ import { SectionAsset } from "@/components/sections/token-stats";
 import { queryAssetList } from "@/lib/queries/asset-list";
 import { queryValidTokens } from "@/lib/queries/numia";
 import { GITHUB_RAW_DEFAULT_BASEURL } from "@/lib/shared";
-import { LandingPageData } from "@/lib/types/cms";
+import { LandingPageData, PastAirdrop } from "@/lib/types/cms";
+import { NumiaToken } from "@/lib/types/numia";
 import { unstable_cache } from "next/cache";
 
 const LANDING_PAGE_CMS_DATA_URL = new URL(
@@ -108,4 +109,23 @@ export const queryTopGainersSectionAssets = async (): Promise<
     iconUri: logoURIs,
     name,
   }));
+};
+
+export const queryPastAirdrops = async (): Promise<NumiaToken[]> => {
+  const res = await fetch(
+    new URL(
+      "/osmosis-labs/fe-content/main/landing-page/landing-page.json",
+      GITHUB_RAW_DEFAULT_BASEURL,
+    ),
+    {
+      method: "GET",
+      next: { revalidate: 86_400 },
+    },
+  );
+
+  const { pastAirdrops }: { pastAirdrops: PastAirdrop[] } = await res.json();
+
+  console.log(pastAirdrops);
+
+  return [];
 };
