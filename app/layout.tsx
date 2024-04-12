@@ -31,9 +31,16 @@ export const metadata: Metadata = {
     locale: "en_US",
     type: "website",
     siteName: "Osmosis",
+    title: "Osmosis",
+    description:
+      "Swap, earn, and build on the leading decentralized Cosmos exchange.",
   },
   twitter: {
     site: "@osmosiszone",
+    title: "Osmosis",
+    description:
+      "Swap, earn, and build on the leading decentralized Cosmos exchange.",
+    card: "summary_large_image",
   },
 };
 
@@ -42,6 +49,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // const bannerHidden = cookies().get("bannerHidden")?.value;
+
   return (
     <html
       lang="en"
@@ -54,7 +63,10 @@ export default function RootLayout({
       <body
         className={`bg-osmoverse-850 ${inter.variable} ${poppins.variable} container max-sm:px-4 sm:max-w-[448px] md:max-w-screen-sm lg:max-w-[960px] xl:max-w-[1152px] 2xl:max-w-[1440px]`}
       >
-        <Navbar />
+        <div className="fixed left-0 top-0 z-[999] flex w-screen max-w-none flex-col">
+          {/* {!bannerHidden && <Banner />} */}
+          <Navbar />
+        </div>
         {children}
         <Footer />
         <div className="fixed inset-x-0 bottom-8 z-[999] flex w-full justify-center lg:hidden">

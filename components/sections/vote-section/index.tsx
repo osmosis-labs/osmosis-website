@@ -1,5 +1,6 @@
 import { GTagLink } from "@/components/shared/gtag-link";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function VoteSection() {
   return (
@@ -22,8 +23,8 @@ export default function VoteSection() {
               <div className="flex flex-col justify-center gap-8 self-stretch lg:gap-6 xl:gap-8 xl:self-start">
                 <div className="flex flex-col items-center gap-2 self-stretch md:flex-row xl:gap-3 2xl:gap-4">
                   <GTagLink asChild eventName="buttonClicked" label="Vote now">
-                    <button
-                      type="button"
+                    <Link
+                      href={"https://daodao.zone/gov/osmosis/proposals"}
                       className="flex items-center justify-center gap-1 self-stretch rounded-xl bg-wosmongton-700 px-6 py-4 md:flex-1 md:self-start lg:flex-initial xl:rounded-[14px] xl:px-8 xl:py-5"
                     >
                       <span className="leading-6.25 text-neutral-100">
@@ -35,15 +36,15 @@ export default function VoteSection() {
                         width={24}
                         height={24}
                       />
-                    </button>
+                    </Link>
                   </GTagLink>
                   <GTagLink
                     asChild
                     eventName="buttonClicked"
                     label="Join the discussion"
                   >
-                    <button
-                      type="button"
+                    <Link
+                      href={"https://forum.osmosis.zone/"}
                       className="flex items-center justify-center gap-1 self-stretch rounded-xl bg-osmoverse-760 px-6 py-4 md:flex-1 lg:flex-initial xl:rounded-[14px] xl:py-5 2xl:px-8"
                     >
                       <span className="leading-6.25 text-neutral-100">
@@ -55,7 +56,7 @@ export default function VoteSection() {
                         width={24}
                         height={24}
                       />
-                    </button>
+                    </Link>
                   </GTagLink>
                 </div>
                 <div className="flex items-center gap-2 opacity-70">

@@ -1,5 +1,6 @@
 import { GTagLink } from "@/components/shared/gtag-link";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function TradeSection() {
   return (
@@ -20,8 +21,8 @@ export default function TradeSection() {
             eventName="buttonClicked"
             label="Get Started (Trade Section)"
           >
-            <button
-              type="button"
+            <Link
+              href={"https://app.osmosis.zone?utm_source=osmosis_landing_page"}
               className="flex items-center justify-center gap-1 self-stretch rounded-xl bg-wosmongton-700 px-6 py-4 md:w-[220px] xl:rounded-[14px] xl:py-5"
             >
               <span className="leading-6.5">Get Started</span>
@@ -32,7 +33,7 @@ export default function TradeSection() {
                 height={24}
                 className="2xl:hidden"
               />
-            </button>
+            </Link>
           </GTagLink>
         </div>
         <DoggoIllustration />

@@ -1,87 +1,106 @@
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import Link from "next/link";
 
 const backers = [
   {
     imageUri: "/assets/backers/Paradigm.svg",
     name: "Paradigm",
+    link: "https://www.paradigm.xyz/portfolio/osmosis",
   },
   {
     imageUri: "/assets/backers/BainCapital.svg",
     name: "BainCapital",
+    link: "https://www.paradigm.xyz/portfolio/osmosis",
   },
   {
     imageUri: "/assets/backers/RibbitCapital.svg",
     name: "RibbitCapital",
+    link: "https://ribbitcap.com/our-bets/",
   },
   {
     imageUri: "/assets/backers/ElectricCapital.svg",
     name: "ElectricCapital",
+    link: "https://www.electriccapital.com/investments",
   },
   {
     imageUri: "/assets/backers/Grayscale.svg",
     name: "Grayscale",
+    link: "https://www.grayscale.com/private-funds/gdif",
   },
   {
     imageUri: "/assets/backers/Maven11.svg",
     name: "Maven11",
+    link: "https://www.maven11.com/",
   },
   {
     imageUri: "/assets/backers/Anagram.svg",
     name: "Anagram",
+    link: "https://www.anagram.xyz/",
   },
   {
     imageUri: "/assets/backers/EtherealVentures.svg",
     name: "EtherealVentures",
+    link: "https://www.etherealventures.com/portfolio",
   },
   {
     imageUri: "/assets/backers/RobotoVentures.webp",
     name: "RobotoVentures",
+    link: "https://robvc.com/",
   },
   {
     imageUri: "/assets/backers/Nascent.svg",
     name: "Nascent",
+    link: "https://www.nascent.xyz/portfolio",
   },
   {
     imageUri: "/assets/backers/FigmentCapital.svg",
     name: "FigmentCapital",
+    link: "https://www.figmentcapital.io/portfolio",
   },
   {
     imageUri: "/assets/backers/BCAP.svg",
     name: "BCAP",
+    link: "https://www.blockchaincapital.com/",
   },
   {
     imageUri: "/assets/backers/Anatoly.webp",
     isTextSm: true,
     isPortrait: true,
     name: "Anatoly Yakovenko",
+    link: "https://twitter.com/aeyakovenko",
   },
   {
     imageUri: "/assets/backers/Naval.webp",
     isPortrait: true,
     name: "Naval",
+    link: "https://twitter.com/naval",
   },
   {
     imageUri: "/assets/backers/Ethan.webp",
     isTextSm: true,
     isPortrait: true,
     name: "Ethan Buchman",
+    link: "https://twitter.com/buchmanster",
   },
   {
     imageUri: "/assets/backers/Eric.webp",
     isPortrait: true,
     name: "Eric Schmidt",
+    link: "https://steelperlot.com/",
   },
   {
     imageUri: "/assets/backers/Hasu.webp",
     isPortrait: true,
     name: "Hasu",
+    link: "https://twitter.com/hasufl",
   },
   {
     imageUri: "/assets/backers/Raj.webp",
     isTextSm: true,
     isPortrait: true,
     name: "Raj Gokal",
+    link: "https://twitter.com/rajgokal",
   },
 ];
 
@@ -114,9 +133,11 @@ export default function BackersSection() {
           />
         </label>
         <div className="flex h-[184px] flex-col gap-2 overflow-hidden transition-[height] peer-checked:h-full md:h-full md:flex-row md:flex-wrap md:content-center md:items-center md:justify-center md:gap-3 md:self-stretch">
-          {backers.map(({ imageUri, name, isPortrait, isTextSm }) => {
+          {backers.map(({ imageUri, name, isPortrait, isTextSm, link }) => {
             return (
-              <div
+              <Link
+                href={link}
+                target="_blank"
                 key={name}
                 className="relative flex h-14 w-[342px] items-center justify-center self-stretch rounded-lg border border-solid border-osmoverse-650 bg-osmoverse-775 sm:w-[416px] md:w-max"
               >
@@ -147,7 +168,7 @@ export default function BackersSection() {
                     alt={name}
                   />
                 )}
-              </div>
+              </Link>
             );
           })}
         </div>

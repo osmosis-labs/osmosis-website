@@ -7,15 +7,15 @@ import { cn } from "@/lib/utils";
 const links = [
   {
     label: "Earn",
-    href: "#",
+    href: "https://app.osmosis.zone/earn?utm_source=osmosis_landing_page",
   },
   {
     label: "Trade",
-    href: "#",
+    href: "https://app.osmosis.zone?utm_source=osmosis_landing_page",
   },
   {
     label: "Assets",
-    href: "#",
+    href: "https://app.osmosis.zone/assets?utm_source=osmosis_landing_page",
   },
 ];
 

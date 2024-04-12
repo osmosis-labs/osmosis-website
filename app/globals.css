@@ -69,24 +69,27 @@
   .absolute-center {
     @apply left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2;
   }
-  .external-circle {
+  .second-ring {
     --angle: 30deg;
     --offset: 60deg;
+    --ring-asset-opacity: 0.75;
   }
-  .internal-circle {
+  .first-ring {
     --angle: 45deg;
     --offset: 45deg;
   }
-  .void-circle {
+  .third-ring {
     --angle: 12.86deg;
     --offset: 0deg;
+    --ring-asset-opacity: 0.5;
   }
   @media (min-width: 768px) {
-    .external-circle {
+    .second-ring {
       --angle: 18deg;
       --offset: 0deg;
+      --ring-asset-opacity: 0.75;
     }
-    .internal-circle {
+    .first-ring {
       --angle: 30deg;
       --offset: 0deg;
     }
@@ -110,18 +113,6 @@
         rgba(32, 27, 67, 0) 100%
       );
   } */
-  .void-assets-mask {
-    background: linear-gradient(to top, #140f34 18%, rgba(46, 30, 144, 0) 40%);
-  }
-  @media (min-width: 1536px) {
-    .void-assets-mask {
-      background: linear-gradient(
-        to top,
-        #140f34 17%,
-        rgba(46, 30, 144, 0) 28%
-      );
-    }
-  }
   .stats-with-tweets-bg {
     background: radial-gradient(
         68.58% 65.85% at 98.59% -2.72%,
@@ -137,11 +128,66 @@
     outline-offset: -1px;
     outline: 1px solid rgba(200, 169, 255, 0.25);
   }
-  .row-width-xl {
-    width: calc((472px * 8 + 16px * 6) * 2);
+  .tweets-upper-half {
+    --tweet-count: 13;
+    --tweet-width: 309px;
+    --tweet-gap: 8px;
   }
-  .row-width {
-    width: calc((309px * 8 + 8px * 6) * 2);
+  .tweets-bottom-half {
+    --tweet-count: 14;
+    --tweet-width: 309px;
+    --tweet-gap: 8px;
+  }
+  @media (min-width: 1024px) {
+    .tweets-upper-half {
+      --tweet-count: 13;
+      --tweet-width: 472px;
+      --tweet-gap: 16px;
+    }
+    .tweets-bottom-half {
+      --tweet-count: 14;
+      --tweet-width: 472px;
+      --tweet-gap: 16px;
+    }
+  }
+  @keyframes tweets-animation {
+    from {
+      transform: translateZ(0);
+    }
+    to {
+      transform: translate3d(
+        calc(
+          (
+              var(--tweet-width) * var(--tweet-count) +
+                (var(--tweet-gap) * (var(--tweet-count) - 1))
+            ) * -1 - var(--tweet-gap)
+        ),
+        0,
+        0
+      );
+    }
+  }
+  .tweets-row-marquee-animation {
+    width: calc(
+      (
+          var(--tweet-width) * var(--tweet-count) +
+            (16px * (var(--tweet-count)) - 2)
+        ) * 2
+    );
+    animation: tweets-animation 120s linear infinite;
+  }
+  .tweets-row-marquee-animation-reverse {
+    width: calc(
+      (
+          var(--tweet-width) * var(--tweet-count) +
+            (16px * (var(--tweet-count)) - 2)
+        ) * 2
+    );
+    animation: tweets-animation 120s linear infinite reverse;
+  }
+  .tweet-paragraph-mask-gradient::after {
+    @apply absolute inset-0 content-[''] lg:hidden;
+    background: linear-gradient(to top, #201b43 0%, #201b4300 50%);
   }
   .tweets-mask {
     mask-image: linear-gradient(

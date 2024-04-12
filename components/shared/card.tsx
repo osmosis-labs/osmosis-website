@@ -59,7 +59,7 @@ export default function Card({
             </div>
           )}
           {link && linkArrowIconUri && (
-            <GTagLink asChild eventName="cardClicked" href={link} label={title}>
+            <GTagLink asChild eventName="cardClicked" label={title}>
               <Link href={link} className="-ml-0.5">
                 <Image
                   src={linkArrowIconUri}
