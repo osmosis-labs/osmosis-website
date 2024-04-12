@@ -1,5 +1,4 @@
 import { Tickers } from "@/components/sections/hero/tickers";
-import { cn } from "@/lib/utils";
 import Image from "next/image";
 
 export default function HeroSection() {
@@ -13,12 +12,8 @@ export default function HeroSection() {
               <span className="inline-flex items-center gap-3 whitespace-nowrap sm:gap-5.5">
                 the next
                 {/**base gap is compensated in the widths of the brackets */}
-                <div className="ticker-mask relative h-12 overflow-hidden transition-all sm:h-[46px] lg:h-[58px] xl:h-20 2xl:h-22.5">
-                  <div className="flex items-center justify-between sm:gap-2.5 lg:gap-2 xl:gap-2.5">
-                    <Bracket />
-                    <Tickers />
-                    <Bracket isMirrored />
-                  </div>
+                <div className="relative h-12 sm:h-[46px] lg:h-[58px] xl:h-20 2xl:h-22.5">
+                  <Tickers />
                 </div>
               </span>
               <span className="inline-flex items-center gap-1 2xl:gap-4">
@@ -169,20 +164,5 @@ export default function HeroSection() {
         className="bottom absolute top-[410px] z-0 hidden h-auto w-full 2xl:block"
       />
     </div>
-  );
-}
-
-function Bracket({ isMirrored }: { isMirrored?: boolean }) {
-  return (
-    <Image
-      src={"/assets/bracket.svg"}
-      alt="Bracket"
-      width={6}
-      height={48}
-      className={cn(
-        "h-12 self-stretch sm:h-[46px] lg:h-[58px] lg:w-2 xl:h-[80px] xl:w-2.5 2xl:h-22.5 2xl:w-3",
-        { "scale-x-[-1]": isMirrored },
-      )}
-    />
   );
 }

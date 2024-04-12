@@ -43,6 +43,18 @@
       --hero-vertical-marquee-height: 90px;
     }
   }
+  @keyframes ticker {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-50%);
+    }
+  }
+  .animate-ticker {
+    animation: ticker 1s ease-in-out forwards;
+    animation-delay: -300ms;
+  }
   .ticker-mask {
     mask-image: linear-gradient(
       180deg,
