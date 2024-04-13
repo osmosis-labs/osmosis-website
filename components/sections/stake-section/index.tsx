@@ -1,6 +1,7 @@
 import StakingApr from "@/components/sections/stake-section/staking-apr";
 import Badge from "@/components/shared/badge";
 import Image, { getImageProps } from "next/image";
+import Link from "next/link";
 import { Suspense } from "react";
 
 const airdrops = Array<{ uri: string; name: string }>(22).fill({
@@ -37,7 +38,13 @@ export default function StakeSection() {
       <div className="flex flex-col-reverse gap-4 lg:grid lg:grid-cols-[486px,434px] lg:gap-2 xl:grid-cols-[523px,581px] xl:gap-4 2xl:grid-cols-[664px,712px]">
         <div className="flex flex-col justify-center gap-2 self-stretch md:grid md:grid-cols-2 xl:gap-4">
           {/**card */}
-          <div className="flex flex-col gap-6 self-stretch rounded-2xl border border-solid border-osmoverse-650 bg-osmoverse-775 px-4 py-6 lg:gap-8 lg:p-6 xl:rounded-3xl 2xl:gap-10">
+          <Link
+            href={
+              "https://medium.com/osmosis-community-updates/osmosis-superfluid-staking-faq-a7b49797cb72"
+            }
+            target="_blank"
+            className="flex flex-col gap-6 self-stretch rounded-2xl border border-solid border-osmoverse-650 bg-osmoverse-775 px-4 py-6 lg:gap-8 lg:p-6 xl:rounded-3xl 2xl:gap-10"
+          >
             <Image
               src={"/assets/icons/stake/osmo-blue.svg"}
               alt="Osmo blue icon"
@@ -54,9 +61,15 @@ export default function StakeSection() {
                 <span className="font-medium">at the same time.</span>
               </p>
             </div>
-          </div>
+          </Link>
           {/**card */}
-          <div className="flex flex-col gap-6 self-stretch rounded-2xl border border-solid border-osmoverse-650 bg-osmoverse-775 px-4 py-6 lg:gap-8 lg:p-6 xl:rounded-3xl 2xl:gap-10">
+          <Link
+            href={
+              "https://forum.osmosis.zone/t/osmosis-taker-fees-real-yield-for-stakers-real-revenue-for-osmosis/638"
+            }
+            target="_blank"
+            className="flex flex-col gap-6 self-stretch rounded-2xl border border-solid border-osmoverse-650 bg-osmoverse-775 px-4 py-6 lg:gap-8 lg:p-6 xl:rounded-3xl 2xl:gap-10"
+          >
             <Image
               src={"/assets/icons/stake/plant-blue.svg"}
               alt="Plant blue icon"
@@ -65,14 +78,14 @@ export default function StakeSection() {
             />
             <div className="flex flex-col gap-2">
               <span className="self-stretch font-poppins text-xl leading-6.5 text-neutral-100">
-                Organic yields
+                Real yields
               </span>
               <p className="font-light leading-6.25 text-alpha-60">
                 Every trade on Osmosis generates fees that stakers receive for
                 securing the protocol.
               </p>
             </div>
-          </div>
+          </Link>
           {/**card */}
           <div className="flex flex-col gap-6 self-stretch overflow-hidden rounded-2xl border border-solid border-osmoverse-650 bg-osmoverse-775 px-4 py-6 md:col-span-2 lg:gap-0 lg:p-6 xl:rounded-3xl 2xl:justify-between 2xl:gap-4">
             <Image
