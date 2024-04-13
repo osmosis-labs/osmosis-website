@@ -14,7 +14,7 @@ import { cn } from "@/lib/utils";
 import { PricePretty, RatePretty } from "@keplr-wallet/unit";
 import Image from "next/image";
 import Link from "next/link";
-import { Suspense } from "react";
+import { PropsWithChildren, Suspense } from "react";
 
 export interface SectionAsset {
   name: string;
@@ -116,7 +116,9 @@ export function TokenStatsRow({
   airdropInfoUrl,
 }: SectionAsset) {
   return (
-    <div
+    <DivOrLink
+      isDiv={isUpcoming === true}
+      link={`https://app.osmosis.zone/assets/${denom}?utm_source=osmosis_landing_page`}
       className={cn(
         "group flex min-h-18 w-full items-center justify-between rounded-xl px-3 xl:min-h-22.5 2xl:px-4",
         {
@@ -128,13 +130,9 @@ export function TokenStatsRow({
         },
       )}
     >
-      <Link
-        href={
-          isUpcoming
-            ? projectLink ?? "#"
-            : `https://app.osmosis.zone/assets/${denom}?utm_source=osmosis_landing_page`
-        }
-        target={"_blank"}
+      <DivOrLink
+        isDiv={!isUpcoming}
+        link={projectLink}
         className="flex items-center gap-2 xl:gap-3"
       >
         {isLoading ? (
@@ -186,7 +184,7 @@ export function TokenStatsRow({
             </span>
           </div>
         )}
-      </Link>
+      </DivOrLink>
       {isLoading ? (
         <div
           className={cn("flex flex-col items-end justify-center gap-1", {
@@ -220,7 +218,26 @@ export function TokenStatsRow({
           )}
         </>
       )}
-    </div>
+    </DivOrLink>
+  );
+}
+
+function DivOrLink({
+  children,
+  isDiv,
+  className,
+  link,
+}: PropsWithChildren<{
+  isDiv: boolean;
+  className?: string;
+  link?: string;
+}>) {
+  if (isDiv) return <div className={className}>{children}</div>;
+
+  return (
+    <Link className={className} href={link ?? "#"} target="_blank">
+      {children}
+    </Link>
   );
 }
 
