@@ -1,11 +1,13 @@
 "use client";
 
+import { useTickers } from "@/lib/store/useTickers";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import React, { forwardRef, useEffect, useState } from "react";
 
-interface TickerProps {
+export interface TickerProps {
   denom: string;
+  name: string;
   iconUri: string;
 }
 
@@ -102,15 +104,18 @@ export const tickerAnimationAssets: TickerProps[] = [
 ];
 
 export function Tickers() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [nextTickerW, setNextTickerW] = useState(0);
+  const { currentIndex, setCurrentIndex } = useTickers();
+  const [nextTickerWidth, setNextTickerWidth] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % tickerAnimationAssets.length);
+      setCurrentIndex((prev) => ({
+        ...prev,
+        currentIndex: (prev.currentIndex + 1) % tickerAnimationAssets.length,
+      }));
     }, 2000);
     return () => clearInterval(interval);
-  }, [currentIndex]);
+  }, [setCurrentIndex]);
 
   return (
     <div className="relative flex h-full items-center justify-between sm:gap-2.5 lg:gap-2 xl:gap-2.5">
@@ -118,8 +123,7 @@ export function Tickers() {
       <div
         className="ticker-mask max-h-full overflow-hidden transition-all duration-1000"
         style={{
-          //@ts-ignore
-          width: `${nextTickerW}px`,
+          width: `${nextTickerWidth}px`,
         }}
       >
         <div
@@ -131,7 +135,7 @@ export function Tickers() {
             {...tickerAnimationAssets[
               (currentIndex + 1) % tickerAnimationAssets.length
             ]}
-            ref={(el) => setNextTickerW(el?.clientWidth ?? 0)}
+            ref={(el) => setNextTickerWidth(el?.clientWidth ?? 0)}
           />
         </div>
       </div>
@@ -154,7 +158,7 @@ export const Ticker = forwardRef<HTMLDivElement, TickerProps>(
           alt={`${denom} icon`}
           width={34}
           height={34}
-          className="sm:h-10 sm:w-10 lg:h-12 lg:w-12 xl:h-16 xl:w-16 2xl:h-17.5 2xl:w-17.5"
+          className="rounded-full sm:h-10 sm:w-10 lg:h-12 lg:w-12 xl:h-16 xl:w-16 2xl:h-17.5 2xl:w-17.5"
         />
         <span>{denom}</span>
       </div>
