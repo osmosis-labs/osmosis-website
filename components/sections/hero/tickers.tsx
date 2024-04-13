@@ -59,7 +59,7 @@ export function Tickers() {
       >
         <div
           key={currentIndex}
-          className="animate-ticker mt-1.5 sm:mt-[3px] xl:mt-2 2xl:mt-[5px]"
+          className="animate-ticker mt-1.5 flex flex-col gap-4 sm:mt-[3px] xl:mt-2 2xl:mt-[5px]"
         >
           <Ticker {...tickerAnimationAssets[currentIndex]} />
           <Ticker

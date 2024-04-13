@@ -48,7 +48,7 @@
       transform: translateY(0);
     }
     100% {
-      transform: translateY(-50%);
+      transform: translateY(calc(-50% - 8px));
     }
   }
   .animate-ticker {
