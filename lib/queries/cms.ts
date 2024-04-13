@@ -71,7 +71,7 @@ export const queryUpcomingAssetsSectionAssets = unstable_cache(
   { revalidate: 3600 },
 );
 
-export const queryNewestAssets = async () => {
+export const queryNewAssets = async () => {
   const assetList = await queryAssetList();
   const assets = assetList.assets;
 
@@ -83,12 +83,12 @@ export const queryNewestAssets = async () => {
     .slice(0, 4);
 };
 
-export const queryNewestAssetsSectionAssets = async (): Promise<
+export const queryNewAssetsSectionAssets = async (): Promise<
   SectionAsset[]
 > => {
-  const newestAssets = await queryNewestAssets();
+  const newAssets = await queryNewAssets();
 
-  return newestAssets.map(({ symbol, logoURIs, name }) => ({
+  return newAssets.map(({ symbol, logoURIs, name }) => ({
     denom: symbol,
     iconUri: logoURIs.svg ?? logoURIs.png ?? "",
     name,

@@ -5,7 +5,7 @@ import {
 } from "@/components/sections/token-stats/skeleton";
 import { DEFAULT_VS_CURRENCY, formatPretty } from "@/lib/formatting";
 import {
-  queryNewestAssetsSectionAssets,
+  queryNewAssetsSectionAssets,
   queryTopGainersSectionAssets,
   queryUpcomingAssetsSectionAssets,
 } from "@/lib/queries/cms";
@@ -27,6 +27,7 @@ export interface SectionAsset {
   releaseDate?: string;
   isAirdrop?: boolean;
   projectLink?: string;
+  airdropInfoUrl?: string;
 }
 
 type QueryFn = () => Promise<SectionAsset[]>;
@@ -47,8 +48,8 @@ export default async function TokenStatsSection() {
         iconUri="/assets/icons/trending.svg"
       />
       <Section
-        name="Newest"
-        queryAssetsFn={queryNewestAssetsSectionAssets}
+        name="New"
+        queryAssetsFn={queryNewAssetsSectionAssets}
         iconUri="/assets/icons/rocket.svg"
       />
       <Section
@@ -112,15 +113,10 @@ export function TokenStatsRow({
   releaseDate,
   isAirdrop,
   projectLink,
+  airdropInfoUrl,
 }: SectionAsset) {
   return (
-    <Link
-      href={
-        isUpcoming
-          ? projectLink ?? "#"
-          : `https://app.osmosis.zone/assets/${denom}?utm_source=osmosis_landing_page`
-      }
-      target={"_blank"}
+    <div
       className={cn(
         "group flex min-h-18 w-full items-center justify-between rounded-xl px-3 xl:min-h-22.5 2xl:px-4",
         {
@@ -132,7 +128,15 @@ export function TokenStatsRow({
         },
       )}
     >
-      <div className="flex items-center gap-2 xl:gap-3">
+      <Link
+        href={
+          isUpcoming
+            ? projectLink ?? "#"
+            : `https://app.osmosis.zone/assets/${denom}?utm_source=osmosis_landing_page`
+        }
+        target={"_blank"}
+        className="flex items-center gap-2 xl:gap-3"
+      >
         {isLoading ? (
           <div className="h-8 w-8 rounded-full bg-osmoverse-650 md:h-10 md:w-10 xl:h-12 xl:w-12" />
         ) : (
@@ -182,7 +186,7 @@ export function TokenStatsRow({
             </span>
           </div>
         )}
-      </div>
+      </Link>
       {isLoading ? (
         <div
           className={cn("flex flex-col items-end justify-center gap-1", {
@@ -211,23 +215,31 @@ export function TokenStatsRow({
                   {releaseDate}
                 </span>
               )}
-              {isAirdrop && (
-                <div className="flex min-h-5 items-center gap-0.5 rounded-xl bg-ion-300 pl-1.5 pr-2">
-                  <Image
-                    src={"/assets/icons/giftbox.svg"}
-                    alt="Airdrop icon"
-                    width={14}
-                    height={14}
-                  />
-                  <span className="text-xs leading-none text-ion-900 xl:text-sm">
-                    Airdrop
-                  </span>
-                </div>
-              )}
+              {isAirdrop && <AirdropBadge airdropInfoUrl={airdropInfoUrl} />}
             </div>
           )}
         </>
       )}
+    </div>
+  );
+}
+
+function AirdropBadge({ airdropInfoUrl }: { airdropInfoUrl?: string }) {
+  return (
+    <Link
+      passHref
+      href={airdropInfoUrl ?? "#"}
+      className="flex min-h-5 items-center gap-0.5 rounded-xl bg-ion-300 pl-1.5 pr-2"
+    >
+      <Image
+        src={"/assets/icons/giftbox.svg"}
+        alt="Airdrop icon"
+        width={14}
+        height={14}
+      />
+      <span className="text-xs leading-none text-ion-900 xl:text-sm">
+        Airdrop
+      </span>
     </Link>
   );
 }
