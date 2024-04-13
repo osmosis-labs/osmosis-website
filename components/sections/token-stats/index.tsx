@@ -5,7 +5,7 @@ import {
 } from "@/components/sections/token-stats/skeleton";
 import { DEFAULT_VS_CURRENCY, formatPretty } from "@/lib/formatting";
 import {
-  queryNewestAssetsSectionAssets,
+  queryNewAssetsSectionAssets,
   queryTopGainersSectionAssets,
   queryUpcomingAssetsSectionAssets,
 } from "@/lib/queries/cms";
@@ -48,8 +48,8 @@ export default async function TokenStatsSection() {
         iconUri="/assets/icons/trending.svg"
       />
       <Section
-        name="Newest"
-        queryAssetsFn={queryNewestAssetsSectionAssets}
+        name="New"
+        queryAssetsFn={queryNewAssetsSectionAssets}
         iconUri="/assets/icons/rocket.svg"
       />
       <Section
