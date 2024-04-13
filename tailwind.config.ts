@@ -10,31 +10,6 @@ const config: Config = {
   ],
   prefix: "",
   theme: {
-    keyframes: {
-      "upcoming-airdrops-marquee": {
-        "0%": { transform: "translateZ(0)" },
-        "100%": {
-          transform: "translate3d(calc((48px * 10 + 8px * 9) * -1 - 8px),0,0)",
-        },
-      },
-      "hero-vertical-marquee": {
-        "0%": {
-          transform: "translateY(0)",
-        },
-        "100%": {
-          transform:
-            "translateY(calc( (var(--hero-vertical-marquee-height) * 6 + 4px * 5) * -1 - 4px ))",
-        },
-      },
-    },
-    animation: {
-      "upcoming-airdrops-marquee":
-        "upcoming-airdrops-marquee 10s linear infinite",
-      "upcoming-airdrops-marquee-reverse":
-        "upcoming-airdrops-marquee 10s linear infinite reverse",
-      "hero-vertical-marquee":
-        "hero-vertical-marquee 5s cubic-bezier(.39,.81,.9,.36) infinite",
-    },
     extend: {
       borderRadius: {
         "4xl": "2rem",

@@ -1,9 +1,11 @@
 import { SectionAsset } from "@/components/sections/token-stats";
-import { queryAssetList } from "@/lib/queries/asset-list";
-import { queryAllTokens } from "@/lib/queries/numia";
+import {
+  queryAssetFromAssetList,
+  queryAssetList,
+} from "@/lib/queries/asset-list";
+import { queryValidTokens } from "@/lib/queries/numia";
 import { GITHUB_RAW_DEFAULT_BASEURL } from "@/lib/shared";
-import { LandingPageData } from "@/lib/types/cms";
-import { NumiaToken } from "@/lib/types/numia";
+import { LandingPageData, PastAirdrop } from "@/lib/types/cms";
 import { unstable_cache } from "next/cache";
 
 const LANDING_PAGE_CMS_DATA_URL = new URL(
@@ -71,7 +73,7 @@ export const queryUpcomingAssetsSectionAssets = unstable_cache(
   { revalidate: 3600 },
 );
 
-export const queryNewestAssets = async () => {
+export const queryNewAssets = async () => {
   const assetList = await queryAssetList();
   const assets = assetList.assets;
 
@@ -83,53 +85,17 @@ export const queryNewestAssets = async () => {
     .slice(0, 4);
 };
 
-export const queryNewestAssetsSectionAssets = async (): Promise<
+export const queryNewAssetsSectionAssets = async (): Promise<
   SectionAsset[]
 > => {
-  const newestAssets = await queryNewestAssets();
+  const newAssets = await queryNewAssets();
 
-  return newestAssets.map(({ symbol, logoURIs, name }) => ({
+  return newAssets.map(({ symbol, logoURIs, name }) => ({
     denom: symbol,
     iconUri: logoURIs.svg ?? logoURIs.png ?? "",
     name,
   }));
 };
-
-type NumiaTokenWithLogo = NumiaToken & { logoURIs: string };
-
-export const queryValidTokens = unstable_cache(
-  async (): Promise<NumiaTokenWithLogo[]> => {
-    const assets = await queryAllTokens();
-    const assetList = await queryAssetList();
-
-    const aggregatedAndFiltered: (NumiaTokenWithLogo | undefined)[] = assets
-      .map((asset) => {
-        const assetInfoAsset = assetList.assets.filter(
-          ({ coinMinimalDenom, verified, disabled, unstable }) => {
-            return (
-              coinMinimalDenom === asset.denom &&
-              verified &&
-              !disabled &&
-              !unstable
-            );
-          },
-        )[0];
-
-        if (!assetInfoAsset) return;
-
-        return {
-          ...asset,
-          logoURIs:
-            assetInfoAsset.logoURIs.svg ?? assetInfoAsset.logoURIs.png ?? "",
-        };
-      })
-      .filter(Boolean);
-
-    return aggregatedAndFiltered as NumiaTokenWithLogo[];
-  },
-  ["query-dust-filtered-assets"],
-  { revalidate: 86_400 },
-);
 
 export const queryTopGainersSectionAssets = async (): Promise<
   SectionAsset[]
@@ -145,4 +111,67 @@ export const queryTopGainersSectionAssets = async (): Promise<
     iconUri: logoURIs,
     name,
   }));
+};
+
+export interface AirdropAsset {
+  name: string;
+  symbol: string;
+  logoUri: string;
+  link?: string;
+}
+
+export const queryAirdrops = async (): Promise<{
+  past?: AirdropAsset[];
+  upcoming?: AirdropAsset[];
+}> => {
+  const pastAirdropsRes = await fetch(
+    new URL(
+      "/osmosis-labs/fe-content/main/cms/landing-page/landing-page.json",
+      GITHUB_RAW_DEFAULT_BASEURL,
+    ),
+    {
+      method: "GET",
+      next: { revalidate: 86_400 },
+    },
+  );
+
+  const upcomingAirdrops = (
+    await queryLandingPageCMSData()
+  ).upcomingAssets.filter((asset) => asset.osmosisAirdrop);
+
+  const mappedUpcomingAirdrops: AirdropAsset[] = [];
+
+  for await (const upcomingAsset of upcomingAirdrops) {
+    mappedUpcomingAirdrops.push({
+      name: upcomingAsset.assetName,
+      logoUri:
+        upcomingAsset.images[0].svg ??
+        upcomingAsset.images[0].png ??
+        upcomingAsset.logoURL ??
+        "",
+      symbol: upcomingAsset.symbol,
+    });
+  }
+
+  const { pastAirdrops }: { pastAirdrops: PastAirdrop[] } =
+    await pastAirdropsRes.json();
+
+  const mappedPastAirdrops: AirdropAsset[] = [];
+
+  for await (const { denom } of pastAirdrops) {
+    const asset = await queryAssetFromAssetList({ denom });
+
+    if (asset) {
+      mappedPastAirdrops.push({
+        name: asset.name,
+        logoUri: asset.logoURIs.svg ?? asset.logoURIs.png ?? "",
+        symbol: asset.symbol,
+      });
+    }
+  }
+
+  return {
+    past: mappedPastAirdrops,
+    upcoming: mappedUpcomingAirdrops,
+  };
 };

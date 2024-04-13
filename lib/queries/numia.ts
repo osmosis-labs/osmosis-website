@@ -1,9 +1,11 @@
+import { queryAssetList } from "@/lib/queries/asset-list";
 import {
   LandingPageMetrics,
   NumiaToken,
   OsmoAPR,
   SupplyMetrics,
 } from "@/lib/types/numia";
+import { unstable_cache } from "next/cache";
 
 interface QueryTokenInfoProps {
   symbol: string;
@@ -82,3 +84,39 @@ export const queryAllTokens = async (): Promise<NumiaToken[]> => {
 
   return await res.json();
 };
+
+type NumiaTokenWithLogo = NumiaToken & { logoURIs: string };
+
+export const queryValidTokens = unstable_cache(
+  async (): Promise<NumiaTokenWithLogo[]> => {
+    const assets = await queryAllTokens();
+    const assetList = await queryAssetList();
+
+    const aggregatedAndFiltered: (NumiaTokenWithLogo | undefined)[] = assets
+      .map((asset) => {
+        const assetInfoAsset = assetList.assets.filter(
+          ({ coinMinimalDenom, verified, disabled, unstable }) => {
+            return (
+              coinMinimalDenom === asset.denom &&
+              verified &&
+              !disabled &&
+              !unstable
+            );
+          },
+        )[0];
+
+        if (!assetInfoAsset) return;
+
+        return {
+          ...asset,
+          logoURIs:
+            assetInfoAsset.logoURIs.svg ?? assetInfoAsset.logoURIs.png ?? "",
+        };
+      })
+      .filter(Boolean);
+
+    return aggregatedAndFiltered as NumiaTokenWithLogo[];
+  },
+  ["query-valid-tokens"],
+  { revalidate: 3600 },
+);

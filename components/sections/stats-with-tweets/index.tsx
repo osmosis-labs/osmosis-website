@@ -12,6 +12,7 @@ interface StatCard {
   iconUri: string;
   bottleUri: string;
   bgClass: string;
+  link?: string;
 }
 
 export default async function StatsWithTweets() {
@@ -30,13 +31,15 @@ export default async function StatsWithTweets() {
       iconUri: "/assets/icons/rocket-gray.svg",
       bottleUri: "/assets/bottle-blue.svg",
       bgClass: "trend-card-bg-1",
+      link: "https://www.datalenses.zone/chain/osmosis/overview",
     },
     {
-      title: "Asset on the Platform",
+      title: "Assets on the Platform",
       value: `${metricFormatter.format(metrics.assets_in_chain.value)}`,
       iconUri: "/assets/icons/checkmark-gray.svg",
       bottleUri: "/assets/bottle-red.svg",
       bgClass: "trend-card-bg-2",
+      link: "https://www.mintscan.io/osmosis/assets/",
     },
     {
       title: "24h trading volume",
@@ -44,6 +47,7 @@ export default async function StatsWithTweets() {
       iconUri: "/assets/icons/trending-gray.svg",
       bottleUri: "/assets/bottle-super.svg",
       bgClass: "trend-card-bg-3",
+      link: "https://www.datalenses.zone/chain/osmosis/overview",
     },
   ];
 
@@ -74,7 +78,7 @@ export default async function StatsWithTweets() {
           </div>
         </div>
         <Divider className="py-6" />
-        <div className="md:tweets-mask relative -mx-6 flex h-[555px] overflow-hidden sm:-mx-28 lg:-mx-0 lg:h-[408px]">
+        <div className="md:horizontal-mask relative -mx-6 flex h-[555px] overflow-hidden sm:-mx-28 lg:-mx-0 lg:h-[408px]">
           <div className="absolute flex flex-col gap-3 lg:gap-4">
             <div className="tweets-row-marquee-animation tweets-upper-half relative flex gap-2 transition-transform lg:gap-4">
               {upperHalf.concat(upperHalf).map((tweet, i) => (
@@ -93,9 +97,18 @@ export default async function StatsWithTweets() {
   );
 }
 
-const StatCard = ({ bottleUri, iconUri, title, value, bgClass }: StatCard) => {
+const StatCard = ({
+  bottleUri,
+  iconUri,
+  title,
+  value,
+  bgClass,
+  link,
+}: StatCard) => {
   return (
-    <div
+    <Link
+      href={link ?? ""}
+      target="_blank"
       className={cn(
         "outline-stat-card relative flex flex-col gap-8 rounded-2xl p-4 lg:gap-16 xl:rounded-3xl 2xl:p-6",
         bgClass,
@@ -117,7 +130,7 @@ const StatCard = ({ bottleUri, iconUri, title, value, bgClass }: StatCard) => {
         height={100}
         className="absolute -top-5 right-0 lg:-top-9 lg:h-30 lg:w-30"
       />
-    </div>
+    </Link>
   );
 };
 

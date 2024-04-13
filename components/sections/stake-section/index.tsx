@@ -1,12 +1,10 @@
 import StakingApr from "@/components/sections/stake-section/staking-apr";
 import Badge from "@/components/shared/badge";
+import { queryAirdrops } from "@/lib/queries/cms";
+import { cn } from "@/lib/utils";
 import Image, { getImageProps } from "next/image";
+import Link from "next/link";
 import { Suspense } from "react";
-
-const airdrops = Array<{ uri: string; name: string }>(22).fill({
-  uri: "/assets/icons/pepe.svg",
-  name: "Pepe",
-});
 
 export default function StakeSection() {
   return (
@@ -37,7 +35,13 @@ export default function StakeSection() {
       <div className="flex flex-col-reverse gap-4 lg:grid lg:grid-cols-[486px,434px] lg:gap-2 xl:grid-cols-[523px,581px] xl:gap-4 2xl:grid-cols-[664px,712px]">
         <div className="flex flex-col justify-center gap-2 self-stretch md:grid md:grid-cols-2 xl:gap-4">
           {/**card */}
-          <div className="flex flex-col gap-6 self-stretch rounded-2xl border border-solid border-osmoverse-650 bg-osmoverse-775 px-4 py-6 lg:gap-8 lg:p-6 xl:rounded-3xl 2xl:gap-10">
+          <Link
+            href={
+              "https://medium.com/osmosis-community-updates/osmosis-superfluid-staking-faq-a7b49797cb72"
+            }
+            target="_blank"
+            className="flex flex-col gap-6 self-stretch rounded-2xl border border-solid border-osmoverse-650 bg-osmoverse-775 px-4 py-6 lg:gap-8 lg:p-6 xl:rounded-3xl 2xl:gap-10"
+          >
             <Image
               src={"/assets/icons/stake/osmo-blue.svg"}
               alt="Osmo blue icon"
@@ -54,9 +58,15 @@ export default function StakeSection() {
                 <span className="font-medium">at the same time.</span>
               </p>
             </div>
-          </div>
+          </Link>
           {/**card */}
-          <div className="flex flex-col gap-6 self-stretch rounded-2xl border border-solid border-osmoverse-650 bg-osmoverse-775 px-4 py-6 lg:gap-8 lg:p-6 xl:rounded-3xl 2xl:gap-10">
+          <Link
+            href={
+              "https://forum.osmosis.zone/t/osmosis-taker-fees-real-yield-for-stakers-real-revenue-for-osmosis/638"
+            }
+            target="_blank"
+            className="flex flex-col gap-6 self-stretch rounded-2xl border border-solid border-osmoverse-650 bg-osmoverse-775 px-4 py-6 lg:gap-8 lg:p-6 xl:rounded-3xl 2xl:gap-10"
+          >
             <Image
               src={"/assets/icons/stake/plant-blue.svg"}
               alt="Plant blue icon"
@@ -65,14 +75,14 @@ export default function StakeSection() {
             />
             <div className="flex flex-col gap-2">
               <span className="self-stretch font-poppins text-xl leading-6.5 text-neutral-100">
-                Organic yields
+                Real yields
               </span>
               <p className="font-light leading-6.25 text-alpha-60">
                 Every trade on Osmosis generates fees that stakers receive for
                 securing the protocol.
               </p>
             </div>
-          </div>
+          </Link>
           {/**card */}
           <div className="flex flex-col gap-6 self-stretch overflow-hidden rounded-2xl border border-solid border-osmoverse-650 bg-osmoverse-775 px-4 py-6 md:col-span-2 lg:gap-0 lg:p-6 xl:rounded-3xl 2xl:justify-between 2xl:gap-4">
             <Image
@@ -122,22 +132,7 @@ export default function StakeSection() {
                         Upcoming Airdrops*
                       </span>
                     </div>
-                    <div className="tweets-mask relative flex h-[48px]">
-                      <div className="upcoming-airdrops-row-width absolute flex animate-upcoming-airdrops-marquee items-center gap-2">
-                        {airdrops.map(({ name, uri }, i) => {
-                          return (
-                            <Image
-                              key={`${name} icon ${i}`}
-                              alt={`${name} icon`}
-                              src={uri}
-                              width={48}
-                              height={48}
-                              className="rounded-full"
-                            />
-                          );
-                        })}
-                      </div>
-                    </div>
+                    <AirdropRow variant="upcoming" />
                   </div>
                   {/**row */}
                   <div className="flex flex-col gap-4">
@@ -152,22 +147,7 @@ export default function StakeSection() {
                         Past Airdrops
                       </span>
                     </div>
-                    <div className="tweets-mask relative flex h-[48px]">
-                      <div className="upcoming-airdrops-row-width absolute flex animate-upcoming-airdrops-marquee-reverse items-center gap-2">
-                        {airdrops.map(({ name, uri }, i) => {
-                          return (
-                            <Image
-                              key={`${name} icon ${i}`}
-                              alt={`${name} icon`}
-                              src={uri}
-                              width={48}
-                              height={48}
-                              className="rounded-full"
-                            />
-                          );
-                        })}
-                      </div>
-                    </div>
+                    <AirdropRow variant="past" />
                   </div>
                 </div>
                 <div className="flex items-center self-stretch px-2 opacity-55">
@@ -182,6 +162,61 @@ export default function StakeSection() {
         <StakeIllustration />
       </div>
     </section>
+  );
+}
+
+interface AirdropRowProps {
+  variant: "upcoming" | "past";
+}
+
+const SHOULD_ANIMATE_ARR_LENGTH_THRESHOLD = 8;
+
+async function AirdropRow({ variant }: AirdropRowProps) {
+  const { past, upcoming } = await queryAirdrops();
+
+  const selectedList = (variant === "past" ? past : upcoming) ?? [];
+
+  return (
+    <div
+      className={cn(
+        "relative flex h-[48px]",
+        selectedList.length < SHOULD_ANIMATE_ARR_LENGTH_THRESHOLD
+          ? "items-center"
+          : "horizontal-mask",
+      )}
+      style={{
+        //@ts-ignore
+        "--airdrops-count": selectedList.length,
+      }}
+    >
+      <div
+        className={cn(
+          "absolute flex items-center gap-2 transition-transform",
+          selectedList.length > SHOULD_ANIMATE_ARR_LENGTH_THRESHOLD &&
+            "airdrops-marquee",
+        )}
+      >
+        {(selectedList.length < SHOULD_ANIMATE_ARR_LENGTH_THRESHOLD
+          ? selectedList
+          : selectedList.concat(selectedList)
+        ).map(({ name, logoUri }, i) => {
+          return (
+            <div
+              className="flex h-12 w-12 items-center justify-center"
+              key={`${name} icon ${i}`}
+            >
+              <Image
+                alt={`${name} icon`}
+                src={logoUri}
+                width={48}
+                height={48}
+                className="rounded-full"
+              />
+            </div>
+          );
+        })}
+      </div>
+    </div>
   );
 }
 

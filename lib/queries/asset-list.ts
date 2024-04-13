@@ -18,10 +18,22 @@ export const queryAssetList = async (): Promise<AssetList> => {
 
 // As this is an expensive operation, I think it's a good idea to cache it
 export const queryAssetFromAssetList = unstable_cache(
-  async ({ symbol }: { symbol: string }): Promise<Asset | undefined> => {
+  async ({
+    denom,
+    symbol,
+  }: {
+    denom?: string;
+    symbol?: string;
+  }): Promise<Asset | undefined> => {
+    if (!denom && !symbol) return;
     const { assets } = await queryAssetList();
 
-    return assets.filter((asset) => asset.symbol === symbol)[0];
+    return assets.filter((asset) => {
+      if (symbol) {
+        return asset.symbol === symbol;
+      }
+      return asset.coinMinimalDenom === denom;
+    })[0];
   },
   ["query-asset-from-asset-list"],
   {

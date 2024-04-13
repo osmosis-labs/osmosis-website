@@ -67,7 +67,7 @@ export default function OsmoCTASection() {
             </div>
             <div className="flex flex-col gap-1">
               <span className="text-sm leading-5.5 text-neutral-100 lg:text-base lg:leading-6.25">
-                Listed on 14 exchanges, including:
+                Listed on 15+ exchanges, including:
               </span>
               <div className="flex items-center gap-1.5">
                 <div className="flex h-8 w-[118px] items-center justify-center rounded-md border border-solid border-osmoverse-650 bg-osmoverse-775 lg:w-[124px]">
@@ -232,8 +232,8 @@ async function BurnedOSMO() {
       {Intl.NumberFormat("en-US", {
         notation: "compact",
         maximumFractionDigits: 0,
-      }).format(metrics.burntSupply)}{" "}
-      OSMO
+      }).format(metrics.burntSupply)}
+      + OSMO
     </span>
   );
 }
