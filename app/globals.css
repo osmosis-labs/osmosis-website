@@ -326,8 +326,33 @@
       rgba(32, 27, 67, 0) 100%
     );
   }
-  .upcoming-airdrops-row-width {
-    width: calc((48px * 10 + 8px * 8) * 2);
+  @keyframes airdrops-marquee {
+    from {
+      transform: translateZ(0);
+    }
+    to {
+      transform: translate3d(
+        calc(
+          calc(
+              (
+                  calc(48px * var(--airdrops-count)) +
+                    calc(8px * calc(var(--airdrops-count) - 1))
+                ) * -1
+            ) - 8px
+        ),
+        0,
+        0
+      );
+    }
+  }
+  .airdrops-marquee {
+    width: calc(
+      (
+          calc(48px * var(--airdrops-count)) +
+            calc(8px * (calc(var(--airdrops-count))))
+        ) * 2
+    );
+    animation: airdrops-marquee 15s linear infinite;
   }
   .bg-earn-section {
     background: radial-gradient(

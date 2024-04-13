@@ -1,13 +1,9 @@
 import StakingApr from "@/components/sections/stake-section/staking-apr";
 import Badge from "@/components/shared/badge";
-import { queryPastAirdrops } from "@/lib/queries/cms";
+import { queryAirdrops } from "@/lib/queries/cms";
+import { cn } from "@/lib/utils";
 import Image, { getImageProps } from "next/image";
 import { Suspense } from "react";
-
-const airdrops = Array<{ uri: string; name: string }>(22).fill({
-  uri: "/assets/icons/pepe.svg",
-  name: "Pepe",
-});
 
 export default function StakeSection() {
   return (
@@ -123,22 +119,7 @@ export default function StakeSection() {
                         Upcoming Airdrops*
                       </span>
                     </div>
-                    <div className="horizontal-mask relative flex h-[48px]">
-                      <div className="upcoming-airdrops-row-width absolute flex animate-upcoming-airdrops-marquee items-center gap-2">
-                        {airdrops.map(({ name, uri }, i) => {
-                          return (
-                            <Image
-                              key={`${name} icon ${i}`}
-                              alt={`${name} icon`}
-                              src={uri}
-                              width={48}
-                              height={48}
-                              className="rounded-full"
-                            />
-                          );
-                        })}
-                      </div>
-                    </div>
+                    <AirdropRow variant="upcoming" />
                   </div>
                   {/**row */}
                   <div className="flex flex-col gap-4">
@@ -175,24 +156,49 @@ interface AirdropRowProps {
   variant: "upcoming" | "past";
 }
 
-async function AirdropRow({}: AirdropRowProps) {
-  // query based on variant
+const SHOULD_ANIMATE_ARR_LENGTH_THRESHOLD = 8;
 
-  console.log(await queryPastAirdrops());
+async function AirdropRow({ variant }: AirdropRowProps) {
+  const { past, upcoming } = await queryAirdrops();
+
+  const selectedList = (variant === "past" ? past : upcoming) ?? [];
 
   return (
-    <div className="horizontal-mask relative flex h-[48px]">
-      <div className="upcoming-airdrops-row-width absolute flex animate-upcoming-airdrops-marquee-reverse items-center gap-2">
-        {airdrops.map(({ name, uri }, i) => {
+    <div
+      className={cn(
+        "horizontal-mask relative flex h-[48px]",
+        selectedList.length < SHOULD_ANIMATE_ARR_LENGTH_THRESHOLD &&
+          "items-center  justify-center",
+      )}
+      style={{
+        //@ts-ignore
+        "--airdrops-count": selectedList.length,
+      }}
+    >
+      <div
+        className={cn(
+          "absolute flex items-center gap-2 transition-transform",
+          selectedList.length > SHOULD_ANIMATE_ARR_LENGTH_THRESHOLD &&
+            "airdrops-marquee",
+        )}
+      >
+        {(selectedList.length < SHOULD_ANIMATE_ARR_LENGTH_THRESHOLD
+          ? selectedList
+          : selectedList.concat(selectedList)
+        ).map(({ name, logoUri }, i) => {
           return (
-            <Image
+            <div
+              className="flex h-12 w-12 items-center justify-center"
               key={`${name} icon ${i}`}
-              alt={`${name} icon`}
-              src={uri}
-              width={48}
-              height={48}
-              className="rounded-full"
-            />
+            >
+              <Image
+                alt={`${name} icon`}
+                src={logoUri}
+                width={48}
+                height={48}
+                className="rounded-full"
+              />
+            </div>
           );
         })}
       </div>

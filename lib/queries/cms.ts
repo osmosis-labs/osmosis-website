@@ -1,9 +1,11 @@
 import { SectionAsset } from "@/components/sections/token-stats";
-import { queryAssetList } from "@/lib/queries/asset-list";
+import {
+  queryAssetFromAssetList,
+  queryAssetList,
+} from "@/lib/queries/asset-list";
 import { queryValidTokens } from "@/lib/queries/numia";
 import { GITHUB_RAW_DEFAULT_BASEURL } from "@/lib/shared";
 import { LandingPageData, PastAirdrop } from "@/lib/types/cms";
-import { NumiaToken } from "@/lib/types/numia";
 import { unstable_cache } from "next/cache";
 
 const LANDING_PAGE_CMS_DATA_URL = new URL(
@@ -111,10 +113,20 @@ export const queryTopGainersSectionAssets = async (): Promise<
   }));
 };
 
-export const queryPastAirdrops = async (): Promise<NumiaToken[]> => {
-  const res = await fetch(
+export interface AirdropAsset {
+  name: string;
+  symbol: string;
+  logoUri: string;
+  link?: string;
+}
+
+export const queryAirdrops = async (): Promise<{
+  past?: AirdropAsset[];
+  upcoming?: AirdropAsset[];
+}> => {
+  const pastAirdropsRes = await fetch(
     new URL(
-      "/osmosis-labs/fe-content/main/landing-page/landing-page.json",
+      "/osmosis-labs/fe-content/main/cms/landing-page/landing-page.json",
       GITHUB_RAW_DEFAULT_BASEURL,
     ),
     {
@@ -123,9 +135,43 @@ export const queryPastAirdrops = async (): Promise<NumiaToken[]> => {
     },
   );
 
-  const { pastAirdrops }: { pastAirdrops: PastAirdrop[] } = await res.json();
+  const upcomingAirdrops = (
+    await queryLandingPageCMSData()
+  ).upcomingAssets.filter((asset) => asset.osmosisAirdrop);
 
-  console.log(pastAirdrops);
+  const mappedUpcomingAirdrops: AirdropAsset[] = [];
 
-  return [];
+  for await (const upcomingAsset of upcomingAirdrops) {
+    mappedUpcomingAirdrops.push({
+      name: upcomingAsset.assetName,
+      logoUri:
+        upcomingAsset.images[0].svg ??
+        upcomingAsset.images[0].png ??
+        upcomingAsset.logoURL ??
+        "",
+      symbol: upcomingAsset.symbol,
+    });
+  }
+
+  const { pastAirdrops }: { pastAirdrops: PastAirdrop[] } =
+    await pastAirdropsRes.json();
+
+  const mappedPastAirdrops: AirdropAsset[] = [];
+
+  for await (const { denom } of pastAirdrops) {
+    const asset = await queryAssetFromAssetList({ denom });
+
+    if (asset) {
+      mappedPastAirdrops.push({
+        name: asset.name,
+        logoUri: asset.logoURIs.svg ?? asset.logoURIs.png ?? "",
+        symbol: asset.symbol,
+      });
+    }
+  }
+
+  return {
+    past: mappedPastAirdrops,
+    upcoming: mappedUpcomingAirdrops,
+  };
 };
