@@ -52,8 +52,7 @@
     }
   }
   .animate-ticker {
-    animation: ticker 1s ease-in-out forwards;
-    animation-delay: -300ms;
+    animation: ticker 500ms ease-in-out forwards;
   }
   @keyframes swap-tool-fade {
     0% {
@@ -64,10 +63,10 @@
     }
   }
   .animate-swap-tool-ticker-fade-in {
-    animation: swap-tool-fade 1s forwards;
+    animation: swap-tool-fade 500ms ease-in-out forwards;
   }
   .animate-swap-tool-ticker-fade-out {
-    animation: swap-tool-fade 1s reverse forwards;
+    animation: swap-tool-fade 500ms ease-in-out reverse forwards;
   }
   .ticker-mask {
     mask-image: linear-gradient(

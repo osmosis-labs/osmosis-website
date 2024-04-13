@@ -121,7 +121,7 @@ export function Tickers() {
     <div className="relative flex h-full items-center justify-between sm:gap-2.5 lg:gap-2 xl:gap-2.5">
       <Bracket />
       <div
-        className="ticker-mask max-h-full overflow-hidden transition-all duration-1000"
+        className="ticker-mask max-h-full overflow-hidden transition-all duration-500"
         style={{
           width: `${nextTickerWidth}px`,
         }}
