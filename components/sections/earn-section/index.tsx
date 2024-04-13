@@ -89,6 +89,7 @@ const cards: EarnCardProps[] = [
     title: "Liquid Staking",
     description: "Dead simple staking, no staking lock-ups.",
     iconUri: "/assets/earn/card-icons/liquid-gray.svg",
+    link: "https://app.stride.zone/?chain=OSMO",
     illustration: (
       <Image
         src={"/assets/earn/illustrations/liquid.svg"}
