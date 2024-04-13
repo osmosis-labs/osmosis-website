@@ -62,3 +62,14 @@ export interface LandingPageData {
    */
   upcomingAssets: UpcomingAsset[];
 }
+
+export interface PastAirdrop {
+  /**
+   * The minimalCoinDenom of the asset when on Osmosis chain.
+   */
+  denom: string;
+  /**
+   * The amount that was airdropped.
+   */
+  amount?: number;
+}

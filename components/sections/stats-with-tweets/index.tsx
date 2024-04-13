@@ -78,7 +78,7 @@ export default async function StatsWithTweets() {
           </div>
         </div>
         <Divider className="py-6" />
-        <div className="md:tweets-mask relative -mx-6 flex h-[555px] overflow-hidden sm:-mx-28 lg:-mx-0 lg:h-[408px]">
+        <div className="md:horizontal-mask relative -mx-6 flex h-[555px] overflow-hidden sm:-mx-28 lg:-mx-0 lg:h-[408px]">
           <div className="absolute flex flex-col gap-3 lg:gap-4">
             <div className="tweets-row-marquee-animation tweets-upper-half relative flex gap-2 transition-transform lg:gap-4">
               {upperHalf.concat(upperHalf).map((tweet, i) => (
