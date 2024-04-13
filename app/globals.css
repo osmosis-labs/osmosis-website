@@ -55,6 +55,20 @@
     animation: ticker 1s ease-in-out forwards;
     animation-delay: -300ms;
   }
+  @keyframes swap-tool-fade {
+    0% {
+      opacity: 0%;
+    }
+    100% {
+      opacity: 100%;
+    }
+  }
+  .animate-swap-tool-ticker-fade-in {
+    animation: swap-tool-fade 1s forwards;
+  }
+  .animate-swap-tool-ticker-fade-out {
+    animation: swap-tool-fade 1s reverse forwards;
+  }
   .ticker-mask {
     mask-image: linear-gradient(
       180deg,

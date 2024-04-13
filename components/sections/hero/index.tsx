@@ -1,6 +1,7 @@
 import { GTagLink } from "@/components/shared/gtag-link";
 import { Tickers } from "@/components/sections/hero/tickers";
 import Image from "next/image";
+import { SwapToolTicker } from "@/components/sections/hero/swap-tool-ticker";
 
 export default function HeroSection() {
   return (
@@ -70,24 +71,7 @@ export default function HeroSection() {
                   </div>
                 </div>
                 <div className="flex h-18 items-center justify-between rounded-xl bg-osmoverse-760 px-3 xl:h-24 xl:px-4 2xl:h-30 2xl:rounded-2xl 2xl:px-6">
-                  <div className="flex items-center gap-2">
-                    <Image
-                      src={"/assets/icons/tia.svg"}
-                      alt="TIA icon"
-                      width={40}
-                      height={40}
-                      className="xl:h-12 xl:w-12"
-                      priority
-                    />
-                    <div className="flex flex-col">
-                      <span className="text-neutral-100 xl:text-xl">
-                        Celestia
-                      </span>
-                      <span className="text-xs text-osmoverse-310 xl:text-sm 2xl:text-base">
-                        TIA
-                      </span>
-                    </div>
-                  </div>
+                  <SwapToolTicker />
                   <div className="flex flex-col items-end gap-1">
                     <div className="h-2.5 w-17.5 rounded-full bg-[#736CA3] 2xl:h-3 2xl:w-24" />
                     <div className="h-2.5 w-10.5 rounded-full bg-[#565081] 2xl:h-3 2xl:w-14" />
