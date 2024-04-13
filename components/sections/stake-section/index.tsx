@@ -166,9 +166,10 @@ async function AirdropRow({ variant }: AirdropRowProps) {
   return (
     <div
       className={cn(
-        "horizontal-mask relative flex h-[48px]",
-        selectedList.length < SHOULD_ANIMATE_ARR_LENGTH_THRESHOLD &&
-          "items-center  justify-center",
+        "relative flex h-[48px]",
+        selectedList.length < SHOULD_ANIMATE_ARR_LENGTH_THRESHOLD
+          ? "items-center"
+          : "horizontal-mask",
       )}
       style={{
         //@ts-ignore
