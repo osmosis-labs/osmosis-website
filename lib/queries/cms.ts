@@ -78,7 +78,13 @@ export const queryNewAssets = async () => {
   const assets = assetList.assets;
 
   return assets
-    .filter((asset) => !!asset.listingDate && asset.verified && !asset.disabled)
+    .filter(
+      (asset) =>
+        !!asset.listingDate &&
+        asset.verified &&
+        !asset.disabled &&
+        !asset.preview,
+    )
     .sort((a, b) =>
       Date.parse(a.listingDate!) > Date.parse(b.listingDate!) ? -1 : 1,
     )
