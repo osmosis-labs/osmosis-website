@@ -1,6 +1,8 @@
 import { GTagLink } from "@/components/shared/gtag-link";
-import { cn } from "@/lib/utils";
+import { Tickers } from "@/components/sections/hero/tickers";
 import Image from "next/image";
+import { SwapToolTicker } from "@/components/sections/hero/swap-tool-ticker";
+import StartTradingLink from "@/components/sections/hero/start-trading-link";
 
 export default function HeroSection() {
   return (
@@ -10,23 +12,11 @@ export default function HeroSection() {
           <div className="flex flex-col gap-4 px-2 max-sm:py-4 sm:gap-3 sm:px-6 md:flex-row md:items-center md:justify-between md:px-4 lg:flex-col lg:items-start lg:gap-6 lg:px-6 xl:gap-8 xl:px-4 2xl:gap-2 2xl:px-8">
             <h1 className="inline-flex flex-col font-poppins text-[34px] font-medium leading-[34px] -tracking-[0.03em] text-neutral-100 sm:gap-1 sm:text-[40px] sm:leading-10 lg:gap-2 lg:text-5xl lg:leading-[48px] xl:text-6.25xl xl:leading-16 2xl:gap-1 2xl:text-7xl 2xl:leading-20">
               <span>Discover and trade</span>
-              <span className="inline-flex items-center gap-3 sm:gap-5.5">
+              <span className="inline-flex items-center gap-3 whitespace-nowrap sm:gap-5.5">
                 the next
                 {/**base gap is compensated in the widths of the brackets */}
-                <div className="flex w-[122px] items-center justify-between sm:w-[131px] lg:w-40 xl:w-[203px] xl:gap-2.5 2xl:w-[238px]">
-                  <Bracket />
-                  <div className="flex items-center gap-2 pb-[1px] pl-[7.5px] pr-[6.5px] sm:p-0 lg:pb-[9px] lg:pl-1 lg:pr-[3px] lg:pt-0.5 xl:p-0 2xl:gap-3">
-                    <Image
-                      src={"/assets/icons/tia.svg"}
-                      alt="TIA icon"
-                      width={34}
-                      height={34}
-                      className="sm:h-10 sm:w-10 lg:h-12 lg:w-12 xl:h-16 xl:w-16 2xl:h-17.5 2xl:w-17.5"
-                      priority
-                    />
-                    <span>TIA</span>
-                  </div>
-                  <Bracket isMirrored />
+                <div className="relative h-12 sm:h-[46px] lg:h-[58px] xl:h-20 2xl:h-22.5">
+                  <Tickers />
                 </div>
               </span>
               <span className="inline-flex items-center gap-1 2xl:gap-4">
@@ -82,24 +72,7 @@ export default function HeroSection() {
                   </div>
                 </div>
                 <div className="flex h-18 items-center justify-between rounded-xl bg-osmoverse-760 px-3 xl:h-24 xl:px-4 2xl:h-30 2xl:rounded-2xl 2xl:px-6">
-                  <div className="flex items-center gap-2">
-                    <Image
-                      src={"/assets/icons/tia.svg"}
-                      alt="TIA icon"
-                      width={40}
-                      height={40}
-                      className="xl:h-12 xl:w-12"
-                      priority
-                    />
-                    <div className="flex flex-col">
-                      <span className="text-neutral-100 xl:text-xl">
-                        Celestia
-                      </span>
-                      <span className="text-xs text-osmoverse-310 xl:text-sm 2xl:text-base">
-                        TIA
-                      </span>
-                    </div>
-                  </div>
+                  <SwapToolTicker />
                   <div className="flex flex-col items-end gap-1">
                     <div className="h-2.5 w-17.5 rounded-full bg-[#736CA3] 2xl:h-3 2xl:w-24" />
                     <div className="h-2.5 w-10.5 rounded-full bg-[#565081] 2xl:h-3 2xl:w-14" />
@@ -120,19 +93,7 @@ export default function HeroSection() {
                 <div className="h-2.5 w-18 rounded-full bg-osmoverse-650 2xl:h-3 2xl:w-22.5" />
               </div>
               <GTagLink asChild eventName="buttonClicked" label="Start Trading">
-                <button className="flex h-14 w-full items-center justify-center gap-1 rounded-xl bg-wosmongton-700 xl:h-16">
-                  <p className="text-sm text-neutral-100 lg:text-base">
-                    Start Trading
-                  </p>
-                  <Image
-                    src={"/assets/icons/arrow-up-right.svg"}
-                    alt="Start Trading"
-                    width={20}
-                    height={20}
-                    className="h-5 w-5"
-                    priority
-                  />
-                </button>
+                <StartTradingLink />
               </GTagLink>
             </div>
           </div>
@@ -181,21 +142,5 @@ export default function HeroSection() {
         className="bottom absolute top-[410px] z-0 hidden h-auto w-full 2xl:block"
       />
     </div>
-  );
-}
-
-function Bracket({ isMirrored }: { isMirrored?: boolean }) {
-  return (
-    <Image
-      src={"/assets/bracket.svg"}
-      alt="Bracket"
-      width={6}
-      height={48}
-      className={cn(
-        "h-12 self-stretch sm:h-[46px] lg:h-[58px] lg:w-2 xl:h-[80px] xl:w-2.5 2xl:h-22.5 2xl:w-3",
-        { "scale-x-[-1]": isMirrored },
-      )}
-      priority
-    />
   );
 }
