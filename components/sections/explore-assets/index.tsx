@@ -10,7 +10,7 @@ const thirdRingAssets = EXPLORE_ASSETS.filter((asset) => asset.ring === 3);
 
 export default function ExploreAssets() {
   return (
-    <section className="relative mt-16 flex flex-col items-center justify-center gap-3.5 sm:mt-20 sm:gap-8 md:mt-[114px] md:justify-end md:gap-4 md:self-stretch lg:mt-8 lg:w-[960px] xl:mt-28 xl:w-[1152px] xl:gap-4 xl:overflow-hidden 2xl:mt-42 2xl:h-[1000px] 2xl:w-[1440px] 2xl:justify-start 2xl:gap-0 2xl:px-6">
+    <section className="relative mt-16 flex flex-col items-center justify-center gap-3.5 sm:mt-20 sm:gap-8 md:mt-[114px] md:justify-end md:gap-4 md:self-stretch lg:mt-8 lg:w-[960px] xl:mt-28 xl:w-[1152px] xl:gap-4 2xl:mt-42 2xl:h-[1000px] 2xl:w-[1440px] 2xl:justify-start 2xl:gap-0 2xl:px-6">
       <Heart
         assetsLists={[firstRingAssets, secondRingAssets, thirdRingAssets]}
       />
