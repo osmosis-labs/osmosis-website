@@ -155,6 +155,7 @@ export default function HeroSection() {
         width={358}
         height={1663}
         className="absolute top-[490px] z-0 h-auto w-full sm:hidden"
+        priority
       />
       <Image
         src={"/assets/grids/sm/grid-1.svg"}
@@ -162,6 +163,7 @@ export default function HeroSection() {
         width={448}
         height={1587}
         className="bottom absolute top-[630px] z-0 hidden h-auto w-full sm:block md:hidden"
+        priority
       />
       <Image
         src={"/assets/grids/md/grid-1.svg"}
@@ -169,6 +171,7 @@ export default function HeroSection() {
         width={640}
         height={1212}
         className="bottom absolute top-[540px] z-0 hidden h-auto w-full md:block lg:hidden"
+        priority
       />
       <Image
         src={"/assets/grids/lg/grid-1.svg"}
@@ -176,6 +179,7 @@ export default function HeroSection() {
         width={962}
         height={758}
         className="bottom absolute top-[380px] z-0 hidden h-auto w-full lg:block xl:hidden"
+        priority
       />
       <Image
         src={"/assets/grids/xl/grid-1.svg"}
@@ -183,6 +187,7 @@ export default function HeroSection() {
         width={1155}
         height={912}
         className="bottom absolute top-[485px] z-0 hidden h-auto w-full xl:block 2xl:hidden"
+        priority
       />
       <Image
         src={"/assets/grids/2xl/grid-1.svg"}
@@ -190,6 +195,7 @@ export default function HeroSection() {
         width={1155}
         height={912}
         className="bottom absolute top-[410px] z-0 hidden h-auto w-full 2xl:block"
+        priority
       />
     </div>
   );
