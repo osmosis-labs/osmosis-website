@@ -29,7 +29,7 @@ export const queryMappedUpcomingAssets = unstable_cache(
     return data.upcomingAssets.map(
       ({
         assetName,
-        estimatedLaunchDate,
+        estimatedLaunchDateUtc,
         logoURL,
         osmosisAirdrop,
         showLaunchDate,
@@ -43,7 +43,7 @@ export const queryMappedUpcomingAssets = unstable_cache(
           iconUri: images[0].svg ?? images[0].png ?? logoURL ?? "",
           name: assetName,
           isAirdrop: osmosisAirdrop,
-          releaseDate: showLaunchDate ? estimatedLaunchDate : undefined,
+          releaseDate: showLaunchDate ? estimatedLaunchDateUtc : undefined,
           isUpcoming: true,
           projectLink: socials?.website ?? socials?.twitter ?? undefined,
           airdropInfoUrl,

@@ -38,7 +38,7 @@ export interface UpcomingAsset {
   /**
    * The estimated launch date of the asset. Accepts dates in the formats: month name + year (e.g., March 2024), month name + day + year (e.g., March 22, 2024), and quarter + year (e.g., Q2 2024).
    */
-  estimatedLaunchDate?: string;
+  estimatedLaunchDateUtc?: string;
   /**
    * Indicates whether to show the launch date of the asset.
    */
