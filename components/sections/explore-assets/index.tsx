@@ -25,7 +25,7 @@ export default function ExploreAssets() {
         </div>
         <GTagLink asChild eventName="buttonClicked" label="Explore Assets">
           <Link
-            href="https://app.osmosis.zone/assets?utm_source=osmosis_landing_page"
+            href="https://app.osmosis.zone/assets?utm_source=osmosis_landing_page&utm_campaign=assets"
             target="_blank"
             className="flex max-w-[164px] items-center justify-center rounded-[10px] bg-wosmongton-700 px-8 py-4 md:rounded-xl lg:max-w-[178px] lg:py-5 xl:rounded-[14px]"
           >

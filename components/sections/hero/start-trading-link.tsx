@@ -16,7 +16,8 @@ export default function StartTradingLink() {
   );
 
   const link = useMemo(
-    () => `https://app.osmosis.zone/?from=USDC&to=${denom}`,
+    () =>
+      `https://app.osmosis.zone/?from=USDC&to=${denom}&utm_source=osmosis_landing_page&utm_campaign=swap`,
     [denom],
   );
 
