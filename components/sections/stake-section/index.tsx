@@ -12,10 +12,10 @@ export default function StakeSection() {
       <div className="flex flex-col items-center justify-center gap-4">
         <Badge label="Secure the network" />
         <div className="flex flex-col items-center justify-center gap-2 self-stretch lg:gap-4">
-          <h4 className="bg-stake-heading text-center font-poppins text-3.5xl font-medium leading-9.5 -tracking-2% md:text-4xl md:leading-10.75 lg:text-5xl lg:leading-13 xl:text-5.5xl xl:leading-15.25 2xl:text-6.25xl 2xl:leading-17.5">
+          <h2 className="bg-stake-heading text-center font-poppins text-3.5xl font-medium leading-9.5 -tracking-2% md:text-4xl md:leading-10.75 lg:text-5xl lg:leading-13 xl:text-5.5xl xl:leading-15.25 2xl:text-6.25xl 2xl:leading-17.5">
             Stake to earn <br className="sm:hidden" />
             rewards.
-          </h4>
+          </h2>
           <p className="self-stretch text-center font-light leading-5.5 text-neutral-100 lg:text-xl lg:leading-7">
             Lock up your OSMO and earn passive <br className="sm:hidden" />
             staking <br className="hidden sm:block" />{" "}
@@ -49,9 +49,9 @@ export default function StakeSection() {
               height={24}
             />
             <div className="flex flex-col gap-2">
-              <span className="self-stretch font-poppins text-xl leading-6.5 text-neutral-100">
+              <h3 className="self-stretch font-poppins text-xl leading-6.5 text-neutral-100">
                 Superfluid staking
-              </span>
+              </h3>
               <p className="font-light leading-6.25 text-alpha-60">
                 Access an innovative feature that allows you to earn trading
                 fees and stake{" "}
@@ -74,9 +74,9 @@ export default function StakeSection() {
               height={24}
             />
             <div className="flex flex-col gap-2">
-              <span className="self-stretch font-poppins text-xl leading-6.5 text-neutral-100">
+              <h3 className="self-stretch font-poppins text-xl leading-6.5 text-neutral-100">
                 Real yields
-              </span>
+              </h3>
               <p className="font-light leading-6.25 text-alpha-60">
                 Every trade on Osmosis generates fees that stakers receive for
                 securing the protocol.
@@ -94,9 +94,9 @@ export default function StakeSection() {
             <div className="flex flex-col gap-4">
               <div className="flex flex-col gap-4 self-stretch py-3 md:flex-row md:items-center md:gap-8 lg:justify-between lg:gap-0">
                 <div className="flex flex-col gap-2 md:w-[242px] 2xl:w-[300px]">
-                  <span className="self-stretch font-poppins text-xl leading-6.5 text-neutral-100">
+                  <h3 className="self-stretch font-poppins text-xl leading-6.5 text-neutral-100">
                     Airdrop exposure
-                  </span>
+                  </h3>
                   <p className="font-light leading-6.25 text-alpha-60">
                     OSMO stakers have received
                     <br className="hidden md:block 2xl:hidden" /> up to{" "}
@@ -106,9 +106,9 @@ export default function StakeSection() {
                 </div>
                 <div className="hidden h-18 w-[1px] bg-osmoverse-650 md:block" />
                 <div className="flex gap-3 max-md:items-center md:flex-col md:gap-1 md:px-4 lg:w-[187px] 2xl:w-auto">
-                  <span className="bg-stake-heading font-poppins text-3.5xl leading-8.75 -tracking-2% 2xl:text-5xl 2xl:leading-13">
+                  <h3 className="bg-stake-heading font-poppins text-3.5xl leading-8.75 -tracking-2% 2xl:text-5xl 2xl:leading-13">
                     $47.5M+
-                  </span>
+                  </h3>
                   <p className="font-light leading-6.25 text-alpha-60">
                     Airdropped to <br className="hidden md:block 2xl:hidden" />{" "}
                     OSMO stakers
