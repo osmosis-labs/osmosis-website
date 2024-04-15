@@ -148,7 +148,7 @@ export default function BackersSection() {
                       className="h-auto w-auto"
                       width={42}
                       height={34}
-                      alt={name}
+                      alt={isPortrait ? `${name} profile picture` : name}
                     />
                     <span
                       className={cn("text-neutral-100", {

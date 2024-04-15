@@ -30,7 +30,7 @@ export default function StartTradingLink() {
       <p className="text-sm text-neutral-100 lg:text-base">Start Trading</p>
       <Image
         src={"/assets/icons/arrow-up-right.svg"}
-        alt="Start Trading"
+        alt=""
         width={20}
         height={20}
         className="h-5 w-5"

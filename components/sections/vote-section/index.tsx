@@ -32,7 +32,7 @@ export default function VoteSection() {
                       </span>
                       <Image
                         src={"/assets/icons/arrow-up-right.svg"}
-                        alt="Vote now"
+                        alt="Link to proposals"
                         width={24}
                         height={24}
                       />
@@ -52,7 +52,7 @@ export default function VoteSection() {
                       </span>
                       <Image
                         src={"/assets/icons/discussion.svg"}
-                        alt="Join the discussion"
+                        alt="Link to discussions"
                         width={24}
                         height={24}
                       />
