@@ -18,17 +18,17 @@ export interface NumiaToken {
   /** Exponent of the token. */
   exponent: number;
   /** Volume in the last 24 hours of the token. */
-  volume_24h: number | null;
+  volume_24h?: number;
   /** Change in volume in the last 24 hours of the token. */
-  volume_24h_change: number | null;
+  volume_24h_change?: number;
   /** Price of the token. */
-  price: number | null;
+  price?: number;
   /** Change in price in the last 24 hours of the token. */
-  price_24h_change: number | null;
+  price_24h_change?: number;
   /** Liquidity of the token. */
-  liquidity: number | null;
+  liquidity?: number;
   /** Change in liquidity in the last 24 hours of the token. */
-  liquidity_24h_change: number | null;
+  liquidity_24h_change?: number;
 }
 
 export interface OsmoAPR {
