@@ -5,6 +5,7 @@ const EXPLORE_ASSETS: Omit<TAsset, "variation">[] = [
   {
     name: "USDC",
     symbol: "USDC.axl",
+    display: "USDC",
     iconUri: "/assets/icons/usdc.svg",
     ring: 1,
   },
@@ -17,6 +18,7 @@ const EXPLORE_ASSETS: Omit<TAsset, "variation">[] = [
   {
     name: "Ethereum",
     symbol: "WETH.grv",
+    display: "ETH",
     iconUri: "/assets/icons/eth.svg",
     ring: 1,
   },

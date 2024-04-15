@@ -11,6 +11,7 @@ interface IAsset {
   symbol: string;
   ring: number;
   isVoid: boolean;
+  display: string;
 }
 
 export type TAsset = Partial<IAsset>;
@@ -57,6 +58,7 @@ function Element({
   name,
   isVoid,
   symbol,
+  display,
 }: {
   className?: string;
   style?: CSSProperties;
@@ -74,7 +76,7 @@ function Element({
       <div className="relative flex items-center justify-center rounded-[30px] bg-[#090524] px-2 py-0.5 opacity-0 transition-opacity group-hover:opacity-100">
         <p className="inline-flex items-center gap-1 whitespace-nowrap text-sm leading-5.5 text-neutral-100">
           <span>{name}</span>
-          <span className="text-[#8E8B9C]">{symbol}</span>
+          <span className="text-[#8E8B9C]">{display || symbol}</span>
         </p>
       </div>
       {iconUri && (
