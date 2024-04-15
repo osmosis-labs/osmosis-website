@@ -11,6 +11,7 @@ export default function HeroSection() {
     className:
       "absolute z-10 h-auto w-full rounded-3xl lg:rounded-[32px] 2xl:rounded-[48px] max-h-[571px] sm:max-h-none object-cover",
     priority: true,
+    unoptimize: true,
   };
 
   const {
@@ -18,8 +19,8 @@ export default function HeroSection() {
   } = getImageProps({
     ...common,
     src: "/assets/hero/bg.webp",
-    width: 342,
-    height: 463,
+    width: 358,
+    height: 596,
   });
 
   const {
@@ -27,8 +28,8 @@ export default function HeroSection() {
   } = getImageProps({
     ...common,
     src: "/assets/hero/bg-sm.webp",
-    width: 416,
-    height: 463,
+    width: 448,
+    height: 661,
   });
 
   const {
@@ -36,8 +37,8 @@ export default function HeroSection() {
   } = getImageProps({
     ...common,
     src: "/assets/hero/bg-md.webp",
-    width: 608,
-    height: 472,
+    width: 640,
+    height: 613,
   });
 
   const {
@@ -45,9 +46,10 @@ export default function HeroSection() {
   } = getImageProps({
     ...common,
     src: "/assets/hero/bg-lg.webp",
-    width: 455,
-    height: 707,
+    width: 1920,
+    height: 766,
   });
+
   return (
     <div className="relative rounded-3xl lg:rounded-[32px] 2xl:rounded-[48px]">
       <picture>
