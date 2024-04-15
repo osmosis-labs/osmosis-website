@@ -3,7 +3,7 @@ import {
   SectionName,
   Skeleton,
 } from "@/components/sections/token-stats/skeleton";
-import { DEFAULT_VS_CURRENCY, formatPretty } from "@/lib/formatting";
+import { format } from "@/lib/formatting";
 import {
   queryNewAssetsSectionAssets,
   queryTopGainersSectionAssets,
@@ -11,7 +11,6 @@ import {
 } from "@/lib/queries/cms";
 import { queryTokenInfo } from "@/lib/queries/numia";
 import { cn } from "@/lib/utils";
-import { PricePretty, RatePretty } from "@keplr-wallet/unit";
 import Image from "next/image";
 import Link from "next/link";
 import { PropsWithChildren, Suspense } from "react";
@@ -21,8 +20,6 @@ export interface SectionAsset {
   denom: string;
   iconUri: string;
   isLoading?: boolean;
-  price?: PricePretty;
-  variation?: RatePretty;
   isUpcoming?: boolean;
   releaseDate?: string;
   isAirdrop?: boolean;
@@ -265,19 +262,16 @@ async function TokenPriceStats({ symbol }: { symbol: string }) {
   const infos = await queryTokenInfo({ symbol });
   if (infos.length === 0) return;
 
-  const { price: _price, price_24h_change: _variation } = infos[0];
+  const { price, price_24h_change: variation = 0 } = infos[0];
 
-  const price = new PricePretty(DEFAULT_VS_CURRENCY, _price ?? 0);
-  const variation = new RatePretty((_variation && _variation / 100) ?? 0);
-
-  const isPositive = variation.toDec().isPositive();
+  const isPositive = variation > 0;
 
   return (
     <>
-      {_price && _variation && (
+      {price && variation && (
         <div className="flex flex-col items-end justify-center gap-1.5">
           <span className="leading-none 2xl:text-lg">
-            {formatPretty(price, { maxDecimals: 6 })}
+            {format("price", price)}
           </span>
           <span
             className={cn("inline-flex gap-1.5 leading-none", {
@@ -302,7 +296,7 @@ async function TokenPriceStats({ symbol }: { symbol: string }) {
                 className="-translate-y-0.5 self-end"
               />
             )}
-            {formatPretty(variation)}
+            {format("rate", variation, { maximumFractionDigits: 2 })}
           </span>
         </div>
       )}
