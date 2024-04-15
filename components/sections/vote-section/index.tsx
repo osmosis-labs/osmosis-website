@@ -133,6 +133,7 @@ function VoteSectionIllustration() {
       <Image
         src={"/assets/vote-section/grid.svg"}
         alt=""
+        aria-hidden
         width={687}
         height={687}
         className="vote-grid absolute -bottom-[152px] -right-[194px] h-[687px] w-[687px] max-w-none md:hidden"
@@ -140,6 +141,7 @@ function VoteSectionIllustration() {
       <Image
         src={"/assets/vote-section/grid-md.svg"}
         alt=""
+        aria-hidden
         width={801}
         height={742}
         className="absolute -bottom-[138px] hidden max-w-none md:-right-[136px] md:block lg:hidden"
@@ -147,6 +149,7 @@ function VoteSectionIllustration() {
       <Image
         src={"/assets/vote-section/grid-lg.svg"}
         alt=""
+        aria-hidden
         width={629}
         height={629}
         className="absolute -bottom-32 -right-25 hidden lg:block lg:h-[629px] lg:w-[629px] xl:-bottom-[200px] xl:h-[741px] xl:w-[741px] 2xl:-bottom-58 2xl:-right-[136px] 2xl:h-[904px] 2xl:w-[904px]"
@@ -154,6 +157,7 @@ function VoteSectionIllustration() {
       <Image
         src={"/assets/vote-section/doge.svg"}
         alt=""
+        aria-hidden
         width={196}
         height={265}
         className="absolute -bottom-6.5 right-[84px] sm:h-[275px] sm:w-[204px] md:-bottom-7 md:right-[154px] md:h-[328px] md:w-[243px] lg:right-[58px] lg:h-[386px] lg:w-[287px] xl:-bottom-7.5 xl:right-[124px] xl:h-[370px] xl:w-[276px] 2xl:-bottom-[38px] 2xl:right-[138px] 2xl:h-[452px] 2xl:w-[336px]"
@@ -161,6 +165,7 @@ function VoteSectionIllustration() {
       <Image
         src={"/assets/vote-section/msg.svg"}
         alt=""
+        aria-hidden
         width={71}
         height={128}
         className="absolute -left-1 bottom-[131px] sm:left-17.5 md:left-[86px] md:h-[180px] md:w-25 lg:bottom-[205px] lg:left-[unset] lg:right-[321px] lg:h-[161px] lg:w-[90px] xl:bottom-[172px] xl:right-[400px] xl:h-[190px] xl:w-26 2xl:bottom-[227px] 2xl:right-[471px] 2xl:h-[231px] 2xl:w-32"
@@ -168,6 +173,7 @@ function VoteSectionIllustration() {
       <Image
         src={"/assets/vote-section/msg-2.svg"}
         alt=""
+        aria-hidden
         width={89}
         height={86}
         className="absolute -left-3 bottom-8 sm:left-[62px] md:-bottom-1.5 md:left-17 md:h-[121px] md:w-[124px] lg:bottom-[58px] lg:left-[unset] lg:right-[334px] lg:h-[108px] lg:w-[110px] xl:bottom-5 xl:right-[410px] xl:h-[127px] xl:w-[130px] 2xl:bottom-8.5 2xl:right-[490px] 2xl:h-[155px] 2xl:w-40"
@@ -175,6 +181,7 @@ function VoteSectionIllustration() {
       <Image
         src={"/assets/vote-section/hole.svg"}
         alt=""
+        aria-hidden
         width={86}
         height={181}
         className="absolute bottom-3.5 right-0 md:-bottom-3.5 md:right-4 md:h-[254px] md:w-[121px] lg:-right-14 lg:bottom-14 lg:h-[226px] lg:w-[181px] xl:-right-12 xl:bottom-5 xl:h-[266px] xl:w-[213px] 2xl:-right-18 2xl:bottom-10 2xl:h-[325px] 2xl:w-65"

@@ -50,6 +50,7 @@ export function DoggoIllustration() {
       <Image
         src={"/assets/trade-section/coins.svg"}
         alt=""
+        aria-hidden
         width={296}
         height={89}
         className="absolute -bottom-7 sm:bottom-0 sm:left-12 md:-bottom-8 md:-left-[5px] md:h-[78px] md:w-[258px] lg:-bottom-11 lg:left-15 lg:h-[106px] lg:w-[351px] xl:-bottom-[50px] xl:left-[125px] xl:h-[126px] xl:w-[414px] 2xl:-bottom-[56px] 2xl:left-[91px] 2xl:h-[152px] 2xl:w-[500px]"
@@ -57,6 +58,7 @@ export function DoggoIllustration() {
       <Image
         src={"/assets/trade-section/doggo.svg"}
         alt=""
+        aria-hidden
         width={224}
         height={220}
         className="absolute bottom-4.5 left-11 sm:bottom-14 sm:left-16 md:bottom-4 md:left-3 md:h-[190px] md:w-[194px] lg:left-22.5 lg:h-[258px] lg:w-[264px] xl:bottom-[30px] xl:left-[150px] xl:h-[305px] xl:w-[311px] 2xl:left-[120px] 2xl:h-[370px] 2xl:w-[376px]"
@@ -64,6 +66,7 @@ export function DoggoIllustration() {
       <Image
         src={"/assets/trade-section/coin.svg"}
         alt=""
+        aria-hidden
         width={109}
         height={96}
         className="absolute bottom-[118px] left-[248px] sm:bottom-[140px] sm:left-[268px] md:bottom-[84px] md:left-[188px] md:h-[83px] md:w-[94px] lg:bottom-[115px] lg:left-[330px] lg:h-[113px] lg:w-[128px] xl:bottom-[144px] xl:left-[433px] xl:h-[134px] xl:w-[151px] 2xl:bottom-[123px] 2xl:left-[470px] 2xl:h-[176px] 2xl:w-[200px]"
@@ -71,6 +74,7 @@ export function DoggoIllustration() {
       <Image
         src={"/assets/trade-section/coin-purple.svg"}
         alt=""
+        aria-hidden
         width={172}
         height={172}
         className="absolute -left-10 bottom-30 -rotate-[13.35deg] sm:-left-4.5 sm:bottom-[150px] md:-left-[45px] md:bottom-[116px] md:h-[153px] md:w-[153px] md:-rotate-[26.7deg] lg:-left-6.5 lg:bottom-[112px] lg:h-[208px] lg:w-[208px] xl:bottom-[152px] xl:left-5.5 xl:h-[245px] xl:w-[245px] 2xl:-left-8.5 2xl:bottom-[180px] 2xl:h-[296px] 2xl:w-[296px]"

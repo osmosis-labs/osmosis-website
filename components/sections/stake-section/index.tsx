@@ -286,7 +286,12 @@ function StakeIllustration() {
         <source media="(min-width: 768px)" srcSet={md} />
         <source media="(min-width: 640px)" srcSet={sm} />
         <source media="(min-width: 0px)" srcSet={mobile} />
-        <img {...rest} style={{ width: "100%", height: "auto" }} alt="" />
+        <img
+          {...rest}
+          style={{ width: "100%", height: "auto" }}
+          alt=""
+          aria-hidden
+        />
       </picture>
       <Image
         src={"/assets/stake-illustrations/blob.svg"}

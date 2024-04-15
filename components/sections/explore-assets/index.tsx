@@ -66,6 +66,7 @@ function Heart({ assetsLists }: { assetsLists: TAsset[][] }) {
       <Image
         src={"/assets/explore-assets/heart-bg-gradient.svg"}
         alt=""
+        aria-hidden
         width={363}
         height={353}
         className="absolute-center pointer-events-none absolute !top-[calc(50%-20px)] h-[360px] w-[360px] sm:h-[440px] sm:w-[440px] md:!top-[calc(100%-120px)] md:h-[620px] md:w-[620px] lg:!left-[calc(50%+12px)] lg:!top-[calc(100%-160px)] lg:h-[800px] lg:w-[800px] xl:z-10 2xl:!top-[calc(100%-175px)] 2xl:z-0 2xl:h-[950px] 2xl:w-[1000px]"

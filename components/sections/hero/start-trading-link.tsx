@@ -31,6 +31,7 @@ export default function StartTradingLink() {
       <Image
         src={"/assets/icons/arrow-up-right.svg"}
         alt=""
+        aria-hidden
         width={20}
         height={20}
         className="h-5 w-5"
