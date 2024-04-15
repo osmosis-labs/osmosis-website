@@ -1,4 +1,4 @@
-import { formatPretty } from "@/lib/formatting";
+import { format } from "@/lib/formatting";
 import { queryTokenInfo } from "@/lib/queries/numia";
 import { cn } from "@/lib/utils";
 import { RatePretty } from "@keplr-wallet/unit";
@@ -107,9 +107,10 @@ async function VariationBadge({ symbol }: { symbol: string }) {
   const data = await queryTokenInfo({ symbol });
   if (data.length === 0) return;
 
-  const { price_24h_change } = data[0];
-  const variation = new RatePretty((price_24h_change ?? 0) / 100);
-  const isPositive = variation.toDec().isPositive();
+  const { price_24h_change: _variation } = data[0];
+  const variation = _variation || 0;
+
+  const isPositive = variation > 0;
 
   return (
     <div
@@ -145,7 +146,7 @@ async function VariationBadge({ symbol }: { symbol: string }) {
           },
         )}
       >
-        {formatPretty(variation)}
+        {format("rate", variation, { maximumFractionDigits: 2 })}
       </span>
     </div>
   );
