@@ -11,7 +11,6 @@ export default function HeroSection() {
     className:
       "absolute z-10 h-auto w-full rounded-3xl lg:rounded-[32px] 2xl:rounded-[48px] max-h-[571px] sm:max-h-none object-cover",
     priority: true,
-    unoptimize: true,
   };
 
   const {
