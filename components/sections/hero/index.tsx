@@ -1,13 +1,63 @@
 import { GTagLink } from "@/components/shared/gtag-link";
 import { Tickers } from "@/components/sections/hero/tickers";
-import Image from "next/image";
+import Image, { getImageProps } from "next/image";
 import { SwapToolTicker } from "@/components/sections/hero/swap-tool-ticker";
 import StartTradingLink from "@/components/sections/hero/start-trading-link";
 
 export default function HeroSection() {
+  const common = {
+    alt: "",
+    quality: 100,
+    className:
+      "absolute z-10 h-auto w-full rounded-3xl lg:rounded-[32px] 2xl:rounded-[48px] max-h-[571px] sm:max-h-none object-cover",
+    priority: true,
+  };
+
+  const {
+    props: { srcSet: mobile, ...rest },
+  } = getImageProps({
+    ...common,
+    src: "/assets/hero/bg.webp",
+    width: 342,
+    height: 463,
+  });
+
+  const {
+    props: { srcSet: sm },
+  } = getImageProps({
+    ...common,
+    src: "/assets/hero/bg-sm.webp",
+    width: 416,
+    height: 463,
+  });
+
+  const {
+    props: { srcSet: md },
+  } = getImageProps({
+    ...common,
+    src: "/assets/hero/bg-md.webp",
+    width: 608,
+    height: 472,
+  });
+
+  const {
+    props: { srcSet: lg },
+  } = getImageProps({
+    ...common,
+    src: "/assets/hero/bg-lg.webp",
+    width: 455,
+    height: 707,
+  });
   return (
-    <div className="relative">
-      <section className="bg-hero-section relative z-10 flex rounded-3xl p-2 sm:px-4 sm:py-6 lg:rounded-[32px] lg:p-4 2xl:rounded-[48px] 2xl:px-6 2xl:py-8">
+    <div className="relative rounded-3xl lg:rounded-[32px] 2xl:rounded-[48px]">
+      <picture>
+        <source media="(min-width: 1024px)" srcSet={lg} />
+        <source media="(min-width: 768px)" srcSet={md} />
+        <source media="(min-width: 640px)" srcSet={sm} />
+        <source media="(min-width: 0px)" srcSet={mobile} />
+        <img {...rest} style={{ width: "100%", height: "auto" }} alt="" />
+      </picture>
+      <section className="relative z-10 flex p-2 sm:px-4 sm:py-6 lg:p-4 2xl:px-6 2xl:py-8">
         <div className="flex w-full flex-col sm:gap-6 sm:py-6 md:gap-8 lg:flex-row lg:items-center lg:justify-between lg:py-0">
           <div className="flex flex-col gap-4 px-2 max-sm:py-4 sm:gap-3 sm:px-6 md:flex-row md:items-center md:justify-between md:px-4 lg:flex-col lg:items-start lg:gap-6 lg:px-6 xl:gap-8 xl:px-4 2xl:gap-2 2xl:px-8">
             <h1 className="inline-flex flex-col font-poppins text-[34px] font-medium leading-[34px] -tracking-[0.03em] text-neutral-100 sm:gap-1 sm:text-[40px] sm:leading-10 lg:gap-2 lg:text-5xl lg:leading-[48px] xl:text-6.25xl xl:leading-16 2xl:gap-1 2xl:text-7xl 2xl:leading-20">

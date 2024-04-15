@@ -84,36 +84,6 @@
   .border-swap-tool {
     box-shadow: inset 0px 0px 0px 1px #ffffff45;
   }
-  .bg-hero-section {
-    background-image: url("/assets/hero/bg.webp");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-  }
-  @media (min-width: 640px) {
-    .bg-hero-section {
-      background-image: url("/assets/hero/bg-sm.webp");
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-    }
-  }
-  @media (min-width: 768px) {
-    .bg-hero-section {
-      background-image: url("/assets/hero/bg-md.webp");
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-    }
-  }
-  @media (min-width: 1024px) {
-    .bg-hero-section {
-      background-image: url("/assets/hero/bg-lg.webp");
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-    }
-  }
   .border-token-stats-upcoming {
     box-shadow: inset 0px 0px 0px 1px #565081;
   }
