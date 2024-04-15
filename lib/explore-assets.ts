@@ -16,7 +16,7 @@ const EXPLORE_ASSETS: Omit<TAsset, "variation">[] = [
   },
   {
     name: "Ethereum",
-    symbol: "ETH",
+    symbol: "WETH.grv",
     iconUri: "/assets/icons/eth.svg",
     ring: 1,
   },
