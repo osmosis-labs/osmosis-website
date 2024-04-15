@@ -1,7 +1,6 @@
 import { format } from "@/lib/formatting";
 import { queryTokenInfo } from "@/lib/queries/numia";
 import { cn } from "@/lib/utils";
-import { RatePretty } from "@keplr-wallet/unit";
 import Image from "next/image";
 import Link from "next/link";
 import { CSSProperties, Suspense } from "react";
@@ -107,8 +106,7 @@ async function VariationBadge({ symbol }: { symbol: string }) {
   const data = await queryTokenInfo({ symbol });
   if (data.length === 0) return;
 
-  const { price_24h_change: _variation } = data[0];
-  const variation = _variation || 0;
+  const { price_24h_change: variation = 0 } = data[0];
 
   const isPositive = variation > 0;
 

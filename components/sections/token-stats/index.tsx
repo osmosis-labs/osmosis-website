@@ -11,7 +11,6 @@ import {
 } from "@/lib/queries/cms";
 import { queryTokenInfo } from "@/lib/queries/numia";
 import { cn } from "@/lib/utils";
-import { PricePretty, RatePretty } from "@keplr-wallet/unit";
 import Image from "next/image";
 import Link from "next/link";
 import { PropsWithChildren, Suspense } from "react";
@@ -21,8 +20,6 @@ export interface SectionAsset {
   denom: string;
   iconUri: string;
   isLoading?: boolean;
-  price?: PricePretty;
-  variation?: RatePretty;
   isUpcoming?: boolean;
   releaseDate?: string;
   isAirdrop?: boolean;
@@ -265,9 +262,9 @@ async function TokenPriceStats({ symbol }: { symbol: string }) {
   const infos = await queryTokenInfo({ symbol });
   if (infos.length === 0) return;
 
-  const { price, price_24h_change: variation } = infos[0];
+  const { price, price_24h_change: variation = 0 } = infos[0];
 
-  const isPositive = (variation ?? 0) > 0;
+  const isPositive = variation > 0;
 
   return (
     <>
