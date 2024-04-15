@@ -30,7 +30,7 @@ export default function TradeSection() {
               <span className="leading-6.5">Get Started</span>
               <Image
                 src={"/assets/icons/arrow-up-right.svg"}
-                alt="Get Started"
+                alt="Link to swap page"
                 width={24}
                 height={24}
                 className="2xl:hidden"
