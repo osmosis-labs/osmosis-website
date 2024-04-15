@@ -88,7 +88,7 @@ const EXPLORE_ASSETS: Omit<TAsset, "variation">[] = [
     ring: 2,
   },
   {
-    name: "SecretNetwork",
+    name: "Secret Network",
     symbol: "SCRT",
     iconUri:
       "https://raw.githubusercontent.com/cosmos/chain-registry/master/secretnetwork/images/scrt.svg",
@@ -129,14 +129,14 @@ const EXPLORE_ASSETS: Omit<TAsset, "variation">[] = [
     ring: 3,
   },
   {
-    name: "Gateway",
+    name: "Wormhole Token",
     symbol: "W",
     iconUri:
       "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/solana/images/w.png",
     ring: 3,
   },
   {
-    name: "Axelar",
+    name: "Avalanche",
     symbol: "AVAX",
     iconUri:
       "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/avalanche/images/avax.png",
@@ -149,21 +149,21 @@ const EXPLORE_ASSETS: Omit<TAsset, "variation">[] = [
     ring: 3,
   },
   {
-    name: "Axelar",
+    name: "Filecoin",
     symbol: "FIL",
     iconUri:
       "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/filecoin/images/fil.svg",
     ring: 3,
   },
   {
-    name: "Ethereum",
+    name: "Pepe",
     symbol: "PEPE",
     iconUri:
       "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/pepe.svg",
     ring: 3,
   },
   {
-    name: "Terra",
+    name: "Luna",
     symbol: "LUNA",
     iconUri:
       "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra/images/luna.svg",
