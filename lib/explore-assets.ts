@@ -4,7 +4,7 @@ const EXPLORE_ASSETS: Omit<TAsset, "variation">[] = [
   // Ring 1
   {
     name: "USDC",
-    symbol: "USDC",
+    symbol: "USDC.axl",
     iconUri: "/assets/icons/usdc.svg",
     ring: 1,
   },
