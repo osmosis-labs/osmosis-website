@@ -19,7 +19,9 @@ export default function Navbar() {
       <NavigationMenu className="max-lg:hidden" />
       <GTagLink asChild eventName="buttonClicked" label="Open the App">
         <Link
-          href={"https://app.osmosis.zone?utm_source=osmosis_landing_page"}
+          href={
+            "https://app.osmosis.zone?utm_source=osmosis_landing_page&utm_campaign=swap"
+          }
           target="_blank"
           className="inline-flex items-center justify-center rounded-lg bg-wosmongton-50 px-4 py-2.5 transition-colors hover:bg-wosmongton-800 md:rounded-[10px] md:px-3 md:py-2 lg:rounded-xl lg:px-4 lg:py-2.5 xl:rounded-[10px] 2xl:rounded-xl"
         >

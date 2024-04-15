@@ -118,7 +118,7 @@ export function TokenStatsRow({
   return (
     <DivOrLink
       isDiv={isUpcoming === true}
-      link={`https://app.osmosis.zone/assets/${denom}?utm_source=osmosis_landing_page`}
+      link={`https://app.osmosis.zone/assets/${denom}?utm_source=osmosis_landing_page&utm_campaign=assets-${denom}`}
       className={cn(
         "group flex min-h-18 w-full items-center justify-between rounded-xl px-3 xl:min-h-22.5 2xl:px-4",
         {

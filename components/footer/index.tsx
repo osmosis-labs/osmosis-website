@@ -13,27 +13,27 @@ const sections: Section[] = [
     links: [
       {
         label: "Trade",
-        href: "https://app.osmosis.zone?utm_source=osmosis_landing_page",
+        href: "https://app.osmosis.zone?utm_source=osmosis_landing_page&utm_campaign=swap",
       },
       {
         label: "Assets",
-        href: "https://app.osmosis.zone/assets?utm_source=osmosis_landing_page",
+        href: "https://app.osmosis.zone/assets?utm_source=osmosis_landing_page&utm_campaign=assets",
       },
       {
         label: "Earn",
-        href: "https://app.osmosis.zone/earn?utm_source=osmosis_landing_page",
+        href: "https://app.osmosis.zone/earn?utm_source=osmosis_landing_page&utm_campaign=earn",
       },
       {
         label: "Staking",
-        href: "https://app.osmosis.zone/stake?utm_source=osmosis_landing_page",
+        href: "https://app.osmosis.zone/stake?utm_source=osmosis_landing_page&utm_campaign=stake",
       },
       {
         label: "Pools",
-        href: "https://app.osmosis.zone/pools?utm_source=osmosis_landing_page",
+        href: "https://app.osmosis.zone/pools?utm_source=osmosis_landing_page&utm_campaign=pools",
       },
       {
         label: "Apps",
-        href: "https://app.osmosis.zone/apps?utm_source=osmosis_landing_page",
+        href: "https://app.osmosis.zone/apps?utm_source=osmosis_landing_page&utm_campaign=apps",
       },
     ],
   },
@@ -42,7 +42,7 @@ const sections: Section[] = [
     links: [
       {
         label: "OSMO",
-        href: "https://app.osmosis.zone/assets/OSMO?utm_source=osmosis_landing_page",
+        href: "https://app.osmosis.zone/assets/OSMO?utm_source=osmosis_landing_page&utm_campaign=assets-osmo",
       },
       {
         label: "CoinGecko",
