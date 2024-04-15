@@ -296,7 +296,7 @@ async function TokenPriceStats({ symbol }: { symbol: string }) {
                 className="-translate-y-0.5 self-end"
               />
             )}
-            {format("rate", variation)}
+            {format("rate", variation, { maximumFractionDigits: 2 })}
           </span>
         </div>
       )}
