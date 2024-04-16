@@ -134,7 +134,7 @@ export default function EarnSection() {
     <section className="bg-earn-section relative z-10 mt-14 flex flex-col rounded-3xl pt-4 sm:rounded-4xl md:mt-16 md:pt-12 lg:rounded-3xl lg:pt-4 xl:mt-32 xl:rounded-4xl xl:pt-8">
       <div className="flex flex-col items-center gap-6 px-2 py-4 sm:p-4 lg:gap-8 2xl:gap-14 2xl:p-6">
         <h2 className="bg-earn-headline text-center font-poppins text-3.5xl font-medium leading-9.5 -tracking-2% md:text-4xl md:leading-11 lg:text-5xl lg:leading-14.5 xl:text-5.5xl xl:leading-17 2xl:text-6.25xl 2xl:leading-20">
-          Unlock the full <br /> potential of DeFi.
+          Unlock the full potential of DeFi.
         </h2>
         {/**cards stack */}
         <div className="flex flex-col items-center justify-center gap-2 self-stretch xl:gap-4">

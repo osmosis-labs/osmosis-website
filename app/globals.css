@@ -413,12 +413,13 @@
   }
   .bg-earn-section {
     background: radial-gradient(
-      113.84% 75.43% at 0% 1.14%,
-      rgba(250, 178, 239, 0.45) 0%,
-      rgba(235, 38, 235, 0.36) 21.5%,
-      rgba(178, 38, 155, 0.16) 60.5%,
-      rgba(22, 15, 56, 0) 100%
-    );
+        100% 173% at 0% 0%,
+        rgba(250, 178, 239, 0.45) 0%,
+        rgba(235, 38, 235, 0.36) 18%,
+        rgba(178, 38, 155, 0.16) 40%,
+        rgba(22, 15, 56, 0) 60%
+      ),
+      linear-gradient(188deg, #140f34, #140f3400);
   }
   .bg-earn-headline {
     background: linear-gradient(180deg, #eeecea 55.38%, #f1c7fc 90.7%);

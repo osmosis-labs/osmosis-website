@@ -57,7 +57,7 @@ export default async function StatsWithTweets() {
 
   return (
     <section className="stats-with-tweets-bg relative z-10 mt-14 rounded-3xl pt-2 sm:mt-16 sm:rounded-4xl sm:pt-4 md:mt-24 md:pt-12 lg:mt-20 lg:pt-16 xl:mt-24 xl:pt-20 2xl:mt-25">
-      <div className="flex flex-col gap-8 p-2 sm:p-4 2xl:gap-16">
+      <div className="relative z-10 flex flex-col gap-8 p-2 sm:p-4 2xl:gap-16">
         <div className="flex flex-col gap-6 lg:gap-12">
           <div className="flex flex-col gap-2 md:flex-row">
             <Image
@@ -82,10 +82,10 @@ export default async function StatsWithTweets() {
         <div className="flex w-full flex-col items-center justify-center gap-8">
           <div className="flex flex-col gap-3 text-center">
             <span className="font-poppins text-2xl text-neutral-50">
-              Don’t just take it from us…
+              Home for the most active traders in crypto
             </span>
             <p className="text-xl font-light text-alpha-60">
-              Here’s what the community has to say
+              Real users show real love for Osmosis.
             </p>
           </div>
           <div className="md:horizontal-mask relative -mx-6 flex h-[555px] w-full overflow-hidden sm:-mx-28 lg:-mx-0 lg:h-[408px]">
@@ -102,9 +102,57 @@ export default async function StatsWithTweets() {
               </div>
             </div>
           </div>
+          <span className="text-center text-sm leading-5.5 text-[#9084CFB2] xl:max-w-[640px]">
+            These testimonials showcase positive feedback from our users and
+            have been curated for promotional purposes. We appreciate all
+            feedback and continuously strive to enhance our product based on
+            user input.
+          </span>
           <BackersSection />
         </div>
       </div>
+      <Image
+        src={"/assets/grids/base/grid-2.svg"}
+        alt="Grid 2"
+        width={358}
+        height={1663}
+        className="absolute -bottom-[380px] z-0 h-auto w-full sm:hidden"
+      />
+      <Image
+        src={"/assets/grids/sm/grid-2.svg"}
+        alt="Grid 2"
+        width={448}
+        height={1587}
+        className="bottom absolute -bottom-[180px] z-0 hidden h-auto w-full sm:block md:hidden"
+      />
+      <Image
+        src={"/assets/grids/md/grid-2.svg"}
+        alt="Grid 2"
+        width={640}
+        height={1212}
+        className="bottom absolute -bottom-[340px] z-0 hidden h-auto w-full md:block lg:hidden"
+      />
+      <Image
+        src={"/assets/grids/lg/grid-2.svg"}
+        alt="Grid 2"
+        width={962}
+        height={758}
+        className="bottom absolute -bottom-[340px] z-0 hidden h-auto w-full lg:block xl:hidden"
+      />
+      <Image
+        src={"/assets/grids/xl/grid-2.svg"}
+        alt="Grid 2"
+        width={1155}
+        height={912}
+        className="bottom absolute -bottom-[346px] z-0 hidden h-auto w-full xl:block 2xl:hidden"
+      />
+      <Image
+        src={"/assets/grids/2xl/grid-2.svg"}
+        alt="Grid 2"
+        width={1155}
+        height={912}
+        className="bottom absolute -bottom-[380px] z-0 hidden h-auto w-full 2xl:block"
+      />
     </section>
   );
 }
