@@ -51,14 +51,9 @@ export const queryMappedUpcomingAssets = unstable_cache(
   { revalidate: 3600 },
 );
 
-export const queryUpcomingAssetsSectionAssets = unstable_cache(
-  async (): Promise<SectionAsset[]> => {
-    const assets = await queryMappedUpcomingAssets();
-    return assets.concat(assets.slice(0, 2));
-  },
-  ["upcoming-assets-section-assets"],
-  { revalidate: 3600 },
-);
+export const queryUpcomingAssetsSectionAssets = async (): Promise<
+  SectionAsset[]
+> => (await queryMappedUpcomingAssets()).slice(0, 6);
 
 export const queryNewAssets = async () => {
   const assetList = await queryAssetList();

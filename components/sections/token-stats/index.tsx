@@ -96,8 +96,14 @@ async function SectionDataContent({
       })}
     >
       {assets.map((props) => (
-        <TokenStatsRow key={props.denom} {...props} />
+        <TokenStatsRow
+          key={props.denom}
+          {...props}
+          isSingle={assets.length === 1}
+        />
       ))}
+      {queryAssetsFn.name === "queryUpcomingAssetsSectionAssets" &&
+        assets.length < 6 && <StayTunedCard length={assets.length} />}
     </div>
   );
 }
@@ -110,7 +116,8 @@ export function TokenStatsRow({
   isUpcoming,
   releaseDate,
   projectLink,
-}: SectionAsset) {
+  isSingle,
+}: SectionAsset & { isSingle?: boolean }) {
   return (
     <Link
       href={
@@ -123,6 +130,7 @@ export function TokenStatsRow({
         {
           "lg:flex-col-reverse lg:items-start lg:p-3 2xl:p-4": isUpcoming,
           "pointer-events-none": !projectLink && isUpcoming,
+          "col-span-2": isSingle,
         },
       )}
     >
@@ -203,6 +211,71 @@ export function TokenStatsRow({
         </>
       )}
     </Link>
+  );
+}
+
+interface StayTunedCardProps {
+  length: number;
+}
+
+function StayTunedCard({ length }: StayTunedCardProps) {
+  return (
+    <div
+      className={cn(
+        "group relative flex min-h-18 w-full flex-col items-center overflow-hidden rounded-xl border border-osmoverse-650 bg-osmoverse-850 p-5 max-lg:justify-center xl:min-h-22.5",
+        {
+          "justify-center": length >= 2,
+          "col-span-2": length % 2 === 0 || length <= 1,
+        },
+      )}
+    >
+      <div
+        className={cn("relative z-10 flex flex-col items-center gap-2", {
+          "max-lg:justify-center md:h-[204px] lg:mt-6 lg:h-auto xl:mt-9":
+            length === 0,
+        })}
+      >
+        <div className="flex flex-col text-center">
+          <span
+            className={cn("text-[#B0AADC]", {
+              hidden: length !== 0,
+            })}
+          >
+            No upcoming asset launches.
+          </span>
+          <span className="text-[#B0AADC]">Stay tuned for more.</span>
+        </div>
+        <Link
+          href={"https://twitter.com/osmosiszone"}
+          target="_blank"
+          className="inline-flex items-center gap-1.5 leading-6.25 text-neutral-100"
+        >
+          Follow @osmosis
+          <Image
+            alt="Open @osmosis twitter link"
+            src={"/assets/icons/arrow-up-right.svg"}
+            width={20}
+            height={20}
+            className="mb-0.5"
+          />
+        </Link>
+      </div>
+      <Image
+        src={"/assets/upcoming-coins-graphic.svg"}
+        alt=""
+        aria-hidden
+        width={306}
+        height={162}
+        className={cn(
+          "absolute -bottom-14 h-[162px] w-[306px] max-w-none opacity-25 max-md:hidden lg:opacity-50 xl:opacity-100",
+          {
+            hidden: length >= 2,
+            "-bottom-21.5 h-[216px] w-[408px]": length <= 2,
+            "lg:-bottom-4 xl:bottom-8": length === 0,
+          },
+        )}
+      />
+    </div>
   );
 }
 
