@@ -13,7 +13,7 @@ import { queryTokenInfo } from "@/lib/queries/numia";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
-import { PropsWithChildren, Suspense } from "react";
+import { Suspense } from "react";
 
 export interface SectionAsset {
   name: string;
@@ -22,9 +22,9 @@ export interface SectionAsset {
   isLoading?: boolean;
   isUpcoming?: boolean;
   releaseDate?: string;
-  isAirdrop?: boolean;
+  // isAirdrop?: boolean;
   projectLink?: string;
-  airdropInfoUrl?: string;
+  // airdropInfoUrl?: string;
 }
 
 type QueryFn = () => Promise<SectionAsset[]>;
@@ -91,7 +91,8 @@ async function SectionDataContent({
   return (
     <div
       className={cn("flex flex-col gap-2", {
-        "h-full md:grid md:grid-cols-2": isGrid,
+        "h-full max-md:max-h-[312px] max-md:overflow-hidden md:grid md:grid-cols-2":
+          isGrid,
       })}
     >
       {assets.map((props) => (
@@ -108,30 +109,20 @@ export function TokenStatsRow({
   name,
   isUpcoming,
   releaseDate,
-  isAirdrop,
   projectLink,
-  airdropInfoUrl,
 }: SectionAsset) {
   return (
-    <DivOrLink
-      isDiv={isUpcoming === true}
-      link={`https://app.osmosis.zone/assets/${denom}?utm_source=osmosis_landing_page&utm_campaign=assets-${denom}`}
+    <Link
+      href={`https://app.osmosis.zone/assets/${denom}?utm_source=osmosis_landing_page&utm_campaign=assets-${denom}`}
       className={cn(
-        "group flex min-h-18 w-full items-center justify-between rounded-xl px-3 xl:min-h-22.5 2xl:px-4",
+        "group flex min-h-18 w-full items-center justify-between rounded-xl bg-osmoverse-775 px-3 transition-colors hover:bg-wosmongton-50 xl:min-h-22.5 2xl:px-4",
         {
-          "bg-osmoverse-775 transition-colors hover:bg-wosmongton-50":
-            !isUpcoming,
-          "border-token-stats-upcoming bg-osmoverse-850 py-2.5 md:min-h-30 md:flex-col md:items-start md:p-3 lg:min-h-[154px] xl:min-h-[187px] xl:p-4":
-            isUpcoming,
+          "lg:flex-col-reverse lg:items-start lg:p-3 2xl:p-4": isUpcoming,
           "pointer-events-none": !projectLink && isUpcoming,
         },
       )}
     >
-      <DivOrLink
-        isDiv={!isUpcoming}
-        link={projectLink}
-        className="flex items-center gap-2 xl:gap-3"
-      >
+      <div className="flex items-center gap-2 xl:gap-3">
         {isLoading ? (
           <div className="h-8 w-8 rounded-full bg-osmoverse-650 md:h-10 md:w-10 xl:h-12 xl:w-12" />
         ) : (
@@ -181,7 +172,7 @@ export function TokenStatsRow({
             </span>
           </div>
         )}
-      </DivOrLink>
+      </div>
       {isLoading ? (
         <div
           className={cn("flex flex-col items-end justify-center gap-1", {
@@ -199,64 +190,56 @@ export function TokenStatsRow({
             </Suspense>
           )}
           {isUpcoming && (
-            <div
-              className={cn(
-                "flex flex-col items-end max-md:gap-1 md:w-full md:flex-row md:items-center md:justify-between",
-                { "!justify-end": !releaseDate },
-              )}
-            >
-              {releaseDate && (
-                <span className="text-sm leading-none opacity-55">
-                  {releaseDate}
-                </span>
-              )}
-              {isAirdrop && <AirdropBadge airdropInfoUrl={airdropInfoUrl} />}
+            <div className={cn("flex flex-col max-lg:gap-1")}>
+              <span className="leading-6.25 text-alpha-60">
+                {releaseDate || "Coming Soon"}
+              </span>
             </div>
           )}
         </>
       )}
-    </DivOrLink>
-  );
-}
-
-function DivOrLink({
-  children,
-  isDiv,
-  className,
-  link,
-}: PropsWithChildren<{
-  isDiv: boolean;
-  className?: string;
-  link?: string;
-}>) {
-  if (isDiv) return <div className={className}>{children}</div>;
-
-  return (
-    <Link className={className} href={link ?? "#"} target="_blank">
-      {children}
     </Link>
   );
 }
 
-function AirdropBadge({ airdropInfoUrl }: { airdropInfoUrl?: string }) {
-  return (
-    <Link
-      passHref
-      href={airdropInfoUrl ?? "#"}
-      className="flex min-h-5 items-center gap-0.5 rounded-xl bg-ion-300 pl-1.5 pr-2"
-    >
-      <Image
-        src={"/assets/icons/giftbox.svg"}
-        alt="Airdrop icon"
-        width={14}
-        height={14}
-      />
-      <span className="text-xs leading-none text-ion-900 xl:text-sm">
-        Airdrop
-      </span>
-    </Link>
-  );
-}
+// function DivOrLink({
+//   children,
+//   isDiv,
+//   className,
+//   link,
+// }: PropsWithChildren<{
+//   isDiv: boolean;
+//   className?: string;
+//   link?: string;
+// }>) {
+//   if (isDiv) return <div className={className}>{children}</div>;
+
+//   return (
+//     <Link className={className} href={link ?? "#"} target="_blank">
+//       {children}
+//     </Link>
+//   );
+// }
+
+// function AirdropBadge({ airdropInfoUrl }: { airdropInfoUrl?: string }) {
+//   return (
+//     <Link
+//       passHref
+//       href={airdropInfoUrl ?? "#"}
+//       className="flex min-h-5 items-center gap-0.5 rounded-xl bg-ion-300 pl-1.5 pr-2"
+//     >
+//       <Image
+//         src={"/assets/icons/giftbox.svg"}
+//         alt="Airdrop icon"
+//         width={14}
+//         height={14}
+//       />
+//       <span className="text-xs leading-none text-ion-900 xl:text-sm">
+//         Airdrop
+//       </span>
+//     </Link>
+//   );
+// }
 
 async function TokenPriceStats({ symbol }: { symbol: string }) {
   const infos = await queryTokenInfo({ symbol });

@@ -31,22 +31,18 @@ export const queryMappedUpcomingAssets = unstable_cache(
         assetName,
         estimatedLaunchDateUtc,
         logoURL,
-        osmosisAirdrop,
         showLaunchDate,
         symbol,
         socials,
         images,
-        airdropInfoUrl,
       }) => {
         return {
           denom: symbol,
           iconUri: images[0].svg ?? images[0].png ?? logoURL ?? "",
           name: assetName,
-          isAirdrop: osmosisAirdrop,
           releaseDate: showLaunchDate ? estimatedLaunchDateUtc : undefined,
           isUpcoming: true,
           projectLink: socials?.website ?? socials?.twitter ?? undefined,
-          airdropInfoUrl,
         };
       },
     );
@@ -57,17 +53,8 @@ export const queryMappedUpcomingAssets = unstable_cache(
 
 export const queryUpcomingAssetsSectionAssets = unstable_cache(
   async (): Promise<SectionAsset[]> => {
-    return (
-      (await queryMappedUpcomingAssets())
-        // temp disabled as there currently are no upcoming assets on the cms
-        // .filter((asset) => {
-        //   const releaseDate = new Date(asset.releaseDate!).getTime();
-
-        //   return releaseDate > new Date().getTime();
-        // })
-        // this slice is temporary
-        .slice(0, 4)
-    );
+    const assets = await queryMappedUpcomingAssets();
+    return assets.concat(assets.slice(0, 2));
   },
   ["upcoming-assets-section-assets"],
   { revalidate: 3600 },
