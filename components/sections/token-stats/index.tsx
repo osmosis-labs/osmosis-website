@@ -330,7 +330,7 @@ async function TokenPriceStats({ symbol }: { symbol: string }) {
             {format("price", price)}
           </span>
           <span
-            className={cn("inline-flex gap-1.5 leading-none", {
+            className={cn("inline-flex items-center leading-none", {
               "text-malachite-200": isPositive,
               "text-[#FA825D]": !isPositive,
             })}
@@ -339,17 +339,15 @@ async function TokenPriceStats({ symbol }: { symbol: string }) {
               <Image
                 src={"/assets/icons/variation-indicator-up.svg"}
                 alt="Indicator Up"
-                width={10}
-                height={9}
-                className="translate-y-0.5 self-baseline"
+                width={20}
+                height={20}
               />
             ) : (
               <Image
                 src={"/assets/icons/variation-indicator-down.svg"}
                 alt="Indicator Down"
-                width={10}
-                height={9}
-                className="-translate-y-0.5 self-end"
+                width={20}
+                height={20}
               />
             )}
             {format("rate", variation, { maximumFractionDigits: 2 })}
