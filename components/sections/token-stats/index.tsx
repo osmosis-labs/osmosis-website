@@ -113,7 +113,11 @@ export function TokenStatsRow({
 }: SectionAsset) {
   return (
     <Link
-      href={`https://app.osmosis.zone/assets/${denom}?utm_source=osmosis_landing_page&utm_campaign=assets-${denom}`}
+      href={
+        projectLink ||
+        `https://app.osmosis.zone/assets/${denom}?utm_source=osmosis_landing_page&utm_campaign=assets-${denom}`
+      }
+      target="_blank"
       className={cn(
         "group flex min-h-18 w-full items-center justify-between rounded-xl bg-osmoverse-775 px-3 transition-colors hover:bg-wosmongton-50 xl:min-h-22.5 2xl:px-4",
         {
