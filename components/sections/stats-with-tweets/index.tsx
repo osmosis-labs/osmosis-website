@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import tweets from "@/lib/tweets";
+import BackersSection from "@/components/sections/osmo-cta/backers-section";
 
 interface StatCard {
   title: string;
@@ -78,19 +79,30 @@ export default async function StatsWithTweets() {
           </div>
         </div>
         <Divider className="py-6" />
-        <div className="md:horizontal-mask relative -mx-6 flex h-[555px] overflow-hidden sm:-mx-28 lg:-mx-0 lg:h-[408px]">
-          <div className="absolute flex flex-col gap-3 lg:gap-4">
-            <div className="tweets-row-marquee-animation tweets-upper-half relative flex gap-2 transition-transform lg:gap-4">
-              {upperHalf.concat(upperHalf).map((tweet, i) => (
-                <Tweet key={tweet.tweetLink} {...tweet} />
-              ))}
-            </div>
-            <div className="tweets-row-marquee-animation-reverse tweets-bottom-half relative flex gap-2 transition-transform lg:gap-4">
-              {lowerHalf.concat(lowerHalf).map((tweet, i) => (
-                <Tweet key={tweet.tweetLink} {...tweet} />
-              ))}
+        <div className="flex w-full flex-col items-center justify-center gap-8">
+          <div className="flex flex-col gap-3 text-center">
+            <span className="font-poppins text-2xl text-neutral-50">
+              Don’t just take it from us…
+            </span>
+            <p className="text-xl font-light text-alpha-60">
+              Here’s what the community has to say
+            </p>
+          </div>
+          <div className="md:horizontal-mask relative -mx-6 flex h-[555px] w-full overflow-hidden sm:-mx-28 lg:-mx-0 lg:h-[408px]">
+            <div className="absolute flex flex-col gap-3 lg:gap-4">
+              <div className="tweets-row-marquee-animation tweets-upper-half relative flex gap-2 transition-transform lg:gap-4">
+                {upperHalf.concat(upperHalf).map((tweet, i) => (
+                  <Tweet key={tweet.tweetLink} {...tweet} />
+                ))}
+              </div>
+              <div className="tweets-row-marquee-animation-reverse tweets-bottom-half relative flex gap-2 transition-transform lg:gap-4">
+                {lowerHalf.concat(lowerHalf).map((tweet, i) => (
+                  <Tweet key={tweet.tweetLink} {...tweet} />
+                ))}
+              </div>
             </div>
           </div>
+          <BackersSection />
         </div>
       </div>
     </section>
