@@ -103,10 +103,8 @@ export default async function StatsWithTweets() {
             </div>
           </div>
           <span className="text-center text-sm leading-5.5 text-[#9084CFB2] xl:max-w-[640px]">
-            These testimonials showcase positive feedback from our users and
-            have been curated for promotional purposes. We appreciate all
-            feedback and continuously strive to enhance our product based on
-            user input.
+            These tweets highlight positive feedback from our community of users
+            and influencers.
           </span>
           <BackersSection />
         </div>
