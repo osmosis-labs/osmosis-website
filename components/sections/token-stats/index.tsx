@@ -157,17 +157,13 @@ export function TokenStatsRow({
         ) : (
           <div className="flex flex-col gap-1.5 2xl:gap-1">
             <div className="relative flex items-center">
-              <span className="text-sm leading-none max-xl:hidden xl:text-base">
+              <span className="max-w-[200px] text-sm leading-none max-2xl:line-clamp-1 md:max-w-[130px] xl:max-w-[150px] xl:text-base xl:leading-[27px] 2xl:max-w-none">
                 {name}
-              </span>
-              <span className="text-sm leading-none xl:hidden">
-                {name.slice(0, 10)}
-                {name.length > 10 && "..."}
               </span>
               <div
                 className={cn(
-                  "absolute -right-8.5 hidden h-6 w-6 items-center justify-center rounded-full bg-white-full/15",
-                  { "group-hover:flex": !isUpcoming },
+                  "absolute -right-8 inline-flex h-6 w-6 items-center justify-center rounded-full bg-white-full/15 opacity-0 transition-opacity",
+                  { "group-hover:opacity-100": !isUpcoming },
                 )}
               >
                 <Image
