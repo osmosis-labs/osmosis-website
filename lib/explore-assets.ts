@@ -98,9 +98,10 @@ const EXPLORE_ASSETS: Omit<TAsset, "variation">[] = [
     ring: 2,
   },
   {
-    name: "Optimism",
-    symbol: "OP",
-    iconUri: "/assets/icons/arb.svg",
+    name: "Juno",
+    symbol: "JUNO",
+    iconUri:
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/juno/images/juno.svg",
     ring: 2,
   },
   {
@@ -152,10 +153,10 @@ const EXPLORE_ASSETS: Omit<TAsset, "variation">[] = [
     ring: 3,
   },
   {
-    name: "Secret Network",
-    symbol: "SCRT",
+    name: "Fantom",
+    symbol: "FTM",
     iconUri:
-      "https://raw.githubusercontent.com/cosmos/chain-registry/master/secretnetwork/images/scrt.svg",
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/fantom/images/ftm.svg",
     ring: 3,
   },
   {
