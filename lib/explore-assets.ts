@@ -65,9 +65,9 @@ const EXPLORE_ASSETS: Omit<TAsset, "variation">[] = [
     ring: 2,
   },
   {
-    name: "Polygon",
-    symbol: "MATIC",
-    iconUri: "/assets/icons/matic.svg",
+    name: "Dymension",
+    symbol: "DYM",
+    iconUri: "/assets/icons/dym.svg",
     ring: 2,
   },
   {
@@ -97,16 +97,16 @@ const EXPLORE_ASSETS: Omit<TAsset, "variation">[] = [
     ring: 2,
   },
   {
-    name: "Juno",
-    symbol: "JUNO",
+    name: "Stride",
+    symbol: "STRD",
     iconUri:
-      "https://raw.githubusercontent.com/cosmos/chain-registry/master/juno/images/juno.svg",
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/stride/images/strd.svg",
     ring: 2,
   },
   {
-    name: "Dymension",
-    symbol: "DYM",
-    iconUri: "/assets/icons/dym.svg",
+    name: "Polygon",
+    symbol: "MATIC",
+    iconUri: "/assets/icons/matic.svg",
     ring: 2,
   },
   {
@@ -132,10 +132,10 @@ const EXPLORE_ASSETS: Omit<TAsset, "variation">[] = [
     ring: 3,
   },
   {
-    name: "Stride",
-    symbol: "STRD",
+    name: "Juno",
+    symbol: "JUNO",
     iconUri:
-      "https://raw.githubusercontent.com/cosmos/chain-registry/master/stride/images/strd.svg",
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/juno/images/juno.svg",
     ring: 3,
   },
   {
