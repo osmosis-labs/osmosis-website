@@ -43,14 +43,6 @@ export interface UpcomingAsset {
    * Indicates whether to show the launch date of the asset.
    */
   showLaunchDate: boolean;
-  /**
-   * Indicates whether Osmosis Stakers or LPs are eligible for an airdrop of the asset.
-   */
-  osmosisAirdrop: boolean;
-  /**
-   * The URL to the airdrop info of the project/asset.
-   */
-  airdropInfoUrl?: string;
 }
 
 /**
@@ -61,15 +53,4 @@ export interface LandingPageData {
    * Array containing details of upcoming assets.
    */
   upcomingAssets: UpcomingAsset[];
-}
-
-export interface PastAirdrop {
-  /**
-   * The minimalCoinDenom of the asset when on Osmosis chain.
-   */
-  denom: string;
-  /**
-   * The amount that was airdropped.
-   */
-  amount?: number;
 }
