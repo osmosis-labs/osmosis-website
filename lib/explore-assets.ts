@@ -52,10 +52,9 @@ const EXPLORE_ASSETS: Omit<TAsset, "variation">[] = [
   },
   // Ring 2
   {
-    name: "dYdX",
-    symbol: "DYDX",
-    iconUri:
-      "https://raw.githubusercontent.com/cosmos/chain-registry/master/dydx/images/dydx-circle.svg",
+    name: "Injective",
+    symbol: "INJ",
+    iconUri: "/assets/icons/inj.svg",
     ring: 2,
   },
   {
@@ -81,7 +80,7 @@ const EXPLORE_ASSETS: Omit<TAsset, "variation">[] = [
     name: "Aptos",
     symbol: "APT",
     iconUri:
-      "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/aptos/images/aptos.svg",
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/aptos/images/apt-dm.svg",
     ring: 2,
   },
   {
@@ -111,9 +110,10 @@ const EXPLORE_ASSETS: Omit<TAsset, "variation">[] = [
     ring: 2,
   },
   {
-    name: "Injective",
-    symbol: "INJ",
-    iconUri: "/assets/icons/inj.svg",
+    name: "dYdX",
+    symbol: "DYDX",
+    iconUri:
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/dydx/images/dydx-circle.svg",
     ring: 2,
   },
   {
