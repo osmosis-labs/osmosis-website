@@ -18,9 +18,27 @@ export const tickerAnimationAssets: TickerProps[] = [
     iconUri: "/assets/icons/tia.svg",
   },
   {
-    name: "Dymension",
-    denom: "DYM",
-    iconUri: "/assets/icons/dym.svg",
+    name: "Bitcoin",
+    denom: "BTC",
+    iconUri:
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/wbtc.svg",
+  },
+  {
+    name: "Ethereum",
+    denom: "ETH",
+    iconUri: "/assets/icons/eth.svg",
+  },
+  {
+    name: "Cosmos Hub",
+    denom: "ATOM",
+    iconUri:
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.svg",
+  },
+  {
+    name: "dYdX",
+    denom: "DYDX",
+    iconUri:
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/dydx/images/dydx-circle.svg",
   },
   {
     name: "Akash",
@@ -40,16 +58,15 @@ export const tickerAnimationAssets: TickerProps[] = [
     iconUri: "/assets/icons/stars.svg",
   },
   {
-    name: "LAB",
-    denom: "LAB",
-    iconUri:
-      "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/LAB.png",
-  },
-  {
     name: "Axelar",
     denom: "AXL",
     iconUri:
       "https://raw.githubusercontent.com/cosmos/chain-registry/master/axelar/images/axl.svg",
+  },
+  {
+    name: "Dymension",
+    denom: "DYM",
+    iconUri: "/assets/icons/dym.svg",
   },
   {
     name: "Injective",
@@ -57,32 +74,22 @@ export const tickerAnimationAssets: TickerProps[] = [
     iconUri: "/assets/icons/inj.svg",
   },
   {
-    name: "Wrapped Bitcoin",
-    denom: "WBTC",
-    iconUri:
-      "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/wbtc.svg",
-  },
-  {
-    name: "Ethereum",
-    denom: "ETH",
-    iconUri: "/assets/icons/eth.svg",
-  },
-  {
-    name: "Cosmos Hub",
-    denom: "ATOM",
-    iconUri:
-      "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.svg",
-  },
-  {
-    name: "PEPE",
-    denom: "PEPE",
-    iconUri: "/assets/icons/pepe.svg",
-  },
-  {
     name: "Fetchhub",
     denom: "FET",
     iconUri:
       "https://raw.githubusercontent.com/cosmos/chain-registry/master/fetchhub/images/fet.svg",
+  },
+  {
+    name: "Stride",
+    denom: "STRD",
+    iconUri:
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/stride/images/strd.svg",
+  },
+  {
+    name: "Sei",
+    denom: "SEI",
+    iconUri:
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/sei/images/sei.svg",
   },
   {
     name: "Kujira",
@@ -94,12 +101,6 @@ export const tickerAnimationAssets: TickerProps[] = [
     name: "Solana",
     denom: "SOL",
     iconUri: "/assets/icons/sol.svg",
-  },
-  {
-    name: "dYdX",
-    denom: "DYDX",
-    iconUri:
-      "https://raw.githubusercontent.com/cosmos/chain-registry/master/dydx/images/dydx-circle.svg",
   },
 ];
 
