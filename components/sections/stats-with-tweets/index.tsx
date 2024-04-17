@@ -67,10 +67,10 @@ export default async function StatsWithTweets() {
               height={40}
               className="md:h-15 md:w-15"
             />
-            <h4 className="font-poppins text-3.5xl font-medium leading-9.5 tracking-[-0.64px] md:text-4xl md:leading-10.75 lg:text-5xl lg:leading-13.75 xl:text-5.5xl xl:leading-16 2xl:leading-17.5">
+            <h2 className="font-poppins text-3.5xl font-medium leading-9.5 tracking-[-0.64px] md:text-4xl md:leading-10.75 lg:text-5xl lg:leading-13.75 xl:text-5.5xl xl:leading-16 2xl:leading-17.5">
               <span className="trusted-heading-bg">Trusted</span> by 1+ million{" "}
               <br /> users and counting.
-            </h4>
+            </h2>
           </div>
           <div className="flex flex-col gap-4 lg:grid lg:grid-cols-3 lg:gap-2 2xl:gap-4">
             {stats.map((props) => (

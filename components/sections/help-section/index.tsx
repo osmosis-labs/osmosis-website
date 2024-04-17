@@ -71,9 +71,9 @@ export default function HelpSection() {
         <div className="flex flex-col items-center justify-center gap-6 self-stretch p-2 sm:p-4 lg:gap-8 2xl:gap-14 2xl:p-6">
           <div className="flex flex-col items-center gap-4">
             <Badge label="Put your assets to work" />
-            <h3 className="bg-help-headline text-center font-poppins text-3.5xl font-medium leading-9.5 -tracking-2% md:text-4xl md:leading-10.75 lg:text-5xl lg:leading-13 2xl:text-6.25xl 2xl:leading-17.5">
+            <h2 className="bg-help-headline text-center font-poppins text-3.5xl font-medium leading-9.5 -tracking-2% md:text-4xl md:leading-10.75 lg:text-5xl lg:leading-13 2xl:text-6.25xl 2xl:leading-17.5">
               Connect with Osmosis.
-            </h3>
+            </h2>
           </div>
           {/**stack */}
           <div className="flex flex-col justify-center gap-2 self-stretch xl:gap-4">

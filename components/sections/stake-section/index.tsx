@@ -10,10 +10,10 @@ export default function StakeSection() {
       <div className="flex flex-col items-center justify-center gap-4">
         <Badge label="Secure the network" />
         <div className="flex flex-col items-center justify-center gap-2 self-stretch lg:gap-4">
-          <h4 className="bg-stake-heading text-center font-poppins text-3.5xl font-medium leading-9.5 -tracking-2% md:text-4xl md:leading-10.75 lg:text-5xl lg:leading-13 xl:text-5.5xl xl:leading-15.25 2xl:text-6.25xl 2xl:leading-17.5">
+          <h2 className="bg-stake-heading text-center font-poppins text-3.5xl font-medium leading-9.5 -tracking-2% md:text-4xl md:leading-10.75 lg:text-5xl lg:leading-13 xl:text-5.5xl xl:leading-15.25 2xl:text-6.25xl 2xl:leading-17.5">
             Stake to earn <br className="sm:hidden" />
             rewards.
-          </h4>
+          </h2>
           <p className="self-stretch text-center font-light leading-5.5 text-neutral-100 lg:text-xl lg:leading-7">
             Lock up your OSMO and earn passive <br className="sm:hidden" />
             staking <br className="hidden sm:block" />{" "}
@@ -47,9 +47,9 @@ export default function StakeSection() {
               height={24}
             />
             <div className="flex flex-col gap-2">
-              <span className="self-stretch font-poppins text-xl leading-6.5 text-neutral-100">
+              <h3 className="self-stretch font-poppins text-xl leading-6.5 text-neutral-100">
                 Superfluid staking
-              </span>
+              </h3>
               <p className="font-light leading-6.25 text-alpha-60">
                 Access an innovative feature that allows you to earn trading
                 fees and stake{" "}
@@ -72,9 +72,9 @@ export default function StakeSection() {
               height={24}
             />
             <div className="flex flex-col gap-2">
-              <span className="self-stretch font-poppins text-xl leading-6.5 text-neutral-100">
+              <h3 className="self-stretch font-poppins text-xl leading-6.5 text-neutral-100">
                 Real yields
-              </span>
+              </h3>
               <p className="font-light leading-6.25 text-alpha-60">
                 Every trade on Osmosis generates fees that stakers receive for
                 securing the protocol.
@@ -154,7 +154,12 @@ function StakeIllustration() {
         <source media="(min-width: 768px)" srcSet={md} />
         <source media="(min-width: 640px)" srcSet={sm} />
         <source media="(min-width: 0px)" srcSet={mobile} />
-        <img {...rest} style={{ width: "100%", height: "auto" }} alt="" />
+        <img
+          {...rest}
+          style={{ width: "100%", height: "auto" }}
+          alt=""
+          aria-hidden
+        />
       </picture>
       <Image
         src={"/assets/stake-illustrations/blob.svg"}

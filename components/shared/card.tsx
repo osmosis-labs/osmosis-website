@@ -75,9 +75,9 @@ export default function Card({
           </div>
         </div>
         <div className="relative z-20 flex flex-col gap-2">
-          <h5 className="font-poppins text-xl font-medium leading-6.5 text-neutral-100 2xl:text-2xl 2xl:leading-7.75">
+          <h3 className="font-poppins text-xl font-medium leading-6.5 text-neutral-100 2xl:text-2xl 2xl:leading-7.75">
             {title}
-          </h5>
+          </h3>
           <p
             className={cn(
               "max-w-[448px] self-stretch leading-6.25 text-alpha-60",

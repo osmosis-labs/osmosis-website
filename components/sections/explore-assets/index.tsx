@@ -16,9 +16,9 @@ export default function ExploreAssets() {
       />
       <div className="relative z-10 flex flex-col items-center justify-center gap-6 md:gap-8 2xl:px-6">
         <div className="flex flex-col items-center justify-center gap-4 text-center">
-          <h3 className="bg-explore-assets-headline w-[290px] font-poppins text-3.5xl font-medium leading-9.5 -tracking-2% sm:w-[390px] md:w-[420px] md:text-4xl md:leading-[41px] lg:w-[594px] lg:text-5xl lg:leading-13.75 xl:w-[660px] xl:text-5.5xl xl:leading-16 2xl:w-[768px] 2xl:text-6.25xl 2xl:leading-17.5">
+          <h2 className="bg-explore-assets-headline w-[290px] font-poppins text-3.5xl font-medium leading-9.5 -tracking-2% sm:w-[390px] md:w-[420px] md:text-4xl md:leading-[41px] lg:w-[594px] lg:text-5xl lg:leading-13.75 xl:w-[660px] xl:text-5.5xl xl:leading-16 2xl:w-[768px] 2xl:text-6.25xl 2xl:leading-17.5">
             The center of the multichain future.
-          </h3>
+          </h2>
           <span className="max-w-[223px] font-light leading-6.25 text-alpha-60 md:max-w-none md:leading-5.5 lg:text-xl">
             Access liquidity and assets from over 100 ecosystems.
           </span>
@@ -66,6 +66,7 @@ function Heart({ assetsLists }: { assetsLists: TAsset[][] }) {
       <Image
         src={"/assets/explore-assets/heart-bg-gradient.svg"}
         alt=""
+        aria-hidden
         width={363}
         height={353}
         className="absolute-center pointer-events-none absolute !top-[calc(50%-20px)] h-[360px] w-[360px] sm:h-[440px] sm:w-[440px] md:!top-[calc(100%-120px)] md:h-[620px] md:w-[620px] lg:!left-[calc(50%+12px)] lg:!top-[calc(100%-160px)] lg:h-[800px] lg:w-[800px] xl:z-10 2xl:!top-[calc(100%-175px)] 2xl:z-0 2xl:h-[950px] 2xl:w-[1000px]"
