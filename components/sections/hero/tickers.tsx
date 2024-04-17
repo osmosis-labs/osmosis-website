@@ -19,11 +19,6 @@ export const tickerAnimationAssets: TickerProps[] = [
       "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/wbtc.svg",
   },
   {
-    name: "Ethereum",
-    denom: "ETH",
-    iconUri: "/assets/icons/eth.svg",
-  },
-  {
     name: "Cosmos Hub",
     denom: "ATOM",
     iconUri:
@@ -33,6 +28,11 @@ export const tickerAnimationAssets: TickerProps[] = [
     name: "Celestia",
     denom: "TIA",
     iconUri: "/assets/icons/tia.svg",
+  },
+  {
+    name: "Ethereum",
+    denom: "ETH",
+    iconUri: "/assets/icons/eth.svg",
   },
   {
     name: "dYdX",
