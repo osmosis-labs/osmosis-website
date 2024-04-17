@@ -13,7 +13,7 @@ import { queryTokenInfo } from "@/lib/queries/numia";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
-import { PropsWithChildren, Suspense } from "react";
+import { Suspense } from "react";
 
 export interface SectionAsset {
   name: string;
@@ -22,9 +22,7 @@ export interface SectionAsset {
   isLoading?: boolean;
   isUpcoming?: boolean;
   releaseDate?: string;
-  isAirdrop?: boolean;
   projectLink?: string;
-  airdropInfoUrl?: string;
 }
 
 type QueryFn = () => Promise<SectionAsset[]>;
@@ -91,12 +89,19 @@ async function SectionDataContent({
   return (
     <div
       className={cn("flex flex-col gap-2", {
-        "h-full md:grid md:grid-cols-2": isGrid,
+        "h-full max-md:max-h-[312px] max-md:overflow-hidden md:grid md:grid-cols-2":
+          isGrid,
       })}
     >
       {assets.map((props) => (
-        <TokenStatsRow key={props.denom} {...props} />
+        <TokenStatsRow
+          key={props.denom}
+          {...props}
+          isSingle={assets.length === 1}
+        />
       ))}
+      {queryAssetsFn.name === "queryUpcomingAssetsSectionAssets" &&
+        assets.length < 6 && <StayTunedCard length={assets.length} />}
     </div>
   );
 }
@@ -108,30 +113,26 @@ export function TokenStatsRow({
   name,
   isUpcoming,
   releaseDate,
-  isAirdrop,
   projectLink,
-  airdropInfoUrl,
-}: SectionAsset) {
+  isSingle,
+}: SectionAsset & { isSingle?: boolean }) {
   return (
-    <DivOrLink
-      isDiv={isUpcoming === true}
-      link={`https://app.osmosis.zone/assets/${denom}?utm_source=osmosis_landing_page&utm_campaign=assets-${denom}`}
+    <Link
+      href={
+        projectLink ||
+        `https://app.osmosis.zone/assets/${denom}?utm_source=osmosis_landing_page&utm_campaign=assets-${denom}`
+      }
+      target="_blank"
       className={cn(
-        "group flex min-h-18 w-full items-center justify-between rounded-xl px-3 xl:min-h-22.5 2xl:px-4",
+        "group flex min-h-18 w-full items-center justify-between rounded-xl bg-osmoverse-775 px-3 transition-colors hover:bg-wosmongton-50 xl:min-h-22.5 2xl:px-4",
         {
-          "bg-osmoverse-775 transition-colors hover:bg-wosmongton-50":
-            !isUpcoming,
-          "border-token-stats-upcoming bg-osmoverse-850 py-2.5 md:min-h-30 md:flex-col md:items-start md:p-3 lg:min-h-[154px] xl:min-h-[187px] xl:p-4":
-            isUpcoming,
+          "lg:flex-col-reverse lg:items-start lg:p-3 2xl:p-4": isUpcoming,
           "pointer-events-none": !projectLink && isUpcoming,
+          "col-span-2": isSingle,
         },
       )}
     >
-      <DivOrLink
-        isDiv={!isUpcoming}
-        link={projectLink}
-        className="flex items-center gap-2 xl:gap-3"
-      >
+      <div className="flex items-center gap-2 xl:gap-3">
         {isLoading ? (
           <div className="h-8 w-8 rounded-full bg-osmoverse-650 md:h-10 md:w-10 xl:h-12 xl:w-12" />
         ) : (
@@ -154,17 +155,13 @@ export function TokenStatsRow({
         ) : (
           <div className="flex flex-col gap-1.5 2xl:gap-1">
             <div className="relative flex items-center">
-              <span className="text-sm leading-none max-xl:hidden xl:text-base">
+              <span className="max-w-[200px] text-sm leading-none max-2xl:line-clamp-1 md:max-w-[130px] xl:max-w-[150px] xl:text-base xl:leading-[27px] 2xl:max-w-none">
                 {name}
-              </span>
-              <span className="text-sm leading-none xl:hidden">
-                {name.slice(0, 10)}
-                {name.length > 10 && "..."}
               </span>
               <div
                 className={cn(
-                  "absolute -right-8.5 hidden h-6 w-6 items-center justify-center rounded-full bg-white-full/15",
-                  { "group-hover:flex": !isUpcoming },
+                  "absolute -right-8 inline-flex h-6 w-6 items-center justify-center rounded-full bg-white-full/15 opacity-0 transition-opacity",
+                  { "group-hover:opacity-100": !isUpcoming },
                 )}
               >
                 <Image
@@ -181,7 +178,7 @@ export function TokenStatsRow({
             </span>
           </div>
         )}
-      </DivOrLink>
+      </div>
       {isLoading ? (
         <div
           className={cn("flex flex-col items-end justify-center gap-1", {
@@ -199,62 +196,80 @@ export function TokenStatsRow({
             </Suspense>
           )}
           {isUpcoming && (
-            <div
-              className={cn(
-                "flex flex-col items-end max-md:gap-1 md:w-full md:flex-row md:items-center md:justify-between",
-                { "!justify-end": !releaseDate },
-              )}
-            >
-              {releaseDate && (
-                <span className="text-sm leading-none opacity-55">
-                  {releaseDate}
-                </span>
-              )}
-              {isAirdrop && <AirdropBadge airdropInfoUrl={airdropInfoUrl} />}
+            <div className={cn("flex flex-col max-lg:gap-1")}>
+              <span className="leading-6.25 text-alpha-60">
+                {releaseDate || "Coming Soon"}
+              </span>
             </div>
           )}
         </>
       )}
-    </DivOrLink>
-  );
-}
-
-function DivOrLink({
-  children,
-  isDiv,
-  className,
-  link,
-}: PropsWithChildren<{
-  isDiv: boolean;
-  className?: string;
-  link?: string;
-}>) {
-  if (isDiv) return <div className={className}>{children}</div>;
-
-  return (
-    <Link className={className} href={link ?? "#"} target="_blank">
-      {children}
     </Link>
   );
 }
 
-function AirdropBadge({ airdropInfoUrl }: { airdropInfoUrl?: string }) {
+interface StayTunedCardProps {
+  length: number;
+}
+
+function StayTunedCard({ length }: StayTunedCardProps) {
   return (
-    <Link
-      passHref
-      href={airdropInfoUrl ?? "#"}
-      className="flex min-h-5 items-center gap-0.5 rounded-xl bg-ion-300 pl-1.5 pr-2"
+    <div
+      className={cn(
+        "group relative flex min-h-18 w-full flex-col items-center overflow-hidden rounded-xl border border-osmoverse-650 bg-osmoverse-850 p-5 max-lg:justify-center xl:min-h-22.5",
+        {
+          "justify-center": length >= 2,
+          "col-span-2": length % 2 === 0 || length <= 1,
+        },
+      )}
     >
+      <div
+        className={cn("relative z-10 flex flex-col items-center gap-2", {
+          "max-lg:justify-center md:h-[204px] lg:mt-6 lg:h-auto xl:mt-9":
+            length === 0,
+        })}
+      >
+        <div className="flex flex-col text-center">
+          <span
+            className={cn("text-[#B0AADC]", {
+              hidden: length !== 0,
+            })}
+          >
+            No upcoming asset launches.
+          </span>
+          <span className="text-[#B0AADC]">Stay tuned for more.</span>
+        </div>
+        <Link
+          href={"https://twitter.com/osmosiszone"}
+          target="_blank"
+          className="inline-flex items-center gap-1.5 leading-6.25 text-neutral-100"
+        >
+          Follow @osmosis
+          <Image
+            alt="Open @osmosis twitter link"
+            src={"/assets/icons/arrow-up-right.svg"}
+            width={20}
+            height={20}
+            className="mb-0.5"
+          />
+        </Link>
+      </div>
       <Image
-        src={"/assets/icons/giftbox.svg"}
-        alt="Airdrop icon"
-        width={14}
-        height={14}
+        src={"/assets/upcoming-coins-graphic.svg"}
+        alt=""
+        aria-hidden
+        width={306}
+        height={162}
+        className={cn(
+          "absolute -bottom-14 h-[162px] w-[306px] max-w-none opacity-25 max-md:hidden lg:opacity-50 xl:opacity-100",
+          {
+            hidden: length >= 2,
+            "-bottom-21.5 h-[216px] w-[408px]": length <= 2,
+            "lg:-bottom-4 xl:bottom-8": length === 0,
+          },
+        )}
       />
-      <span className="text-xs leading-none text-ion-900 xl:text-sm">
-        Airdrop
-      </span>
-    </Link>
+    </div>
   );
 }
 
@@ -274,7 +289,7 @@ async function TokenPriceStats({ symbol }: { symbol: string }) {
             {format("price", price)}
           </span>
           <span
-            className={cn("inline-flex gap-1.5 leading-none", {
+            className={cn("inline-flex items-center leading-none", {
               "text-malachite-200": isPositive,
               "text-[#FA825D]": !isPositive,
             })}
@@ -283,17 +298,15 @@ async function TokenPriceStats({ symbol }: { symbol: string }) {
               <Image
                 src={"/assets/icons/variation-indicator-up.svg"}
                 alt="Indicator Up"
-                width={10}
-                height={9}
-                className="translate-y-0.5 self-baseline"
+                width={20}
+                height={20}
               />
             ) : (
               <Image
                 src={"/assets/icons/variation-indicator-down.svg"}
                 alt="Indicator Down"
-                width={10}
-                height={9}
-                className="-translate-y-0.5 self-end"
+                width={20}
+                height={20}
               />
             )}
             {format("rate", variation, { maximumFractionDigits: 2 })}

@@ -107,7 +107,9 @@ const backers = [
 export default function BackersSection() {
   return (
     <div className="flex flex-col items-center justify-center gap-4 self-stretch xl:py-3">
-      <span className="leading-6.25 text-alpha-60">Backers include</span>
+      <span className="font-poppins text-2xl leading-7.75 text-neutral-100">
+        Backed by the best in the industry
+      </span>
       <div className="flex flex-col-reverse items-center justify-center">
         <input
           type="checkbox"

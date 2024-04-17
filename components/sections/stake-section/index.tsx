@@ -1,7 +1,5 @@
 import StakingApr from "@/components/sections/stake-section/staking-apr";
 import Badge from "@/components/shared/badge";
-import { queryAirdrops } from "@/lib/queries/cms";
-import { cn } from "@/lib/utils";
 import Image, { getImageProps } from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
@@ -83,140 +81,10 @@ export default function StakeSection() {
               </p>
             </div>
           </Link>
-          {/**card */}
-          <div className="flex flex-col gap-6 self-stretch overflow-hidden rounded-2xl border border-solid border-osmoverse-650 bg-osmoverse-775 px-4 py-6 md:col-span-2 lg:gap-0 lg:p-6 xl:rounded-3xl 2xl:justify-between 2xl:gap-4">
-            <Image
-              src={"/assets/icons/stake/giftbox-blue.svg"}
-              alt="Giftbox blue icon"
-              width={24}
-              height={24}
-            />
-            <div className="flex flex-col gap-4">
-              <div className="flex flex-col gap-4 self-stretch py-3 md:flex-row md:items-center md:gap-8 lg:justify-between lg:gap-0">
-                <div className="flex flex-col gap-2 md:w-[242px] 2xl:w-[300px]">
-                  <span className="self-stretch font-poppins text-xl leading-6.5 text-neutral-100">
-                    Airdrop exposure
-                  </span>
-                  <p className="font-light leading-6.25 text-alpha-60">
-                    OSMO stakers have received
-                    <br className="hidden md:block 2xl:hidden" /> up to{" "}
-                    <br className="hidden 2xl:block" /> over 15 airdrops to
-                    date.
-                  </p>
-                </div>
-                <div className="hidden h-18 w-[1px] bg-osmoverse-650 md:block" />
-                <div className="flex gap-3 max-md:items-center md:flex-col md:gap-1 md:px-4 lg:w-[187px] 2xl:w-auto">
-                  <span className="bg-stake-heading font-poppins text-3.5xl leading-8.75 -tracking-2% 2xl:text-5xl 2xl:leading-13">
-                    $47.5M+
-                  </span>
-                  <p className="font-light leading-6.25 text-alpha-60">
-                    Airdropped to <br className="hidden md:block 2xl:hidden" />{" "}
-                    OSMO stakers
-                  </p>
-                </div>
-              </div>
-              <div className="flex flex-col gap-8 2xl:gap-4">
-                <div className="flex flex-col gap-6">
-                  {/**row */}
-                  <div className="flex flex-col gap-4">
-                    <div className="flex items-center gap-1">
-                      <div className="before:bg-gradient-pulse-green relative h-5 w-5 before:absolute before:left-1/2 before:top-1/2 before:h-[90px] before:w-[90px] before:-translate-x-1/2 before:-translate-y-1/2 before:rounded-full before:blur-[20px] before:content-['']">
-                        <Image
-                          src={"/assets/pulse-green.svg"}
-                          alt="Upcoming Airdrops"
-                          width={20}
-                          height={20}
-                        />
-                      </div>
-                      <span className="font-light text-neutral-100">
-                        Upcoming Airdrops*
-                      </span>
-                    </div>
-                    <AirdropRow variant="upcoming" />
-                  </div>
-                  {/**row */}
-                  <div className="flex flex-col gap-4">
-                    <div className="flex items-center gap-1">
-                      <Image
-                        src={"/assets/pulse-blue.svg"}
-                        alt="Past Airdrops"
-                        width={20}
-                        height={20}
-                      />
-                      <span className="font-light text-neutral-100">
-                        Past Airdrops
-                      </span>
-                    </div>
-                    <AirdropRow variant="past" />
-                  </div>
-                </div>
-                <div className="flex items-center self-stretch px-2 opacity-55">
-                  <span className="text-sm leading-5.5 text-alpha-60">
-                    * Upcoming airdrops are not guaranteed.
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
         <StakeIllustration />
       </div>
     </section>
-  );
-}
-
-interface AirdropRowProps {
-  variant: "upcoming" | "past";
-}
-
-const SHOULD_ANIMATE_ARR_LENGTH_THRESHOLD = 8;
-
-async function AirdropRow({ variant }: AirdropRowProps) {
-  const { past, upcoming } = await queryAirdrops();
-
-  const selectedList = (variant === "past" ? past : upcoming) ?? [];
-
-  return (
-    <div
-      className={cn(
-        "relative flex h-[48px]",
-        selectedList.length < SHOULD_ANIMATE_ARR_LENGTH_THRESHOLD
-          ? "items-center"
-          : "horizontal-mask",
-      )}
-      style={{
-        //@ts-ignore
-        "--airdrops-count": selectedList.length,
-      }}
-    >
-      <div
-        className={cn(
-          "absolute flex items-center gap-2 transition-transform",
-          selectedList.length > SHOULD_ANIMATE_ARR_LENGTH_THRESHOLD &&
-            "airdrops-marquee",
-        )}
-      >
-        {(selectedList.length < SHOULD_ANIMATE_ARR_LENGTH_THRESHOLD
-          ? selectedList
-          : selectedList.concat(selectedList)
-        ).map(({ name, logoUri }, i) => {
-          return (
-            <div
-              className="flex h-12 w-12 items-center justify-center"
-              key={`${name} icon ${i}`}
-            >
-              <Image
-                alt={`${name} icon`}
-                src={logoUri}
-                width={48}
-                height={48}
-                className="rounded-full"
-              />
-            </div>
-          );
-        })}
-      </div>
-    </div>
   );
 }
 
