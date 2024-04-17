@@ -4,7 +4,7 @@ import Link from "next/link";
 
 interface Section {
   title: string;
-  links: { label: string; href: string; isNew?: boolean }[];
+  links: { label: string; href: string }[];
 }
 
 const sections: Section[] = [
@@ -114,7 +114,6 @@ const sections: Section[] = [
       {
         label: "Careers",
         href: "https://boards.greenhouse.io/osmosisdex",
-        isNew: true,
       },
     ],
   },
@@ -151,7 +150,7 @@ export default function Footer() {
                 {title}
               </span>
               <div className="flex flex-col gap-0.5">
-                {links.map(({ label, href, isNew }) => (
+                {links.map(({ label, href }) => (
                   <Link
                     key={label}
                     href={href}
@@ -162,13 +161,6 @@ export default function Footer() {
                         <span className="whitespace-nowrap font-light">
                           {label}
                         </span>
-                        {isNew && (
-                          <div className="flex items-center justify-center rounded-full bg-wosmongton-700 px-1.5 py-0.5">
-                            <span className="text-xxs leading-4 text-neutral-100 lg:text-xs lg:leading-[19px]">
-                              NEW
-                            </span>
-                          </div>
-                        )}
                       </div>
                       <div className="h-[1px] w-0 bg-neutral-100 transition-all group-hover:w-[calc(100%_+_16px)]" />
                     </div>
