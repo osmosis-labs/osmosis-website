@@ -13,6 +13,11 @@ export interface TickerProps {
 
 export const tickerAnimationAssets: TickerProps[] = [
   {
+    name: "Ethereum",
+    denom: "ETH",
+    iconUri: "/assets/icons/eth.svg",
+  },
+  {
     name: "Bitcoin",
     denom: "BTC",
     iconUri:
@@ -28,11 +33,6 @@ export const tickerAnimationAssets: TickerProps[] = [
     name: "Celestia",
     denom: "TIA",
     iconUri: "/assets/icons/tia.svg",
-  },
-  {
-    name: "Ethereum",
-    denom: "ETH",
-    iconUri: "/assets/icons/eth.svg",
   },
   {
     name: "dYdX",

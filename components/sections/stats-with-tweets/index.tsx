@@ -82,7 +82,7 @@ export default async function StatsWithTweets() {
         <div className="flex w-full flex-col items-center justify-center gap-8">
           <div className="flex flex-col gap-3 text-center">
             <span className="font-poppins text-2xl text-neutral-50">
-              Home for the most active traders in crypto
+              Don&#39;t just take it from us...
             </span>
             <p className="text-xl font-light text-alpha-60">
               Real users show real love for Osmosis.
