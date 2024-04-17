@@ -22,9 +22,7 @@ export interface SectionAsset {
   isLoading?: boolean;
   isUpcoming?: boolean;
   releaseDate?: string;
-  // isAirdrop?: boolean;
   projectLink?: string;
-  // airdropInfoUrl?: string;
 }
 
 type QueryFn = () => Promise<SectionAsset[]>;
@@ -274,45 +272,6 @@ function StayTunedCard({ length }: StayTunedCardProps) {
     </div>
   );
 }
-
-// function DivOrLink({
-//   children,
-//   isDiv,
-//   className,
-//   link,
-// }: PropsWithChildren<{
-//   isDiv: boolean;
-//   className?: string;
-//   link?: string;
-// }>) {
-//   if (isDiv) return <div className={className}>{children}</div>;
-
-//   return (
-//     <Link className={className} href={link ?? "#"} target="_blank">
-//       {children}
-//     </Link>
-//   );
-// }
-
-// function AirdropBadge({ airdropInfoUrl }: { airdropInfoUrl?: string }) {
-//   return (
-//     <Link
-//       passHref
-//       href={airdropInfoUrl ?? "#"}
-//       className="flex min-h-5 items-center gap-0.5 rounded-xl bg-ion-300 pl-1.5 pr-2"
-//     >
-//       <Image
-//         src={"/assets/icons/giftbox.svg"}
-//         alt="Airdrop icon"
-//         width={14}
-//         height={14}
-//       />
-//       <span className="text-xs leading-none text-ion-900 xl:text-sm">
-//         Airdrop
-//       </span>
-//     </Link>
-//   );
-// }
 
 async function TokenPriceStats({ symbol }: { symbol: string }) {
   const infos = await queryTokenInfo({ symbol });
