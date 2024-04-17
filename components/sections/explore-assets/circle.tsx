@@ -1,7 +1,6 @@
-import { formatPretty } from "@/lib/formatting";
+import { format } from "@/lib/formatting";
 import { queryTokenInfo } from "@/lib/queries/numia";
 import { cn } from "@/lib/utils";
-import { RatePretty } from "@keplr-wallet/unit";
 import Image from "next/image";
 import Link from "next/link";
 import { CSSProperties, Suspense } from "react";
@@ -12,6 +11,7 @@ interface IAsset {
   symbol: string;
   ring: number;
   isVoid: boolean;
+  display: string;
 }
 
 export type TAsset = Partial<IAsset>;
@@ -58,6 +58,7 @@ function Element({
   name,
   isVoid,
   symbol,
+  display,
 }: {
   className?: string;
   style?: CSSProperties;
@@ -68,15 +69,15 @@ function Element({
       target="_blank"
       style={style}
       className={cn(
-        "group absolute flex h-10 w-10 -translate-y-1/2 translate-x-1/2 flex-col items-center justify-center opacity-[var(--ring-asset-opacity)] transition-all ease-out hover:scale-105 hover:opacity-100 md:h-20 md:w-20 lg:h-[110px] lg:w-24",
+        "group absolute flex h-10 w-10 -translate-y-1/2 translate-x-1/2 flex-col items-center justify-center opacity-[var(--ring-asset-opacity)] transition-all ease-out hover:z-50 hover:scale-105 hover:opacity-100 md:h-20 md:w-20 lg:h-[110px] lg:w-24",
         className,
       )}
     >
-      <div className="relative z-50 flex items-center gap-1 px-2 py-0.5 opacity-0 transition-opacity group-hover:opacity-100">
-        <span className="whitespace-nowrap text-sm leading-5.5 text-neutral-100">
-          {name}
-        </span>
-        <span className="leading-6.25 text-[#8E8B9C]">{symbol}</span>
+      <div className="relative flex items-center justify-center rounded-[30px] bg-[#090524] px-2 py-0.5 opacity-0 transition-opacity group-hover:opacity-100">
+        <p className="inline-flex items-center gap-1 whitespace-nowrap text-sm leading-5.5 text-neutral-100">
+          <span>{name}</span>
+          <span className="text-[#8E8B9C]">{display || symbol}</span>
+        </p>
       </div>
       {iconUri && (
         <Image
@@ -107,9 +108,9 @@ async function VariationBadge({ symbol }: { symbol: string }) {
   const data = await queryTokenInfo({ symbol });
   if (data.length === 0) return;
 
-  const { price_24h_change } = data[0];
-  const variation = new RatePretty((price_24h_change ?? 0) / 100);
-  const isPositive = variation.toDec().isPositive();
+  const { price_24h_change: variation = 0 } = data[0];
+
+  const isPositive = variation > 0;
 
   return (
     <div
@@ -145,7 +146,7 @@ async function VariationBadge({ symbol }: { symbol: string }) {
           },
         )}
       >
-        {formatPretty(variation)}
+        {format("rate", variation, { maximumFractionDigits: 2 })}
       </span>
     </div>
   );
