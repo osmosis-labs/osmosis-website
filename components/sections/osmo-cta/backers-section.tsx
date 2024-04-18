@@ -71,23 +71,11 @@ const backers = [
     link: "https://twitter.com/aeyakovenko",
   },
   {
-    imageUri: "/assets/backers/Naval.webp",
-    isPortrait: true,
-    name: "Naval",
-    link: "https://twitter.com/naval",
-  },
-  {
     imageUri: "/assets/backers/Ethan.webp",
     isTextSm: true,
     isPortrait: true,
     name: "Ethan Buchman",
     link: "https://twitter.com/buchmanster",
-  },
-  {
-    imageUri: "/assets/backers/Eric.webp",
-    isPortrait: true,
-    name: "Eric Schmidt",
-    link: "https://steelperlot.com/",
   },
   {
     imageUri: "/assets/backers/Hasu.webp",
