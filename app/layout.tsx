@@ -9,7 +9,7 @@ import { GoogleTagManager } from "@next/third-parties/google";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600"],
 });
 
 const poppins = Poppins({
