@@ -10,12 +10,13 @@ import {
   queryUpcomingAssetsSectionAssets,
 } from "@/lib/queries/cms";
 import { queryTokenInfo } from "@/lib/queries/numia";
+import { NumiaToken } from "@/lib/types/numia";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
 
-export interface SectionAsset {
+export interface SectionAsset extends Partial<NumiaToken> {
   name: string;
   denom: string;
   iconUri: string;
@@ -38,7 +39,7 @@ export default async function TokenStatsSection() {
   return (
     <section className="relative z-10 mt-17.5 flex flex-col gap-2 p-2 sm:mt-16 sm:p-4 md:mt-14 md:grid md:grid-cols-2 md:gap-y-2 lg:mt-16 lg:grid-cols-[repeat(2,_minmax(0,1fr)),340px] lg:gap-x-2 xl:mt-[136px] xl:grid-cols-[repeat(2,_minmax(0,1fr)),418px] xl:py-0 2xl:mt-20 2xl:grid-cols-3 2xl:gap-x-6 2xl:px-6">
       <Section
-        name="Top Gainers"
+        name="Top Volume"
         queryAssetsFn={queryTopGainersSectionAssets}
         iconUri="/assets/icons/trending.svg"
       />
@@ -115,6 +116,7 @@ export function TokenStatsRow({
   releaseDate,
   projectLink,
   isSingle,
+  ...rest
 }: SectionAsset & { isSingle?: boolean }) {
   return (
     <Link
@@ -192,7 +194,7 @@ export function TokenStatsRow({
         <>
           {!isUpcoming && (
             <Suspense fallback={<PriceSkeleton isUpcoming={isUpcoming} />}>
-              <TokenPriceStats symbol={denom} />
+              <TokenPriceStats symbol={denom} {...rest} />
             </Suspense>
           )}
           {isUpcoming && (
@@ -273,11 +275,19 @@ function StayTunedCard({ length }: StayTunedCardProps) {
   );
 }
 
-async function TokenPriceStats({ symbol }: { symbol: string }) {
-  const infos = await queryTokenInfo({ symbol });
-  if (infos.length === 0) return;
+async function TokenPriceStats({
+  symbol,
+  ...rest
+}: { symbol: string } & Partial<SectionAsset>) {
+  let { price, price_24h_change: variation = 0 } = rest;
 
-  const { price, price_24h_change: variation = 0 } = infos[0];
+  if (price === undefined) {
+    const infos = await queryTokenInfo({ symbol });
+    if (infos.length === 0) return;
+
+    price = infos[0].price;
+    variation = infos[0].price_24h_change ?? 0;
+  }
 
   const isPositive = variation > 0;
 

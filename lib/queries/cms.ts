@@ -88,10 +88,11 @@ export const queryTopGainersSectionAssets = async (): Promise<
   const aggregatedAndFiltered = await queryValidTokens();
 
   const topGainers = aggregatedAndFiltered
-    .sort((a, b) => (a.price_24h_change! > b.price_24h_change! ? -1 : 1))
+    .sort((a, b) => (a.volume_24h! > b.volume_24h! ? -1 : 1))
     .slice(0, 4);
 
-  return topGainers.map(({ symbol, name, logoURIs }) => ({
+  return topGainers.map(({ symbol, name, logoURIs, ...rest }) => ({
+    ...rest,
     denom: symbol,
     iconUri: logoURIs,
     name,

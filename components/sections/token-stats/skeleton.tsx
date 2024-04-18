@@ -2,7 +2,7 @@ import { SectionAsset, TokenStatsRow } from "@/components/sections/token-stats";
 import { cn } from "@/lib/utils";
 import React from "react";
 
-export type SectionName = "Top Gainers" | "Newest" | "Upcoming";
+export type SectionName = "Top Volume" | "Newest" | "Upcoming";
 
 export function Skeleton({ name }: { name: SectionName }) {
   return (
