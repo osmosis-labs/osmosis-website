@@ -62,7 +62,8 @@ export const queryNewAssets = async () => {
         !!asset.listingDate &&
         asset.verified &&
         !asset.disabled &&
-        !asset.preview,
+        !asset.preview &&
+        !asset.categories.includes("meme"),
     )
     .sort((a, b) =>
       Date.parse(a.listingDate!) > Date.parse(b.listingDate!) ? -1 : 1,
