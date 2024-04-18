@@ -7,7 +7,7 @@ const EXPLORE_ASSETS: Omit<TAsset, "variation">[] = [
     symbol: "XRP.core",
     display: "XRP",
     iconUri:
-      "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/xrpl/images/xrp.png",
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/xrpl/images/xrp.svg",
     ring: 1,
   },
   {
@@ -61,7 +61,7 @@ const EXPLORE_ASSETS: Omit<TAsset, "variation">[] = [
     name: "Avalanche",
     symbol: "AVAX",
     iconUri:
-      "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/avalanche/images/avax.png",
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/avalanche/images/avax.svg",
     ring: 2,
   },
   {
