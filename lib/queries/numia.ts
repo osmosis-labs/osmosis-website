@@ -94,16 +94,14 @@ export const queryValidTokens = unstable_cache(
 
     const aggregatedAndFiltered: (NumiaTokenWithLogo | undefined)[] = assets
       .map((asset) => {
-        const assetInfoAsset = assetList.assets.filter(
-          ({ coinMinimalDenom, verified, disabled, unstable }) => {
-            return (
-              coinMinimalDenom === asset.denom &&
-              verified &&
-              !disabled &&
-              !unstable
-            );
-          },
-        )[0];
+        const assetInfoAsset = assetList.assets.find(
+          ({ coinMinimalDenom, verified, disabled, unstable, categories }) =>
+            coinMinimalDenom === asset.denom &&
+            verified &&
+            !disabled &&
+            !unstable &&
+            !categories.includes("stablecoin"),
+        );
 
         if (!assetInfoAsset) return;
 
