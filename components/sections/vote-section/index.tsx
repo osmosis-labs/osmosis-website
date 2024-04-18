@@ -6,7 +6,7 @@ export default function VoteSection() {
   return (
     <div className="relative">
       <section className="relative z-10 mt-8 flex flex-col items-center justify-center self-stretch p-2 sm:mt-14 sm:p-4 xl:mt-12 2xl:mt-14 2xl:p-6">
-        <div className="bg-vote-section-grad border-vote-section relative flex flex-col self-stretch overflow-hidden rounded-3xl bg-osmoverse-850 px-6 pb-80 pt-8 sm:rounded-4xl md:px-8 md:pt-12 lg:p-12 2xl:p-20">
+        <div className="bg-vote-section-grad relative flex flex-col self-stretch overflow-hidden rounded-3xl border border-solid border-white-faint bg-osmoverse-850 px-6 pb-80 pt-8 sm:rounded-4xl md:px-8 md:pt-12 lg:p-12 2xl:p-20">
           <div className="relative z-10 flex flex-col justify-center self-stretch md:w-[466px] md:self-start lg:w-[398px] xl:w-[519px]">
             <div className="flex flex-col gap-8 self-stretch lg:self-start 2xl:justify-center">
               <div className="flex flex-col gap-2 self-stretch lg:gap-2.5 2xl:self-start">

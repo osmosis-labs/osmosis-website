@@ -3,9 +3,6 @@
 @tailwind utilities;
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
   .bg-gradient-navbar-border {
     background: radial-gradient(
       circle at 50% 50%,
@@ -18,29 +15,6 @@
       background-image: url("/assets/top-nav-gradient.svg");
       background-repeat: no-repeat;
       background-position: center;
-    }
-  }
-  .hero-vertical-marquee-vars {
-    --hero-vertical-marquee-height: 48px;
-  }
-  @media (min-width: 640px) {
-    .hero-vertical-marquee-vars {
-      --hero-vertical-marquee-height: 46px;
-    }
-  }
-  @media (min-width: 1024px) {
-    .hero-vertical-marquee-vars {
-      --hero-vertical-marquee-height: 58px;
-    }
-  }
-  @media (min-width: 1280px) {
-    .hero-vertical-marquee-vars {
-      --hero-vertical-marquee-height: 80px;
-    }
-  }
-  @media (min-width: 1536px) {
-    .hero-vertical-marquee-vars {
-      --hero-vertical-marquee-height: 90px;
     }
   }
   @keyframes ticker {
@@ -77,15 +51,8 @@
       #d9d9d900 100%
     );
   }
-  .swap-tool-bg {
-    background-color: rgba(20, 15, 52, 0.1);
-    backdrop-filter: blur(24px);
-  }
   .border-swap-tool {
     box-shadow: inset 0px 0px 0px 1px #ffffff45;
-  }
-  .border-token-stats-upcoming {
-    box-shadow: inset 0px 0px 0px 1px #565081;
   }
   .bg-explore-assets-headline {
     background: linear-gradient(0deg, #eeecea 16.94%, #f1c7fc 110%);
@@ -346,13 +313,6 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-  .bg-gradient-pulse-green {
-    background-image: radial-gradient(
-      52.09% 52.09% at 47% 48%,
-      #00a399 0%,
-      rgba(32, 27, 67, 0) 100%
-    );
-  }
   .bg-earn-section {
     background: radial-gradient(
         100% 173% at 0% 0%,
@@ -406,9 +366,6 @@
         rgba(15, 9, 45, 0) 100%
       );
     }
-  }
-  .border-vote-section {
-    border: 1px solid rgba(255, 255, 255, 0.1);
   }
   .bg-vote-headline {
     background: linear-gradient(
