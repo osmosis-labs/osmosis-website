@@ -196,7 +196,6 @@ const Tweet = ({
   className,
   username,
   userhandle,
-  date,
   meatDetails,
   tweetLink,
   profilePicture,
@@ -225,12 +224,7 @@ const Tweet = ({
               {username}
             </span>
             <span className="text-sm font-light text-neutral-100/60">
-              {userhandle} ·{" "}
-              {Intl.DateTimeFormat("en-US", {
-                month: "short",
-                day: "numeric",
-                year: "numeric",
-              }).format(new Date(date!))}
+              {userhandle}
             </span>
           </div>
         </div>
