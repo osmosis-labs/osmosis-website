@@ -101,7 +101,7 @@ async function SectionDataContent({
           isSingle={assets.length === 1}
         />
       ))}
-      {queryAssetsFn.name === "queryUpcomingAssetsSectionAssets" &&
+      {isGrid &&
         assets.length < 6 && <StayTunedCard length={assets.length} />}
     </div>
   );
