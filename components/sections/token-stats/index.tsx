@@ -101,8 +101,7 @@ async function SectionDataContent({
           isSingle={assets.length === 1}
         />
       ))}
-      {isGrid &&
-        assets.length < 6 && <StayTunedCard length={assets.length} />}
+      {isGrid && assets.length < 6 && <StayTunedCard length={assets.length} />}
     </div>
   );
 }
@@ -142,9 +141,9 @@ export function TokenStatsRow({
             <Image
               src={iconUri}
               alt={`${denom} image`}
-              width={32}
-              height={32}
-              className="rounded-full md:h-10 md:w-10 xl:h-12 xl:w-12"
+              width={64}
+              height={64}
+              className="h-8 w-8 rounded-full md:h-10 md:w-10 xl:h-12 xl:w-12"
               quality={100}
             />
           </>
