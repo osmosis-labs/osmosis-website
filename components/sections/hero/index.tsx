@@ -114,10 +114,7 @@ export default function HeroSection() {
                       1000
                     </span>
                     <span className="relative text-xs font-light leading-[18px] text-[#B0AADC] xl:text-sm xl:leading-5.25 2xl:text-base 2xl:leading-6">
-                      <span className="absolute -left-1 bottom-[1px] font-[sans-serif]">
-                        &asymp;
-                      </span>{" "}
-                      $1000
+                      <span className="font-[sans-serif]">&asymp;</span> $1000
                     </span>
                   </div>
                 </div>
