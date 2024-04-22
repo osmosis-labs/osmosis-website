@@ -117,7 +117,7 @@ export default function HeroSection() {
                       <span className="absolute -left-1 bottom-[1px] font-[sans-serif]">
                         &asymp;
                       </span>{" "}
-                      $995
+                      $1000
                     </span>
                   </div>
                 </div>
