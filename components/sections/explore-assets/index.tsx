@@ -48,8 +48,8 @@ export default function ExploreAssets() {
 
 function Heart({ assetsLists }: { assetsLists: TAsset[][] }) {
   return (
-    <div className="relative">
-      <div className="relative z-10 flex h-[380px] w-[360px] items-center justify-center sm:h-[442px] sm:w-[440px] md:h-[420px] md:w-[628px] lg:h-[611px] lg:w-[956px] xl:flex xl:h-[700px] xl:w-[1100px] 2xl:h-[674px]">
+    <div className="relative overflow-hidden sm:overflow-visible">
+      <div className="relative z-10 flex h-[380px] w-[358px] items-center justify-center sm:h-[442px] sm:w-[440px] md:h-[420px] md:w-[628px] lg:h-[611px] lg:w-[956px] xl:flex xl:h-[700px] xl:w-[1100px] 2xl:h-[674px]">
         <Circle
           className="third-ring absolute top-20 hidden items-center justify-center xl:flex xl:h-[1100px] xl:w-[985px] 2xl:top-12 2xl:h-[1160px] 2xl:w-[1000px]"
           list={assetsLists[2]}
