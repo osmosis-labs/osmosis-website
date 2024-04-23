@@ -112,7 +112,7 @@ const cards: EarnCardProps[] = [
   },
   {
     title: "More Possibilities",
-    description: "Explore a growing ecosystem of apps on Osmosis",
+    description: "Explore a growing ecosystem of apps on Osmosis.",
     descriptionClassName: "lg:w-[298px] 2xl:w-[355px]",
     iconUri: "/assets/earn/card-icons/apps-gray.svg",
     link: "https://app.osmosis.zone/apps?utm_source=osmosis_landing_page&utm_campaign=apps",
