@@ -95,7 +95,7 @@ const backers = [
 export default function BackersSection() {
   return (
     <div className="flex flex-col items-center justify-center gap-4 self-stretch xl:py-3">
-      <span className="font-poppins text-2xl leading-7.75 text-neutral-100">
+      <span className="text-center font-poppins text-2xl leading-7.75 text-neutral-100">
         Backed by the best in the industry
       </span>
       <div className="flex flex-col-reverse items-center justify-center">
