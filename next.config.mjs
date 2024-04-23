@@ -7,10 +7,6 @@ const nextConfig = {
         hostname: "raw.githubusercontent.com",
         protocol: "https",
       },
-      {
-        hostname: "pbs.twimg.com",
-        protocol: "https",
-      },
     ],
   },
 };
