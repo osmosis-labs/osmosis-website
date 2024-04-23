@@ -11,7 +11,7 @@ const backers = [
   {
     imageUri: "/assets/backers/BainCapital.svg",
     name: "BainCapital",
-    link: "https://www.paradigm.xyz/portfolio/osmosis",
+    link: "https://baincapitalcrypto.com/",
   },
   {
     imageUri: "/assets/backers/RibbitCapital.svg",
