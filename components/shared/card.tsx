@@ -1,6 +1,6 @@
 "use client";
 
-import React, { PropsWithChildren, ReactElement, useState } from "react";
+import React, { PropsWithChildren, ReactElement } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -42,16 +42,18 @@ export default function Card({
   iconClassName,
   textExpandable,
 }: CardProps) {
-  const [isExpanded, setIsExpanded] = useState(false);
-  const [isHover, setIsHover] = useState(false);
-
   return (
     <GTagLink asChild eventName="cardClicked" label={title}>
-      <LinkOrDiv
-        isLink={!isHover && !!link}
+      <Link
         href={link ?? "#"}
         className={cn(
           "relative flex flex-grow flex-col justify-between self-stretch overflow-hidden rounded-2xl border border-solid border-osmoverse-650 bg-osmoverse-775 p-4 xl:rounded-3xl 2xl:p-6",
+          {
+            "has-[label[:hover]]:pointer-events-none": textExpandable,
+          },
+          // {
+          //   "pointer-events-none": isHover,
+          // },
           className,
         )}
       >
@@ -96,39 +98,32 @@ export default function Card({
           <h3 className="font-poppins text-xl font-medium leading-6.5 text-neutral-100 2xl:text-2xl 2xl:leading-7.75">
             {title}
           </h3>
+          {textExpandable && (
+            <>
+              <input type="checkbox" id="descToggle" className="peer hidden" />
+              <label
+                htmlFor="descToggle"
+                className="pointer-events-auto absolute bottom-0 right-0 z-50 flex h-7 w-7 cursor-pointer items-center justify-center rounded-full bg-[#41366A] transition-transform peer-[:checked]:rotate-45 sm:hidden"
+              >
+                <Image
+                  src={"/assets/icons/cross.svg"}
+                  alt="Open/Close description"
+                  width={12}
+                  height={12}
+                />
+              </label>
+            </>
+          )}
           <p
             className={cn(
-              "max-w-[448px] self-stretch leading-6.25 text-alpha-60 sm:line-clamp-none",
+              "line-clamp-2 max-w-[448px] self-stretch leading-6.25 text-alpha-60 peer-[:checked]:line-clamp-none sm:line-clamp-none",
               descriptionClassName,
-              {
-                "line-clamp-none": isExpanded,
-                "line-clamp-2": !isExpanded,
-              },
             )}
           >
             {description}
           </p>
         </div>
-        {textExpandable && (
-          <button
-            type="button"
-            onClick={() => setIsExpanded((p) => !p)}
-            onMouseEnter={() => setIsHover(true)}
-            onMouseLeave={() => setIsHover(false)}
-            className="absolute bottom-4 right-4 z-50 flex h-7 w-7 items-center justify-center rounded-full bg-[#41366A] sm:hidden"
-          >
-            <Image
-              src={"/assets/icons/cross.svg"}
-              alt="Open/Close description"
-              width={12}
-              height={12}
-              className={cn("transition-transform", {
-                "rotate-45": isExpanded,
-              })}
-            />
-          </button>
-        )}
-      </LinkOrDiv>
+      </Link>
     </GTagLink>
   );
 }
