@@ -138,24 +138,31 @@ export default function HelpSection() {
   );
 }
 
-function HelpCard(props: HelpCardProps) {
+function HelpCard({ firstRow, badgeDescription, ...props }: HelpCardProps) {
   return (
     <Card
       {...props}
       badgeClassName="bg-ion-900"
+      badgeDescription={badgeDescription}
       className={cn(
-        props.firstRow
+        firstRow
           ? "h-[270px] sm:h-60 lg:h-65"
-          : "h-30 lg:h-40 2xl:h-[200px]",
+          : "h-auto sm:h-30 lg:h-40 2xl:h-[200px]",
       )}
+      iconClassName={cn({
+        "sm:opacity-25": !firstRow,
+      })}
+      infoWrapperClassName={cn({
+        "hidden sm:flex": !firstRow,
+      })}
       linkArrowIconUri={
-        props.badgeDescription
+        badgeDescription
           ? "/assets/help/card-icons/link-arrow-connected.svg"
           : "/assets/help/card-icons/link-arrow.svg"
       }
-      linkArrowClassName={cn("h-8", props.badgeDescription ? "w-10" : "w-8")}
+      linkArrowClassName={cn("h-8", badgeDescription ? "w-10" : "w-8")}
       gradientOverlay={
-        props.firstRow ? (
+        firstRow ? (
           <div className="bg-help-card-radial absolute inset-0" />
         ) : undefined
       }

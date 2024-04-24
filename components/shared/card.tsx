@@ -20,6 +20,8 @@ export interface CardProps {
   badgeDescription?: string | ReactElement;
   badgeClassName?: string;
   gradientOverlay?: ReactElement;
+  infoWrapperClassName?: string;
+  iconClassName?: string;
 }
 
 export default function Card({
@@ -35,6 +37,8 @@ export default function Card({
   gradientOverlay,
   linkArrowIconUri,
   linkArrowClassName,
+  infoWrapperClassName,
+  iconClassName,
 }: CardProps) {
   return (
     <GTagLink asChild eventName="cardClicked" label={title}>
@@ -51,7 +55,13 @@ export default function Card({
         {illustration}
         {gradientOverlay}
         <div className="relative z-20 flex items-center justify-between self-stretch">
-          <Image src={iconUri} alt={`${title} icon`} width={24} height={24} />
+          <Image
+            src={iconUri}
+            alt={`${title} icon`}
+            className={cn(iconClassName)}
+            width={24}
+            height={24}
+          />
           <div className="flex items-center">
             {badgeDescription && (
               <div
@@ -74,7 +84,12 @@ export default function Card({
             )}
           </div>
         </div>
-        <div className="relative z-20 flex flex-col gap-2">
+        <div
+          className={cn(
+            "relative z-20 flex flex-col gap-2",
+            infoWrapperClassName,
+          )}
+        >
           <h3 className="font-poppins text-xl font-medium leading-6.5 text-neutral-100 2xl:text-2xl 2xl:leading-7.75">
             {title}
           </h3>
