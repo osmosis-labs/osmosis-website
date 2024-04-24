@@ -1,6 +1,6 @@
 "use client";
 
-import React, { ReactElement } from "react";
+import React, { PropsWithChildren, ReactElement, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -22,6 +22,7 @@ export interface CardProps {
   gradientOverlay?: ReactElement;
   infoWrapperClassName?: string;
   iconClassName?: string;
+  textExpandable?: boolean;
 }
 
 export default function Card({
@@ -39,16 +40,18 @@ export default function Card({
   linkArrowClassName,
   infoWrapperClassName,
   iconClassName,
+  textExpandable,
 }: CardProps) {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [isHover, setIsHover] = useState(false);
+
   return (
     <GTagLink asChild eventName="cardClicked" label={title}>
-      <Link
+      <LinkOrDiv
+        isLink={!isHover && !!link}
         href={link ?? "#"}
         className={cn(
           "relative flex flex-grow flex-col justify-between self-stretch overflow-hidden rounded-2xl border border-solid border-osmoverse-650 bg-osmoverse-775 p-4 xl:rounded-3xl 2xl:p-6",
-          {
-            "pointer-events-none": !link,
-          },
           className,
         )}
       >
@@ -95,14 +98,51 @@ export default function Card({
           </h3>
           <p
             className={cn(
-              "max-w-[448px] self-stretch leading-6.25 text-alpha-60",
+              "max-w-[448px] self-stretch leading-6.25 text-alpha-60 sm:line-clamp-none",
               descriptionClassName,
+              {
+                "line-clamp-none": isExpanded,
+                "line-clamp-2": !isExpanded,
+              },
             )}
           >
             {description}
           </p>
         </div>
-      </Link>
+        {textExpandable && (
+          <button
+            type="button"
+            onClick={() => setIsExpanded((p) => !p)}
+            onMouseEnter={() => setIsHover(true)}
+            onMouseLeave={() => setIsHover(false)}
+            className="absolute bottom-4 right-4 z-50 flex h-7 w-7 items-center justify-center rounded-full bg-[#41366A] sm:hidden"
+          >
+            <Image
+              src={"/assets/icons/cross.svg"}
+              alt="Open/Close description"
+              width={12}
+              height={12}
+              className={cn("transition-transform", {
+                "rotate-45": isExpanded,
+              })}
+            />
+          </button>
+        )}
+      </LinkOrDiv>
     </GTagLink>
+  );
+}
+
+function LinkOrDiv({
+  isLink,
+  children,
+  ...props
+}: PropsWithChildren<{ isLink: boolean; className: string; href?: string }>) {
+  const Component = isLink ? Link : "div";
+
+  return (
+    <Component href={props.href ?? "#"} {...props}>
+      {children}
+    </Component>
   );
 }

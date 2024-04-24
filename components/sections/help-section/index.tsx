@@ -22,7 +22,7 @@ const cards: HelpCardProps[] = [
         alt="Support illustration"
         width={157}
         height={136}
-        className="absolute right-4 top-6 z-10 sm:right-6 sm:top-10 md:right-13 md:top-10 md:h-[161px] md:w-[185px] lg:right-0.5 lg:top-15 lg:h-[176px] lg:w-[202px] xl:right-1.5 xl:top-11 xl:h-[203px] xl:w-[234px] 2xl:right-[74px]"
+        className="absolute -right-4 top-4 z-10 opacity-50 sm:right-6 sm:top-10 sm:opacity-100 md:right-13 md:top-10 md:h-[161px] md:w-[185px] lg:right-0.5 lg:top-15 lg:h-[176px] lg:w-[202px] xl:right-1.5 xl:top-11 xl:h-[203px] xl:w-[234px] 2xl:right-[74px]"
       />
     ),
   },
@@ -40,9 +40,10 @@ const cards: HelpCardProps[] = [
         alt="Support illustration"
         width={114}
         height={153}
-        className="absolute right-6 top-6 z-10 sm:right-12 sm:top-2.5 sm:h-[165px] sm:w-[123px] md:right-[66px] md:h-[206px] md:w-[153px] lg:right-7 lg:top-8 xl:right-6 xl:top-5 xl:h-[240px] xl:w-[190px]"
+        className="absolute right-4 top-0 z-10 opacity-50 sm:right-12 sm:top-2.5 sm:h-[165px] sm:w-[123px] sm:opacity-100 md:right-[66px] md:h-[206px] md:w-[153px] lg:right-7 lg:top-8 xl:right-6 xl:top-5 xl:h-[240px] xl:w-[190px]"
       />
     ),
+    textExpandable: true,
   },
   {
     title: "X(Twitter)",
@@ -145,9 +146,8 @@ function HelpCard({ firstRow, badgeDescription, ...props }: HelpCardProps) {
       badgeClassName="bg-ion-900"
       badgeDescription={badgeDescription}
       className={cn(
-        firstRow
-          ? "h-[270px] sm:h-60 lg:h-65"
-          : "h-auto sm:h-30 lg:h-40 2xl:h-[200px]",
+        "h-auto max-sm:gap-13",
+        firstRow ? "sm:h-60 lg:h-65" : "sm:h-30 lg:h-40 2xl:h-[200px]",
       )}
       iconClassName={cn({
         "sm:opacity-25": !firstRow,
