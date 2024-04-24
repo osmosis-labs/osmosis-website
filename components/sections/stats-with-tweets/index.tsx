@@ -88,14 +88,14 @@ export default async function StatsWithTweets() {
               Real users show real love for Osmosis.
             </p>
           </div>
-          <div className="md:horizontal-mask relative -mx-6 flex h-[555px] w-full overflow-hidden sm:-mx-28 lg:-mx-0 lg:h-[408px]">
+          <div className="md:horizontal-mask max-sm:no-scrollbar relative -mx-6 flex h-[268px] w-full overflow-scroll sm:-mx-28 sm:h-[555px] sm:w-[640px] sm:overflow-hidden md:w-full lg:-mx-0 lg:h-[408px]">
             <div className="absolute flex flex-col gap-3 lg:gap-4">
-              <div className="tweets-row-marquee-animation tweets-upper-half relative flex gap-2 transition-transform lg:gap-4">
+              <div className="sm:tweets-row-marquee-animation sm:tweets-upper-half relative flex gap-2 transition-transform lg:gap-4">
                 {upperHalf.concat(upperHalf).map((tweet, i) => (
                   <Tweet key={tweet.tweetLink} {...tweet} />
                 ))}
               </div>
-              <div className="tweets-row-marquee-animation-reverse tweets-bottom-half relative flex gap-2 transition-transform lg:gap-4">
+              <div className="tweets-row-marquee-animation-reverse tweets-bottom-half relative hidden gap-2 transition-transform sm:flex lg:gap-4">
                 {lowerHalf.concat(lowerHalf).map((tweet, i) => (
                   <Tweet key={tweet.tweetLink} {...tweet} />
                 ))}
