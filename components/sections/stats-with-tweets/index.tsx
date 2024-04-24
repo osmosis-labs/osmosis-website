@@ -12,7 +12,7 @@ interface StatCard {
   value: string;
   iconUri: string;
   bottleUri: string;
-  bgClass: string;
+  className?: string;
   link?: string;
 }
 
@@ -31,7 +31,7 @@ export default async function StatsWithTweets() {
       value: `${metricFormatter.format(metrics.cumulative_volume.value)}`,
       iconUri: "/assets/icons/rocket-gray.svg",
       bottleUri: "/assets/bottle-blue.svg",
-      bgClass: "trend-card-bg-1",
+      className: "trend-card-bg-1",
       link: "https://www.datalenses.zone/chain/osmosis/overview",
     },
     {
@@ -39,7 +39,7 @@ export default async function StatsWithTweets() {
       value: `${metricFormatter.format(metrics.assets_in_chain.value)}`,
       iconUri: "/assets/icons/checkmark-gray.svg",
       bottleUri: "/assets/bottle-red.svg",
-      bgClass: "trend-card-bg-2",
+      className: "trend-card-bg-2",
       link: "https://www.mintscan.io/osmosis/assets/",
     },
     {
@@ -47,7 +47,7 @@ export default async function StatsWithTweets() {
       value: `${metricFormatter.format(metrics.volume_24h.value)}`,
       iconUri: "/assets/icons/trending-gray.svg",
       bottleUri: "/assets/bottle-super.svg",
-      bgClass: "trend-card-bg-3",
+      className: "trend-card-bg-3 hidden sm:flex",
       link: "https://www.datalenses.zone/chain/osmosis/overview",
     },
   ];
@@ -160,7 +160,7 @@ const StatCard = ({
   iconUri,
   title,
   value,
-  bgClass,
+  className,
   link,
 }: StatCard) => {
   return (
@@ -169,7 +169,7 @@ const StatCard = ({
       target="_blank"
       className={cn(
         "outline-stat-card relative flex flex-col gap-8 rounded-2xl p-4 lg:gap-16 xl:rounded-3xl 2xl:p-6",
-        bgClass,
+        className,
       )}
     >
       <Image src={iconUri} alt={title} width={24} height={24} />
