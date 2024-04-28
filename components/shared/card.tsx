@@ -1,6 +1,6 @@
 "use client";
 
-import React, { PropsWithChildren, ReactElement } from "react";
+import React, { PropsWithChildren, ReactElement, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -42,6 +42,8 @@ export default function Card({
   iconClassName,
   textExpandable,
 }: CardProps) {
+  const [isExpanded, setIsExpanded] = useState(false);
+
   return (
     <GTagLink asChild eventName="cardClicked" label={title}>
       <div className="relative w-full">
@@ -50,7 +52,13 @@ export default function Card({
             <input type="checkbox" id="descToggle" className="peer hidden" />
             <label
               htmlFor="descToggle"
-              className="pointer-events-auto absolute bottom-4 right-4 z-50 flex h-7 w-7 cursor-pointer items-center justify-center rounded-full bg-[#41366A] transition-transform peer-[:checked]:rotate-45 sm:hidden"
+              onClick={() => setIsExpanded((p) => !p)}
+              className={cn(
+                "pointer-events-auto absolute bottom-4 right-4 z-50 flex h-7 w-7 cursor-pointer items-center justify-center rounded-full bg-[#41366A] transition-transform sm:hidden",
+                {
+                  "rotate-45": isExpanded,
+                },
+              )}
             >
               <Image
                 src={"/assets/icons/cross.svg"}
@@ -64,7 +72,7 @@ export default function Card({
         <Link
           href={link ?? "#"}
           className={cn(
-            "relative flex flex-grow flex-col justify-between self-stretch overflow-hidden rounded-2xl border border-solid border-osmoverse-650 bg-osmoverse-775 p-4 xl:rounded-3xl 2xl:p-6 peer-[:checked]:[&>div>p]:line-clamp-none",
+            "relative flex flex-grow flex-col justify-between self-stretch overflow-hidden rounded-2xl border border-solid border-osmoverse-650 bg-osmoverse-775 p-4 xl:rounded-3xl 2xl:p-6",
             className,
           )}
         >
@@ -113,6 +121,9 @@ export default function Card({
               className={cn(
                 "line-clamp-2 max-w-[448px] self-stretch leading-6.25 text-alpha-60 sm:line-clamp-none",
                 descriptionClassName,
+                {
+                  "line-clamp-none": isExpanded,
+                },
               )}
             >
               {description}
