@@ -19,8 +19,7 @@ const cards: BuildCardProps[] = [
         alt="Developer docs illustration"
         width={131}
         height={122}
-        // md:top-xx is temp, waiting for copy adaptations
-        className="absolute right-[25px] top-12 z-10 md:top-9 md:h-[109px] md:w-[117px] lg:right-4.5 lg:top-[50px] lg:h-[159px] lg:w-[171px] xl:top-10 xl:h-[177px] xl:w-[190px] 2xl:right-7.5 2xl:top-8.5 2xl:h-[191px] 2xl:w-[205px]"
+        className="absolute right-4 top-2 z-10 opacity-50 sm:right-6 sm:top-12 sm:opacity-100 md:top-9 md:h-[109px] md:w-[117px] lg:right-4.5 lg:top-[50px] lg:h-[159px] lg:w-[171px] xl:top-10 xl:h-[177px] xl:w-[190px] 2xl:right-7.5 2xl:top-8.5 2xl:h-[191px] 2xl:w-[205px]"
       />
     ),
   },
@@ -35,7 +34,7 @@ const cards: BuildCardProps[] = [
         alt="Grants illustration"
         width={177}
         height={112}
-        className="absolute right-0 top-16.5 z-10 md:h-26 md:w-[165px] lg:top-[78px] lg:h-[153px] lg:w-[228px] xl:top-[70px] xl:h-[168px] xl:w-[246px] 2xl:-right-1.5 2xl:top-15 2xl:h-[191px] 2xl:w-[294px]"
+        className="absolute -right-3 top-8 z-10 opacity-50 sm:right-0 sm:top-16.5 sm:opacity-100 md:h-26 md:w-[165px] lg:top-[78px] lg:h-[153px] lg:w-[228px] xl:top-[70px] xl:h-[168px] xl:w-[246px] 2xl:-right-1.5 2xl:top-15 2xl:h-[191px] 2xl:w-[294px]"
       />
     ),
   },
@@ -50,7 +49,7 @@ const cards: BuildCardProps[] = [
         alt="Github illustration"
         width={188}
         height={91}
-        className="absolute right-4 top-16 z-10 md:top-17.5 md:h-[81px] md:w-[167px] lg:right-0 lg:top-[102px] lg:h-[117px] lg:w-[226px] xl:top-[92px] xl:h-[136px] xl:w-[264px] 2xl:right-2 2xl:top-[81px] 2xl:h-[159px] 2xl:w-[328px]"
+        className="absolute right-3 top-8 z-10 opacity-50 sm:right-4 sm:top-16 sm:opacity-100 md:top-17.5 md:h-[81px] md:w-[167px] lg:right-0 lg:top-[102px] lg:h-[117px] lg:w-[226px] xl:top-[92px] xl:h-[136px] xl:w-[264px] 2xl:right-2 2xl:top-[81px] 2xl:h-[159px] 2xl:w-[328px]"
       />
     ),
   },
@@ -67,7 +66,7 @@ const cards: BuildCardProps[] = [
         alt="Discord illustration"
         width={123}
         height={142}
-        className="absolute right-[62px] top-6 z-10 md:right-14 md:top-7.5 md:h-[133px] md:w-[115px] lg:right-13 lg:top-10.5 lg:h-52 lg:w-[180px] xl:top-6 xl:h-[235px] xl:w-[209px] 2xl:right-12 2xl:top-7.5 2xl:h-[231px] 2xl:w-[217px]"
+        className="absolute -top-2 right-4 z-10 opacity-50 sm:right-16 sm:top-6 sm:opacity-100 md:right-14 md:top-7.5 md:h-[133px] md:w-[115px] lg:right-13 lg:top-10.5 lg:h-52 lg:w-[180px] xl:top-6 xl:h-[235px] xl:w-[209px] 2xl:right-12 2xl:top-7.5 2xl:h-[231px] 2xl:w-[217px]"
       />
     ),
   },
@@ -111,11 +110,11 @@ function BuildCard(props: BuildCardProps) {
   return (
     <Card
       {...props}
-      className={cn("h-60 lg:h-[260px]")}
+      className={cn("h-auto max-sm:gap-13 sm:h-60 lg:h-[260px]")}
       linkArrowIconUri={"/assets/build/card-icons/link-arrow.svg"}
       linkArrowClassName={"w-8 h-8"}
       gradientOverlay={
-        <div className="bg-build-card-radial absolute inset-0" />
+        <div className="bg-build-card-radial absolute inset-0 max-sm:scale-y-[-1]" />
       }
     />
   );
