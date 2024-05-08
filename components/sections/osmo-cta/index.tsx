@@ -52,9 +52,6 @@ const exchanges: ExchangeBadgeProps[] = [
 ];
 
 export default function OsmoCTASection() {
-  console.log(
-    new Intl.ListFormat("en-US").format(exchanges.map((e) => e.name)),
-  );
   return (
     <div className="relative">
       <section className="relative z-10 mt-12 flex flex-col items-center justify-center gap-2.5 self-stretch p-2 sm:mt-14 sm:p-4 md:gap-4 xl:mt-18 xl:gap-6 2xl:mt-20 2xl:gap-4 2xl:p-8 2xl:pb-0">
