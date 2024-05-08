@@ -8,7 +8,53 @@ import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
 
+const exchanges: ExchangeBadgeProps[] = [
+  {
+    name: "Binance",
+    link: "https://www.binance.com/en/price/osmosis",
+    logoUri: "/assets/binance-logo.svg",
+  },
+  {
+    name: "Coinbase",
+    link: "https://www.coinbase.com/price/osmosis",
+    logoUri: "/assets/coinbase-logo.svg",
+  },
+  {
+    name: "crypto.com",
+    link: "https://crypto.com/price/osmosis",
+    logoUri: "/assets/coinbase-logo.svg",
+  },
+  {
+    name: "Bithumb",
+    link: "https://www.bithumb.com/react/trade/status/OSMO-KRW",
+    logoUri: "/assets/coinbase-logo.svg",
+  },
+  {
+    name: "Kucoin",
+    link: "https://www.kucoin.com/trade/OSMO-USDT",
+    logoUri: "/assets/coinbase-logo.svg",
+  },
+  {
+    name: "Mexc",
+    link: "https://www.mexc.com/en-US/exchange/OSMO_USDT",
+    logoUri: "/assets/coinbase-logo.svg",
+  },
+  {
+    name: "Gate.io",
+    link: "https://www.gate.io/trade/OSMO_USDT",
+    logoUri: "/assets/coinbase-logo.svg",
+  },
+  {
+    name: "Bitget",
+    link: "https://www.bitget.com/spot/OSMOUSDT",
+    logoUri: "/assets/coinbase-logo.svg",
+  },
+];
+
 export default function OsmoCTASection() {
+  console.log(
+    new Intl.ListFormat("en-US").format(exchanges.map((e) => e.name)),
+  );
   return (
     <div className="relative">
       <section className="relative z-10 mt-12 flex flex-col items-center justify-center gap-2.5 self-stretch p-2 sm:mt-14 sm:p-4 md:gap-4 xl:mt-18 xl:gap-6 2xl:mt-20 2xl:gap-4 2xl:p-8 2xl:pb-0">
@@ -69,34 +115,11 @@ export default function OsmoCTASection() {
               <span className="text-sm leading-5.5 text-neutral-100 lg:text-base lg:leading-6.25">
                 Listed on 15+ exchanges, including:
               </span>
-              <div className="flex items-center gap-1.5">
-                <div className="flex h-8 w-[118px] items-center justify-center rounded-md border border-solid border-osmoverse-650 bg-osmoverse-775 lg:w-[124px]">
-                  <Link
-                    href={"https://www.binance.com/en/price/osmosis"}
-                    target="_blank"
-                  >
-                    <Image
-                      src={"/assets/binance-logo.svg"}
-                      alt="Binance logo"
-                      width={87}
-                      height={17}
-                      className="2xl:h-5 2xl:w-25"
-                    />
-                  </Link>
-                </div>
-                <div className="flex h-8 w-[118px] items-center justify-center rounded-md border border-solid border-osmoverse-650 bg-osmoverse-775">
-                  <Link
-                    href={"https://www.coinbase.com/price/osmosis"}
-                    target="_blank"
-                  >
-                    <Image
-                      src={"/assets/coinbase-logo.svg"}
-                      alt="Coinbase logo"
-                      width={91}
-                      height={18}
-                      className="2xl:h-5 2xl:w-25"
-                    />
-                  </Link>
+              <div className="small-horizontal-mask relative h-8 overflow-hidden">
+                <div className="exchanges-marquee-vars animate-exchanges-marquee absolute flex items-center gap-1.5">
+                  {exchanges.concat(exchanges).map((props) => (
+                    <ExchangeBadge key={props.name} {...props} />
+                  ))}
                 </div>
               </div>
             </div>
@@ -248,5 +271,27 @@ async function CoinGeckoRank() {
     <span className="font-poppins text-xl leading-6.5 text-neutral-100 xl:text-2xl xl:leading-7.75">
       {marketCapRank ?? "N/D"}
     </span>
+  );
+}
+
+interface ExchangeBadgeProps {
+  name: string;
+  link: string;
+  logoUri: string;
+}
+
+function ExchangeBadge({ link, logoUri, name }: ExchangeBadgeProps) {
+  return (
+    <div className="flex h-8 w-[118px] items-center justify-center rounded-md border border-solid border-osmoverse-650 bg-osmoverse-775 lg:w-[124px]">
+      <Link href={link} target="_blank">
+        <Image
+          src={logoUri}
+          alt={`${name} logo`}
+          width={87}
+          height={17}
+          className="2xl:h-5 2xl:w-25"
+        />
+      </Link>
+    </div>
   );
 }
