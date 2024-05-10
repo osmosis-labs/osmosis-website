@@ -7,7 +7,7 @@ export function middleware(request: NextRequest) {
     script-src 'self' 'nonce-${nonce}' 'strict-dynamic' https: http: 'unsafe-inline' ${
       process.env.NODE_ENV === "production" ? "" : `'unsafe-eval'`
     };
-    script-src-elem 'self' https://www.googletagmanager.com 'unsafe-inline';
+    script-src-elem 'self' https://www.googletagmanager.com ${process.env.NODE_ENV === "production" ? "" : "https://vercel.live"} 'unsafe-inline';
     style-src 'self' 'nonce-${nonce}';
     style-src-attr 'self' 'unsafe-inline';
     img-src 'self' https://raw.githubusercontent.com blob: data:;
