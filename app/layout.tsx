@@ -53,8 +53,6 @@ export default function RootLayout({
   // const bannerHidden = cookies().get("bannerHidden")?.value;
   const nonce = headers().get("x-nonce");
 
-  console.log("nonce: ", nonce);
-
   return (
     <html
       lang="en"

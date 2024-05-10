@@ -49,8 +49,6 @@ export function GoogleTagManager(props: GTMParams) {
     });
   }, []);
 
-  console.log("HERE: ", nonce);
-
   return (
     <>
       <Script
