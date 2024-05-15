@@ -1,7 +1,7 @@
 "use client";
 
 import React, { PropsWithChildren, forwardRef } from "react";
-import { sendGTMEvent } from "@next/third-parties/google";
+import { sendGTMEvent } from "@/patched/next-third-parties/gtm";
 import { Slot } from "@radix-ui/react-slot";
 
 interface GtagLinkProps {

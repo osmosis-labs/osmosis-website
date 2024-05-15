@@ -4,7 +4,8 @@ import "./globals.css";
 import Navbar from "@/components/navbar";
 import NavigationMenu from "@/components/navbar/navigation-menu";
 import Footer from "@/components/footer";
-import { GoogleTagManager } from "@next/third-parties/google";
+import { GoogleTagManager } from "@/patched/next-third-parties/gtm";
+import { headers } from "next/headers";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -50,6 +51,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   // const bannerHidden = cookies().get("bannerHidden")?.value;
+  const nonce = headers().get("x-nonce");
 
   return (
     <html
@@ -59,7 +61,7 @@ export default function RootLayout({
         fontFamily: inter.style.fontFamily,
       }}
     >
-      <GoogleTagManager gtmId={process.env.GTAG_ID ?? ""} />
+      <GoogleTagManager nonce={nonce} gtmId={process.env.GTAG_ID ?? ""} />
       <body
         className={`bg-osmoverse-850 ${inter.variable} ${poppins.variable} container max-sm:px-4 sm:max-w-[448px] md:max-w-screen-sm lg:max-w-[960px] xl:max-w-[1152px] 2xl:max-w-[1440px]`}
       >
