@@ -65,6 +65,12 @@ export default function RootLayout({
       <body
         className={`bg-osmoverse-850 ${inter.variable} ${poppins.variable} container max-sm:px-4 sm:max-w-[448px] md:max-w-screen-sm lg:max-w-[960px] xl:max-w-[1152px] 2xl:max-w-[1440px]`}
       >
+        <noscript
+          dangerouslySetInnerHTML={{
+            __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=${process.env.GTAG_ID ?? ""}"
+          height="0" width="0" style="display:none;visibility:hidden" nonce="${nonce}"></iframe>`,
+          }}
+        />
         <div className="fixed left-0 top-0 z-[999] flex w-screen max-w-none flex-col">
           {/* {!bannerHidden && <Banner />} */}
           <Navbar />
