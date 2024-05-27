@@ -17,7 +17,7 @@ const menuLinks = [
       },
       {
         label: "Analytics",
-        href: "https://info.osmosis.zone/",
+        href: "https://www.datalenses.zone/chain/osmosis/overview",
       },
     ],
   },
