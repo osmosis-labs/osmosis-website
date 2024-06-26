@@ -9,7 +9,7 @@ interface Section {
 
 const sections: Section[] = [
   {
-    title: "Governance",
+    title: "Platform",
     links: [
       {
         label: "Trade",
