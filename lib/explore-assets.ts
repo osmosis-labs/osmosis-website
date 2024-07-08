@@ -24,8 +24,9 @@ const EXPLORE_ASSETS: Omit<TAsset, "variation">[] = [
     ring: 1,
   },
   {
-    name: "WBTC",
-    symbol: "WBTC",
+    name: "Bitcoin",
+    symbol: "WBTC.axl",
+    display: "BTC",
     iconUri:
       "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/wbtc.svg",
     ring: 1,
