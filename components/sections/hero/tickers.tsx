@@ -21,7 +21,7 @@ export const tickerAnimationAssets: TickerProps[] = [
     name: "Bitcoin",
     denom: "BTC",
     iconUri:
-      "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/wbtc.svg",
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/bitcoin/images/btc.svg",
   },
   {
     name: "Cosmos Hub",
