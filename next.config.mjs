@@ -18,7 +18,7 @@ const nextConfig = {
         permanent: false,
       },
       {
-        source: ":path*",
+        source: "/:path*",
         has: [
           {
             type: "host",
