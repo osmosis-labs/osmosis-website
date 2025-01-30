@@ -9,60 +9,6 @@ interface Section {
 
 const sections: Section[] = [
   {
-    title: "Platform",
-    links: [
-      {
-        label: "Trade",
-        href: "https://app.osmosis.zone?utm_source=osmosis_landing_page&utm_campaign=swap",
-      },
-      {
-        label: "Assets",
-        href: "https://app.osmosis.zone/assets?utm_source=osmosis_landing_page&utm_campaign=assets",
-      },
-      {
-        label: "Earn",
-        href: "https://app.osmosis.zone/earn?utm_source=osmosis_landing_page&utm_campaign=earn",
-      },
-      {
-        label: "Staking",
-        href: "https://app.osmosis.zone/stake?utm_source=osmosis_landing_page&utm_campaign=stake",
-      },
-      {
-        label: "Pools",
-        href: "https://app.osmosis.zone/pools?utm_source=osmosis_landing_page&utm_campaign=pools",
-      },
-      {
-        label: "Apps",
-        href: "https://app.osmosis.zone/apps?utm_source=osmosis_landing_page&utm_campaign=apps",
-      },
-    ],
-  },
-  {
-    title: "Token",
-    links: [
-      {
-        label: "OSMO",
-        href: "https://app.osmosis.zone/assets/OSMO?utm_source=osmosis_landing_page&utm_campaign=assets-osmo",
-      },
-      {
-        label: "CoinGecko",
-        href: "https://www.coingecko.com/en/coins/osmosis",
-      },
-      {
-        label: "CoinMarketCap",
-        href: "https://coinmarketcap.com/currencies/osmosis/",
-      },
-      {
-        label: "Governance",
-        href: "https://support.osmosis.zone/tutorials/governance",
-      },
-      {
-        label: "Vote",
-        href: "https://daodao.zone/gov/osmosis/proposals",
-      },
-    ],
-  },
-  {
     title: "Community",
     links: [
       {
