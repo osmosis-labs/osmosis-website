@@ -1,4 +1,5 @@
 import { GTagLink } from "@/components/shared/gtag-link";
+import { Info } from "@/components/shared/info";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -59,22 +60,9 @@ export default function VoteSection() {
                     </Link>
                   </GTagLink>
                 </div>
-                <div className="flex items-center gap-2 opacity-70">
-                  <div className="flex h-7.5 w-7.5 items-center justify-center rounded-full border border-solid border-[#F9F8F725]">
-                    <Image
-                      src={"/assets/icons/info.svg"}
-                      alt="Info"
-                      width={15}
-                      height={15}
-                    />
-                  </div>
-                  {/** Since whitespace-nowrap would squash the info icon, I've manually set the tracking to be the maximum amount possible to fill the parent
-                   * @fabryscript
-                   */}
-                  <span className="tracking-[0.28px] text-neutral-100 sm:tracking-[0.5px]">
-                    1 OSMO minimum stake required
-                  </span>
-                </div>
+                <Info>
+                  1 OSMO minimum stake required
+                </Info>
               </div>
             </div>
           </div>
