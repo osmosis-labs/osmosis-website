@@ -33,17 +33,6 @@ const TWEETS = [
     profilePicture: "/assets/tweets/abhitejxyz.jpeg",
   },
   {
-    date: "1/9/2024",
-    userType: "Project Team Member",
-    username: "L1am | Stakecito",
-    userhandle: "@L1am_Crypto",
-    tweetContext: "Osmosis Praise",
-    tweetLink: "https://x.com/L1am_Crypto/status/1744652907113320468?s=20",
-    meatDetails:
-      "Osmosis is:\n✔️ Layer-1  blockchain ecosystem\n✔️ Best DEX in Cosmos\n⏳ Interface for the Interchain (Asset Hub)\n\nOsmosis is coming for EVERYTHING",
-    profilePicture: "/assets/tweets/L1am_Crypto.jpg",
-  },
-  {
     date: "7/6/2023",
     userType: "Project Team Member",
     username: "Zaki Manian",
@@ -193,17 +182,6 @@ const TWEETS = [
     profilePicture: "/assets/tweets/Curious__J.jpeg",
   },
   {
-    date: "11/29/2023",
-    userType: "Project Team Member",
-    username: "L1am | Stakecito",
-    userhandle: "@L1am_Crypto",
-    tweetContext: "Governance Praise",
-    tweetLink: "https://x.com/L1am_Crypto/status/1729902443591274991?s=20",
-    meatDetails:
-      "Osmosis is not just one of the most active projects by dev activity (see  @cryptomanran 's post below), it's also the most active Cosmos chain for governance activity EVERY SINGLE MONTH  @osmosiszone  keeps shipping. $OSMO 🧪",
-    profilePicture: "/assets/tweets/L1am_Crypto.jpg",
-  },
-  {
     date: "1/4/2022",
     userType: "Community Member",
     username: "krane",
@@ -213,17 +191,6 @@ const TWEETS = [
     meatDetails:
       "Speaking of the UI, I think osmosis has the best in class UI/UX for a DEX. Everything is clear, concise and they also make IBC transfers to/from the Osmosis chain completely frictionless.",
     profilePicture: "/assets/tweets/0xkrane.jpeg",
-  },
-  {
-    date: "2/3/2024",
-    userType: "Community Member",
-    username: "⚛️r0tat0",
-    userhandle: "@AlexeyOnChain",
-    tweetContext: "OSL Praise",
-    tweetLink: "https://x.com/AlexeyOnChain/status/1753761508079575463?s=20",
-    meatDetails:
-      "This. This is the stuff that drives mass mainstream adoption. This is why osmosis has more users than any other chain in the IBC. This is why the Osmosis team is always intent on improving UI.  Ensure optimal user experience, you guarantee user retention. Simple as that.  Well done osmosis👏",
-    profilePicture: "/assets/tweets/AlexeyOnChain.png",
   },
   {
     date: "2/3/2024",
