@@ -6,7 +6,7 @@ const backers = [
   {
     imageUri: "/assets/backers/Paradigm.svg",
     name: "Paradigm",
-    link: "https://www.paradigm.xyz/portfolio/osmosis",
+    link: "https://www.paradigm.xyz/portfolio/",
   },
   {
     imageUri: "/assets/backers/BainCapital.svg",
