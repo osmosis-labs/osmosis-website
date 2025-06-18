@@ -161,7 +161,7 @@ export default function Footer() {
             </div>
           </div>
           <span className="text-sm leading-5.5 text-alpha-60">
-            © Osmosis 2024
+            © Osmurica Inc. {new Date().getFullYear()}
           </span>
         </div>
       </div>

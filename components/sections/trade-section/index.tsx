@@ -1,4 +1,5 @@
 import { GTagLink } from "@/components/shared/gtag-link";
+import { Info } from "@/components/shared/info";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -25,7 +26,7 @@ export default function TradeSection() {
               href={
                 "https://app.osmosis.zone?utm_source=osmosis_landing_page&utm_campaign=swap"
               }
-              className="flex items-center justify-center gap-1 self-stretch rounded-xl bg-wosmongton-700 px-6 py-4 md:w-[220px] xl:rounded-[14px] xl:py-5"
+              className="flex items-center justify-center gap-1 self-stretch rounded-xl bg-wosmongton-700 px-6 py-4 md:w-[220px] xl:rounded-[14px] xl:py-5 mb-4"
             >
               <span className="leading-6.5">Get Started</span>
               <Image
@@ -37,6 +38,9 @@ export default function TradeSection() {
               />
             </Link>
           </GTagLink>
+          <Info textClassName="text-xxs" hideIcon={true}>
+            Osmosis uses TradingView technology to display prices on charts. Supported by robust technologies across browser, desktop and mobile apps, the platform provides unparalleled access to real-time data such as <Link href="https://www.tradingview.com/symbols/BTCUSD/" target="_blank" className="text-osmoverse-200">BTC USD Chart</Link>,  the latest financial news, comprehensive financial reports, and a range of useful tools, including the economic data calendar and screeners.
+          </Info>
         </div>
         <DoggoIllustration />
       </div>
