@@ -27,22 +27,22 @@ const metadataBase = process.env.SITE_URL
 
 export const metadata: Metadata = {
   metadataBase,
-  title: "Osmosis",
+  title: "Osmurica Inc.",
   description:
-    "Swap, earn, and build on the leading decentralized Cosmos exchange.",
+    "Official website of Osmurica Inc. and Osmosis. Swap, earn, and build on the leading decentralized Cosmos exchange, powered by Osmurica's engineering and operations.",
   openGraph: {
     locale: "en_US",
     type: "website",
-    siteName: "Osmosis",
-    title: "Osmosis",
+    siteName: "Osmurica Inc.",
+    title: "Osmurica Inc.",
     description:
-      "Swap, earn, and build on the leading decentralized Cosmos exchange.",
+      "Official website of Osmurica Inc. and Osmosis. Swap, earn, and build on the leading decentralized Cosmos exchange, powered by Osmurica's engineering and operations.",
   },
   twitter: {
     site: "@osmosiszone",
-    title: "Osmosis",
+    title: "Osmurica Inc.",
     description:
-      "Swap, earn, and build on the leading decentralized Cosmos exchange.",
+      "Official website of Osmurica Inc. and Osmosis. Swap, earn, and build on the leading decentralized Cosmos exchange, powered by Osmurica's engineering and operations.",
     card: "summary_large_image",
   },
 };
