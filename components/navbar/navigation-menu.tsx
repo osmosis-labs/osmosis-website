@@ -9,6 +9,10 @@ const links = [
     label: "Learn",
     href: "https://forum.osmosis.zone/c/blog/13",
   },
+  {
+    label: "Contact Us",
+    href: "mailto:admin@osmurica.com",
+  },
 ];
 
 export default function NavigationMenu({ className }: { className?: string }) {

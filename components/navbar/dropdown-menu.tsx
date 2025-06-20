@@ -47,15 +47,6 @@ const menuLinks = [
       },
     ],
   },
-  {
-    name: "Need Help?",
-    links: [
-      {
-        label: "Support Lab",
-        href: "https://support.osmosis.zone/",
-      },
-    ],
-  },
 ];
 
 const socials = [

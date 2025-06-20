@@ -50,16 +50,12 @@ const sections: Section[] = [
     title: "Team",
     links: [
       {
-        label: "Contact",
-        href: "https://support.osmosis.zone/",
+        label: "Contact Us",
+        href: "mailto:admin@osmurica.com",
       },
       {
         label: "Blog",
         href: "https://forum.osmosis.zone/c/blog/13",
-      },
-      {
-        label: "Careers",
-        href: "https://boards.greenhouse.io/osmosisdex",
       },
     ],
   },
