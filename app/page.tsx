@@ -141,6 +141,39 @@ export default function About() {
           accessible to users worldwide.
         </p>
       </section>
+
+      <section>
+        <header className="mb-5">
+          <h2 className="font-poppins text-2xl font-bold">
+            Contact Information
+          </h2>
+        </header>
+
+        <address className="text-light not-italic text-alpha-60">
+          <strong className="text-white-full">Osmurica Inc.</strong>
+          <br />
+          2810 N Church St
+          <br />
+          Wilmington, DE 19802 USA
+          <br />
+          <br />
+          <strong className="text-white-full">Phone:</strong>{" "}
+          <a
+            href="tel:+13026001294"
+            className="text-wosmongton-300 hover:text-wosmongton-200"
+          >
+            +1 (302) 600-1294
+          </a>
+          <br />
+          <strong className="text-white-full">Email:</strong>{" "}
+          <a
+            href="mailto:admin@osmurica.com"
+            className="text-wosmongton-300 hover:text-wosmongton-200"
+          >
+            admin@osmurica.com
+          </a>
+        </address>
+      </section>
     </main>
   );
 }

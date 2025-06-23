@@ -157,7 +157,8 @@ export default function Footer() {
             </div>
           </div>
           <span className="text-sm leading-5.5 text-alpha-60">
-            © Osmurica Inc. {new Date().getFullYear()}
+            © Osmurica Inc. • 2810 N Church St, Wilmington DE 19802 USA •{" "}
+            {new Date().getFullYear()}
           </span>
         </div>
       </div>
