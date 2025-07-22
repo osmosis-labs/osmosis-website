@@ -113,7 +113,7 @@ const sections: Section[] = [
       },
       {
         label: "Careers",
-        href: "https://boards.greenhouse.io/osmosisdex",
+        href: "mailto:talent@osmosis.team",
       },
     ],
   },
