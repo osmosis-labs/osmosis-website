@@ -1,5 +1,6 @@
 "use client";
 
+import { useAmplitudeAnalytics } from "@/lib/amplitude";
 import { useTickers } from "@/lib/store/useTickers";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
@@ -107,6 +108,10 @@ export const tickerAnimationAssets: TickerProps[] = [
 export function Tickers() {
   const { currentIndex, setCurrentIndex } = useTickers();
   const [nextTickerWidth, setNextTickerWidth] = useState(0);
+
+  useAmplitudeAnalytics({
+    onLoadEvent: ["Osmosis Website page viewed", { page: "Home" }],
+  });
 
   useEffect(() => {
     const interval = setInterval(() => {
