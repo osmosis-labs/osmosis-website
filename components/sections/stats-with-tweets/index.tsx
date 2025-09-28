@@ -25,7 +25,7 @@ export default async function StatsWithTweets() {
     style: "currency",
   });
 
-  const stats: StatCard[] = [
+  const stats: StatCard[] = 'message' in metrics ? [] : [
     {
       title: "All Time Volume",
       value: `${metricFormatter.format(metrics.cumulative_volume.value)}`,
