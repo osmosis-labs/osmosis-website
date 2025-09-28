@@ -63,7 +63,7 @@ export default function RootLayout({
       <head>
         <meta 
           httpEquiv="Content-Security-Policy" 
-          content="script-src-elem 'self' https://www.googletagmanager.com https://static.cloudflareinsights.com 'unsafe-inline';" 
+          content="script-src-elem 'self' https://www.googletagmanager.com https://static.cloudflareinsights.com https://vercel.live 'unsafe-inline';" 
         />
       </head>
       <GoogleTagManager nonce={nonce} gtmId={process.env.GTAG_ID ?? ""} />
