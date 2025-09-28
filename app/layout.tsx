@@ -60,6 +60,12 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${poppins.variable} text-white-full`}
     >
+      <head>
+        <meta 
+          httpEquiv="Content-Security-Policy" 
+          content="script-src-elem 'self' https://www.googletagmanager.com https://static.cloudflareinsights.com 'unsafe-inline';" 
+        />
+      </head>
       <GoogleTagManager nonce={nonce} gtmId={process.env.GTAG_ID ?? ""} />
       <body className="container bg-osmoverse-850 max-sm:px-4 sm:max-w-[448px] md:max-w-screen-sm lg:max-w-[960px] xl:max-w-[1152px] 2xl:max-w-[1440px]">
         <noscript
