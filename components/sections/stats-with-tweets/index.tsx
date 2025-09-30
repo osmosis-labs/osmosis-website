@@ -17,7 +17,10 @@ interface StatCard {
 }
 
 export default async function StatsWithTweets() {
-  const metrics = await queryLandingPageMetrics();
+  const metrics = await queryLandingPageMetrics().catch((e) => {
+    console.error(e);
+    return undefined;
+  });
   const metricFormatter = Intl.NumberFormat("en-US", {
     notation: "standard",
     maximumFractionDigits: 0,
@@ -25,10 +28,11 @@ export default async function StatsWithTweets() {
     style: "currency",
   });
 
-  const stats: StatCard[] = 'message' in metrics ? [] : [
+  const hasMetrics = metrics && !("message" in (metrics as Record<string, unknown>));
+  const stats: StatCard[] = hasMetrics ? [
     {
       title: "All Time Volume",
-      value: `${metricFormatter.format(metrics.cumulative_volume.value)}`,
+      value: `${metricFormatter.format((metrics as any).cumulative_volume.value)}`,
       iconUri: "/assets/icons/rocket-gray.svg",
       bottleUri: "/assets/bottle-blue.svg",
       className: "trend-card-bg-1",
@@ -36,7 +40,7 @@ export default async function StatsWithTweets() {
     },
     {
       title: "Assets on the Platform",
-      value: `${metricFormatter.format(metrics.assets_in_chain.value)}`,
+      value: `${metricFormatter.format((metrics as any).assets_in_chain.value)}`,
       iconUri: "/assets/icons/checkmark-gray.svg",
       bottleUri: "/assets/bottle-red.svg",
       className: "trend-card-bg-2",
@@ -44,13 +48,13 @@ export default async function StatsWithTweets() {
     },
     {
       title: "24h trading volume",
-      value: `${metricFormatter.format(metrics.volume_24h.value)}`,
+      value: `${metricFormatter.format((metrics as any).volume_24h.value)}`,
       iconUri: "/assets/icons/trending-gray.svg",
       bottleUri: "/assets/bottle-super.svg",
       className: "trend-card-bg-3 hidden sm:flex",
       link: "https://www.datalenses.zone/chain/osmosis/overview",
     },
-  ];
+  ] : [];
 
   const upperHalf = tweets.slice(0, 13);
   const lowerHalf = tweets.slice(13, 27);
