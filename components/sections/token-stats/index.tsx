@@ -245,7 +245,7 @@ function StayTunedCard({ length }: StayTunedCardProps) {
           <span className="text-[#B0AADC]">Stay tuned for more.</span>
         </div>
         <Link
-          href={"https://twitter.com/osmosiszone"}
+          href={"https://twitter.com/osmosis"}
           target="_blank"
           className="inline-flex items-center gap-1.5 leading-6.25 text-neutral-100"
         >
