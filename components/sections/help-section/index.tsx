@@ -48,8 +48,8 @@ const cards: HelpCardProps[] = [
   {
     title: "X(Twitter)",
     iconUri: "/assets/help/card-icons/x.svg",
-    link: "https://twitter.com/osmosiszone",
-    badgeDescription: "@osmosiszone",
+    link: "https://twitter.com/osmosis",
+    badgeDescription: "@osmosis",
   },
   {
     title: "Telegram",

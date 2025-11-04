@@ -62,7 +62,7 @@ const socials = [
   {
     name: "X",
     icon: "/assets/icons/x.svg",
-    href: "https://twitter.com/osmosiszone",
+    href: "https://twitter.com/osmosis",
   },
   {
     name: "Reddit",
