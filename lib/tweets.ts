@@ -103,7 +103,7 @@ const TWEETS = [
     tweetContext: "Osmosis Praise",
     tweetLink: "https://x.com/ux_xyz/status/1731392488139808911?s=20",
     meatDetails:
-      "No doubt that  @osmosiszone  is the most dominant DEX in  @cosmos",
+      "No doubt that  @osmosis  is the most dominant DEX in  @cosmos",
     profilePicture: "/assets/tweets/ux_xyz.jpeg",
   },
   {
@@ -125,7 +125,7 @@ const TWEETS = [
     tweetContext: "Osmosis Praise",
     tweetLink: "https://x.com/lurkaroundfind/status/1736023547481358505?s=20",
     meatDetails:
-      "@OsmosisZone has established itself as the hub of the Celestia modular ecosystem.",
+      "@osmosis has established itself as the hub of the Celestia modular ecosystem.",
     profilePicture: "/assets/tweets/lurkaroundfind.jpeg",
   },
   {
@@ -167,7 +167,7 @@ const TWEETS = [
     tweetContext: "Osmosis Praise",
     tweetLink: "https://twitter.com/L1am_Crypto/status/1729902443591274991",
     meatDetails:
-      "Osmosis is not just one of the most active projects by dev activity (see @cryptomanran's post below), it's also the most active Cosmos chain for\ngovernance activity EVERY SINGLE MONTH\n\n@osmosiszone keeps shipping. $OSMO 🧪",
+      "Osmosis is not just one of the most active projects by dev activity (see @cryptomanran's post below), it's also the most active Cosmos chain for\ngovernance activity EVERY SINGLE MONTH\n\n@osmosis keeps shipping. $OSMO 🧪",
     profilePicture: "/assets/tweets/L1am_Crypto.jpg",
   },
   {
@@ -189,7 +189,7 @@ const TWEETS = [
     tweetContext: "Osmosis UX Praise",
     tweetLink: "https://twitter.com/Curious__J/status/1571728254939336704",
     meatDetails:
-      "@osmosiszone has the best UI/UX in crypto hands down. I understand real yield is where the market is heading towards, but without attractive front ends, you won’t bring masses into web 3.\n\n$osmo did it right and it’s a pleasure to use each time. They even do holidays.",
+      "@osmosis has the best UI/UX in crypto hands down. I understand real yield is where the market is heading towards, but without attractive front ends, you won’t bring masses into web 3.\n\n$osmo did it right and it’s a pleasure to use each time. They even do holidays.",
     profilePicture: "/assets/tweets/Curious__J.jpeg",
   },
   {
@@ -200,7 +200,7 @@ const TWEETS = [
     tweetContext: "Governance Praise",
     tweetLink: "https://x.com/L1am_Crypto/status/1729902443591274991?s=20",
     meatDetails:
-      "Osmosis is not just one of the most active projects by dev activity (see  @cryptomanran 's post below), it's also the most active Cosmos chain for governance activity EVERY SINGLE MONTH  @osmosiszone  keeps shipping. $OSMO 🧪",
+      "Osmosis is not just one of the most active projects by dev activity (see  @cryptomanran 's post below), it's also the most active Cosmos chain for governance activity EVERY SINGLE MONTH  @osmosis  keeps shipping. $OSMO 🧪",
     profilePicture: "/assets/tweets/L1am_Crypto.jpg",
   },
   {
@@ -245,7 +245,7 @@ const TWEETS = [
     tweetLink:
       "https://x.com/_charlienoyes/status/1453435962520834050?s=46&t=xD3OvylAuyWd5if2X42bHg",
     meatDetails:
-      "After 4+ yrs of collaboration and friendship with @sunnya97, we couldn't be more excited to back @osmosiszone.\n \nThey're leading the charge to bring IBC to market and build out the @cosmos ecosystem - as well as tackling fundamental problems, like MEV resistance and privacy.",
+      "After 4+ yrs of collaboration and friendship with @sunnya97, we couldn't be more excited to back @osmosis.\n \nThey're leading the charge to bring IBC to market and build out the @cosmos ecosystem - as well as tackling fundamental problems, like MEV resistance and privacy.",
     profilePicture: "/assets/tweets/_charlienoyes.jpeg",
   },
   {
@@ -286,7 +286,7 @@ const TWEETS = [
     userhandle: "@crypto_mayorEd",
     tweetContext: "Osmosis Hub",
     tweetLink: "https://twitter.com/crypto_mayorEd/status/1767503159230890078",
-    meatDetails: "because \n@osmosiszone\n is the HUB.",
+    meatDetails: "because \n@osmosis\n is the HUB.",
     profilePicture: "/assets/tweets/crypto_mayorEd.jpeg",
   },
 ];
