@@ -39,7 +39,7 @@ export const metadata: Metadata = {
       "Swap, earn, and build on the leading decentralized Cosmos exchange.",
   },
   twitter: {
-    site: "@osmosiszone",
+    site: "@osmosis",
     title: "Osmosis",
     description:
       "Swap, earn, and build on the leading decentralized Cosmos exchange.",
