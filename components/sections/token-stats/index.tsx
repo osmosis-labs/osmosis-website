@@ -85,7 +85,11 @@ async function SectionDataContent({
   isGrid,
   queryAssetsFn,
 }: SectionDataContentProps) {
-  const assets = await queryAssetsFn();
+  const assets = await queryAssetsFn().catch((e) => {
+    console.error(e);
+    return undefined;
+  });
+  if (!assets) return null;
 
   return (
     <div
@@ -241,7 +245,7 @@ function StayTunedCard({ length }: StayTunedCardProps) {
           <span className="text-[#B0AADC]">Stay tuned for more.</span>
         </div>
         <Link
-          href={"https://twitter.com/osmosiszone"}
+          href={"https://twitter.com/osmosis"}
           target="_blank"
           className="inline-flex items-center gap-1.5 leading-6.25 text-neutral-100"
         >
@@ -281,8 +285,11 @@ async function TokenPriceStats({
   let { price, price_24h_change: variation = 0 } = rest;
 
   if (price === undefined) {
-    const infos = await queryTokenInfo({ symbol });
-    if (infos.length === 0) return;
+    const infos = await queryTokenInfo({ symbol }).catch((e) => {
+      console.error(e);
+      return undefined;
+    });
+    if (!infos || infos.length === 0) return null;
 
     price = infos[0].price;
     variation = infos[0].price_24h_change ?? 0;

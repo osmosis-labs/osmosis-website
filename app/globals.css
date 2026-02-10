@@ -513,7 +513,7 @@
   }
   @layer components {
     html {
-      font-family: Inter, ui-sans-serif, system-ui;
+      font-family: var(--font-inter);
       @apply text-white-full;
     }
   }

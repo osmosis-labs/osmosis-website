@@ -24,7 +24,7 @@ export function GoogleTagManager(props: GTMParams) {
     dataLayerName = "dataLayer",
     auth,
     preview,
-    dataLayer,
+    /* dataLayer, */
     nonce,
   } = props;
 
@@ -52,21 +52,22 @@ export function GoogleTagManager(props: GTMParams) {
   return (
     <>
       <Script
-        id="_next-gtm-init"
-        dangerouslySetInnerHTML={{
-          __html: `
-      (function(w,l){
-        w[l]=w[l]||[];
-        w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
-        ${dataLayer ? `w[l].push(${JSON.stringify(dataLayer)})` : ""}
-      })(window,'${dataLayerName}');`,
-        }}
-        nonce={nonce ?? undefined}
-      />
-      <Script
         id="_next-gtm"
         data-ntpc="GTM"
-        src={`https://www.googletagmanager.com/gtm.js?id=${gtmId}${gtmLayer}${gtmAuth}${gtmPreview}`}
+        src={`https://www.googletagmanager.com/gtag/js?id=${gtmId}${gtmLayer}${gtmAuth}${gtmPreview}`}
+        nonce={nonce ?? undefined}
+        async
+      />
+      <Script
+        id="_next-gtm-init"
+        dangerouslySetInnerHTML={{
+          __html: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', '${gtmId}');
+`,
+        }}
         nonce={nonce ?? undefined}
       />
     </>

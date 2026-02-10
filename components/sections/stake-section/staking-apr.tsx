@@ -3,7 +3,12 @@ import { queryOsmoAPR } from "@/lib/queries/numia";
 import React from "react";
 
 export default async function StakingApr() {
-  const stakingApr = (await queryOsmoAPR())[0].apr;
+  const aprs = await queryOsmoAPR().catch((e) => {
+    console.error(e);
+    return undefined;
+  });
+  if (!aprs || aprs.length === 0) return null;
+  const stakingApr = aprs[0].apr;
 
   return (
     <span className="text-malachite-200">

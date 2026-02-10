@@ -18,16 +18,17 @@ const EXPLORE_ASSETS: Omit<TAsset, "variation">[] = [
   },
   {
     name: "Ethereum",
-    symbol: "WETH.grv",
+    symbol: "ETH",
     display: "ETH",
     iconUri: "/assets/icons/eth.svg",
     ring: 1,
   },
   {
-    name: "WBTC",
-    symbol: "WBTC",
+    name: "Bitcoin",
+    symbol: "BTC",
+    display: "BTC",
     iconUri:
-      "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/wbtc.svg",
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/bitcoin/images/btc.svg",
     ring: 1,
   },
   {

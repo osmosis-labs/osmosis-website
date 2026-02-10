@@ -44,7 +44,7 @@ export const queryOsmoAPR = async (): Promise<OsmoAPR[]> => {
 };
 
 export const queryLandingPageMetrics =
-  async (): Promise<LandingPageMetrics> => {
+  async (): Promise<LandingPageMetrics | { message: string}> => {
     const res = await fetch(
       new URL("/landing_page_metrics", process.env.NUMIA_BASE_URL),
       {

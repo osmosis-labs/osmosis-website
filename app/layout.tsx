@@ -11,12 +11,14 @@ const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
   weight: ["300", "400", "500", "600"],
+  display: "swap",
 });
 
 const poppins = Poppins({
   subsets: ["latin"],
   variable: "--font-poppins",
   weight: ["400", "500"],
+  display: "swap",
 });
 
 const metadataBase = process.env.SITE_URL
@@ -37,7 +39,7 @@ export const metadata: Metadata = {
       "Swap, earn, and build on the leading decentralized Cosmos exchange.",
   },
   twitter: {
-    site: "@osmosiszone",
+    site: "@osmosis",
     title: "Osmosis",
     description:
       "Swap, earn, and build on the leading decentralized Cosmos exchange.",
@@ -56,15 +58,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className="text-white-full"
-      style={{
-        fontFamily: inter.style.fontFamily,
-      }}
+      className={`${inter.variable} ${poppins.variable} text-white-full`}
     >
       <GoogleTagManager nonce={nonce} gtmId={process.env.GTAG_ID ?? ""} />
-      <body
-        className={`bg-osmoverse-850 ${inter.variable} ${poppins.variable} container max-sm:px-4 sm:max-w-[448px] md:max-w-screen-sm lg:max-w-[960px] xl:max-w-[1152px] 2xl:max-w-[1440px]`}
-      >
+      <body className="container bg-osmoverse-850 max-sm:px-4 sm:max-w-[448px] md:max-w-screen-sm lg:max-w-[960px] xl:max-w-[1152px] 2xl:max-w-[1440px]">
         <noscript
           dangerouslySetInnerHTML={{
             __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=${process.env.GTAG_ID ?? ""}"

@@ -9,7 +9,7 @@ interface Section {
 
 const sections: Section[] = [
   {
-    title: "Governance",
+    title: "Platform",
     links: [
       {
         label: "Trade",
@@ -67,7 +67,7 @@ const sections: Section[] = [
     links: [
       {
         label: "X (Twitter)",
-        href: "https://twitter.com/osmosiszone",
+        href: "https://twitter.com/osmosis",
       },
       {
         label: "Telegram",
@@ -113,7 +113,7 @@ const sections: Section[] = [
       },
       {
         label: "Careers",
-        href: "https://boards.greenhouse.io/osmosisdex",
+        href: "mailto:talent@osmosis.team",
       },
     ],
   },
@@ -123,7 +123,7 @@ const socials = [
   {
     name: "X",
     icon: "/assets/icons/x.svg",
-    href: "https://twitter.com/osmosiszone",
+    href: "https://twitter.com/osmosis",
   },
   {
     name: "Reddit",
@@ -215,7 +215,7 @@ export default function Footer() {
             </div>
           </div>
           <span className="text-sm leading-5.5 text-alpha-60">
-            © Osmosis 2024
+            © Osmosis {new Date().getFullYear()}
           </span>
         </div>
       </div>

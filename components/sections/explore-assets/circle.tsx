@@ -105,8 +105,11 @@ function Element({
 }
 
 async function VariationBadge({ symbol }: { symbol: string }) {
-  const data = await queryTokenInfo({ symbol });
-  if (data.length === 0) return;
+  const data = await queryTokenInfo({ symbol }).catch((e) => {
+    console.error(e);
+    return undefined;
+  });
+  if (!data || data.length === 0) return null;
 
   const { price_24h_change: variation = 0 } = data[0];
 

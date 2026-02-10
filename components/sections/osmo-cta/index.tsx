@@ -112,29 +112,9 @@ export default function OsmoCTASection() {
                 height={24}
               />
             </div>
-            <div className="flex flex-col">
-              <Suspense fallback={<CoinGeckoRankSkeleton />}>
-                <CoinGeckoRank />
-              </Suspense>
-              <span className="font-light leading-6 text-alpha-60">
-                rank on{" "}
-                <Link
-                  href={"https://www.coingecko.com/en/coins/osmosis"}
-                  target="_blank"
-                >
-                  <span className="inline-flex text-neutral-100">
-                    CoinGecko
-                    <Image
-                      src={"/assets/icons/arrow-up-right.svg"}
-                      alt="CoinGecko link"
-                      width={20}
-                      height={20}
-                      className="-translate-y-0.5"
-                    />
-                  </span>
-                </Link>
-              </span>
-            </div>
+            <Suspense fallback={<CoinGeckoRankSkeleton />}>
+              <CoinGeckoRankBlock />
+            </Suspense>
           </div>
           <div className="h-14 w-[1px] bg-osmoverse-650 max-lg:hidden" />
           {/**row */}
@@ -227,7 +207,11 @@ function OsmoCTAIllustration() {
 }
 
 async function BurnedOSMO() {
-  const metrics = await querySupplyMetrics();
+  const metrics = await querySupplyMetrics().catch((e) => {
+    console.error(e);
+    return undefined;
+  });
+  if (!metrics) return null;
 
   return (
     <span className="font-poppins text-xl leading-6.5 text-neutral-100 xl:text-2xl xl:leading-7.75">
@@ -240,13 +224,36 @@ async function BurnedOSMO() {
   );
 }
 
-async function CoinGeckoRank() {
-  const marketCapRank = (await queryCoinGeckoCoin({ name: "osmosis" }))
-    .market_cap_rank;
+async function CoinGeckoRankBlock() {
+  const coin = await queryCoinGeckoCoin({ name: "osmosis" }).catch((e) => {
+    console.error(e);
+    return undefined;
+  });
+  if (!coin || coin.market_cap_rank == null) return null;
 
   return (
-    <span className="font-poppins text-xl leading-6.5 text-neutral-100 xl:text-2xl xl:leading-7.75">
-      {marketCapRank ?? "N/D"}
-    </span>
+    <div className="flex flex-col">
+      <span className="font-poppins text-xl leading-6.5 text-neutral-100 xl:text-2xl xl:leading-7.75">
+        {coin.market_cap_rank}
+      </span>
+      <span className="font-light leading-6 text-alpha-60">
+        rank on{" "}
+        <Link
+          href={"https://www.coingecko.com/en/coins/osmosis"}
+          target="_blank"
+        >
+          <span className="inline-flex text-neutral-100">
+            CoinGecko
+            <Image
+              src={"/assets/icons/arrow-up-right.svg"}
+              alt="CoinGecko link"
+              width={20}
+              height={20}
+              className="-translate-y-0.5"
+            />
+          </span>
+        </Link>
+      </span>
+    </div>
   );
 }
