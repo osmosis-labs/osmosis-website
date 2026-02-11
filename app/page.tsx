@@ -3,6 +3,7 @@ import EarnSection from "@/components/sections/earn-section";
 import ExploreAssets from "@/components/sections/explore-assets";
 import HelpSection from "@/components/sections/help-section";
 import HeroSection from "@/components/sections/hero";
+import OsmoCTASection from "@/components/sections/osmo-cta";
 import StatsWithTweets from "@/components/sections/stats-with-tweets";
 import TokenStatsSection from "@/components/sections/token-stats";
 import TradeSection from "@/components/sections/trade-section";
@@ -15,8 +16,8 @@ export default function Home() {
       <TokenStatsSection />
       <ExploreAssets />
       <StatsWithTweets />
-      {/* <OsmoCTASection />
-      <StakeSection /> */}
+      <OsmoCTASection />
+      {/* <StakeSection /> */}
       <EarnSection />
       <HelpSection />
       <VoteSection />
