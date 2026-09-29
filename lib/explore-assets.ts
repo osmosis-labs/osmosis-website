@@ -13,14 +13,16 @@ const EXPLORE_ASSETS: Omit<TAsset, "variation">[] = [
   {
     name: "Celestia",
     symbol: "TIA",
-    iconUri: "/assets/icons/tia.svg",
+    iconUri:
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/celestia/images/celestia.svg",
     ring: 1,
   },
   {
     name: "Ethereum",
     symbol: "ETH",
     display: "ETH",
-    iconUri: "/assets/icons/eth.svg",
+    iconUri:
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/eth-white.svg",
     ring: 1,
   },
   {
@@ -41,7 +43,8 @@ const EXPLORE_ASSETS: Omit<TAsset, "variation">[] = [
   {
     name: "Solana",
     symbol: "SOL",
-    iconUri: "/assets/icons/sol.svg",
+    iconUri:
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/solana/images/sol_circle.svg",
     ring: 1,
   },
   {
@@ -55,7 +58,8 @@ const EXPLORE_ASSETS: Omit<TAsset, "variation">[] = [
   {
     name: "Injective",
     symbol: "INJ",
-    iconUri: "/assets/icons/inj.svg",
+    iconUri:
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/inj.svg",
     ring: 2,
   },
   {
@@ -68,13 +72,15 @@ const EXPLORE_ASSETS: Omit<TAsset, "variation">[] = [
   {
     name: "Dymension",
     symbol: "DYM",
-    iconUri: "/assets/icons/dym.svg",
+    iconUri:
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/dymension/images/dymension-logo.svg",
     ring: 2,
   },
   {
     name: "Polkadot",
     symbol: "DOT",
-    iconUri: "/assets/icons/dot.svg",
+    iconUri:
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/polkadot/images/dot.svg",
     ring: 2,
   },
   {
@@ -172,14 +178,15 @@ const EXPLORE_ASSETS: Omit<TAsset, "variation">[] = [
   {
     name: "Cronos",
     symbol: "CRO",
-    iconUri: "/assets/icons/cro.svg",
+    iconUri:
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/cronos/images/cro_white.svg",
     ring: 3,
   },
   {
     name: "Luna",
     symbol: "LUNA",
     iconUri:
-      "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra/images/luna.svg",
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/luna.svg",
     ring: 3,
   },
   {
@@ -200,7 +207,7 @@ const EXPLORE_ASSETS: Omit<TAsset, "variation">[] = [
     name: "Fetchhub",
     symbol: "FET",
     iconUri:
-      "https://raw.githubusercontent.com/cosmos/chain-registry/master/fetchhub/images/fet.svg",
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/fetchhub/images/fet_white.svg",
     ring: 3,
   },
   {
