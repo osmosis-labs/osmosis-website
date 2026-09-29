@@ -1,62 +1,25 @@
 import { GTagLink } from "@/components/shared/gtag-link";
 import { Tickers } from "@/components/sections/hero/tickers";
-import Image, { getImageProps } from "next/image";
+import Image from "@/components/shared/image";
 import { SwapToolTicker } from "@/components/sections/hero/swap-tool-ticker";
 import StartTradingLink from "@/components/sections/hero/start-trading-link";
 
 export default function HeroSection() {
-  const common = {
-    alt: "",
-    quality: 100,
-    className:
-      "absolute z-10 h-auto w-full rounded-3xl lg:rounded-[32px] 2xl:rounded-[48px] max-h-[571px] sm:max-h-none object-cover",
-    priority: true,
-  };
-
-  const {
-    props: { srcSet: mobile, ...rest },
-  } = getImageProps({
-    ...common,
-    src: "/assets/hero/bg.webp",
-    width: 358,
-    height: 596,
-  });
-
-  const {
-    props: { srcSet: sm },
-  } = getImageProps({
-    ...common,
-    src: "/assets/hero/bg-sm.webp",
-    width: 448,
-    height: 661,
-  });
-
-  const {
-    props: { srcSet: md },
-  } = getImageProps({
-    ...common,
-    src: "/assets/hero/bg-md.webp",
-    width: 640,
-    height: 613,
-  });
-
-  const {
-    props: { srcSet: lg },
-  } = getImageProps({
-    ...common,
-    src: "/assets/hero/bg-lg.webp",
-    width: 1920,
-    height: 766,
-  });
-
   return (
     <div className="relative rounded-3xl lg:rounded-[32px] 2xl:rounded-[48px]">
       <picture>
-        <source media="(min-width: 1024px)" srcSet={lg} />
-        <source media="(min-width: 768px)" srcSet={md} />
-        <source media="(min-width: 640px)" srcSet={sm} />
-        <source media="(min-width: 0px)" srcSet={mobile} />
-        <img {...rest} style={{ width: "100%", height: "auto" }} alt="" />
+        <source media="(min-width: 1024px)" srcSet="/assets/hero/bg-lg.webp" />
+        <source media="(min-width: 768px)" srcSet="/assets/hero/bg-md.webp" />
+        <source media="(min-width: 640px)" srcSet="/assets/hero/bg-sm.webp" />
+        <img
+          src="/assets/hero/bg.webp"
+          alt=""
+          width={358}
+          height={596}
+          fetchPriority="high"
+          className="absolute z-10 h-auto max-h-[571px] w-full rounded-3xl object-cover sm:max-h-none lg:rounded-[32px] 2xl:rounded-[48px]"
+          style={{ width: "100%", height: "auto" }}
+        />
       </picture>
       <section className="relative z-10 flex p-2 sm:px-4 sm:py-6 lg:p-4 2xl:px-6 2xl:py-8">
         <div className="flex w-full flex-col sm:gap-6 sm:py-6 md:gap-8 lg:flex-row lg:items-center lg:justify-between lg:py-0">

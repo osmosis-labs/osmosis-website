@@ -1,8 +1,6 @@
-"use client";
-
 import { useMemo } from "react";
 
-import Image from "next/image";
+import Image from "@/components/shared/image";
 import { tickerAnimationAssets } from "@/components/sections/hero/tickers";
 import { useTickers } from "@/lib/store/useTickers";
 

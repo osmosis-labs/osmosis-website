@@ -1,0 +1,92 @@
+---
+import "@fontsource/inter/latin-300.css";
+import "@fontsource/inter/latin-400.css";
+import "@fontsource/inter/latin-500.css";
+import "@fontsource/inter/latin-600.css";
+import "@fontsource/poppins/latin-400.css";
+import "@fontsource/poppins/latin-500.css";
+import "@/src/styles/globals.css";
+
+import Footer from "@/components/footer";
+import Navbar from "@/components/navbar";
+import NavigationMenu from "@/components/navbar/navigation-menu";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Osmosis",
+  description = "Swap, earn, and build on the leading decentralized Cosmos exchange.",
+} = Astro.props;
+
+const gtmId = import.meta.env.GTAG_ID ?? "";
+const ogImage = new URL("/opengraph-image.png", Astro.site);
+const twitterImage = new URL("/twitter-image.png", Astro.site);
+---
+
+<!doctype html>
+<html lang="en" class="text-white-full" data-gtm-id={gtmId}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Osmosis" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:alt" content="Osmosis" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@osmosis" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={twitterImage} />
+    <meta name="twitter:image:alt" content="Osmosis" />
+
+    <script>
+      // Google Tag Manager, plus a single delegated click listener that
+      // replaces the per-link React onClick handlers (see GTagLink).
+      const gtmId = document.documentElement.dataset.gtmId;
+      if (gtmId) {
+        window.dataLayer = window.dataLayer || [];
+        const gtag = (...args: unknown[]) => window.dataLayer!.push(args);
+        gtag("js", new Date());
+        gtag("config", gtmId);
+
+        const loader = document.createElement("script");
+        loader.async = true;
+        loader.src = `https://www.googletagmanager.com/gtag/js?id=${gtmId}`;
+        document.head.appendChild(loader);
+      }
+
+      document.addEventListener("click", (event) => {
+        const el = (event.target as Element | null)?.closest<HTMLElement>(
+          "[data-gtag-event]",
+        );
+        if (!el) return;
+        window.dataLayer?.push({
+          name: el.dataset.gtagEvent,
+          label: el.dataset.gtagLabel,
+        });
+      });
+    </script>
+  </head>
+  <body class="container bg-osmoverse-850 max-sm:px-4 sm:max-w-[448px] md:max-w-screen-sm lg:max-w-[960px] xl:max-w-[1152px] 2xl:max-w-[1440px]">
+    <div class="fixed left-0 top-0 z-[999] flex w-screen max-w-none flex-col">
+      <Navbar client:load />
+    </div>
+    <slot />
+    <Footer />
+    <div class="fixed inset-x-0 bottom-8 z-[999] flex w-full justify-center lg:hidden">
+      <NavigationMenu client:load />
+    </div>
+  </body>
+</html>

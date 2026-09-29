@@ -1,9 +1,7 @@
 import { format } from "@/lib/formatting";
-import { queryTokenInfo } from "@/lib/queries/numia";
 import { cn } from "@/lib/utils";
-import Image from "next/image";
-import Link from "next/link";
-import { CSSProperties, Suspense } from "react";
+import Image from "@/components/shared/image";
+import type { CSSProperties } from "react";
 
 interface IAsset {
   iconUri: string;
@@ -19,14 +17,17 @@ export type TAsset = Partial<IAsset>;
 interface CircleProps {
   list: TAsset[];
   className?: string;
+  /** 24h price change keyed by symbol. */
+  variations: Record<string, number>;
 }
-export default function Circle({ list, className }: CircleProps) {
+export default function Circle({ list, className, variations }: CircleProps) {
   return (
     <div className={cn("rounded-full", className)}>
       {list.map((asset, i) => (
         <Element
           key={`list ${i}`}
           {...asset}
+          variation={asset.symbol ? variations[asset.symbol] : undefined}
           style={{
             top: `calc(
               50% - (
@@ -59,12 +60,14 @@ function Element({
   isVoid,
   symbol,
   display,
+  variation,
 }: {
   className?: string;
   style?: CSSProperties;
+  variation?: number;
 } & TAsset) {
   return (
-    <Link
+    <a
       href={`https://app.osmosis.zone/assets/${symbol}?utm_source=osmosis_landing_page&utm_campaign=assets-${symbol}`}
       target="_blank"
       style={style}
@@ -88,31 +91,14 @@ function Element({
           className="rounded-full md:h-12 md:w-12 lg:h-18 lg:w-18"
         />
       )}
-      {!isVoid && (
-        <Suspense
-          fallback={
-            <div className="-mt-1.5 flex h-4 w-max items-center gap-1 rounded-full bg-osmoverse-650 px-1 py-0.5 md:h-5 md:pr-1.5">
-              <div className="h-2.5 w-2.5 rounded-full bg-osmoverse-310 sm:h-3 sm:w-3" />
-              <div className="h-[3px] w-3.5 rounded-full bg-osmoverse-310 sm:w-5 md:w-4.5 lg:h-1 lg:w-6" />
-            </div>
-          }
-        >
-          <VariationBadge symbol={symbol!} />
-        </Suspense>
+      {!isVoid && variation !== undefined && (
+        <VariationBadge variation={variation} />
       )}
-    </Link>
+    </a>
   );
 }
 
-async function VariationBadge({ symbol }: { symbol: string }) {
-  const data = await queryTokenInfo({ symbol }).catch((e) => {
-    console.error(e);
-    return undefined;
-  });
-  if (!data || data.length === 0) return null;
-
-  const { price_24h_change: variation = 0 } = data[0];
-
+function VariationBadge({ variation }: { variation: number }) {
   const isPositive = variation > 0;
 
   return (

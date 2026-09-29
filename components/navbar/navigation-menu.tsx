@@ -1,6 +1,5 @@
 import { Fragment } from "react";
-import Image from "next/image";
-import Link from "next/link";
+import Image from "@/components/shared/image";
 import { DropdownMenu } from "@/components/navbar/dropdown-menu";
 import { cn } from "@/lib/utils";
 
@@ -29,7 +28,7 @@ export default function NavigationMenu({ className }: { className?: string }) {
     >
       {links.map(({ label, href }) => (
         <Fragment key={label}>
-          <Link href={href}>{label}</Link>
+          <a href={href}>{label}</a>
           <Image
             src={"/assets/icons/nav-links-divider.svg"}
             alt="Nav Divider"

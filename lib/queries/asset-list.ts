@@ -1,16 +1,14 @@
+import { fetchJson } from "@/lib/queries/fetch-json";
 import { GITHUB_RAW_DEFAULT_BASEURL } from "@/lib/shared";
-import { AssetList } from "@/lib/types/asset-list";
+import type { AssetList } from "@/lib/types/asset-list";
 
 const ASSET_LIST_CMS_DATA_URL = new URL(
   "/osmosis-labs/assetlists/main/osmosis-1/generated/frontend/assetlist.json",
   GITHUB_RAW_DEFAULT_BASEURL,
 );
 
-export const queryAssetList = async (): Promise<AssetList> => {
-  const res = await fetch(ASSET_LIST_CMS_DATA_URL, {
-    method: "GET",
-    next: { revalidate: 86_400 },
-  });
+let assetList: Promise<AssetList> | undefined;
 
-  return await res.json();
-};
+/** Fetched once per build; several sections read from it. */
+export const queryAssetList = (): Promise<AssetList> =>
+  (assetList ??= fetchJson<AssetList>(ASSET_LIST_CMS_DATA_URL));

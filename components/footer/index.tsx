@@ -1,6 +1,5 @@
 import Divider from "@/components/shared/divider";
-import Image from "next/image";
-import Link from "next/link";
+import Image from "@/components/shared/image";
 
 interface Section {
   title: string;
@@ -151,7 +150,7 @@ export default function Footer() {
               </span>
               <div className="flex flex-col gap-0.5">
                 {links.map(({ label, href }) => (
-                  <Link
+                  <a
                     key={label}
                     href={href}
                     className="group flex items-center gap-1 p-0.5 lg:gap-0.5"
@@ -171,7 +170,7 @@ export default function Footer() {
                       height={16}
                       className="mb-1 w-0 transition-all group-hover:h-4 group-hover:w-4"
                     />
-                  </Link>
+                  </a>
                 ))}
               </div>
             </div>
@@ -188,17 +187,17 @@ export default function Footer() {
         <Divider className="py-6" />
         <div className="flex flex-col gap-8 py-6 lg:flex-row lg:items-center lg:justify-between lg:gap-0">
           <div className="flex items-center justify-between sm:w-[351px] lg:w-auto lg:gap-8">
-            <Link href={"/"}>
+            <a href={"/"}>
               <Image
                 src={"/assets/icons/osmo-logo.svg"}
                 alt="Osmosis Logo"
                 width={167}
                 height={40}
               />
-            </Link>
+            </a>
             <div className="flex items-center gap-1">
               {socials.map(({ icon, name, href }) => (
-                <Link
+                <a
                   href={href}
                   key={name}
                   className="rounded-full p-1.5 transition-colors hover:bg-wosmongton-50"
@@ -210,7 +209,7 @@ export default function Footer() {
                     height={20}
                     className="max-h-5"
                   />
-                </Link>
+                </a>
               ))}
             </div>
           </div>
