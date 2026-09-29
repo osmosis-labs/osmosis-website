@@ -15,7 +15,8 @@ export const tickerAnimationAssets: TickerProps[] = [
   {
     name: "Ethereum",
     denom: "ETH",
-    iconUri: "/assets/icons/eth.svg",
+    iconUri:
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/eth-white.svg",
   },
   {
     name: "Bitcoin",
@@ -32,7 +33,8 @@ export const tickerAnimationAssets: TickerProps[] = [
   {
     name: "Celestia",
     denom: "TIA",
-    iconUri: "/assets/icons/tia.svg",
+    iconUri:
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/celestia/images/celestia.svg",
   },
   {
     name: "dYdX",
@@ -53,9 +55,10 @@ export const tickerAnimationAssets: TickerProps[] = [
       "https://raw.githubusercontent.com/cosmos/chain-registry/master/saga/images/saga_white.svg",
   },
   {
-    name: "Stargaze",
-    denom: "STARS",
-    iconUri: "/assets/icons/stars.svg",
+    name: "AtomOne",
+    denom: "ATONE",
+    iconUri:
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/atomone/images/atomone.svg",
   },
   {
     name: "Axelar",
@@ -66,18 +69,20 @@ export const tickerAnimationAssets: TickerProps[] = [
   {
     name: "Dymension",
     denom: "DYM",
-    iconUri: "/assets/icons/dym.svg",
+    iconUri:
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/dymension/images/dymension-logo.svg",
   },
   {
     name: "Injective",
     denom: "INJ",
-    iconUri: "/assets/icons/inj.svg",
+    iconUri:
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/inj.svg",
   },
   {
     name: "Fetchhub",
     denom: "FET",
     iconUri:
-      "https://raw.githubusercontent.com/cosmos/chain-registry/master/fetchhub/images/fet.svg",
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/fetchhub/images/fet_white.svg",
   },
   {
     name: "Stride",
@@ -86,21 +91,16 @@ export const tickerAnimationAssets: TickerProps[] = [
       "https://raw.githubusercontent.com/cosmos/chain-registry/master/stride/images/strd.svg",
   },
   {
-    name: "Sei",
-    denom: "SEI",
+    name: "Babylon",
+    denom: "BABY",
     iconUri:
-      "https://raw.githubusercontent.com/cosmos/chain-registry/master/sei/images/sei.svg",
-  },
-  {
-    name: "Kujira",
-    denom: "KUJI",
-    iconUri:
-      "https://raw.githubusercontent.com/cosmos/chain-registry/master/kujira/images/kuji.svg",
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/babylon/images/logo.svg",
   },
   {
     name: "Solana",
     denom: "SOL",
-    iconUri: "/assets/icons/sol.svg",
+    iconUri:
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/solana/images/sol_circle.svg",
   },
 ];
 

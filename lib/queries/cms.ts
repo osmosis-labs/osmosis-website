@@ -128,6 +128,7 @@ export const queryNewAssetsSectionAssets = async (): Promise<
     denom: symbol,
     iconUri: logoURIs.svg ?? logoURIs.png ?? "",
     name,
+    hidePrice: true,
   }));
 };
 

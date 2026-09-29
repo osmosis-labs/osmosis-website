@@ -2,10 +2,12 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
+    qualities: [75, 100],
     remotePatterns: [
       {
         hostname: "raw.githubusercontent.com",
         protocol: "https",
+        pathname: "/cosmos/chain-registry/**",
       },
     ],
   },

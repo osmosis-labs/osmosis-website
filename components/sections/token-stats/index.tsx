@@ -22,6 +22,7 @@ export interface SectionAsset extends Partial<NumiaToken> {
   iconUri: string;
   isLoading?: boolean;
   isUpcoming?: boolean;
+  hidePrice?: boolean;
   releaseDate?: string;
   projectLink?: string;
 }
@@ -116,6 +117,7 @@ export function TokenStatsRow({
   iconUri,
   name,
   isUpcoming,
+  hidePrice,
   releaseDate,
   projectLink,
   isSingle,
@@ -184,7 +186,7 @@ export function TokenStatsRow({
           </div>
         )}
       </div>
-      {isLoading ? (
+      {hidePrice ? null : isLoading ? (
         <div
           className={cn("flex flex-col items-end justify-center gap-1", {
             "items-start": isUpcoming,
@@ -299,7 +301,7 @@ async function TokenPriceStats({
 
   return (
     <>
-      {price && variation && (
+      {!!price && !!variation && (
         <div className="flex flex-col items-end justify-center gap-1.5">
           <span className="leading-none 2xl:text-lg">
             {format("price", price)}
