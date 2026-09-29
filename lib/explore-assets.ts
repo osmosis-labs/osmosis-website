@@ -105,12 +105,6 @@ const EXPLORE_ASSETS: Omit<TAsset, "variation">[] = [
     ring: 2,
   },
   {
-    name: "Polygon",
-    symbol: "MATIC",
-    iconUri: "/assets/icons/matic.svg",
-    ring: 2,
-  },
-  {
     name: "dYdX",
     symbol: "DYDX",
     iconUri:
@@ -143,7 +137,7 @@ const EXPLORE_ASSETS: Omit<TAsset, "variation">[] = [
     name: "Secret Network",
     symbol: "SCRT",
     iconUri:
-      "https://raw.githubusercontent.com/cosmos/chain-registry/master/secretnetwork/images/scrt.svg",
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/secretnetwork/images/scrt.png",
     ring: 3,
   },
   {
@@ -185,12 +179,6 @@ const EXPLORE_ASSETS: Omit<TAsset, "variation">[] = [
     symbol: "EVMOS",
     iconUri:
       "https://raw.githubusercontent.com/cosmos/chain-registry/master/evmos/images/evmos.svg",
-    ring: 3,
-  },
-  {
-    name: "Stargaze",
-    symbol: "STARS",
-    iconUri: "/assets/icons/stars.svg",
     ring: 3,
   },
   {

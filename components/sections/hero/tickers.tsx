@@ -53,11 +53,6 @@ export const tickerAnimationAssets: TickerProps[] = [
       "https://raw.githubusercontent.com/cosmos/chain-registry/master/saga/images/saga_white.svg",
   },
   {
-    name: "Stargaze",
-    denom: "STARS",
-    iconUri: "/assets/icons/stars.svg",
-  },
-  {
     name: "Axelar",
     denom: "AXL",
     iconUri:
@@ -90,12 +85,6 @@ export const tickerAnimationAssets: TickerProps[] = [
     denom: "SEI",
     iconUri:
       "https://raw.githubusercontent.com/cosmos/chain-registry/master/sei/images/sei.svg",
-  },
-  {
-    name: "Kujira",
-    denom: "KUJI",
-    iconUri:
-      "https://raw.githubusercontent.com/cosmos/chain-registry/master/kujira/images/kuji.svg",
   },
   {
     name: "Solana",
