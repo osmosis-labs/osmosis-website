@@ -53,6 +53,12 @@ export const tickerAnimationAssets: TickerProps[] = [
       "https://raw.githubusercontent.com/cosmos/chain-registry/master/saga/images/saga_white.svg",
   },
   {
+    name: "AtomOne",
+    denom: "ATONE",
+    iconUri:
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/atomone/images/atomone.svg",
+  },
+  {
     name: "Axelar",
     denom: "AXL",
     iconUri:
@@ -81,10 +87,10 @@ export const tickerAnimationAssets: TickerProps[] = [
       "https://raw.githubusercontent.com/cosmos/chain-registry/master/stride/images/strd.svg",
   },
   {
-    name: "Sei",
-    denom: "SEI",
+    name: "Babylon",
+    denom: "BABY",
     iconUri:
-      "https://raw.githubusercontent.com/cosmos/chain-registry/master/sei/images/sei.svg",
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/babylon/images/logo.svg",
   },
   {
     name: "Solana",
