@@ -5,7 +5,7 @@ import {
   queryTopGainersSectionAssets,
   queryUpcomingAssetsSectionAssets,
 } from "@/lib/queries/cms";
-import { queryLandingPageMetrics, queryTokenInfo } from "@/lib/queries/numia";
+import { queryAllTokens, queryLandingPageMetrics } from "@/lib/queries/numia";
 import type { LandingPageMetrics } from "@/lib/types/numia";
 
 export interface HomeData {
@@ -43,29 +43,28 @@ async function required<T>(
 }
 
 async function queryExploreAssetVariations(): Promise<Record<string, number>> {
-  const symbols = EXPLORE_ASSETS.filter((a) => a.symbol && !a.isVoid).map(
-    (a) => a.symbol!,
+  const symbols = new Set(
+    EXPLORE_ASSETS.filter((a) => a.symbol && !a.isVoid).map((a) => a.symbol!),
   );
 
-  const results = await Promise.allSettled(
-    symbols.map(async (symbol) => {
-      const [info] = await queryTokenInfo({ symbol });
-      return [symbol, info?.price_24h_change] as const;
-    }),
-  );
+  // The bulk list matches /tokens/v2/{symbol} (first entry per symbol), so
+  // one request replaces one per ring asset.
+  const variations: Record<string, number> = {};
+  for (const token of await queryAllTokens()) {
+    if (
+      symbols.has(token.symbol) &&
+      !(token.symbol in variations) &&
+      token.price_24h_change !== undefined
+    ) {
+      variations[token.symbol] = token.price_24h_change;
+    }
+  }
 
-  const entries = results.flatMap((r) =>
-    r.status === "fulfilled" && r.value[1] !== undefined
-      ? [r.value as [string, number]]
-      : [],
-  );
-
-  // Individual tokens may be missing from Numia; all of them missing is an outage.
-  if (symbols.length > 0 && entries.length === 0) {
+  if (symbols.size > 0 && Object.keys(variations).length === 0) {
     throw new Error("No token price variations could be loaded");
   }
 
-  return Object.fromEntries(entries);
+  return variations;
 }
 
 export async function loadHomeData(): Promise<HomeData> {

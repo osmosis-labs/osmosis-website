@@ -16,13 +16,6 @@ const numiaRequestInit: RequestInit = {
     : undefined,
 };
 
-export const queryTokenInfo = ({
-  symbol,
-}: {
-  symbol: string;
-}): Promise<NumiaToken[]> =>
-  fetchJson(numiaUrl(`/tokens/v2/${symbol}`), numiaRequestInit);
-
 export const queryLandingPageMetrics =
   async (): Promise<LandingPageMetrics> => {
     const metrics = await fetchJson<LandingPageMetrics | { message: string }>(
@@ -35,8 +28,11 @@ export const queryLandingPageMetrics =
     return metrics;
   };
 
+let allTokens: Promise<NumiaToken[]> | undefined;
+
+/** Fetched once per build; feeds both top volume and the price badges. */
 export const queryAllTokens = (): Promise<NumiaToken[]> =>
-  fetchJson(numiaUrl("/tokens/v2/all"), numiaRequestInit);
+  (allTokens ??= fetchJson(numiaUrl("/tokens/v2/all"), numiaRequestInit));
 
 type NumiaTokenWithLogo = NumiaToken & { logoURIs: string };
 
