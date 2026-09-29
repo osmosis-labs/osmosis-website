@@ -4,7 +4,7 @@ const EXPLORE_ASSETS: Omit<TAsset, "variation">[] = [
   // Ring 1
   {
     name: "Ripple",
-    symbol: "XRP.core",
+    symbol: "XRP",
     display: "XRP",
     iconUri:
       "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/xrpl/images/xrp.svg",
@@ -13,14 +13,16 @@ const EXPLORE_ASSETS: Omit<TAsset, "variation">[] = [
   {
     name: "Celestia",
     symbol: "TIA",
-    iconUri: "/assets/icons/tia.svg",
+    iconUri:
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/celestia/images/celestia.svg",
     ring: 1,
   },
   {
     name: "Ethereum",
     symbol: "ETH",
     display: "ETH",
-    iconUri: "/assets/icons/eth.svg",
+    iconUri:
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/eth-white.svg",
     ring: 1,
   },
   {
@@ -41,21 +43,23 @@ const EXPLORE_ASSETS: Omit<TAsset, "variation">[] = [
   {
     name: "Solana",
     symbol: "SOL",
-    iconUri: "/assets/icons/sol.svg",
+    iconUri:
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/solana/images/sol_circle.svg",
     ring: 1,
   },
   {
-    name: "Binance Token",
-    symbol: "BNB",
+    name: "Dogecoin",
+    symbol: "DOGE",
     iconUri:
-      "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/binancesmartchain/images/bnb.svg",
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/dogecoin/images/doge.svg",
     ring: 1,
   },
   // Ring 2
   {
     name: "Injective",
     symbol: "INJ",
-    iconUri: "/assets/icons/inj.svg",
+    iconUri:
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/inj.svg",
     ring: 2,
   },
   {
@@ -68,33 +72,15 @@ const EXPLORE_ASSETS: Omit<TAsset, "variation">[] = [
   {
     name: "Dymension",
     symbol: "DYM",
-    iconUri: "/assets/icons/dym.svg",
+    iconUri:
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/dymension/images/dymension-logo.svg",
     ring: 2,
   },
   {
     name: "Polkadot",
     symbol: "DOT",
-    iconUri: "/assets/icons/dot.svg",
-    ring: 2,
-  },
-  {
-    name: "Aptos",
-    symbol: "APT",
     iconUri:
-      "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/aptos/images/apt-dm.svg",
-    ring: 2,
-  },
-  {
-    name: "Sui",
-    symbol: "SUI",
-    iconUri:
-      "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/sui/images/sui.svg",
-    ring: 2,
-  },
-  {
-    name: "Arbitrum",
-    symbol: "ARB",
-    iconUri: "/assets/icons/arb.svg",
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/polkadot/images/dot.svg",
     ring: 2,
   },
   {
@@ -105,9 +91,24 @@ const EXPLORE_ASSETS: Omit<TAsset, "variation">[] = [
     ring: 2,
   },
   {
-    name: "Polygon",
-    symbol: "MATIC",
-    iconUri: "/assets/icons/matic.svg",
+    name: "Chainlink",
+    symbol: "LINK",
+    iconUri:
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/link.svg",
+    ring: 2,
+  },
+  {
+    name: "AtomOne",
+    symbol: "ATONE",
+    iconUri:
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/atomone/images/atomone.svg",
+    ring: 2,
+  },
+  {
+    name: "Babylon",
+    symbol: "BABY",
+    iconUri:
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/babylon/images/logo.svg",
     ring: 2,
   },
   {
@@ -118,10 +119,17 @@ const EXPLORE_ASSETS: Omit<TAsset, "variation">[] = [
     ring: 2,
   },
   {
-    name: "sei",
-    symbol: "SEI",
+    name: "USDC",
+    symbol: "USDC",
     iconUri:
-      "https://raw.githubusercontent.com/cosmos/chain-registry/master/sei/images/sei.svg",
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg",
+    ring: 2,
+  },
+  {
+    name: "Tether USD",
+    symbol: "USDT",
+    iconUri:
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdt.svg",
     ring: 2,
   },
   // Ring 3
@@ -143,7 +151,7 @@ const EXPLORE_ASSETS: Omit<TAsset, "variation">[] = [
     name: "Secret Network",
     symbol: "SCRT",
     iconUri:
-      "https://raw.githubusercontent.com/cosmos/chain-registry/master/secretnetwork/images/scrt.svg",
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/secretnetwork/images/scrt.png",
     ring: 3,
   },
   {
@@ -151,13 +159,6 @@ const EXPLORE_ASSETS: Omit<TAsset, "variation">[] = [
     symbol: "AXL",
     iconUri:
       "https://raw.githubusercontent.com/cosmos/chain-registry/master/axelar/images/axl.svg",
-    ring: 3,
-  },
-  {
-    name: "Fantom",
-    symbol: "FTM",
-    iconUri:
-      "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/fantom/images/ftm.svg",
     ring: 3,
   },
   {
@@ -177,34 +178,15 @@ const EXPLORE_ASSETS: Omit<TAsset, "variation">[] = [
   {
     name: "Cronos",
     symbol: "CRO",
-    iconUri: "/assets/icons/cro.svg",
-    ring: 3,
-  },
-  {
-    name: "Evmos",
-    symbol: "EVMOS",
     iconUri:
-      "https://raw.githubusercontent.com/cosmos/chain-registry/master/evmos/images/evmos.svg",
-    ring: 3,
-  },
-  {
-    name: "Stargaze",
-    symbol: "STARS",
-    iconUri: "/assets/icons/stars.svg",
-    ring: 3,
-  },
-  {
-    name: "Filecoin",
-    symbol: "FIL",
-    iconUri:
-      "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/filecoin/images/fil.svg",
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/cronos/images/cro_white.svg",
     ring: 3,
   },
   {
     name: "Luna",
     symbol: "LUNA",
     iconUri:
-      "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra/images/luna.svg",
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/terra2/images/luna.svg",
     ring: 3,
   },
   {
@@ -225,7 +207,35 @@ const EXPLORE_ASSETS: Omit<TAsset, "variation">[] = [
     name: "Fetchhub",
     symbol: "FET",
     iconUri:
-      "https://raw.githubusercontent.com/cosmos/chain-registry/master/fetchhub/images/fet.svg",
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/fetchhub/images/fet_white.svg",
+    ring: 3,
+  },
+  {
+    name: "Verona",
+    symbol: "VERONA",
+    iconUri:
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/xion/images/verona-main.svg",
+    ring: 3,
+  },
+  {
+    name: "GenesisL1",
+    symbol: "L1",
+    iconUri:
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/genesisl1/images/l1.svg",
+    ring: 3,
+  },
+  {
+    name: "Provenance",
+    symbol: "HASH",
+    iconUri:
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/provenance/images/prov.svg",
+    ring: 3,
+  },
+  {
+    name: "Sentinel",
+    symbol: "P2P",
+    iconUri:
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/sentinel/images/dvpn.svg",
     ring: 3,
   },
 ];
