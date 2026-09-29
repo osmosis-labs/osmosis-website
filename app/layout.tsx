@@ -47,13 +47,13 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   // const bannerHidden = cookies().get("bannerHidden")?.value;
-  const nonce = headers().get("x-nonce");
+  const nonce = (await headers()).get("x-nonce");
 
   return (
     <html
