@@ -2,7 +2,7 @@ import { SectionAsset, TokenStatsRow } from "@/components/sections/token-stats";
 import { cn } from "@/lib/utils";
 import React from "react";
 
-export type SectionName = "Top Volume" | "Newest" | "Upcoming";
+export type SectionName = "Top Volume" | "New" | "Upcoming";
 
 export function Skeleton({ name }: { name: SectionName }) {
   return (
@@ -18,6 +18,7 @@ export function Skeleton({ name }: { name: SectionName }) {
           name: "",
           isLoading: true,
           isUpcoming: name === "Upcoming",
+          hidePrice: name === "New",
         })
         .map((props) => (
           <TokenStatsRow key={props.denom} {...props} />
