@@ -251,52 +251,6 @@
         #090520 77%
       );
   }
-  .bg-gradient-osmo-cta {
-    background: radial-gradient(
-      121.96% 97.14% at 91.55% 91.55%,
-      rgba(245, 48, 228, 0.7) 0%,
-      rgba(126, 27, 253, 0.7) 18.84%,
-      rgba(76, 30, 152, 0.31) 77%,
-      rgba(35, 32, 71, 0) 100%
-    );
-    background-repeat: no-repeat;
-  }
-  @media (min-width: 768px) {
-    .bg-gradient-osmo-cta {
-      background: radial-gradient(
-          53% 50% at 100% 100%,
-          #8a03a0 1.21%,
-          rgba(61, 37, 190, 0.4) 42.82%,
-          rgba(54, 31, 178, 0) 100%
-        ),
-        radial-gradient(
-          55% 84% at 0.94% 100%,
-          #f530e4 0%,
-          #7e1bfd 35.29%,
-          rgba(76, 30, 152, 0.45) 77%,
-          rgba(35, 32, 71, 0) 100%
-        );
-      background-repeat: no-repeat;
-    }
-  }
-  @media (min-width: 1024px) {
-    .bg-gradient-osmo-cta {
-      background: radial-gradient(
-          50% 60% at 104% 104%,
-          #8a03a0 1.21%,
-          rgba(61, 37, 190, 0.4) 42.82%,
-          rgba(54, 31, 178, 0) 100%
-        ),
-        radial-gradient(
-          60% 130% at 0.94% 97.67%,
-          #f530e4 0%,
-          #7e1bfd 35.29%,
-          rgba(76, 30, 152, 0.45) 77%,
-          rgba(35, 32, 71, 0) 100%
-        );
-      background-repeat: no-repeat;
-    }
-  }
   .is-checked .is-checked-arrow-rotation {
     rotate: 180deg;
   }
@@ -307,12 +261,6 @@
     display: block;
   }
 
-  .bg-stake-heading {
-    background: linear-gradient(180deg, #eeecea 22.39%, #acd9e7 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
   .bg-earn-section {
     background: radial-gradient(
         100% 173% at 0% 0%,

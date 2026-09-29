@@ -52,7 +52,6 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // const bannerHidden = cookies().get("bannerHidden")?.value;
   const nonce = (await headers()).get("x-nonce");
 
   return (
@@ -69,7 +68,6 @@ export default async function RootLayout({
           }}
         />
         <div className="fixed left-0 top-0 z-[999] flex w-screen max-w-none flex-col">
-          {/* {!bannerHidden && <Banner />} */}
           <Navbar />
         </div>
         {children}
