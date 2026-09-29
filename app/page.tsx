@@ -15,8 +15,6 @@ export default function Home() {
       <TokenStatsSection />
       <ExploreAssets />
       <StatsWithTweets />
-      {/* <OsmoCTASection />
-      <StakeSection /> */}
       <EarnSection />
       <HelpSection />
       <VoteSection />

@@ -2,8 +2,6 @@ import { queryAssetList } from "@/lib/queries/asset-list";
 import {
   LandingPageMetrics,
   NumiaToken,
-  OsmoAPR,
-  SupplyMetrics,
 } from "@/lib/types/numia";
 import { unstable_cache } from "next/cache";
 
@@ -32,17 +30,6 @@ export const queryTokenInfo = async ({
   return await res.json();
 };
 
-const OSMO_APR_DATA_URL = new URL("/apr", process.env.NUMIA_BASE_URL);
-
-export const queryOsmoAPR = async (): Promise<OsmoAPR[]> => {
-  const res = await fetch(OSMO_APR_DATA_URL, {
-    ...numiaRequestInit,
-    next: { revalidate: 3600 * 6 },
-  });
-
-  return await res.json();
-};
-
 export const queryLandingPageMetrics =
   async (): Promise<LandingPageMetrics | { message: string}> => {
     const res = await fetch(
@@ -55,18 +42,6 @@ export const queryLandingPageMetrics =
 
     return await res.json();
   };
-
-export const querySupplyMetrics = async (): Promise<SupplyMetrics> => {
-  const res = await fetch(
-    new URL(`/supply/v1/metrics`, process.env.NUMIA_BASE_URL),
-    {
-      ...numiaRequestInit,
-      next: { revalidate: 1000 * 60 * 60 * 24 },
-    },
-  );
-
-  return await res.json();
-};
 
 export const queryAllTokens = async (): Promise<NumiaToken[]> => {
   const res = await fetch(

@@ -31,18 +31,6 @@ export interface NumiaToken {
   liquidity_24h_change?: number;
 }
 
-export interface OsmoAPR {
-  labels: string;
-  symbol: string;
-  apr: number;
-}
-
-export interface SupplyMetrics {
-  lastUpdate: string;
-  totalSupply: number;
-  burntSupply: number;
-  circulatingSupply: number;
-}
 export interface LandingPageMetrics {
   assets_in_chain: {
     value: number;
