@@ -1,0 +1,20 @@
+name: Scheduled rebuild
+
+# Cloudflare Workers Builds deploys on push. This only asks it to rebuild
+# on a schedule so build-time data (prices, volumes, asset lists) stays
+# fresh. The hook URL is the credential, so it lives in a secret.
+# Note: GitHub runs scheduled workflows from the default branch only.
+
+on:
+  schedule:
+    - cron: "7 * * * *"
+  workflow_dispatch:
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Cloudflare Workers Build
+        run: curl -fsS -X POST "$DEPLOY_HOOK_URL"
+        env:
+          DEPLOY_HOOK_URL: ${{ secrets.CLOUDFLARE_DEPLOY_HOOK_URL }}

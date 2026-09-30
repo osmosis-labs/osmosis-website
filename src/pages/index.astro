@@ -1,0 +1,35 @@
+---
+import Layout from "@/src/layouts/Layout.astro";
+
+import BuildSection from "@/components/sections/build-section";
+import EarnSection from "@/components/sections/earn-section";
+import ExploreAssets from "@/components/sections/explore-assets";
+import HelpSection from "@/components/sections/help-section";
+import HeroSection from "@/components/sections/hero";
+import StatsWithTweets from "@/components/sections/stats-with-tweets";
+import TokenStatsSection from "@/components/sections/token-stats";
+import TradeSection from "@/components/sections/trade-section";
+import VoteSection from "@/components/sections/vote-section";
+import { loadHomeData } from "@/lib/home-data";
+
+const data = await loadHomeData();
+---
+
+<Layout>
+  <main class="mb-8 mt-[147px] flex w-full flex-col sm:mb-5.5 sm:mt-[140px] md:mb-14 md:mt-[124px] xl:mt-[151px] 2xl:mb-18 2xl:mt-[132px]">
+    <!-- The hero's ticker animation is the only interactive section. -->
+    <HeroSection client:load />
+    <TokenStatsSection
+      topVolume={data.topVolume}
+      newAssets={data.newAssets}
+      upcoming={data.upcoming}
+    />
+    <ExploreAssets variations={data.variations} />
+    <StatsWithTweets metrics={data.metrics} />
+    <EarnSection />
+    <HelpSection />
+    <VoteSection />
+    <BuildSection />
+    <TradeSection />
+  </main>
+</Layout>

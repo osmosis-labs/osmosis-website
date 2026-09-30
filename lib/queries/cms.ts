@@ -1,23 +1,17 @@
-import { SectionAsset } from "@/components/sections/token-stats";
+import type { SectionAsset } from "@/components/sections/token-stats";
 import { queryAssetList } from "@/lib/queries/asset-list";
+import { fetchJson } from "@/lib/queries/fetch-json";
 import { queryValidTokens } from "@/lib/queries/numia";
 import { GITHUB_RAW_DEFAULT_BASEURL } from "@/lib/shared";
-import { LandingPageData } from "@/lib/types/cms";
-import { unstable_cache } from "next/cache";
+import type { LandingPageData } from "@/lib/types/cms";
 
 const LANDING_PAGE_CMS_DATA_URL = new URL(
   "/osmosis-labs/assetlists/main/upcoming/upcoming_assets.json",
   GITHUB_RAW_DEFAULT_BASEURL,
 );
 
-export async function queryLandingPageCMSData(): Promise<LandingPageData> {
-  const res = await fetch(LANDING_PAGE_CMS_DATA_URL, {
-    method: "GET",
-    next: { revalidate: 3600 },
-  });
-
-  return await res.json();
-}
+export const queryLandingPageCMSData = (): Promise<LandingPageData> =>
+  fetchJson(LANDING_PAGE_CMS_DATA_URL);
 
 /**
  * Checks if an upcoming asset has a specific enough launch date to be shown.
@@ -49,7 +43,7 @@ function hasSpecificLaunchDate(dateText: string | undefined): boolean {
   // Check for month names (full or abbreviated) - these are specific enough
   const hasMonth =
     /(january|february|march|april|may|june|july|august|september|october|november|december|jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)/i.test(
-      lowerDate
+      lowerDate,
     );
   if (hasMonth) return true;
 
@@ -61,40 +55,36 @@ function hasSpecificLaunchDate(dateText: string | undefined): boolean {
   return false;
 }
 
-export const queryMappedUpcomingAssets = unstable_cache(
-  async () => {
-    const data = await queryLandingPageCMSData();
+export const queryMappedUpcomingAssets = async () => {
+  const data = await queryLandingPageCMSData();
 
-    // Filter to only include assets with specific launch dates
-    // (matches osmosis-frontend filter logic)
-    const qualifyingUpcomingAssets = data.upcomingAssets.filter((asset) =>
-      hasSpecificLaunchDate(asset.estimatedLaunchDateUtc)
-    );
+  // Filter to only include assets with specific launch dates
+  // (matches osmosis-frontend filter logic)
+  const qualifyingUpcomingAssets = data.upcomingAssets.filter((asset) =>
+    hasSpecificLaunchDate(asset.estimatedLaunchDateUtc),
+  );
 
-    return qualifyingUpcomingAssets.map(
-      ({
-        assetName,
-        estimatedLaunchDateUtc,
-        logoURL,
-        showLaunchDate,
-        symbol,
-        socials,
-        images,
-      }) => {
-        return {
-          denom: symbol,
-          iconUri: images[0].svg ?? images[0].png ?? logoURL ?? "",
-          name: assetName,
-          releaseDate: showLaunchDate ? estimatedLaunchDateUtc : undefined,
-          isUpcoming: true,
-          projectLink: socials?.website ?? socials?.twitter ?? undefined,
-        };
-      },
-    );
-  },
-  ["mapped-upcoming-assets"],
-  { revalidate: 3600 },
-);
+  return qualifyingUpcomingAssets.map(
+    ({
+      assetName,
+      estimatedLaunchDateUtc,
+      logoURL,
+      showLaunchDate,
+      symbol,
+      socials,
+      images,
+    }) => {
+      return {
+        denom: symbol,
+        iconUri: images[0].svg ?? images[0].png ?? logoURL ?? "",
+        name: assetName,
+        releaseDate: showLaunchDate ? estimatedLaunchDateUtc : undefined,
+        isUpcoming: true,
+        projectLink: socials?.website ?? socials?.twitter ?? undefined,
+      };
+    },
+  );
+};
 
 export const queryUpcomingAssetsSectionAssets = async (): Promise<
   SectionAsset[]

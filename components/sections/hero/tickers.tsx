@@ -1,9 +1,7 @@
-"use client";
-
 import { useTickers } from "@/lib/store/useTickers";
 import { cn } from "@/lib/utils";
-import Image from "next/image";
-import React, { forwardRef, useEffect, useState } from "react";
+import Image from "@/components/shared/image";
+import { forwardRef, useEffect, useState } from "react";
 
 export interface TickerProps {
   denom: string;

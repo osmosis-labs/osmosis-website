@@ -1,95 +1,65 @@
 import { queryAssetList } from "@/lib/queries/asset-list";
-import {
-  LandingPageMetrics,
-  NumiaToken,
-} from "@/lib/types/numia";
-import { unstable_cache } from "next/cache";
+import { fetchJson } from "@/lib/queries/fetch-json";
+import type { LandingPageMetrics, NumiaToken } from "@/lib/types/numia";
 
-interface QueryTokenInfoProps {
-  symbol: string;
-}
+const NUMIA_BASE_URL = import.meta.env.NUMIA_BASE_URL;
+const NUMIA_API_KEY = import.meta.env.NUMIA_API_KEY;
 
-const numiaRequestInit: RequestInit = {
-  headers: process.env.NUMIA_API_KEY
-    ? {
-        Authorization: `Bearer ${process.env.NUMIA_API_KEY}`,
-      }
-    : undefined,
-  method: "GET",
+const numiaUrl = (path: string) => {
+  if (!NUMIA_BASE_URL) throw new Error("NUMIA_BASE_URL is not set");
+  return new URL(path, NUMIA_BASE_URL);
 };
 
-export const queryTokenInfo = async ({
-  symbol,
-}: QueryTokenInfoProps): Promise<NumiaToken[]> => {
-  const url = new URL(`/tokens/v2/${symbol}`, process.env.NUMIA_BASE_URL);
-  const res = await fetch(url, {
-    ...numiaRequestInit,
-    next: { revalidate: 3600, tags: ["token-info", symbol] },
-  });
-
-  return await res.json();
+const numiaRequestInit: RequestInit = {
+  headers: NUMIA_API_KEY
+    ? { Authorization: `Bearer ${NUMIA_API_KEY}` }
+    : undefined,
 };
 
 export const queryLandingPageMetrics =
-  async (): Promise<LandingPageMetrics | { message: string}> => {
-    const res = await fetch(
-      new URL("/landing_page_metrics", process.env.NUMIA_BASE_URL),
-      {
-        ...numiaRequestInit,
-        next: { revalidate: 3600 },
-      },
+  async (): Promise<LandingPageMetrics> => {
+    const metrics = await fetchJson<LandingPageMetrics | { message: string }>(
+      numiaUrl("/landing_page_metrics"),
+      numiaRequestInit,
     );
-
-    return await res.json();
+    if ("message" in metrics) {
+      throw new Error(`Numia landing_page_metrics: ${metrics.message}`);
+    }
+    return metrics;
   };
 
-export const queryAllTokens = async (): Promise<NumiaToken[]> => {
-  const res = await fetch(
-    new URL("/tokens/v2/all", process.env.NUMIA_BASE_URL),
-    {
-      ...numiaRequestInit,
-      /**
-       * The main purpose of this endpoint is to get
-       * the price_24h_change for top gainers,
-       * so I think that we can get along with a 24h cache.
-       */
-      next: { revalidate: 1000 * 60 * 60 * 24 },
-    },
-  );
+let allTokens: Promise<NumiaToken[]> | undefined;
 
-  return await res.json();
-};
+/** Fetched once per build; feeds both top volume and the price badges. */
+export const queryAllTokens = (): Promise<NumiaToken[]> =>
+  (allTokens ??= fetchJson(numiaUrl("/tokens/v2/all"), numiaRequestInit));
 
 type NumiaTokenWithLogo = NumiaToken & { logoURIs: string };
 
-export const queryValidTokens = unstable_cache(
-  async (): Promise<NumiaTokenWithLogo[]> => {
-    const assets = await queryAllTokens();
-    const assetList = await queryAssetList();
+export const queryValidTokens = async (): Promise<NumiaTokenWithLogo[]> => {
+  const [assets, assetList] = await Promise.all([
+    queryAllTokens(),
+    queryAssetList(),
+  ]);
 
-    const aggregatedAndFiltered: (NumiaTokenWithLogo | undefined)[] = assets
-      .map((asset) => {
-        const assetInfoAsset = assetList.assets.find(
-          ({ coinMinimalDenom, verified, disabled, unstable, categories }) =>
-            coinMinimalDenom === asset.denom &&
-            verified &&
-            !disabled &&
-            !unstable &&
-            !categories.includes("stablecoin"),
-        );
+  return assets.flatMap((asset) => {
+    const assetInfoAsset = assetList.assets.find(
+      ({ coinMinimalDenom, verified, disabled, unstable, categories }) =>
+        coinMinimalDenom === asset.denom &&
+        verified &&
+        !disabled &&
+        !unstable &&
+        !categories.includes("stablecoin"),
+    );
 
-        if (!assetInfoAsset) return;
+    if (!assetInfoAsset) return [];
 
-        return {
-          ...asset,
-          logoURIs:
-            assetInfoAsset.logoURIs.svg ?? assetInfoAsset.logoURIs.png ?? "",
-        };
-      })
-      .filter(Boolean);
-
-    return aggregatedAndFiltered as NumiaTokenWithLogo[];
-  },
-  ["query-valid-tokens"],
-  { revalidate: 3600 },
-);
+    return [
+      {
+        ...asset,
+        logoURIs:
+          assetInfoAsset.logoURIs.svg ?? assetInfoAsset.logoURIs.png ?? "",
+      },
+    ];
+  });
+};

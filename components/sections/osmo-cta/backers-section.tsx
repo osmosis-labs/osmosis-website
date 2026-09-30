@@ -1,6 +1,5 @@
 import { cn } from "@/lib/utils";
-import Image from "next/image";
-import Link from "next/link";
+import Image from "@/components/shared/image";
 
 const backers = [
   {
@@ -125,7 +124,7 @@ export default function BackersSection() {
         <div className="flex h-[184px] flex-col gap-2 overflow-hidden transition-[height] peer-checked:h-full md:h-full md:flex-row md:flex-wrap md:content-center md:items-center md:justify-center md:gap-3 md:self-stretch">
           {backers.map(({ imageUri, name, isPortrait, isTextSm, link }) => {
             return (
-              <Link
+              <a
                 href={link}
                 target="_blank"
                 key={name}
@@ -158,7 +157,7 @@ export default function BackersSection() {
                     alt={name}
                   />
                 )}
-              </Link>
+              </a>
             );
           })}
         </div>

@@ -1,20 +1,7 @@
-import {
-  PriceSkeleton,
-  SectionName,
-  Skeleton,
-} from "@/components/sections/token-stats/skeleton";
 import { format } from "@/lib/formatting";
-import {
-  queryNewAssetsSectionAssets,
-  queryTopGainersSectionAssets,
-  queryUpcomingAssetsSectionAssets,
-} from "@/lib/queries/cms";
-import { queryTokenInfo } from "@/lib/queries/numia";
-import { NumiaToken } from "@/lib/types/numia";
+import type { NumiaToken } from "@/lib/types/numia";
 import { cn } from "@/lib/utils";
-import Image from "next/image";
-import Link from "next/link";
-import { Suspense } from "react";
+import Image from "@/components/shared/image";
 
 export interface SectionAsset extends Partial<NumiaToken> {
   name: string;
@@ -27,31 +14,39 @@ export interface SectionAsset extends Partial<NumiaToken> {
   projectLink?: string;
 }
 
-type QueryFn = () => Promise<SectionAsset[]>;
-
 export interface ISection {
   name: string;
   iconUri: string;
   isGrid?: boolean;
-  queryAssetsFn: QueryFn;
+  assets?: SectionAsset[];
 }
 
-export default async function TokenStatsSection() {
+interface TokenStatsSectionProps {
+  topVolume?: SectionAsset[];
+  newAssets?: SectionAsset[];
+  upcoming?: SectionAsset[];
+}
+
+export default function TokenStatsSection({
+  topVolume,
+  newAssets,
+  upcoming,
+}: TokenStatsSectionProps) {
   return (
     <section className="relative z-10 mt-17.5 hidden flex-col gap-2 p-2 sm:mt-16 sm:flex sm:p-4 md:mt-14 md:grid md:grid-cols-2 md:gap-y-2 lg:mt-16 lg:grid-cols-[repeat(2,_minmax(0,1fr)),340px] lg:gap-x-2 xl:mt-[136px] xl:grid-cols-[repeat(2,_minmax(0,1fr)),418px] xl:py-0 2xl:mt-20 2xl:grid-cols-3 2xl:gap-x-6 2xl:px-6">
       <Section
         name="Top Volume"
-        queryAssetsFn={queryTopGainersSectionAssets}
+        assets={topVolume}
         iconUri="/assets/icons/trending.svg"
       />
       <Section
         name="New"
-        queryAssetsFn={queryNewAssetsSectionAssets}
+        assets={newAssets}
         iconUri="/assets/icons/rocket.svg"
       />
       <Section
         name="Upcoming"
-        queryAssetsFn={queryUpcomingAssetsSectionAssets}
+        assets={upcoming}
         iconUri="/assets/icons/star.svg"
         isGrid
       />
@@ -59,7 +54,7 @@ export default async function TokenStatsSection() {
   );
 }
 
-async function Section({ iconUri, name, isGrid, queryAssetsFn }: ISection) {
+function Section({ iconUri, name, isGrid, assets }: ISection) {
   return (
     <div
       className={cn("flex flex-col gap-2", {
@@ -70,26 +65,17 @@ async function Section({ iconUri, name, isGrid, queryAssetsFn }: ISection) {
         <Image src={iconUri} alt={name} width={24} height={24} />
         <span>{name}</span>
       </div>
-      <Suspense fallback={<Skeleton name={name as SectionName} />}>
-        <SectionDataContent isGrid={isGrid} queryAssetsFn={queryAssetsFn} />
-      </Suspense>
+      <SectionDataContent isGrid={isGrid} assets={assets} />
     </div>
   );
 }
 
 interface SectionDataContentProps {
   isGrid?: boolean;
-  queryAssetsFn: QueryFn;
+  assets?: SectionAsset[];
 }
 
-async function SectionDataContent({
-  isGrid,
-  queryAssetsFn,
-}: SectionDataContentProps) {
-  const assets = await queryAssetsFn().catch((e) => {
-    console.error(e);
-    return undefined;
-  });
+function SectionDataContent({ isGrid, assets }: SectionDataContentProps) {
   if (!assets) return null;
 
   return (
@@ -124,7 +110,7 @@ export function TokenStatsRow({
   ...rest
 }: SectionAsset & { isSingle?: boolean }) {
   return (
-    <Link
+    <a
       href={
         projectLink ||
         `https://app.osmosis.zone/assets/${denom}?utm_source=osmosis_landing_page&utm_campaign=assets-${denom}`
@@ -150,7 +136,6 @@ export function TokenStatsRow({
               width={64}
               height={64}
               className="h-8 w-8 rounded-full md:h-10 md:w-10 xl:h-12 xl:w-12"
-              quality={100}
             />
           </>
         )}
@@ -197,11 +182,7 @@ export function TokenStatsRow({
         </div>
       ) : (
         <>
-          {!isUpcoming && (
-            <Suspense fallback={<PriceSkeleton isUpcoming={isUpcoming} />}>
-              <TokenPriceStats symbol={denom} {...rest} />
-            </Suspense>
-          )}
+          {!isUpcoming && <TokenPriceStats {...rest} />}
           {isUpcoming && (
             <div className={cn("flex flex-col max-lg:gap-1")}>
               <span className="leading-6.25 text-alpha-60">
@@ -211,7 +192,7 @@ export function TokenStatsRow({
           )}
         </>
       )}
-    </Link>
+    </a>
   );
 }
 
@@ -246,7 +227,7 @@ function StayTunedCard({ length }: StayTunedCardProps) {
           </span>
           <span className="text-[#B0AADC]">Stay tuned for more.</span>
         </div>
-        <Link
+        <a
           href={"https://twitter.com/osmosis"}
           target="_blank"
           className="inline-flex items-center gap-1.5 leading-6.25 text-neutral-100"
@@ -259,7 +240,7 @@ function StayTunedCard({ length }: StayTunedCardProps) {
             height={20}
             className="mb-0.5"
           />
-        </Link>
+        </a>
       </div>
       <Image
         src={"/assets/upcoming-coins-graphic.svg"}
@@ -280,23 +261,10 @@ function StayTunedCard({ length }: StayTunedCardProps) {
   );
 }
 
-async function TokenPriceStats({
-  symbol,
-  ...rest
-}: { symbol: string } & Partial<SectionAsset>) {
-  let { price, price_24h_change: variation = 0 } = rest;
-
-  if (price === undefined) {
-    const infos = await queryTokenInfo({ symbol }).catch((e) => {
-      console.error(e);
-      return undefined;
-    });
-    if (!infos || infos.length === 0) return null;
-
-    price = infos[0].price;
-    variation = infos[0].price_24h_change ?? 0;
-  }
-
+function TokenPriceStats({
+  price,
+  price_24h_change: variation = 0,
+}: Partial<SectionAsset>) {
   const isPositive = variation > 0;
 
   return (

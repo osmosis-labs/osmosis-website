@@ -1,7 +1,4 @@
-"use client";
-
-import React, { PropsWithChildren, forwardRef } from "react";
-import { sendGTMEvent } from "@/patched/next-third-parties/gtm";
+import type { PropsWithChildren } from "react";
 import { Slot } from "@radix-ui/react-slot";
 
 interface GtagLinkProps {
@@ -10,18 +7,19 @@ interface GtagLinkProps {
   asChild?: boolean;
 }
 
-export const GTagLink = forwardRef<any, PropsWithChildren<GtagLinkProps>>(
-  ({ eventName, label, asChild, ...props }, ref) => {
-    const Comp = asChild ? Slot : "button";
+/**
+ * Tags its child with GTM event data. A single delegated click listener in
+ * the layout pushes the event, so this renders to static HTML with no JS.
+ */
+export function GTagLink({
+  eventName,
+  label,
+  asChild,
+  ...props
+}: PropsWithChildren<GtagLinkProps>) {
+  const Comp = asChild ? Slot : "button";
 
-    return (
-      <Comp
-        onClick={() => sendGTMEvent({ name: eventName, label })}
-        ref={ref}
-        {...props}
-      />
-    );
-  },
-);
-
-GTagLink.displayName = "GTagLink";
+  return (
+    <Comp data-gtag-event={eventName} data-gtag-label={label} {...props} />
+  );
+}

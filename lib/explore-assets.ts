@@ -1,4 +1,4 @@
-import { TAsset } from "@/components/sections/explore-assets/circle";
+import type { TAsset } from "@/components/sections/explore-assets/circle";
 
 const EXPLORE_ASSETS: Omit<TAsset, "variation">[] = [
   // Ring 1

@@ -1,11 +1,8 @@
-"use client";
-
 import DiamondGradient from "@/components/navbar/diamond-gradient";
 import Divider from "@/components/shared/divider";
 import { Menu, Transition } from "@headlessui/react";
-import Image from "next/image";
-import Link from "next/link";
-import React, { Fragment } from "react";
+import Image from "@/components/shared/image";
+import { Fragment } from "react";
 
 const menuLinks = [
   {
@@ -129,7 +126,7 @@ export function DropdownMenu() {
               </span>
               <div className="flex items-center gap-1">
                 {socials.map(({ icon, name, href }) => (
-                  <Link
+                  <a
                     href={href}
                     key={name}
                     className="rounded-full p-1.5 transition-colors hover:bg-wosmongton-50"
@@ -141,7 +138,7 @@ export function DropdownMenu() {
                       height={20}
                       className="max-h-5"
                     />
-                  </Link>
+                  </a>
                 ))}
               </div>
             </div>
@@ -160,7 +157,7 @@ interface DropdownMenuLinkProps {
 function DropdownMenuLink({ href, label }: DropdownMenuLinkProps) {
   return (
     <Menu.Item>
-      <Link href={href} className="group flex items-center gap-0.5">
+      <a href={href} className="group flex items-center gap-0.5">
         <div className="flex flex-col gap-0.5 p-0.5">
           <span className="whitespace-nowrap font-light leading-6">
             {label}
@@ -174,7 +171,7 @@ function DropdownMenuLink({ href, label }: DropdownMenuLinkProps) {
           height={16}
           className="mb-1 w-0 transition-all group-hover:h-4 group-hover:w-4"
         />
-      </Link>
+      </a>
     </Menu.Item>
   );
 }

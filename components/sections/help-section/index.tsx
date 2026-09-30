@@ -1,7 +1,7 @@
 import Badge from "@/components/shared/badge";
-import Card, { CardProps } from "@/components/shared/card";
+import Card, { type CardProps } from "@/components/shared/card";
 import { cn } from "@/lib/utils";
-import Image from "next/image";
+import Image from "@/components/shared/image";
 
 type HelpCardProps = CardProps & {
   firstRow?: boolean;
