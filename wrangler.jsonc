@@ -1,0 +1,11 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "osmosis-website",
+  "compatibility_date": "2026-09-01",
+  // Static site only: no Worker script, Cloudflare serves dist/ directly.
+  // _headers and _redirects in public/ are applied by the assets service.
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "404-page"
+  }
+}

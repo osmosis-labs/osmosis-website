@@ -1,18 +1,24 @@
-import Circle, { TAsset } from "@/components/sections/explore-assets/circle";
+import Circle, {
+  type TAsset,
+} from "@/components/sections/explore-assets/circle";
 import { GTagLink } from "@/components/shared/gtag-link";
 import EXPLORE_ASSETS from "@/lib/explore-assets";
-import Image from "next/image";
-import Link from "next/link";
+import Image from "@/components/shared/image";
 
 const firstRingAssets = EXPLORE_ASSETS.filter((asset) => asset.ring === 1);
 const secondRingAssets = EXPLORE_ASSETS.filter((asset) => asset.ring === 2);
 const thirdRingAssets = EXPLORE_ASSETS.filter((asset) => asset.ring === 3);
 
-export default function ExploreAssets() {
+export default function ExploreAssets({
+  variations,
+}: {
+  variations: Record<string, number>;
+}) {
   return (
     <section className="relative mt-16 flex flex-col items-center justify-center gap-3.5 sm:mt-20 sm:gap-8 md:mt-[114px] md:justify-end md:gap-4 md:self-stretch lg:mt-8 lg:w-[960px] xl:mt-28 xl:w-[1152px] xl:gap-4 2xl:mt-42 2xl:h-[1000px] 2xl:w-[1440px] 2xl:justify-start 2xl:gap-0 2xl:px-6">
       <Heart
         assetsLists={[firstRingAssets, secondRingAssets, thirdRingAssets]}
+        variations={variations}
       />
       <div className="relative z-10 flex flex-col items-center justify-center gap-6 md:gap-8 2xl:px-6">
         <div className="flex flex-col items-center justify-center gap-4 text-center">
@@ -24,7 +30,7 @@ export default function ExploreAssets() {
           </span>
         </div>
         <GTagLink asChild eventName="buttonClicked" label="Explore Assets">
-          <Link
+          <a
             href="https://app.osmosis.zone/assets?utm_source=osmosis_landing_page&utm_campaign=assets"
             target="_blank"
             className="flex max-w-[164px] items-center justify-center rounded-[10px] bg-wosmongton-700 px-8 py-4 md:rounded-xl lg:max-w-[178px] lg:py-5 xl:rounded-[14px]"
@@ -32,7 +38,7 @@ export default function ExploreAssets() {
             <span className="text-sm leading-5.5 text-neutral-100 lg:text-base lg:leading-6.25">
               Explore Assets
             </span>
-          </Link>
+          </a>
         </GTagLink>
       </div>
       <Image
@@ -46,21 +52,30 @@ export default function ExploreAssets() {
   );
 }
 
-function Heart({ assetsLists }: { assetsLists: TAsset[][] }) {
+function Heart({
+  assetsLists,
+  variations,
+}: {
+  assetsLists: TAsset[][];
+  variations: Record<string, number>;
+}) {
   return (
     <div className="relative overflow-hidden sm:overflow-visible">
       <div className="relative z-10 flex h-[380px] w-[358px] items-center justify-center sm:h-[442px] sm:w-[440px] md:h-[420px] md:w-[628px] lg:h-[611px] lg:w-[956px] xl:flex xl:h-[700px] xl:w-[1100px] 2xl:h-[674px]">
         <Circle
           className="third-ring absolute top-20 hidden items-center justify-center xl:flex xl:h-[1100px] xl:w-[985px] 2xl:top-12 2xl:h-[1160px] 2xl:w-[1000px]"
           list={assetsLists[2]}
+          variations={variations}
         />
         <Circle
           className="second-ring absolute z-20 flex h-[300px] w-[300px] items-center justify-center sm:top-10 sm:h-[376px] sm:w-[376px] md:h-[604px] md:w-[580px] lg:top-[110px] lg:h-[790px] lg:w-[768px] xl:top-[200px] xl:h-[780px] xl:w-[760px] 2xl:top-[170px]"
           list={assetsLists[1]}
+          variations={variations}
         />
         <Circle
           className="first-ring absolute z-20 flex h-[170px] w-[170px] items-center justify-center sm:top-[130px] sm:h-[204px] sm:w-[204px] md:h-[340px] md:w-[390px] lg:top-[230px] lg:h-[420px] lg:w-[480px] xl:top-[320px] xl:h-[435px] xl:w-[490px] 2xl:top-[290px] 2xl:h-[425px] 2xl:w-[500px]"
           list={assetsLists[0]}
+          variations={variations}
         />
       </div>
       <Image

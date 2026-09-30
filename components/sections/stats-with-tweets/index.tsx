@@ -1,8 +1,7 @@
 import Divider from "@/components/shared/divider";
-import { queryLandingPageMetrics } from "@/lib/queries/numia";
+import type { LandingPageMetrics } from "@/lib/types/numia";
 import { cn } from "@/lib/utils";
-import Image from "next/image";
-import Link from "next/link";
+import Image from "@/components/shared/image";
 
 import tweets from "@/lib/tweets";
 import BackersSection from "@/components/sections/osmo-cta/backers-section";
@@ -16,11 +15,11 @@ interface StatCard {
   link?: string;
 }
 
-export default async function StatsWithTweets() {
-  const metrics = await queryLandingPageMetrics().catch((e) => {
-    console.error(e);
-    return undefined;
-  });
+export default function StatsWithTweets({
+  metrics,
+}: {
+  metrics?: LandingPageMetrics;
+}) {
   const metricFormatter = Intl.NumberFormat("en-US", {
     notation: "standard",
     maximumFractionDigits: 0,
@@ -28,33 +27,34 @@ export default async function StatsWithTweets() {
     style: "currency",
   });
 
-  const hasMetrics = metrics && !("message" in (metrics as Record<string, unknown>));
-  const stats: StatCard[] = hasMetrics ? [
-    {
-      title: "All Time Volume",
-      value: `${metricFormatter.format((metrics as any).cumulative_volume.value)}`,
-      iconUri: "/assets/icons/rocket-gray.svg",
-      bottleUri: "/assets/bottle-blue.svg",
-      className: "trend-card-bg-1",
-      link: "https://www.datalenses.zone/chain/osmosis/overview",
-    },
-    {
-      title: "Assets on the Platform",
-      value: `${metricFormatter.format((metrics as any).assets_in_chain.value)}`,
-      iconUri: "/assets/icons/checkmark-gray.svg",
-      bottleUri: "/assets/bottle-red.svg",
-      className: "trend-card-bg-2",
-      link: "https://www.mintscan.io/osmosis/assets/",
-    },
-    {
-      title: "24h trading volume",
-      value: `${metricFormatter.format((metrics as any).volume_24h.value)}`,
-      iconUri: "/assets/icons/trending-gray.svg",
-      bottleUri: "/assets/bottle-super.svg",
-      className: "trend-card-bg-3 hidden sm:flex",
-      link: "https://www.datalenses.zone/chain/osmosis/overview",
-    },
-  ] : [];
+  const stats: StatCard[] = metrics
+    ? [
+        {
+          title: "All Time Volume",
+          value: `${metricFormatter.format(metrics.cumulative_volume.value)}`,
+          iconUri: "/assets/icons/rocket-gray.svg",
+          bottleUri: "/assets/bottle-blue.svg",
+          className: "trend-card-bg-1",
+          link: "https://www.datalenses.zone/chain/osmosis/overview",
+        },
+        {
+          title: "Assets on the Platform",
+          value: `${metricFormatter.format(metrics.assets_in_chain.value)}`,
+          iconUri: "/assets/icons/checkmark-gray.svg",
+          bottleUri: "/assets/bottle-red.svg",
+          className: "trend-card-bg-2",
+          link: "https://www.mintscan.io/osmosis/assets/",
+        },
+        {
+          title: "24h trading volume",
+          value: `${metricFormatter.format(metrics.volume_24h.value)}`,
+          iconUri: "/assets/icons/trending-gray.svg",
+          bottleUri: "/assets/bottle-super.svg",
+          className: "trend-card-bg-3 hidden sm:flex",
+          link: "https://www.datalenses.zone/chain/osmosis/overview",
+        },
+      ]
+    : [];
 
   const upperHalf = tweets.slice(0, 13);
   const lowerHalf = tweets.slice(13, 27);
@@ -95,12 +95,12 @@ export default async function StatsWithTweets() {
           <div className="md:horizontal-mask max-sm:no-scrollbar relative -mx-6 flex h-[268px] w-full overflow-scroll sm:-mx-28 sm:h-[555px] sm:w-[640px] sm:overflow-hidden md:w-full lg:-mx-0 lg:h-[408px]">
             <div className="absolute flex flex-col gap-3 lg:gap-4">
               <div className="sm:tweets-row-marquee-animation sm:tweets-upper-half relative flex gap-2 transition-transform lg:gap-4">
-                {upperHalf.concat(upperHalf).map((tweet, i) => (
+                {upperHalf.concat(upperHalf).map((tweet) => (
                   <Tweet key={tweet.tweetLink} {...tweet} />
                 ))}
               </div>
               <div className="tweets-row-marquee-animation-reverse tweets-bottom-half relative hidden gap-2 transition-transform sm:flex lg:gap-4">
-                {lowerHalf.concat(lowerHalf).map((tweet, i) => (
+                {lowerHalf.concat(lowerHalf).map((tweet) => (
                   <Tweet key={tweet.tweetLink} {...tweet} />
                 ))}
               </div>
@@ -168,7 +168,7 @@ const StatCard = ({
   link,
 }: StatCard) => {
   return (
-    <Link
+    <a
       href={link ?? ""}
       target="_blank"
       className={cn(
@@ -192,7 +192,7 @@ const StatCard = ({
         height={100}
         className="absolute -top-5 right-0 lg:-top-9 lg:h-30 lg:w-30"
       />
-    </Link>
+    </a>
   );
 };
 
@@ -205,7 +205,7 @@ const Tweet = ({
   profilePicture,
 }: { className?: string } & Partial<(typeof tweets)[0]>) => {
   return (
-    <Link
+    <a
       href={tweetLink ?? "#"}
       rel="external"
       target="_blank"
@@ -242,6 +242,6 @@ const Tweet = ({
       <p className="tweet-paragraph-mask-gradient relative line-clamp-6 flex-1 whitespace-break-spaces font-light text-neutral-100 lg:line-clamp-3">
         {meatDetails}
       </p>
-    </Link>
+    </a>
   );
 };

@@ -1,12 +1,11 @@
-"use client";
-
-import { useMemo } from "react";
-import Image from "next/image";
-import Link from "next/link";
+import { type AnchorHTMLAttributes, useMemo } from "react";
+import Image from "@/components/shared/image";
 import { tickerAnimationAssets } from "@/components/sections/hero/tickers";
 import { useTickers } from "@/lib/store/useTickers";
 
-export default function StartTradingLink() {
+export default function StartTradingLink(
+  props: AnchorHTMLAttributes<HTMLAnchorElement>,
+) {
   const { currentIndex } = useTickers();
 
   const { denom } = useMemo(
@@ -22,7 +21,8 @@ export default function StartTradingLink() {
   );
 
   return (
-    <Link
+    <a
+      {...props}
       href={link}
       target="_blank"
       className="flex h-14 w-full items-center justify-center gap-1 rounded-xl bg-wosmongton-700 xl:h-16"
@@ -37,6 +37,6 @@ export default function StartTradingLink() {
         className="h-5 w-5"
         priority
       />
-    </Link>
+    </a>
   );
 }

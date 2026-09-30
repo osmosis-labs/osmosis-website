@@ -1,8 +1,5 @@
-"use client";
-
-import React, { PropsWithChildren, ReactElement, useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
+import { type ReactElement, useId } from "react";
+import Image from "@/components/shared/image";
 
 import { cn } from "@/lib/utils";
 import { GTagLink } from "@/components/shared/gtag-link";
@@ -42,23 +39,17 @@ export default function Card({
   iconClassName,
   textExpandable,
 }: CardProps) {
-  const [isExpanded, setIsExpanded] = useState(false);
+  const toggleId = useId();
 
   return (
     <GTagLink asChild eventName="cardClicked" label={title}>
-      <div className="relative w-full">
+      <div className="group/card relative w-full">
         {textExpandable && (
           <>
-            <input type="checkbox" id="descToggle" className="peer hidden" />
+            <input type="checkbox" id={toggleId} className="peer hidden" />
             <label
-              htmlFor="descToggle"
-              onClick={() => setIsExpanded((p) => !p)}
-              className={cn(
-                "pointer-events-auto absolute bottom-4 right-4 z-50 flex h-7 w-7 cursor-pointer items-center justify-center rounded-full bg-[#41366A] transition-transform sm:hidden",
-                {
-                  "rotate-45": isExpanded,
-                },
-              )}
+              htmlFor={toggleId}
+              className="pointer-events-auto absolute bottom-4 right-4 z-50 flex h-7 w-7 cursor-pointer items-center justify-center rounded-full bg-[#41366A] transition-transform group-has-[:checked]/card:rotate-45 sm:hidden"
             >
               <Image
                 src={"/assets/icons/cross.svg"}
@@ -69,7 +60,7 @@ export default function Card({
             </label>
           </>
         )}
-        <Link
+        <a
           href={link ?? "#"}
           className={cn(
             "relative flex flex-grow flex-col justify-between self-stretch overflow-hidden rounded-2xl border border-solid border-osmoverse-650 bg-osmoverse-775 p-4 xl:rounded-3xl 2xl:p-6",
@@ -120,31 +111,15 @@ export default function Card({
             <p
               className={cn(
                 "line-clamp-2 max-w-[448px] self-stretch leading-6.25 text-alpha-60 sm:line-clamp-none",
+                "group-has-[:checked]/card:line-clamp-none",
                 descriptionClassName,
-                {
-                  "line-clamp-none": isExpanded,
-                },
               )}
             >
               {description}
             </p>
           </div>
-        </Link>
+        </a>
       </div>
     </GTagLink>
-  );
-}
-
-function LinkOrDiv({
-  isLink,
-  children,
-  ...props
-}: PropsWithChildren<{ isLink: boolean; className: string; href?: string }>) {
-  const Component = isLink ? Link : "div";
-
-  return (
-    <Component href={props.href ?? "#"} {...props}>
-      {children}
-    </Component>
   );
 }
